@@ -4,7 +4,7 @@ Welcome to **3s-Soft**! We are a full-service agency providing a wide range of f
 
 ## Website
 
-Visit our website at [3s-soft.com](http://3s-soft.com)
+Visit our website at [3s-soft.com](https://3s-soft.com)
 
 ## About Us
 
@@ -51,7 +51,7 @@ Our mission is to provide exceptional freelance services that empower businesses
 
 ## Contact Us
 
-If you have any questions or would like to discuss your project with us, please feel free to contact us through our website [3s-soft.com](http://3s-soft.com) or email us at contact@3s-soft.com.
+If you have any questions or would like to discuss your project with us, please feel free to contact us through our website [3s-soft.com](https://3s-soft.com) or email us at contact@3s-soft.com.
 
 ## Follow Us
 
@@ -66,7 +66,7 @@ Stay updated with the latest news and updates from 3s-Soft by following us on so
 
 ## Credits
 
-[Md Mehady Hasan Akash](https://github.com/akash420dot) is the Main Developer. All credit goes to 3s-Soft.
+[Md Mehady Hasan Akash](https://github.com/akash420dot) is the Main Developer. All credit goes to [3s-Soft](https://3s-soft.com/).
 
 ---
 
