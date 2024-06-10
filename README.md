@@ -66,7 +66,7 @@ Stay updated with the latest news and updates from 3s-Soft by following us on so
 
 ## Credits
 
-Md Mehady Hasan Akash is the Main Developer. All credit goes to 3s-Soft.
+[Md Mehady Hasan Akash](https://github.com/akash420dot) is the Main Developer. All credit goes to 3s-Soft.
 
 ---
 
