@@ -51,7 +51,7 @@ Our mission is to provide exceptional freelance services that empower businesses
 
 ## Contact Us
 
-If you have any questions or would like to discuss your project with us, please feel free to contact us through our website [3s-soft.com](https://3s-soft.com) or email us at contact@3s-soft.com.
+If you have any questions or would like to discuss your project with us, please feel free to contact us through our website [3s-soft.com](https://3s-soft.com) or email us at admin@3s-soft.com.
 
 ## Follow Us
 
