@@ -1,4 +1,5 @@
-# 3s-Soft
+# 3s-Soft Agency
+
 Welcome to **3s-Soft**! We are a full-service agency providing a wide range of freelance services to meet your business needs.
 
 ## Website
@@ -56,13 +57,16 @@ If you have any questions or would like to discuss your project with us, please 
 
 Stay updated with the latest news and updates from 3s-Soft by following us on social media:
 
-- [Facebook](#)
-- [Twitter](#)
-- [LinkedIn](#)
+
+- [Facebook](https://www.facebook.com/3s.soft.bd/)
+- [Twitter](https://twitter.com/3ssoft)
+- [LinkedIn](https://www.linkedin.com/company/3s-soft/)
+- [Instagram](https://www.instagram.com/3ssoft/)
+- [GitHub](https://github.com/3s-Soft)
 
 ## Credits
 
-All credit goes to Md Mehady Hasan Akash for the creation and development of 3s-Soft.
+Md Mehady Hasan Akash is the Main Developer. All credit goes to 3s-Soft.
 
 ---
 
