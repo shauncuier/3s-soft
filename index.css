@@ -41,6 +41,11 @@ li {
     --bg-color: #ffffff;
     --heading-color: #000a19;
     --para-color: #504e4d;
+    --h-color: #0a043c;
+    --white-color: #ffffff;
+    --test: #070101;
+    --btn-hover-bg-color: #003b99;
+    --vtb-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /* --------------layout start----------- */
@@ -51,9 +56,42 @@ li {
     padding: 9.6rem 2.6rem;
 }
 
+.grid{
+    display: grid;
+}
+.grid-two--cols{
+    grid-template-columns: repeat(2, 1fr);
+}
+
 /* --------------layout end----------- */
 
+/* --------module--/reuseable start------------------- */
 
+.btn{
+    padding: 1.2rem 3rem;
+    display: inline-block;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    border-radius: 0.6rem;
+}
+
+
+/* --------module--/reuseable end------------------- */
+
+/* -------------------states start---------------------------------- */
+.btn:hover{
+    background-color: var(--btn-hover-bg-color);
+    cursor: pointer;
+    box-shadow: var(--vtb-box-shadow);
+}
+
+
+
+/* -------------------states off---------------------------------- */
+
+
+
+/* ------------------------naver csss satart---------------------- */
 
 .seciton_navbar {
     width: 100%;
@@ -106,3 +144,78 @@ li {
 
    
 }
+
+/* ------------------------naver csss end---------------------- */
+
+
+
+/* ------------------------hero section csss start---------------------------- */
+
+main{
+    background: radial-gradient(circle, #d6daff, #eff9ff);
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 110px);
+
+}
+.section-hero .grid{
+    align-items: center;
+    gap: 6rem;
+
+    &  .hero-suheading{
+        font-size: 2rem;
+        color: var(--main-color);
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+    }
+
+    & .hero-heading{
+        font-size: 6rem;
+        font-weight: 700;
+        color: var(--btn-hover-bg-color);
+        line-height: 7.5rem;
+        /* text-transform: uppercase; */
+    }
+    & .hero-pera{
+        margin: 2rem 0 4.3rem 0;
+
+    }
+
+}
+
+
+.section-hero--image img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+/* ---------------hero_section Shape design css----------------------------- */
+.custom-shape-divider-bottom-1718120968 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1718120968 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1718120968 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/* ------------------------hero section csss end---------------------------- */
