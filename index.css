@@ -1,3 +1,5 @@
+/* ------------basic------------------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
@@ -13,7 +15,33 @@ html {
     font-size: 62.5%;
 }
 
+p,
+l,
+a{
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    color: var(--para-color);
+
+}
+
+a{
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
 /* --------------them----------- */
+
+:root{
+    --main-color: #0062ff;
+    --supporting-color: #ebf3fe;
+    --font-color: #424242;
+    --bg-color: #ffffff;
+    --heading-color: #000a19;
+    --para-color: #504e4d;
+}
 
 /* --------------layout start----------- */
 
@@ -40,4 +68,41 @@ html {
     justify-content: space-between;
     align-items: center;
     padding: 1.8rem 0;
+}
+
+.seciton_navbar .navber ul{
+    display: flex;
+    gap: 3rem;
+    font-size: 1.8rem;
+    
+    
+    & li a{
+        color: var(--heading-color);
+        font-weight: 500;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        display: inline-block;
+        position: relative;
+
+
+        &::after{
+            content: "";
+            position: absolute;
+            width: 0%;
+            border-bottom: 0.2rem solid var(--main-color);
+            bottom: -0.3rem;
+            left: 0;
+            transition: all 0.3s linear;
+            
+        
+            
+    
+        }
+    }
+    & li a:hover::after{
+        width: 100%;
+
+    }
+
+   
 }
