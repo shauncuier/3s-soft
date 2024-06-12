@@ -300,3 +300,51 @@ main{
 
 
 /* -----------------our service section end------------------------------ */
+
+.section-why--choiceme .text-align-right .why-choice--me{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+    
+    & p{
+        text-align: right;
+    }
+}
+
+.common-text-highlight{
+    width: 5rem;
+    aspect-ratio: 1;
+    background-color: var(--supporting-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.whychoice-me--img img{
+    width: 100%;
+    height: auto;
+}
+
+.whychoice-me--img, figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.choiceleftdev{
+    margin-top: 4.2rem;
+    
+}
+
+
+.why-choice--me{
+    margin-top: 4rem;
+}
+
+
+
+
+
+/* ------------------------------------why choice me start------------------------------------------------- */
