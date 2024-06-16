@@ -59,6 +59,9 @@ li {
     margin: 0 auto;
     padding: 9.6rem 2.6rem;
 }
+.section-why--choiceme .container:first-child{
+    padding: 6rem 0 2rem 0;
+}
 
 .grid{
     display: grid;
@@ -347,4 +350,73 @@ main{
 
 
 
-/* ------------------------------------why choice me start------------------------------------------------- */
+/* ------------------------------------why choice me end------------------------------------------------- */
+
+
+/* ..............................................sectioncontachomepage start------------------------------------- */
+
+.sectaion-contact--homepage{
+    width: 60%;
+    min-height: 20rem;
+    box-shadow: var(--vtb-box-shadow);
+    margin: 0 auto;
+    padding: 2rem 2rem;
+
+    & grid{
+        align-items: center;
+    }
+}
+
+.sectaion-contact--homepage img{
+    width: 40%;
+    margin-left: 20rem;
+
+
+}
+.contact-tile{
+    font-size: 3rem;
+}
+
+.contact-content p{
+    padding: 1.5rem 0 3rem 0;
+}
+
+.btn-text{
+    color: white;
+}
+
+
+
+
+
+/* ..............................................sectioncontachomepage end------------------------------------- */
+
+.section-homepage--footer{
+    background-color: var(--test);
+}
+
+.section-homepage--footer .icon .fa-brands{
+    padding: 0.5rem;
+}
+
+
+.section-homepage--footer .grid{
+    justify-items: end;
+}
+
+/* <!-- --------------------------------------------------HomepageFooterstart---------------------------------------------------------- --> */
+
+
+
+
+
+
+
+
+
+
+/* <!-- --------------------------------------------------HomepageFooterend---------------------------------------------------------- --> */
+
+
+
+
