@@ -355,12 +355,20 @@ main{
 
 /* ..............................................sectioncontachomepage start------------------------------------- */
 
+.sectaion-contact--homepage .grid{
+align-items: center;
+gap: 6rem;
+}
+
+.sectaion-contact--homepage img{
+    margin-left: 6rem;
+}
 .sectaion-contact--homepage{
     width: 60%;
-    min-height: 20rem;
+    min-height: 10rem;
     box-shadow: var(--vtb-box-shadow);
     margin: 0 auto;
-    padding: 2rem 2rem;
+    padding: 0 2rem;
 
     & grid{
         align-items: center;
@@ -368,8 +376,7 @@ main{
 }
 
 .sectaion-contact--homepage img{
-    width: 40%;
-    margin-left: 20rem;
+    width: 70%;
 
 
 }
@@ -391,6 +398,11 @@ main{
 
 /* ..............................................sectioncontachomepage end------------------------------------- */
 
+
+
+/* <!-- --------------------------------------------------HomepageFooterstart---------------------------------------------------------- --> */
+
+
 .section-homepage--footer{
     background-color: var(--test);
 }
@@ -403,11 +415,6 @@ main{
 .section-homepage--footer .grid{
     justify-items: end;
 }
-
-/* <!-- --------------------------------------------------HomepageFooterstart---------------------------------------------------------- --> */
-
-
-
 
 
 
