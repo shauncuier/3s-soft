@@ -6,8 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    mimeTypes: {
-      'js': 'text/javascript'
+    headers: {
+      'Content-Type': 'text/javascript'
     }
   },
 })
