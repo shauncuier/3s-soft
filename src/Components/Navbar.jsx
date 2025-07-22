@@ -2,15 +2,19 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { TbSlash } from "react-icons/tb";
+import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
   const links = <>
     <li>
-      <NavLink to={'/'}>Home</NavLink>
+      <NavLink to={'/'} className={({isActive}) => `font-medium text-lg ${isActive && 'text-blue-500'}`}>Home</NavLink>
+    </li>
+    <li>
+      <NavLink to={'/services'} className={({isActive}) => `font-medium text-lg ${isActive && 'text-blue-500'}`}>Services</NavLink>
     </li>
   </>
   return (
-    <div className="bg-black/30">
+    <div className="bg-black/30 backdrop-blur-2xl sticky top-0 z-50 ">
       <nav className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -55,33 +59,12 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="text-2xl font-bold flex items-center">
-            <FaChevronLeft className="-mr-0.5"/>
-            3S
-            {/* <TbSlash className="-ml-0.5"/> */}
-            <FaChevronRight className="-ml-0.5"/>
+            <img src={logo} alt="" className="w-12 rounded-full" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <ul className="flex items-center gap-5">
+            {links}
           </ul>
         </div>
         <div className="navbar-end">
