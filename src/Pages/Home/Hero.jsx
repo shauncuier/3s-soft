@@ -3,7 +3,7 @@ import { HiOutlineSparkles } from "react-icons/hi2";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen pt-44 px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex flex-col justify-between items-center overflow-hidden">
+    <section className="relative min-h-screen pt-24 sm:pt-28 md:pt-38 xl:pt-44 px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex flex-col justify-between items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-black/40"></div>
 
@@ -20,7 +20,7 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-bold mb-8">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">
           Welcome to{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
             3S-SOFT
