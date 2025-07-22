@@ -7,14 +7,20 @@ import logo from "../assets/logo.jpg";
 const Navbar = () => {
   const links = <>
     <li>
-      <NavLink to={'/'} className={({isActive}) => `font-medium text-lg ${isActive && 'text-blue-500'}`}>Home</NavLink>
+      <NavLink to={'/'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>Home</NavLink>
     </li>
     <li>
-      <NavLink to={'/services'} className={({isActive}) => `font-medium text-lg ${isActive && 'text-blue-500'}`}>Services</NavLink>
+      <NavLink to={'/services'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>Services</NavLink>
+    </li>
+    <li>
+      <NavLink to={'/team'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>Team</NavLink>
+    </li>
+    <li>
+      <NavLink to={'/about'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>About</NavLink>
     </li>
   </>
   return (
-    <div className="bg-black/30 backdrop-blur-lg sticky top-0 z-50 ">
+    <div className="bg-black/30 backdrop-blur-2xl fixed top-0 w-full z-50">
       <nav className="navbar max-w-[1480px] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -63,12 +69,12 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="flex items-center gap-5">
+          <ul className="flex items-center gap-8">
             {links}
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link to={'/contact'}>Contact Us</Link>
         </div>
       </nav>
     </div>

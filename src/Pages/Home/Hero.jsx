@@ -1,0 +1,73 @@
+import React from "react";
+import { HiOutlineSparkles } from "react-icons/hi2";
+
+const Hero = () => {
+  return (
+    <section className="min-h-screen pt-44 pb-10 px-6 bg-gradient-to-br from-[#0b1230] to-[#1d1050] text-white flex flex-col justify-between items-center">
+      <div className="flex flex-col justify-center items-center text-center">
+        <div className="mb-10">
+          <span className="flex items-center gap-2 bg-white/20 font-medium text-sm px-4 py-2 rounded-full text-white">
+            <HiOutlineSparkles size={18} className="text-yellow-400" />
+            Your Complete Digital Solutions Partner
+          </span>
+        </div>
+
+        <h1 className="text-4xl md:text-6xl font-bold mb-8">
+          Welcome to{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+            3S-SOFT
+          </span>
+        </h1>
+
+        <p className="text-lg md:text-2xl max-w-3xl mb-6  text-blue-100">
+          We help businesses go from idea to online success with innovative
+          digital solutions, expert development, and result-driven marketing
+          strategies.
+        </p>
+
+        <p className="max-w-2xl mb-10 text-blue-200">
+          Whether you're a solo entrepreneur or an established brand, our expert
+          team supports your growth every step of the way — with innovation,
+          integrity, and impact.
+        </p>
+
+        <div className="flex gap-4 mb-14">
+          <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">
+            Explore Our Services →
+          </button>
+          <button className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold border border-white/20">
+            Get Free Quote
+          </button>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-300">
+          <div>
+            <p className="text-3xl font-bold text-white">500+</p>
+            <p className="text-sm mt-1 text-blue-200">Projects Delivered</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold text-white">98%</p>
+            <p className="text-sm mt-1 text-blue-200">Client Satisfaction</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold text-white">24/7</p>
+            <p className="text-sm mt-1 text-blue-200">Support Available</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold text-white">5+</p>
+            <p className="text-sm mt-1 text-blue-200">Years Experience</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="animate-bounce">
+        <div className="w-[30px] h-[50px] border-2 border-gray-500 rounded-full flex items-center justify-center">
+          <div className="w-[4px] h-[9px] bg-white rounded-full animate-pulse mb-2" />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
