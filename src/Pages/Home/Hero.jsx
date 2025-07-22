@@ -3,7 +3,7 @@ import { HiOutlineSparkles } from "react-icons/hi2";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen pt-44 pb-10 px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex flex-col justify-between items-center overflow-hidden">
+    <section className="relative min-h-screen pt-44 px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex flex-col justify-between items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-black/40"></div>
 
@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="absolute top-40 right-20 w-48 h-48 bg-purple-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
       <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-orange-400/10 rounded-full blur-xl animate-pulse delay-500"></div>
 
-      <div className="flex flex-col justify-center items-center text-center z-50">
+      <div className="flex flex-col justify-center items-center text-center z-40">
         <div className="mb-10">
           <span className="flex items-center gap-2 bg-white/20 font-medium text-sm px-4 py-2 rounded-full text-white">
             <HiOutlineSparkles size={18} className="text-yellow-400" />
@@ -69,7 +69,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="animate-bounce">
+      <div className="animate-bounce my-14">
         <div className="w-[30px] h-[50px] border-2 border-gray-500 rounded-full flex items-center justify-center">
           <div className="w-[4px] h-[9px] bg-white rounded-full animate-pulse mb-2" />
         </div>
