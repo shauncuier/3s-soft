@@ -4,7 +4,6 @@ import { HiOutlineEmojiSad } from "react-icons/hi";
 
 const NotFound = () => {
     const navigate = useNavigate();
-
     return (
         <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white px-6">
             <HiOutlineEmojiSad size={80} className="text-yellow-400 mb-6 animate-pulse" />
@@ -21,5 +20,4 @@ const NotFound = () => {
         </section>
     );
 };
-
 export default NotFound;
