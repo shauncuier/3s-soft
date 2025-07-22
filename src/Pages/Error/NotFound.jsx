@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { HiOutlineEmojiSad } from "react-icons/hi";
+import { FaHome } from "react-icons/fa";
 
 const NotFound = () => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ const NotFound = () => {
                 onClick={() => navigate("/")}
                 className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition"
             >
-                Go Back Home
+                <FaHome />  Go Back Home
             </button>
         </section>
     );
