@@ -20,6 +20,10 @@ let router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 export default router;
