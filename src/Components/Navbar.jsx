@@ -14,7 +14,7 @@ const Navbar = () => {
     </li>
   </>
   return (
-    <div className="bg-black/30 backdrop-blur-2xl sticky top-0 z-50 ">
+    <div className="bg-black/30 backdrop-blur-lg sticky top-0 z-50 ">
       <nav className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
