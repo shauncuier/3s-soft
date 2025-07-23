@@ -20,12 +20,6 @@ const NotFound = () => {
           Oops! The page you're looking for doesn't exist or has been moved.
         </p>
         <Button label={"Go Back Home"} to={"/"} />
-        <Link
-          to={'/'}
-          className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 px-6 py-3 font-semibold flex items-center gap-2 transition duration-300 cursor-pointer"
-        >
-          <FaHome /> Go Back Home
-        </Link>
       </div>
     </section>
   );

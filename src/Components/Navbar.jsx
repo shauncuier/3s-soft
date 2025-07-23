@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import logo from "../assets/logo.jpg";
+import Button from "./Button";
 
 const Navbar = () => {
   const links = <>
@@ -43,6 +44,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          {/* <Button label={"Contact Us"} to={'/contact'} /> */}
           <Link to={'/contact'} className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105 ">Contact Us</Link>
         </div>
       </nav>

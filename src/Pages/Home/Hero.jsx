@@ -1,5 +1,6 @@
 import React from "react";
 import { HiOutlineSparkles } from "react-icons/hi2";
+import Button from "../../Components/Button";
 
 const Hero = () => {
   return (
@@ -40,9 +41,10 @@ const Hero = () => {
         </p>
 
         <div className="flex gap-4 mb-14">
-          <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">
+          {/* <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">
             Explore Our Services →
-          </button>
+          </button> */}
+          <Button label={"Explore Our Services"} to={'/services'} />
           <button className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold border border-white/20">
             Get Free Quote
           </button>
