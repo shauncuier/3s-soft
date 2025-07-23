@@ -38,7 +38,7 @@ const Footer = () => {
             <Link href="/">
               <img
                 src={logo}
-                alt=""
+                alt="Footer Logo"
                 className="w-15 rounded-full inline-block"
               />
             </Link>

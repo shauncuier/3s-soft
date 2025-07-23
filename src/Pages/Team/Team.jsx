@@ -2,6 +2,8 @@ import React from 'react';
 // import { Linkedin, Twitter, Github, ExternalLink, Dribbble, Facebook } from 'lucide-react';
 import { FiLinkedin, FiTwitter, FiGithub, FiFacebook, FiLink, FiDribbble } from "react-icons/fi";
 import teamData from '../../data/team.json';
+import SectionLabel from '../../Components/SectionLabel';
+import { Link } from 'react-router';
 
 const Team = () => {
   const getSocialIcon = (platform) => {
@@ -26,10 +28,7 @@ const Team = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 rounded-full px-4 py-2 mb-6">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">Meet Our Team</span>
-          </div>
+          <SectionLabel label={"Meet Our Expert Team"}/>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             The Experts Behind Your Success
           </h2>
@@ -111,12 +110,12 @@ const Team = () => {
             <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
               Let's discuss your project and see how our talented team can help bring your vision to life.
             </p>
-            <a
-              href="#contact"
+            <Link
+              to={"/contact"}
               className="inline-flex items-center bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Start Your Project
-            </a>
+            </Link>
           </div>
         </div>
       </div>

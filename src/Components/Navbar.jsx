@@ -18,6 +18,9 @@ const Navbar = () => {
     <li>
       <NavLink to={'/about'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>About</NavLink>
     </li>
+    <li>
+      <NavLink to={'/contact'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Contact Us</NavLink>
+    </li>
   </>
   return (
     <div className="bg-black/30 backdrop-blur-2xl fixed top-0 w-full z-50">
@@ -35,7 +38,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="text-2xl font-bold flex items-center">
-            <img src={logo} alt="" className="w-10 md:w-12 rounded-full" />
+            <img src={logo} alt="Navbar Logo" className="w-10 md:w-12 rounded-full" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -45,7 +48,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {/* <Button label={"Contact Us"} to={'/contact'} /> */}
-          <Link to={'/contact'} className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105 ">Contact Us</Link>
+          <Link to={'/contact'} className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105 ">Get Started</Link>
         </div>
       </nav>
     </div>
