@@ -6,7 +6,7 @@ import blogImage2 from "../../assets/blog-img-1.jpg";
 
 const Blogs = () => {
   return (
-    <section className="bg-gray-900 transition-colors duration-300">
+    <section className="bg-gray-900 transition-colors duration-300 px-4">
       <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -20,8 +20,8 @@ const Blogs = () => {
             your personal and professional growth.
           </p>
         </div>
-        <div className="max-w-3/4 mx-auto space-y-6">
-          <div className="bg-black/50 backdrop-blur-3xl border border-gray-700 rounded-3xl flex gap-5 overflow-hidden">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="bg-black/50 backdrop-blur-3xl border border-gray-700 rounded-3xl flex flex-col overflow-hidden">
             <div className="">
               <img
                 src={blogImage}
@@ -29,10 +29,13 @@ const Blogs = () => {
                 className="w-full h-full object-right"
               />
             </div>
-            <div className="pr-10 py-5">
-              <h2 className="text-3xl text-blue-500">
-                Mastering React: A Beginner’s Guide to Building Dynamic Web Apps
-              </h2>
+            <div className="px-5 py-5">
+              <Link to={"/blogs/react-js"} className="text-blue-500">
+                <h2 className="text-xl md:text-3xl text-blue-500">
+                  Mastering React: A Beginner’s Guide to Building Dynamic Web
+                  Apps
+                </h2>
+              </Link>
               <p className="mt-4 text-justify">
                 Start your journey into the powerful world of React.js with this
                 comprehensive and beginner-friendly guide. Whether you're
@@ -42,19 +45,11 @@ const Blogs = () => {
                 JSX, state, and props — in a clear and approachable way. By the
                 end, you'll not only understand how React works under the hood,
                 but you'll also build your very first dynamic and interactive
-                web application from scratch. It's the perfect starting point
-                for aspiring developers ready to dive into modern JavaScript and
-                create user experiences that truly stand out.{" "}
-                <Link
-                  to={"/blogs/react-js"}
-                  className="text-blue-500 underline"
-                >
-                  Read More
-                </Link>
+                web application from scratch.
               </p>
             </div>
           </div>
-          <div className="bg-black/50 backdrop-blur-3xl border border-gray-700 rounded-3xl flex gap-5 overflow-hidden">
+          <div className="bg-black/50 backdrop-blur-3xl border border-gray-700 rounded-3xl flex flex-col overflow-hidden">
             <div className="">
               <img
                 src={blogImage2}
@@ -62,10 +57,13 @@ const Blogs = () => {
                 className="w-full h-full object-right"
               />
             </div>
-            <div className="pr-10 py-5">
-              <h2 className="text-3xl text-blue-500">
-                Mastering React: A Beginner’s Guide to Building Dynamic Web Apps
-              </h2>
+            <div className="px-5 py-5">
+              <Link to={"/blogs/react-js"} className="text-blue-500">
+                <h2 className="text-xl md:text-3xl text-blue-500">
+                  Mastering React: A Beginner’s Guide to Building Dynamic Web
+                  Apps
+                </h2>
+              </Link>
               <p className="mt-4 text-justify">
                 Start your journey into the powerful world of React.js with this
                 comprehensive and beginner-friendly guide. Whether you're
@@ -75,18 +73,67 @@ const Blogs = () => {
                 JSX, state, and props — in a clear and approachable way. By the
                 end, you'll not only understand how React works under the hood,
                 but you'll also build your very first dynamic and interactive
-                web application from scratch. It's the perfect starting point
-                for aspiring developers ready to dive into modern JavaScript and
-                create user experiences that truly stand out.{" "}
-                <Link
-                  to={"/blogs/react-js"}
-                  className="text-blue-500 underline"
-                >
-                  Read More
-                </Link>
+                web application from scratch.
               </p>
             </div>
           </div>
+          <div className="bg-black/50 backdrop-blur-3xl border border-gray-700 rounded-3xl flex flex-col overflow-hidden">
+            <div className="">
+              <img
+                src={blogImage}
+                alt=""
+                className="w-full h-full object-right"
+              />
+            </div>
+            <div className="px-5 py-5">
+              <Link to={"/blogs/react-js"} className="text-blue-500">
+                <h2 className="text-xl md:text-3xl text-blue-500">
+                  Mastering React: A Beginner’s Guide to Building Dynamic Web
+                  Apps
+                </h2>
+              </Link>
+              <p className="mt-4 text-justify">
+                Start your journey into the powerful world of React.js with this
+                comprehensive and beginner-friendly guide. Whether you're
+                completely new to frontend development or transitioning from
+                another framework, this post will walk you through the
+                fundamental building blocks of React — including components,
+                JSX, state, and props — in a clear and approachable way. By the
+                end, you'll not only understand how React works under the hood,
+                but you'll also build your very first dynamic and interactive
+                web application from scratch.
+              </p>
+            </div>
+          </div>
+          <div className="bg-black/50 backdrop-blur-3xl border border-gray-700 rounded-3xl flex flex-col overflow-hidden">
+            <div className="">
+              <img
+                src={blogImage2}
+                alt=""
+                className="w-full h-full object-right"
+              />
+            </div>
+            <div className="px-5 py-5">
+              <Link to={"/blogs/react-js"} className="text-blue-500">
+                <h2 className="text-xl md:text-3xl text-blue-500">
+                  Mastering React: A Beginner’s Guide to Building Dynamic Web
+                  Apps
+                </h2>
+              </Link>
+              <p className="mt-4 text-justify">
+                Start your journey into the powerful world of React.js with this
+                comprehensive and beginner-friendly guide. Whether you're
+                completely new to frontend development or transitioning from
+                another framework, this post will walk you through the
+                fundamental building blocks of React — including components,
+                JSX, state, and props — in a clear and approachable way. By the
+                end, you'll not only understand how React works under the hood,
+                but you'll also build your very first dynamic and interactive
+                web application from scratch.
+              </p>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
