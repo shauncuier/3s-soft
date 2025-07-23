@@ -54,21 +54,21 @@ const Footer = () => {
               <a
                 href="https://www.linkedin.com/company/3s-soft/"
                 target="_blank"
-                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-gradient-to-br from-sky-400 to-sky-800 hover:from-sky-800 hover:to-sky-400 rounded-full flex items-center justify-center transition duration-300"
               >
                 <FiLinkedin className="h-5 w-5" />
               </a>
               <a
                 href="https://wa.me/8801835927634"
                 target="_blank"
-                className="w-10 h-10 bg-green-600 hover:bg-green-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-800 hover:from-green-800 hover:to-green-400 rounded-full flex items-center justify-center transition duration-300"
               >
                 <MdWhatsapp className="h-5 w-5" />
               </a>
               <a
                 href="https://www.facebook.com/3s.soft.bd"
                 target="_blank"
-                className="w-10 h-10 bg-blue-800 hover:bg-blue-900 rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-800 hover:from-blue-800 hover:to-blue-400 rounded-full flex items-center justify-center transition duration-300"
               >
                 <FiFacebook className="h-5 w-5" />
               </a>
@@ -83,7 +83,7 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/3ssoft/"
                 target="_blank"
-                className="w-10 h-10 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-gradient-to-br from-pink-400 via-pink-800 to-purple-800 hover:from-purple-800 hover:via-pink-800 hover:to-pink-400 rounded-full flex items-center justify-center transition duration-300"
               >
                 <FiInstagram className="h-5 w-5" />
               </a>
