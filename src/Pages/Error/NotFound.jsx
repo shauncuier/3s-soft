@@ -1,24 +1,32 @@
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import { FaHome } from "react-icons/fa";
+import gif from "../../assets/rpa.gif";
 
 const NotFound = () => {
-    const navigate = useNavigate();
-    return (
-        <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white px-6">
-            <HiOutlineEmojiSad size={80} className="text-yellow-400 mb-6 animate-pulse" />
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">404 - Page Not Found</h1>
-            <p className="text-blue-200 text-center max-w-md mb-8">
-                Oops! The page you're looking for doesn't exist or has been moved.
-            </p>
-            <button
-                onClick={() => navigate("/")}
-                className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition flex items-center gap-2 cursor-pointer"
-            >
-                <FaHome />  Go Back Home
-            </button>
-        </section>
-    );
+  return (
+    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white px-6">
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="z-50 flex flex-col items-center">
+        <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-5 shadow-lg shadow-blue-400">
+          <img src={gif} alt="" className="w-20" />
+        </div>
+        {/* <HiOutlineEmojiSad size={80} className="text-yellow-400 mb-6 animate-pulse" /> */}
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4 ">
+          404 - Page Not Found
+        </h1>
+        <p className="text-blue-200 text-center max-w-md mb-8">
+          Oops! The page you're looking for doesn't exist or has been moved.
+        </p>
+        <Link
+          to={'/'}
+          className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 px-6 py-3 font-semibold flex items-center gap-2 transition duration-300 cursor-pointer"
+        >
+          <FaHome /> Go Back Home
+        </Link>
+      </div>
+    </section>
+  );
 };
 export default NotFound;
