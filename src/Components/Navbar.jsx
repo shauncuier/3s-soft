@@ -7,19 +7,22 @@ import Button from "./Button";
 const Navbar = () => {
   const links = <>
     <li>
-      <NavLink to={'/'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Home</NavLink>
+      <NavLink to={'/'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Home</NavLink>
     </li>
     <li>
-      <NavLink to={'/services'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Services</NavLink>
+      <NavLink to={'/services'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Services</NavLink>
     </li>
     <li>
-      <NavLink to={'/team'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Team</NavLink>
+      <NavLink to={'/team'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Team</NavLink>
     </li>
     <li>
-      <NavLink to={'/about'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>About</NavLink>
+      <NavLink to={'/blogs'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Blogs</NavLink>
     </li>
     <li>
-      <NavLink to={'/contact'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Contact Us</NavLink>
+      <NavLink to={'/about'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>About</NavLink>
+    </li>
+    <li>
+      <NavLink to={'/contact'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Contact Us</NavLink>
     </li>
   </>
   return (

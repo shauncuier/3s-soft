@@ -3,6 +3,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { FiPhone, FiSend } from "react-icons/fi";
 import { LuMapPin, LuGlobe } from "react-icons/lu";
+import SectionLabel from "../../Components/SectionLabel";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -80,12 +81,8 @@ const Contact = () => {
       <div className="relative z-10 max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-            <span className="text-blue-200 dark:text-blue-300 text-sm font-medium">
-              Let's Grow Together
-            </span>
-          </div>
+          
+          <SectionLabel label={"Let's Grow Together"} />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Start Your Project?
           </h2>
