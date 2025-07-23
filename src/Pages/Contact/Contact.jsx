@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import emailjs from "emailjs-com";
 import { MdOutlineEmail, MdWhatsapp } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { FiPhone, FiSend } from "react-icons/fi";
@@ -41,12 +42,12 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // await emailjs.sendForm(
-      //   import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      //   import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      //   formRef.current,
-      //   import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      // );
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -146,9 +147,6 @@ const Contact = () => {
               </div>
             </div>
             <div className="flex flex-col items-center text-center space-x-4 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-              {/* <div className="w-12 h-12 mx-auto bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
-                <MdWhatsapp className="h-6 w-6 text-white" />
-              </div> */}
               <div className="space-y-3.5">
                 <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-700">WhatsApp</h3>
                 <p className="text-lg w-3/4 mx-auto">
@@ -165,25 +163,6 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-
-            {/* Business Hours */}
-            {/* <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <h4 className="text-white font-semibold mb-4">Business Hours</h4>
-              <div className="space-y-2 text-blue-200">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span>9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span>Closed</span>
-                </div>
-              </div>
-            </div> */}
           </div>
 
           {/* Contact Form */}
@@ -286,7 +265,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2"
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
