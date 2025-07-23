@@ -25,6 +25,7 @@ const Footer = () => {
     { label: "Home", to: "/" },
     { label: "Services", to: "/services" },
     { label: "Team", to: "/team" },
+    { label: "Blogs", to: "/blogs" },
     { label: "About", to: "/about" },
     { label: "Contact", to: "/contact" },
   ];

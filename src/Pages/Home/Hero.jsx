@@ -1,6 +1,7 @@
 import React from "react";
 import { HiOutlineSparkles } from "react-icons/hi2";
 import Button from "../../Components/Button";
+import { Link } from "react-router";
 
 const Hero = () => {
   return (
@@ -44,10 +45,14 @@ const Hero = () => {
           {/* <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">
             Explore Our Services →
           </button> */}
-          <Button label={"Explore Our Services"} to={'/services'} />
-          <button className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold border border-white/20">
+          <Button label={"Explore Our Services"} to={"/services"} />
+
+          <Link
+            to={"/contact"}
+            className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-semibold border border-white/20 cursor-pointer flex items-center justify-center transition-all duration-300 hover:scale-105"
+          >
             Get Free Quote
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-300">

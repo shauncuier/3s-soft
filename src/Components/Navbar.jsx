@@ -2,7 +2,6 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import logo from "../assets/logo.jpg";
-import Button from "./Button";
 import ProgressBar from "./ProgressBar";
 
 const Navbar = () => {
