@@ -8,6 +8,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { BiTrendingUp } from "react-icons/bi";
+import CountUp from 'react-countup';
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -105,7 +106,7 @@ const WhyChooseUs = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center group">
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-2 group-hover:scale-110 transition-transform duration-300">
-                500+
+                <CountUp end={500} enableScrollSpy />
               </div>
               <div className="text-gray-300 font-medium">Projects Completed</div>
               <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">Across all industries</div>
@@ -113,7 +114,7 @@ const WhyChooseUs = () => {
 
             <div className="text-center group">
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500 mb-2 group-hover:scale-110 transition-transform duration-300">
-                98%
+               <CountUp end={98} enableScrollSpy />%
               </div>
               <div className="text-gray-300 font-medium">Client Satisfaction</div>
               <div className="text-sm text-gray-400 mt-1">Average rating</div>
@@ -121,7 +122,7 @@ const WhyChooseUs = () => {
 
             <div className="text-center group">
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-rose-600 mb-2 group-hover:scale-110 transition-transform duration-300">
-                5+
+                <CountUp end={5} enableScrollSpy />+
               </div>
               <div className="text-gray-300 font-medium">Years Experience</div>
               <div className="text-sm text-gray-400 mt-1">In the industry</div>
@@ -129,7 +130,8 @@ const WhyChooseUs = () => {
 
             <div className="text-center group">
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500 mb-2 group-hover:scale-110 transition-transform duration-300">
-                24/7
+                <CountUp end={24} enableScrollSpy />/
+                <CountUp end={7} enableScrollSpy />
               </div>
               <div className="text-gray-300 font-medium">Support Available</div>
               <div className="text-sm text-gray-400 mt-1">Always here for you</div>
