@@ -1,15 +1,19 @@
-import React from 'react';
-import { Outlet } from 'react-router';
-import Footer from '../Components/Footer';
-import Navbar from '../Components/Navbar';
+import React from "react";
+import { Outlet } from "react-router";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
+import ScrollToTop from "../Components/ScrollToTop";
 
 const RootLayout = () => {
   return (
-    <div>
-      <Navbar /> 
-      <Outlet/>
-      <Footer />
-    </div>
+    <>
+      <ScrollToTop />
+      <div>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </div>
+    </>
   );
 };
 
