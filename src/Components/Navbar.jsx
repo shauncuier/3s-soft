@@ -7,16 +7,16 @@ import Button from "./Button";
 const Navbar = () => {
   const links = <>
     <li>
-      <NavLink to={'/'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>Home</NavLink>
+      <NavLink to={'/'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Home</NavLink>
     </li>
     <li>
-      <NavLink to={'/services'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>Services</NavLink>
+      <NavLink to={'/services'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Services</NavLink>
     </li>
     <li>
-      <NavLink to={'/team'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>Team</NavLink>
+      <NavLink to={'/team'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>Team</NavLink>
     </li>
     <li>
-      <NavLink to={'/about'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>About</NavLink>
+      <NavLink to={'/about'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'}`}>About</NavLink>
     </li>
   </>
   return (

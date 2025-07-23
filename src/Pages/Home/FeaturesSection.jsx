@@ -105,23 +105,22 @@ const FeaturesSection = () => {
                 {/* Hover Effect */}
                 <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div
-                    className={`w-12 h-1 mx-auto rounded-full bg-gradient-to-r ${
-                      feature.color.includes("blue")
+                    className={`w-12 h-1 mx-auto rounded-full bg-gradient-to-r ${feature.color.includes("blue")
                         ? "from-blue-400 to-blue-600"
                         : feature.color.includes("purple")
-                        ? "from-purple-400 to-purple-600"
-                        : feature.color.includes("yellow")
-                        ? "from-yellow-400 to-yellow-600"
-                        : feature.color.includes("green")
-                        ? "from-green-400 to-green-600"
-                        : feature.color.includes("cyan")
-                        ? "from-cyan-400 to-cyan-600"
-                        : feature.color.includes("red")
-                        ? "from-red-400 to-red-600"
-                        : feature.color.includes("indigo")
-                        ? "from-indigo-400 to-indigo-600"
-                        : "from-pink-400 to-pink-600"
-                    }`}
+                          ? "from-purple-400 to-purple-600"
+                          : feature.color.includes("yellow")
+                            ? "from-yellow-400 to-yellow-600"
+                            : feature.color.includes("green")
+                              ? "from-green-400 to-green-600"
+                              : feature.color.includes("cyan")
+                                ? "from-cyan-400 to-cyan-600"
+                                : feature.color.includes("red")
+                                  ? "from-red-400 to-red-600"
+                                  : feature.color.includes("indigo")
+                                    ? "from-indigo-400 to-indigo-600"
+                                    : "from-pink-400 to-pink-600"
+                      }`}
                   ></div>
                 </div>
               </div>
