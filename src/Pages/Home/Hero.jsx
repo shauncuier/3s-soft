@@ -2,6 +2,7 @@ import React from "react";
 import { HiOutlineSparkles } from "react-icons/hi2";
 import Button from "../../Components/Button";
 import { Link } from "react-router";
+import CountUp from "react-countup";
 
 const Hero = () => {
   return (
@@ -57,19 +58,22 @@ const Hero = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-300">
           <div>
-            <p className="text-3xl font-bold text-white">500+</p>
+            <p className="text-3xl font-bold text-white"><CountUp end={500} enableScrollSpy />+</p>
             <p className="text-sm mt-1 text-blue-200">Projects Delivered</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white">98%</p>
+            <p className="text-3xl font-bold text-white"><CountUp end={98} enableScrollSpy />%</p>
             <p className="text-sm mt-1 text-blue-200">Client Satisfaction</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white">24/7</p>
+            <p className="text-3xl font-bold text-white">
+              <CountUp end={24} enableScrollSpy />/
+              <CountUp end={7} enableScrollSpy />
+            </p>
             <p className="text-sm mt-1 text-blue-200">Support Available</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white">5+</p>
+            <p className="text-3xl font-bold text-white"><CountUp end={5} enableScrollSpy />+</p>
             <p className="text-sm mt-1 text-blue-200">Years Experience</p>
           </div>
         </div>

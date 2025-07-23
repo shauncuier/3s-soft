@@ -26,7 +26,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>
@@ -48,7 +48,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage2}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>
@@ -70,7 +70,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>
@@ -92,7 +92,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage2}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>
@@ -114,7 +114,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>
@@ -136,7 +136,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage2}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>
@@ -158,7 +158,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>
@@ -180,7 +180,7 @@ const Blogs = () => {
             <div className="">
               <img
                 src={blogImage2}
-                alt=""
+                alt="Blog Image"
                 className="w-full h-full object-right"
               />
             </div>

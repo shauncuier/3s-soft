@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center group">
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-2 group-hover:scale-110 transition-transform duration-300">
-                <CountUp end={500} enableScrollSpy />
+                <CountUp end={500} enableScrollSpy />+
               </div>
               <div className="text-gray-300 font-medium">Projects Completed</div>
               <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">Across all industries</div>

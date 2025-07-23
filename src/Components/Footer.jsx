@@ -5,7 +5,7 @@ import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { FiFacebook, FiTwitter, FiLinkedin, FiInstagram } from "react-icons/fi";
 import { MdWhatsapp } from "react-icons/md";
-import logo from "/favicon/apple-touch-icon.png";
+import logo from "../assets/logo.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
