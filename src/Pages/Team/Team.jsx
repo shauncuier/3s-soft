@@ -24,8 +24,8 @@ const Team = () => {
   };
 
   return (
-    <section id="team" className="pt-24 sm:pt-28 md:pt-35 pb-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="team" className="bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <SectionLabel label={"Meet Our Expert Team"}/>
