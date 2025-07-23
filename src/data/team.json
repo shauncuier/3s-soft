@@ -80,7 +80,8 @@
     "social": {
       "linkedin": "https://www.linkedin.com/in/borhan-siddque/",
       "github": "https://github.com/borhansiddque",
-      "facebook": "https://www.facebook.com/borhan.siddque.19/"
+      "facebook": "https://www.facebook.com/borhan.siddque.19/",
+      "": "https://borhansiddque.netlify.app/"
     }
   },
   {
@@ -91,8 +92,8 @@
     "image": "/team-profile/Shamim.png",
     "skills": ["SEO", "Content Writing", "Meta Ads", "Social Media Management"],
     "social": {
-      "github": "#",
       "linkedin": "#",
+      "github": "#",
       "twitter": "#",
       "facebook": "#"
     }
@@ -110,10 +111,10 @@
       "Adobe Illustrator"
     ],
     "social": {
-      "dribbble": "#",
       "linkedin": "#",
       "twitter": "#",
-      "facebook": "#"
+      "facebook": "#",
+      "dribbble": "#"
     }
   },
   {
