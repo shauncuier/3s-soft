@@ -17,7 +17,7 @@ const ProgressBar = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full h-1 bg-gray-100/10 z-10">
       <div
-        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
+        className="h-full bg-gradient-to-r from-blue-600 via-pink-500 to-purple-500 transition-all duration-300"
         style={{ width: `${scrollProgress}%` }}
       />
     </div>

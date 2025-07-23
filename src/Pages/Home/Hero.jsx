@@ -73,7 +73,7 @@ const Hero = () => {
             <p className="text-sm mt-1 text-blue-200">Support Available</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white"><CountUp end={5} enableScrollSpy />+</p>
+            <p className="text-3xl font-bold text-white"><CountUp end={8} enableScrollSpy />+</p>
             <p className="text-sm mt-1 text-blue-200">Years Experience</p>
           </div>
         </div>

@@ -9,6 +9,7 @@ import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
 import Team from "../Pages/Team/Team";
 import Services from "../Pages/Services/Services";
 import Blogs from "../Pages/Blogs/Blogs";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 let router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ let router = createBrowserRouter([
         Component: Home,
       },
       {
+        path: "/services",
+        Component: Services,
+      },
+      {
         path: "/team",
         Component: Team,
       },
@@ -29,8 +34,8 @@ let router = createBrowserRouter([
         Component: Blogs,
       },
       {
-        path: "/services",
-        Component: Services,
+        path: "/about-us",
+        Component: AboutUs,
       },
       {
         path: "/contact",
