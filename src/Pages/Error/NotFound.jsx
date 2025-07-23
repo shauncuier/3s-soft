@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
-import { HiOutlineEmojiSad } from "react-icons/hi";
 import { FaHome } from "react-icons/fa";
 import gif from "../../assets/rpa.gif";
+import Button from "../../Components/Button";
 
 const NotFound = () => {
   return (
@@ -19,6 +19,7 @@ const NotFound = () => {
         <p className="text-blue-200 text-center max-w-md mb-8">
           Oops! The page you're looking for doesn't exist or has been moved.
         </p>
+        <Button label={"Go Back Home"} to={"/"} />
         <Link
           to={'/'}
           className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 px-6 py-3 font-semibold flex items-center gap-2 transition duration-300 cursor-pointer"
