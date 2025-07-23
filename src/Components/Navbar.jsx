@@ -6,16 +6,16 @@ import logo from "../assets/logo.jpg";
 const Navbar = () => {
   const links = <>
     <li>
-      <NavLink to={'/'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>Home</NavLink>
+      <NavLink to={'/'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>Home</NavLink>
     </li>
     <li>
-      <NavLink to={'/services'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>Services</NavLink>
+      <NavLink to={'/services'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>Services</NavLink>
     </li>
     <li>
-      <NavLink to={'/team'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>Team</NavLink>
+      <NavLink to={'/team'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>Team</NavLink>
     </li>
     <li>
-      <NavLink to={'/about'} className={({isActive}) => `font-medium ${isActive && 'text-blue-500'}`}>About</NavLink>
+      <NavLink to={'/about'} className={({isActive}) => `font-medium ${isActive && 'text-blue-400'}`}>About</NavLink>
     </li>
   </>
   return (
@@ -43,7 +43,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to={'/contact'}>Contact Us</Link>
+          <Link to={'/contact'} className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 ">Contact Us</Link>
         </div>
       </nav>
     </div>
