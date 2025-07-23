@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import logo from "../assets/logo.jpg";
 import Button from "./Button";
+import ProgressBar from "./ProgressBar";
 
 const Navbar = () => {
   const links = <>
@@ -26,7 +27,7 @@ const Navbar = () => {
     </li>
   </>
   return (
-    <div className="bg-black/30 backdrop-blur-2xl fixed top-0 w-full z-50">
+    <div className="bg-black/30 backdrop-blur-2xl fixed top-0 w-full z-50 py-2">
       <nav className="navbar max-w-[1480px] mx-auto px-5">
         <div className="navbar-start gap-4">
           <div className="dropdown">
@@ -54,6 +55,7 @@ const Navbar = () => {
           <Link to={'/contact'} className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105 ">Get Started</Link>
         </div>
       </nav>
+      <ProgressBar />
     </div>
   );
 };
