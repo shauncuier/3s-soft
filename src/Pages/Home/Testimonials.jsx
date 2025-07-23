@@ -10,7 +10,6 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay, Keyboard } from "swiper/modules";
 
 import testimonialsData from "../../data/testimonials.json";
-import { LuQuote } from "react-icons/lu";
 import { FaQuoteRight } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 
