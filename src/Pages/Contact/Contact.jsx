@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { MdOutlineEmail } from "react-icons/md";
+import { MdOutlineEmail, MdWhatsapp } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { FiPhone, FiSend } from "react-icons/fi";
 import { LuMapPin, LuGlobe } from "react-icons/lu";
@@ -68,9 +68,7 @@ const Contact = () => {
     }
   };
   return (
-    <section
-      className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 relative overflow-hidden"
-    >
+    <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse"></div>
@@ -81,7 +79,6 @@ const Contact = () => {
       <div className="relative z-10 max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
         <div className="text-center mb-16">
-          
           <SectionLabel label={"Let's Grow Together"} />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Start Your Project?
@@ -148,9 +145,29 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+            <div className="flex flex-col items-center text-center space-x-4 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+              {/* <div className="w-12 h-12 mx-auto bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
+                <MdWhatsapp className="h-6 w-6 text-white" />
+              </div> */}
+              <div className="space-y-3.5">
+                <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-700">WhatsApp</h3>
+                <p className="text-lg w-3/4 mx-auto">
+                  We are always active in whatsapp, let's talk and create
+                  something new!!
+                </p>
+
+                <a
+                  href="https://wa.me/8801835927634"
+                  className="inline-flex items-center gap-1 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+                >
+                <MdWhatsapp className="h-6 w-6 text-white" />
+                  Whatsapp
+                </a>
+              </div>
+            </div>
 
             {/* Business Hours */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+            {/* <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <h4 className="text-white font-semibold mb-4">Business Hours</h4>
               <div className="space-y-2 text-blue-200">
                 <div className="flex justify-between">
@@ -166,7 +183,7 @@ const Contact = () => {
                   <span>Closed</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form */}

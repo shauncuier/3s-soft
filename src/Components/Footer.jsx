@@ -4,6 +4,7 @@ import { FaGlobe, FaHeart, FaPhone } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { FiFacebook, FiTwitter, FiLinkedin, FiInstagram } from "react-icons/fi";
+import { MdWhatsapp } from "react-icons/md";
 import logo from "/favicon/apple-touch-icon.png";
 
 const Footer = () => {
@@ -50,25 +51,37 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
-                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors duration-300"
-              >
-                <FiFacebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-cyan-600 hover:bg-cyan-700 rounded-full flex items-center justify-center transition-colors duration-300"
-              >
-                <FiTwitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
+                href="https://www.linkedin.com/company/3s-soft/"
+                target="_blank"
                 className="w-10 h-10 bg-blue-800 hover:bg-blue-900 rounded-full flex items-center justify-center transition-colors duration-300"
               >
                 <FiLinkedin className="h-5 w-5" />
               </a>
               <a
+                href="https://wa.me/8801835927634"
+                target="_blank"
+                className="w-10 h-10 bg-cyan-600 hover:bg-cyan-700 rounded-full flex items-center justify-center transition-colors duration-300"
+              >
+                <MdWhatsapp className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.facebook.com/3s.soft.bd"
+                target="_blank"
+                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors duration-300"
+              >
+                <FiFacebook className="h-5 w-5" />
+              </a>
+              {/* <a
                 href="#"
+                target="_blank"
+                className="w-10 h-10 bg-cyan-600 hover:bg-cyan-700 rounded-full flex items-center justify-center transition-colors duration-300"
+              >
+                <FiTwitter className="h-5 w-5" />
+              </a> */}
+
+              <a
+                href="https://www.instagram.com/3ssoft/"
+                target="_blank"
                 className="w-10 h-10 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center transition-colors duration-300"
               >
                 <FiInstagram className="h-5 w-5" />
@@ -120,8 +133,6 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-
-            
           </div>
 
           {/* Contact Info */}
@@ -131,7 +142,10 @@ const Footer = () => {
             </h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <IoMdMail size={20} className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0" />
+                <IoMdMail
+                  size={20}
+                  className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                />
                 <div>
                   {/* <div className="text-white font-medium">Email</div> */}
                   <a
@@ -144,7 +158,10 @@ const Footer = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <FaPhone size={20} className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0" />
+                <FaPhone
+                  size={20}
+                  className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                />
                 <div>
                   {/* <div className="text-white font-medium">Phone</div> */}
                   <a
@@ -157,7 +174,10 @@ const Footer = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <FaLocationDot size={20} className=" text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0" />
+                <FaLocationDot
+                  size={20}
+                  className=" text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                />
                 <div>
                   {/* <div className="text-white font-medium">Location</div> */}
                   <div className="text-gray-300 text-sm">
@@ -167,7 +187,10 @@ const Footer = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <FaGlobe size={20} className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0" />
+                <FaGlobe
+                  size={20}
+                  className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                />
                 <div>
                   {/* <div className="text-white font-medium">Website</div> */}
                   <a
