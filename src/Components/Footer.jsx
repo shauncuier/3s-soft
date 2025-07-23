@@ -205,7 +205,7 @@ const Footer = () => {
                 Terms of Service
               </Link>
               <Link
-                to="/cookie-policy"
+                to="/cookies"
                 className="hover:text-white transition-colors duration-300"
               >
                 Cookie Policy

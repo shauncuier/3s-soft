@@ -1,0 +1,127 @@
+import React from 'react';
+// import { Linkedin, Twitter, Github, ExternalLink, Dribbble, Facebook } from 'lucide-react';
+import { FiLinkedin, FiTwitter, FiGithub, FiFacebook, FiLink, FiDribbble } from "react-icons/fi";
+import teamData from '../../data/team.json';
+
+const Team = () => {
+  const getSocialIcon = (platform) => {
+    switch (platform) {
+      case 'linkedin':
+        return FiLinkedin;
+      case 'twitter':
+        return FiTwitter;
+      case 'github':
+        return FiGithub;
+      case 'dribbble':
+        return FiDribbble ;
+      case 'facebook':
+        return FiFacebook;
+      default:
+        return FiLink;
+    }
+  };
+
+  return (
+    <section id="team" className="pt-24 sm:pt-28 md:pt-35 pb-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 rounded-full px-4 py-2 mb-6">
+            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">Meet Our Team</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            The Experts Behind Your Success
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Our diverse team of skilled professionals brings years of experience and passion 
+            to every project, ensuring exceptional results for our clients.
+          </p>
+        </div>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {teamData.map((member) => (
+            <div
+              key={member.id}
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden"
+            >
+              {/* Profile Image */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {/* Social Links Overlay */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {Object.entries(member.social).map(([platform, url]) => {
+                    const IconComponent = getSocialIcon(platform);
+                    return (
+                      <a
+                        key={platform}
+                        href={url}
+                        className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-300"
+                      >
+                        <IconComponent className="h-4 w-4 text-white" />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  {member.name}
+                </h3>
+                
+                <p className="text-blue-600 dark:text-blue-400 font-medium mb-3">
+                  {member.position}
+                </p>
+                
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                  {member.bio}
+                </p>
+
+                {/* Skills */}
+                <div className="flex flex-wrap gap-2">
+                  {member.skills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-700 rounded-3xl p-12 text-white">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Work with Our Expert Team?
+            </h3>
+            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+              Let's discuss your project and see how our talented team can help bring your vision to life.
+            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Start Your Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Team;

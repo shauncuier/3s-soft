@@ -4,6 +4,9 @@ import Home from "../Pages/Home/Home";
 import Contact from "../Pages/Contact/Contact";
 import NotFound from "../Pages/Error/NotFound";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
+import TermsOfService from "../Pages/TermsOfService/TermsOfService";
+import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
+import Team from "../Pages/Team/Team";
 
 let router = createBrowserRouter([
   {
@@ -16,12 +19,24 @@ let router = createBrowserRouter([
         Component: Home,
       },
       {
+        path: "/team",
+        Component: Team,
+      },
+      {
         path: "/contact",
         Component: Contact,
       },
       {
         path: "/privacy-policy",
         Component: PrivacyPolicy,
+      },
+      {
+        path: "/terms-of-service",
+        Component: TermsOfService,
+      },
+      {
+        path: "/cookies",
+        Component: CookiePolicy,
       },
     ],
   },
