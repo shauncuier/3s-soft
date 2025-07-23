@@ -54,21 +54,21 @@ const Footer = () => {
               <a
                 href="https://www.linkedin.com/company/3s-soft/"
                 target="_blank"
-                className="w-10 h-10 bg-blue-800 hover:bg-blue-900 rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors duration-300"
               >
                 <FiLinkedin className="h-5 w-5" />
               </a>
               <a
                 href="https://wa.me/8801835927634"
                 target="_blank"
-                className="w-10 h-10 bg-cyan-600 hover:bg-cyan-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-green-600 hover:bg-green-700 rounded-full flex items-center justify-center transition-colors duration-300"
               >
                 <MdWhatsapp className="h-5 w-5" />
               </a>
               <a
                 href="https://www.facebook.com/3s.soft.bd"
                 target="_blank"
-                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-blue-800 hover:bg-blue-900 rounded-full flex items-center justify-center transition-colors duration-300"
               >
                 <FiFacebook className="h-5 w-5" />
               </a>
@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-blue-400 dark:text-blue-300">
+            <h3 className="text-lg font-semibold mb-6 text-blue-300">
               Our Services
             </h3>
             <ul className="space-y-3">
@@ -109,7 +109,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"/services"}
-                  className="text-blue-400 dark:text-blue-300 hover:text-blue-300 dark:hover:text-blue-200 transition-colors duration-300 text-sm font-medium"
+                  className="text-blue-300 hover:text-blue-300 dark:hover:text-blue-200 transition-colors duration-300 text-sm font-medium"
                 >
                   View All Services →
                 </Link>
@@ -119,7 +119,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-blue-400 dark:text-blue-300">
+            <h3 className="text-lg font-semibold mb-6 text-blue-300">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -145,7 +145,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <IoMdMail
                   size={20}
-                  className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                  className="text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
                   {/* <div className="text-white font-medium">Email</div> */}
@@ -161,7 +161,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <FaPhone
                   size={20}
-                  className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                  className="text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
                   {/* <div className="text-white font-medium">Phone</div> */}
@@ -177,7 +177,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <FaLocationDot
                   size={20}
-                  className=" text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                  className=" text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
                   {/* <div className="text-white font-medium">Location</div> */}
@@ -190,7 +190,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <FaGlobe
                   size={20}
-                  className="text-blue-400 dark:text-blue-300 mt-0.5 flex-shrink-0"
+                  className="text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
                   {/* <div className="text-white font-medium">Website</div> */}
