@@ -24,7 +24,7 @@ const Team = () => {
   };
 
   return (
-    <section id="team" className="bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section className="bg-gray-900 transition-colors duration-300">
       <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
         <div className="text-center mb-16">

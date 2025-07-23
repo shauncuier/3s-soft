@@ -8,6 +8,7 @@ import TermsOfService from "../Pages/TermsOfService/TermsOfService";
 import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
 import Team from "../Pages/Team/Team";
 import Services from "../Pages/Services/Services";
+import Blogs from "../Pages/Blogs/Blogs";
 
 let router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ let router = createBrowserRouter([
       {
         path: "/team",
         Component: Team,
+      },
+      {
+        path: "/blogs",
+        Component: Blogs,
       },
       {
         path: "/services",

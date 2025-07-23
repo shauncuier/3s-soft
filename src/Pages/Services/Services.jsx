@@ -122,8 +122,7 @@ const Services = () => {
 
   return (
     <section
-      id="services"
-      className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300"
+      className="bg-gray-900 transition-colors duration-300"
     >
       <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
@@ -132,7 +131,7 @@ const Services = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             High-Quality Digital Solutions
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             We provide scalable digital solutions tailored for startups, small
             businesses, and enterprises across multiple industries.
           </p>
