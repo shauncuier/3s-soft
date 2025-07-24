@@ -33,9 +33,15 @@ const AddBlog = () => {
   };
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
-      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
+      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-34 pb-20">
         <div className="text-center mb-8">
           <SectionLabel label={"Add Blog"} />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            Add New Blog Post
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Create and manage blog content for your website. Use the form below to add a new post, update existing content, and keep your readers engaged with fresh insights.
+          </p>
         </div>
         <div className="bg-[#1E2939] border border-gray-400 rounded-2xl px-5 py-10 max-w-4xl mx-auto shadow-lg shadow-blue-200">
           <form
@@ -43,7 +49,7 @@ const AddBlog = () => {
             className="grid grid-cols-2 gap-5 gap-y-10"
           >
             <div className="flex flex-col">
-              <label className="text-sm font-medium text-blue-100 mb-2">
+              <label className="text-sm font-medium italic text-blue-100 mb-2">
                 Author Name
               </label>
               <input
@@ -53,7 +59,7 @@ const AddBlog = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label className="text-sm font-medium text-blue-100 mb-2">
+              <label className="text-sm font-medium italic text-blue-100 mb-2">
                 Blog Title
               </label>
               <input
@@ -63,7 +69,7 @@ const AddBlog = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label className="text-sm font-medium text-blue-100 mb-2">
+              <label className="text-sm font-medium italic text-blue-100 mb-2">
                 Post Date
               </label>
               <input
@@ -73,7 +79,7 @@ const AddBlog = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label className="text-sm font-medium text-blue-100 mb-2">
+              <label className="text-sm font-medium italic text-blue-100 mb-2">
                 Blog Image URL
               </label>
               <input
@@ -84,7 +90,7 @@ const AddBlog = () => {
             </div>
 
             <div className="col-span-2">
-              <label className="text-sm font-medium text-blue-100">
+              <label className="text-sm font-medium italic text-blue-100">
                 Blog Details
               </label>
               <textarea
