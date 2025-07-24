@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  HiOutlineLightBulb,
-  HiOutlineSparkles,
-} from "react-icons/hi2";
 import { Link } from "react-router";
-import SectionLabel from "../../Components/SectionLabel";
+import { HiOutlineLightBulb, HiOutlineSparkles } from "react-icons/hi2";
 import {
   FaCode,
   FaWordpress,
@@ -15,8 +11,10 @@ import {
   FaPaintBrush,
   FaHeadphones,
 } from "react-icons/fa";
-import aboutImage from "../../assets/about-us.jpg";
+import { LuHeartHandshake } from "react-icons/lu";
+import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";
+import aboutImage from "../../assets/about-us.jpg";
 
 const AboutUs = () => {
   const coreServices = [
@@ -62,133 +60,138 @@ const AboutUs = () => {
     },
   ];
   return (
-    <section className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-5">
-      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
-        {/* Header */}
-        <div className="text-center">
-          <SectionLabel label={"About 3s-soft"} />
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            Who We Are
-          </h2>
-          <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-            We're a passionate team of creators and developers dedicated to
-            building impactful digital solutions that inspire, solve problems,
-            and make the web a better place.
-          </p>
-        </div>
-
-        {/* Who We Are */}
-        <div className="grid md:grid-cols-2 gap-12 my-15">
-          <div className="">
-            <h3 className="text-3xl font-semibold mb-4">About 3s-soft</h3>
-            <p className="text-gray-300 leading-relaxed">
-              <strong className="text-blue-400">3s-Soft</strong> is a
-              full-service digital agency proudly based in Bangladesh, committed
-              to delivering top-notch web and digital solutions. We specialize
-              in modern MERN stack web development, WordPress customization, and
-              comprehensive eCommerce listing services for platforms like
-              Amazon, eBay, Etsy, and Walmart. With a dedicated team of
-              experienced developers, creative designers, and strategic
-              marketers, we work hand-in-hand with businesses to build engaging
-              websites, streamline operations, and maximize online visibility.
-              Whether you're launching a startup or scaling an existing
-              business, 3s-Soft is here to help you grow and thrive in the
-              digital space.
+    <>
+      <section className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-5">
+        <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
+          {/* Header */}
+          <div className="text-center">
+            <SectionLabel label={"About 3s-soft"} />
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+              Who We Are
+            </h2>
+            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+              We're a passionate team of creators and developers dedicated to
+              building impactful digital solutions that inspire, solve problems,
+              and make the web a better place.
             </p>
           </div>
-          <img
-            src={aboutImage}
-            alt="About 3s-Soft"
-            className="rounded-2xl shadow-lg"
-          />
-        </div>
 
-        {/* Mission & Vision */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
-          <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <HiOutlineLightBulb className="text-4xl text-white" />
+          {/* Who We Are */}
+          <div className="grid md:grid-cols-2 gap-12 my-15">
+            <div className="">
+              <h3 className="text-3xl font-semibold mb-4">About 3s-soft</h3>
+              <p className="text-gray-300 leading-relaxed">
+                <strong className="text-blue-400">3s-Soft</strong> is a
+                full-service digital agency proudly based in Bangladesh,
+                committed to delivering top-notch web and digital solutions. We
+                specialize in modern MERN stack web development, WordPress
+                customization, and comprehensive eCommerce listing services for
+                platforms like Amazon, eBay, Etsy, and Walmart. With a dedicated
+                team of experienced developers, creative designers, and
+                strategic marketers, we work hand-in-hand with businesses to
+                build engaging websites, streamline operations, and maximize
+                online visibility. Whether you're launching a startup or scaling
+                an existing business, 3s-Soft is here to help you grow and
+                thrive in the digital space.
+              </p>
             </div>
-
-            <h4 className="text-xl font-bold mb-2">Our Mission</h4>
-            <p className="text-gray-300">
-              To empower businesses with powerful and user-centric digital
-              solutions that drive measurable results.
-            </p>
+            <img
+              src={aboutImage}
+              alt="About 3s-Soft"
+              className="rounded-2xl shadow-lg"
+            />
           </div>
-          <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <HiOutlineSparkles className="text-4xl text-white" />
+
+          {/* Mission & Vision */}
+          <div className="grid md:grid-cols-2 gap-12 mb-20">
+            <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <HiOutlineLightBulb className="text-4xl text-white" />
+              </div>
+
+              <h4 className="text-xl font-bold mb-2">Our Mission</h4>
+              <p className="text-gray-300">
+                To empower businesses with powerful and user-centric digital
+                solutions that drive measurable results.
+              </p>
             </div>
+            <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <HiOutlineSparkles className="text-4xl text-white" />
+              </div>
 
-            <h4 className="text-xl font-bold mb-2">Our Vision</h4>
-            <p className="text-gray-300">
-              To be a global leader in web development, eCommerce services, and
-              virtual support through constant innovation.
-            </p>
+              <h4 className="text-xl font-bold mb-2">Our Vision</h4>
+              <p className="text-gray-300">
+                To be a global leader in web development, eCommerce services,
+                and virtual support through constant innovation.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Core Services */}
-        <div className="text-center mb-20">
-          <h3 className="text-3xl font-semibold">What We Offer</h3>
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-10">
-            {coreServices.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Link key={index} to={"/services"}>
-                  <div className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden relative">
-                    {/* Icon Header */}
-                    <div className="p-6 pb-0 flex flex-col items-center">
-                      <div
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <IconComponent className="h-8 w-8 text-white" />
+          {/* Core Services */}
+          <div className="text-center mb-20">
+            <h3 className="text-3xl font-semibold">What We Offer</h3>
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-10">
+              {coreServices.map((service, index) => {
+                const IconComponent = service.icon;
+                return (
+                  <Link key={index} to={"/services"}>
+                    <div className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden relative">
+                      {/* Icon Header */}
+                      <div className="p-6 pb-0 flex flex-col items-center">
+                        <div
+                          className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          <IconComponent className="h-8 w-8 text-white" />
+                        </div>
+
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                          {service.title}
+                        </h3>
                       </div>
 
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                        {service.title}
-                      </h3>
+                      {/* Hover Effect Overlay */}
+                      <div
+                        className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                      ></div>
                     </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
 
-                    {/* Hover Effect Overlay */}
-                    <div
-                      className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
-                    ></div>
-                  </div>
-                </Link>
-              );
-            })}
+          {/* Why Choose Us */}
+          <div className="flex flex-col items-center justify-center rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <LuHeartHandshake className="text-4xl text-white" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">
+              Why Clients Trust 3s-Soft?
+            </h3>
+            <p className="text-gray-300 max-w-3xl mx-auto text-center">
+              We're committed to delivering quality, speed, and long-term value.
+              Our solutions are not just functional — they're designed to make
+              your business thrive in the digital world.
+            </p>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-10 flex flex-col items-center justify-center">
+            <h4 className="text-xl md:text-2xl font-semibold mb-2">
+              Let’s build something great together
+            </h4>
+            <p className="text-gray-400 mb-4">
+              Tell us about your project and we'll make it happen.
+            </p>
+            <div className="">
+              <Button label={"Contact Us"} to={"/contact"} />
+            </div>
           </div>
         </div>
-
-        {/* Why Choose Us */}
-        <div className="text-center rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
-          <h3 className="text-2xl font-bold mb-4">
-            Why Clients Trust 3s-Soft?
-          </h3>
-          <p className="text-gray-300 max-w-3xl mx-auto">
-            We're committed to delivering quality, speed, and long-term value.
-            Our solutions are not just functional — they're designed to make
-            your business thrive in the digital world.
-          </p>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-10 flex flex-col items-center justify-center">
-          <h4 className="text-xl md:text-2xl font-semibold mb-2">
-            Let’s build something great together
-          </h4>
-          <p className="text-gray-400 mb-4">
-            Tell us about your project and we'll make it happen.
-          </p>
-          <div className="">
-            <Button label={"Contact Us"} to={"/contact"} />
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

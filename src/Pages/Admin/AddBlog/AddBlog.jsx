@@ -75,7 +75,7 @@ const AddBlog = () => {
             engaged with fresh insights.
           </p>
         </div>
-        <div className="bg-[#1E2939] border border-gray-400 rounded-2xl px-5 py-10 max-w-4xl mx-auto shadow-lg shadow-blue-200">
+        <div className="bg-[#1E2939] border border-gray-400 rounded-2xl px-5 py-10 max-w-4xl mx-auto shadow-md shadow-blue-300">
           <form
             onSubmit={handleAddBlog}
             className="grid grid-cols-2 gap-5 gap-y-10"
@@ -175,6 +175,7 @@ const AddBlog = () => {
                 rows={6}
                 name="details"
                 required
+                placeholder="Blog Details"
                 className="textarea w-full mt-2 bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               ></textarea>
             </div>
