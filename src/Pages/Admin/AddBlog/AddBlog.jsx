@@ -10,6 +10,17 @@ const predefinedTags = [
   "lead generation",
 ];
 
+const categories = [
+  "Web Development",
+  "WordPress",
+  "Product Listing",
+  "Lead Generation",
+  "Digital Marketing & SEO",
+  "Social Media Marketing",
+  "Graphic Design",
+  "Virtual Assistant Services",
+];
+
 const AddBlog = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [customTag, setCustomTag] = useState("");
@@ -35,6 +46,7 @@ const AddBlog = () => {
     const author = form.author.value;
     const title = form.title.value;
     const date = form.date.value;
+    const category = form.category.value;
     const imageUrl = form.image.value;
     const details = form.details.value;
 
@@ -42,6 +54,7 @@ const AddBlog = () => {
       author,
       title,
       date,
+      category,
       imageUrl,
       details,
       tags: selectedTags,
@@ -91,17 +104,7 @@ const AddBlog = () => {
                 className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               />
             </div>
-            <div className="flex flex-col">
-              <label className="text-sm font-medium italic text-blue-100 mb-2">
-                Author Name
-              </label>
-              <input
-                type="text"
-                name="author"
-                required
-                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
-              />
-            </div>
+
             <div className="flex flex-col">
               <label className="text-sm font-medium italic text-blue-100 mb-2">
                 Blog Image URL
@@ -115,6 +118,17 @@ const AddBlog = () => {
             </div>
             <div className="flex flex-col">
               <label className="text-sm font-medium italic text-blue-100 mb-2">
+                Author Name
+              </label>
+              <input
+                type="text"
+                name="author"
+                required
+                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-sm font-medium italic text-blue-100 mb-2">
                 Post Date
               </label>
               <input
@@ -122,6 +136,29 @@ const AddBlog = () => {
                 name="date"
                 className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-sm font-medium italic text-blue-100 mb-2">
+                Category
+              </label>
+              <select
+                name="category"
+                required
+                className="input w-full bg-black/30 text-white outline-none focus:outline-0 focus:border-blue-300"
+              >
+                <option value="" className="bg-gray-600 text-white">
+                  Select a category
+                </option>
+                {categories.map((cat, index) => (
+                  <option
+                    key={index}
+                    value={cat}
+                    className="bg-black text-white"
+                  >
+                    {cat}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="flex flex-col col-span-2">
               <label className="text-sm font-medium italic text-blue-100 mb-2">

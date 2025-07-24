@@ -39,31 +39,38 @@ const Blogs = () => {
             {/* Single Blog */}
             {blogs.map((blog) => (
               <div
-                className="bg-[#1E2939] border border-gray-700 rounded-3xl flex flex-col overflow-hidden"
+                className="bg-[#1E2939] border border-gray-700 rounded-3xl flex flex-col justify-between overflow-hidden"
                 key={blog._id}
               >
                 <div className="">
-                  <img
-                    src={blog.imageUrl}
-                    alt="Blog Image"
-                    className="w-full h-full object-right"
-                  />
-                </div>
-                <div className="px-5 py-5">
-                  <div className="flex flex-col gap-1 justify-between text-xs mb-3 text-blue-200">
-                    <p>Author: {blog.author}</p>
-                    <p>Post Data: {blog.date}</p>
+                  <div className="">
+                    <img
+                      src={blog.imageUrl}
+                      alt="Blog Image"
+                      className="w-full h-full object-right"
+                    />
                   </div>
+                  <div className="px-5 py-5">
+                    <div className="flex items-start mb-3">
+                      <p className="inline-block text-xs bg-blue-400/40 px-2 py-1 rounded">
+                        {blog.category || "Not Found"}
+                      </p>
+                    </div>
 
-                  <h2 className="text-xl md:text-2xl text-blue-400">
-                    {blog.title}
-                  </h2>
-                  <p className="mt-4">
-                    {blog.details.split(" ").slice(0, 40).join(" ")}...
-                    <Link to={"/"} className="text-blue-500 underline">
-                      Read More
-                    </Link>
-                  </p>
+                    <h2 className="text-xl md:text-2xl text-blue-400">
+                      {blog.title}
+                    </h2>
+                    <p className="mt-1">
+                      {blog.details.split(" ").slice(0, 30).join(" ")}...
+                      <Link to={`/blog/${blog._id}`} className="text-blue-500 underline">
+                        Read More
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1 justify-end text-xs mt-3 bg-blue-400/40 px-5 py-2 text-center font-semibold rounded">
+                  <p>Author: {blog.author}</p>
+                  <p>Post Data: {blog.date}</p>
                 </div>
               </div>
             ))}

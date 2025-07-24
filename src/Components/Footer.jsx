@@ -72,14 +72,6 @@ const Footer = () => {
               >
                 <FiFacebook className="h-5 w-5" />
               </a>
-              {/* <a
-                href="#"
-                target="_blank"
-                className="w-10 h-10 bg-cyan-600 hover:bg-cyan-700 rounded-full flex items-center justify-center transition-colors duration-300"
-              >
-                <FiTwitter className="h-5 w-5" />
-              </a> */}
-
               <a
                 href="https://www.instagram.com/3ssoft/"
                 target="_blank"
@@ -148,7 +140,6 @@ const Footer = () => {
                   className="text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
-                  {/* <div className="text-white font-medium">Email</div> */}
                   <a
                     href="mailto:contact@3s-soft.com"
                     className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
@@ -164,7 +155,6 @@ const Footer = () => {
                   className="text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
-                  {/* <div className="text-white font-medium">Phone</div> */}
                   <a
                     href="tel:+8801835927634"
                     className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
@@ -180,7 +170,6 @@ const Footer = () => {
                   className=" text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
-                  {/* <div className="text-white font-medium">Location</div> */}
                   <div className="text-gray-300 text-sm">
                     Chittagong, Bangladesh
                   </div>
@@ -193,7 +182,6 @@ const Footer = () => {
                   className="text-blue-300 mt-0.5 flex-shrink-0"
                 />
                 <div>
-                  {/* <div className="text-white font-medium">Website</div> */}
                   <a
                     href="https://www.3s-soft.com"
                     className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"

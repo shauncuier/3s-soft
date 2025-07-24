@@ -11,6 +11,7 @@ import Services from "../Pages/Services/Services";
 import Blogs from "../Pages/Blogs/Blogs";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddBlog from "../Pages/Admin/AddBlog/AddBlog";
+import BlogDetails from "../Pages/Blogs/BlogDetails/BlogDetails";
 
 let router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ let router = createBrowserRouter([
       {
         path: "/blogs",
         Component: Blogs,
+      },
+      {
+        path: "/blog/:id",
+        Component: BlogDetails,
       },
       {
         path: "/about-us",
