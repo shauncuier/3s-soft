@@ -71,7 +71,7 @@ const ServicesSection = () => {
       title: "Digital Marketing & SEO",
       description:
         "Drive traffic and sales with our result-oriented SEO, local SEO, and search engine optimization strategies.",
-      gradient: "from-cyan-500 to-blue-600",
+      gradient: "from-pink-500 to-rose-600",
       features: [
         "SEO Optimization",
         "Local SEO",
@@ -84,7 +84,8 @@ const ServicesSection = () => {
       title: "Social Media Marketing",
       description:
         "Boost visibility and engagement with tailored campaigns on Facebook, Instagram, LinkedIn, and other platforms.",
-      gradient: "from-pink-500 to-rose-600",
+      gradient: "from-cyan-500 to-blue-600",
+
       features: [
         "Content Creation",
         "Campaign Management",

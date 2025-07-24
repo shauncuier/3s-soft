@@ -1,7 +1,6 @@
 import React from "react";
 import {
   HiOutlineLightBulb,
-  HiOutlineBriefcase,
   HiOutlineSparkles,
 } from "react-icons/hi2";
 import { Link } from "react-router";
@@ -17,50 +16,53 @@ import {
   FaHeadphones,
 } from "react-icons/fa";
 import aboutImage from "../../assets/about-us.jpg";
+import Button from "../../Components/Button";
 
 const AboutUs = () => {
-  // "",
-  //             "",
-  //             "",
-  //             "Graphics Design & Branding",
-  //             "",
-  //             "Virtual Assistant Services",
   const coreServices = [
     {
       icon: FaCode,
       title: "MERN Stack Web Development",
+      gradient: "from-blue-500 to-purple-600",
     },
     {
       icon: FaWordpress,
       title: "WordPress Theme Customization",
+      gradient: "from-green-500 to-teal-600",
     },
     {
       icon: FaShoppingCart,
       title: "Product Listing for eCommerce",
+      gradient: "from-orange-500 to-red-600",
     },
     {
       icon: FaBullseye,
       title: "Lead Generation & Market Research",
+      gradient: "from-purple-500 to-pink-600",
     },
     {
       icon: FaSearch,
       title: "Digital Marketing & SEO",
+      gradient: "from-pink-500 to-rose-600",
     },
     {
       icon: FaFacebook,
       title: "Social Media Marketing",
+      gradient: "from-cyan-500 to-blue-600",
     },
     {
       icon: FaPaintBrush,
       title: "Graphic Design",
+      gradient: "from-yellow-500 to-orange-600",
     },
     {
       icon: FaHeadphones,
       title: "Virtual Assistant Services",
+      gradient: "from-indigo-500 to-purple-600",
     },
   ];
   return (
-    <section className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
+    <section className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-5">
       <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Header */}
         <div className="text-center">
@@ -78,7 +80,7 @@ const AboutUs = () => {
         {/* Who We Are */}
         <div className="grid md:grid-cols-2 gap-12 my-15">
           <div className="">
-            <h3 className="text-2xl font-semibold mb-4">About 3s-soft</h3>
+            <h3 className="text-3xl font-semibold mb-4">About 3s-soft</h3>
             <p className="text-gray-300 leading-relaxed">
               <strong className="text-blue-400">3s-Soft</strong> is a
               full-service digital agency proudly based in Bangladesh, committed
@@ -130,22 +132,32 @@ const AboutUs = () => {
         {/* Core Services */}
         <div className="text-center mb-15">
           <h3 className="text-2xl font-semibold mb-6">What We Offer</h3>
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            {coreServices.map((service, i) => {
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-15">
+            {coreServices.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <div
-                  key={i}
-                  className="bg-base-100 rounded-xl p-6 shadow hover:shadow-xl transition flex items-center gap-3"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="text-3xl text-white" />
-                  </div>
+                <Link key={index} to={"/services"}>
+                  <div className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden relative">
+                    {/* Icon Header */}
+                    <div className="p-6 pb-0 flex flex-col items-center">
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <IconComponent className="h-8 w-8 text-white" />
+                      </div>
 
-                  <h5 className="text-lg font-semibold text-white">
-                    {service.title}
-                  </h5>
-                </div>
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Hover Effect Overlay */}
+                    <div
+                      className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                    ></div>
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -164,18 +176,16 @@ const AboutUs = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 flex flex-col items-center justify-center">
           <h4 className="text-xl md:text-2xl font-semibold mb-2">
             Let’s build something great together
           </h4>
           <p className="text-gray-400 mb-4">
             Tell us about your project and we'll make it happen.
           </p>
-          <Link to="/contact">
-            <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/80 transition">
-              Contact Us
-            </button>
-          </Link>
+          <div className="">
+            <Button label={"Contact Us"} to={"/contact"} />
+          </div>
         </div>
       </div>
     </section>
