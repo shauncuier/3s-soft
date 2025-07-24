@@ -104,8 +104,8 @@ const AboutUs = () => {
         </div>
 
         {/* Mission & Vision */}
-        <div className="grid md:grid-cols-2 gap-12 mb-15">
-          <div className="bg-base-100 rounded-xl p-8 shadow-lg">
+        <div className="grid md:grid-cols-2 gap-12 mb-20">
+          <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <HiOutlineLightBulb className="text-4xl text-white" />
             </div>
@@ -116,7 +116,7 @@ const AboutUs = () => {
               solutions that drive measurable results.
             </p>
           </div>
-          <div className="bg-base-100 rounded-xl p-8 shadow-lg">
+          <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <HiOutlineSparkles className="text-4xl text-white" />
             </div>
@@ -130,10 +130,10 @@ const AboutUs = () => {
         </div>
 
         {/* Core Services */}
-        <div className="text-center mb-15">
-          <h3 className="text-2xl font-semibold mb-6">What We Offer</h3>
+        <div className="text-center mb-20">
+          <h3 className="text-3xl font-semibold">What We Offer</h3>
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-15">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-10">
             {coreServices.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -164,7 +164,7 @@ const AboutUs = () => {
         </div>
 
         {/* Why Choose Us */}
-        <div className="bg-base-100 rounded-xl p-10 shadow-lg text-center ">
+        <div className="text-center rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
           <h3 className="text-2xl font-bold mb-4">
             Why Clients Trust 3s-Soft?
           </h3>
