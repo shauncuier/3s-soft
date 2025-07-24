@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionLabel from "../../Components/SectionLabel";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { MdOutlineModeEdit, MdOutlineDateRange } from "react-icons/md";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -51,9 +52,12 @@ const Blogs = () => {
                     />
                   </div>
                   <div className="px-5 py-5">
-                    <div className="flex items-start mb-3">
-                      <p className="inline-block text-xs bg-blue-400/40 px-2 py-1 rounded">
-                        {blog.category || "Not Found"}
+                    <div className="flex items-center justify-between text-xs mt-3 bg-blue-400/40 p-2 font-semibold rounded mb-3">
+                      <p className="flex items-center gap-1">
+                        <MdOutlineModeEdit /> {blog.author}
+                      </p>
+                      <p className="flex items-center gap-1">
+                        <MdOutlineDateRange /> {blog.date}
                       </p>
                     </div>
 
@@ -62,15 +66,28 @@ const Blogs = () => {
                     </h2>
                     <p className="mt-1">
                       {blog.details.split(" ").slice(0, 30).join(" ")}...
-                      <Link to={`/blog/${blog._id}`} className="text-blue-500 underline">
+                      <Link
+                        to={`/blog/${blog._id}`}
+                        className="text-blue-500 underline"
+                      >
                         Read More
                       </Link>
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col gap-1 justify-end text-xs mt-3 bg-blue-400/40 px-5 py-2 text-center font-semibold rounded">
-                  <p>Author: {blog.author}</p>
-                  <p>Post Data: {blog.date}</p>
+
+                <div className="flex flex-col gap-3 items-start bg-blue-900 rounded px-5 py-2 space-y-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-white font-semibold">Tags:</span>
+                    {blog.tags?.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="bg-white/25 text-blue-100 px-2 py-0.5 rounded text-xs font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
