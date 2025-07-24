@@ -122,7 +122,7 @@ const Services = () => {
 
   return (
     <section
-      className="bg-gray-900 transition-colors duration-300"
+      className="bg-gray-900 transition-colors duration-300 px-5"
     >
       <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
@@ -138,7 +138,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (

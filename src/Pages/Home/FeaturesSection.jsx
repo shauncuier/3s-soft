@@ -84,7 +84,7 @@ const FeaturesSection = () => {
             return (
               <div
                 key={index}
-                className="group text-center p-8 rounded-2xl border border-gray-700 hover:border-gray-600 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700"
+                className="group text-center p-8 rounded-2xl border border-gray-700 hover:border-gray-600 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-gray-800 to-gray-700"
               >
                 {/* Icon */}
                 <div className="mb-6">
@@ -105,22 +105,23 @@ const FeaturesSection = () => {
                 {/* Hover Effect */}
                 <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div
-                    className={`w-12 h-1 mx-auto rounded-full bg-gradient-to-r ${feature.color.includes("blue")
+                    className={`w-12 h-1 mx-auto rounded-full bg-gradient-to-r ${
+                      feature.color.includes("blue")
                         ? "from-blue-400 to-blue-600"
                         : feature.color.includes("purple")
-                          ? "from-purple-400 to-purple-600"
-                          : feature.color.includes("yellow")
-                            ? "from-yellow-400 to-yellow-600"
-                            : feature.color.includes("green")
-                              ? "from-green-400 to-green-600"
-                              : feature.color.includes("cyan")
-                                ? "from-cyan-400 to-cyan-600"
-                                : feature.color.includes("red")
-                                  ? "from-red-400 to-red-600"
-                                  : feature.color.includes("indigo")
-                                    ? "from-indigo-400 to-indigo-600"
-                                    : "from-pink-400 to-pink-600"
-                      }`}
+                        ? "from-purple-400 to-purple-600"
+                        : feature.color.includes("yellow")
+                        ? "from-yellow-400 to-yellow-600"
+                        : feature.color.includes("green")
+                        ? "from-green-400 to-green-600"
+                        : feature.color.includes("cyan")
+                        ? "from-cyan-400 to-cyan-600"
+                        : feature.color.includes("red")
+                        ? "from-red-400 to-red-600"
+                        : feature.color.includes("indigo")
+                        ? "from-indigo-400 to-indigo-600"
+                        : "from-pink-400 to-pink-600"
+                    }`}
                   ></div>
                 </div>
               </div>
@@ -134,7 +135,8 @@ const FeaturesSection = () => {
               Ready to Experience the Difference?
             </h3>
             <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join hundreds of satisfied clients who trust 3S-SOFT for their digital transformation journey.
+              Join hundreds of satisfied clients who trust 3S-SOFT for their
+              digital transformation journey.
             </p>
             <Link
               to={"/contact"}

@@ -24,7 +24,7 @@ const Hero = () => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">
-          Welcome to{" "}
+          Welcome to
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
             3S-SOFT
           </span>
@@ -43,9 +43,6 @@ const Hero = () => {
         </p>
 
         <div className="flex gap-4 mb-14">
-          {/* <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">
-            Explore Our Services →
-          </button> */}
           <Button label={"Explore Our Services"} to={"/services"} />
 
           <Link
@@ -58,11 +55,15 @@ const Hero = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-300">
           <div>
-            <p className="text-3xl font-bold text-white"><CountUp end={500} enableScrollSpy />+</p>
+            <p className="text-3xl font-bold text-white">
+              <CountUp end={500} enableScrollSpy />+
+            </p>
             <p className="text-sm mt-1 text-blue-200">Projects Delivered</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white"><CountUp end={98} enableScrollSpy />%</p>
+            <p className="text-3xl font-bold text-white">
+              <CountUp end={98} enableScrollSpy />%
+            </p>
             <p className="text-sm mt-1 text-blue-200">Client Satisfaction</p>
           </div>
           <div>
@@ -73,7 +74,9 @@ const Hero = () => {
             <p className="text-sm mt-1 text-blue-200">Support Available</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white"><CountUp end={8} enableScrollSpy />+</p>
+            <p className="text-3xl font-bold text-white">
+              <CountUp end={8} enableScrollSpy />+
+            </p>
             <p className="text-sm mt-1 text-blue-200">Years Experience</p>
           </div>
         </div>

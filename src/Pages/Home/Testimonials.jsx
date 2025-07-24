@@ -14,7 +14,6 @@ import { FaQuoteRight } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
-  
   return (
     <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 py-20 px-5">
       <section className="max-w-[1480px] mx-auto">
@@ -39,7 +38,6 @@ const Testimonials = () => {
           modules={[Navigation, Pagination, Autoplay, Keyboard]}
           className="mySwiper max-w-4xl bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 mt-15"
         >
-        
           {testimonialsData.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className="px-15 py-16">
               {/* Quote Icon */}
@@ -74,7 +72,7 @@ const Testimonials = () => {
               </div>
               {/* Project Tag */}
               <div className="mt-6">
-                <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium">
+                <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-400 px-4 py-2 rounded-full text-sm font-medium">
                   {testimonial.project}
                 </span>
               </div>

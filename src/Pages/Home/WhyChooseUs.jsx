@@ -8,7 +8,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { BiTrendingUp } from "react-icons/bi";
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -93,13 +93,14 @@ const WhyChooseUs = () => {
             );
           })}
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-3xl p-12 shadow-xl border border-gray-100 dark:border-gray-700">
+        <div className="bg-gray-800 rounded-3xl p-12 shadow-xl border border-gray-700">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Our Track Record Speaks for Itself
             </h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Numbers don't lie — here's what we've achieved together with our amazing clients.
+              Numbers don't lie — here's what we've achieved together with our
+              amazing clients.
             </p>
           </div>
 
@@ -108,15 +109,21 @@ const WhyChooseUs = () => {
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-2 group-hover:scale-110 transition-transform duration-300">
                 <CountUp end={500} enableScrollSpy />+
               </div>
-              <div className="text-gray-300 font-medium">Projects Completed</div>
-              <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">Across all industries</div>
+              <div className="text-gray-300 font-medium">
+                Projects Completed
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                Across all industries
+              </div>
             </div>
 
             <div className="text-center group">
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500 mb-2 group-hover:scale-110 transition-transform duration-300">
-               <CountUp end={98} enableScrollSpy />%
+                <CountUp end={98} enableScrollSpy />%
               </div>
-              <div className="text-gray-300 font-medium">Client Satisfaction</div>
+              <div className="text-gray-300 font-medium">
+                Client Satisfaction
+              </div>
               <div className="text-sm text-gray-400 mt-1">Average rating</div>
             </div>
 
@@ -134,7 +141,9 @@ const WhyChooseUs = () => {
                 <CountUp end={7} enableScrollSpy />
               </div>
               <div className="text-gray-300 font-medium">Support Available</div>
-              <div className="text-sm text-gray-400 mt-1">Always here for you</div>
+              <div className="text-sm text-gray-400 mt-1">
+                Always here for you
+              </div>
             </div>
           </div>
         </div>

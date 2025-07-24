@@ -121,7 +121,7 @@ const ServicesSection = () => {
     },
   ];
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 py-20 px-5">
+    <div className="bg-gradient-to-br from-gray-900 to-gray-800 transition-colors duration-300 py-20 px-5">
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Our Core Services"} />
@@ -137,7 +137,7 @@ const ServicesSection = () => {
             const IconComponent = service.icon;
             return (
               <Link key={index} to={"/services"}>
-                <div className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden relative">
+                <div className="group bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-700 overflow-hidden relative h-full">
                   {/* Icon Header */}
                   <div className="p-6 pb-0 flex flex-col items-center">
                     <div
@@ -146,7 +146,7 @@ const ServicesSection = () => {
                       <IconComponent className="h-8 w-8 text-white" />
                     </div>
 
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300 text-center">
                       {service.title}
                     </h3>
                   </div>
