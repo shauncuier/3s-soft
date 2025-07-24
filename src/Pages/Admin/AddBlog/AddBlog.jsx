@@ -1,0 +1,112 @@
+import React from "react";
+import SectionLabel from "../../../Components/SectionLabel";
+import axios from "axios";
+import toast from "react-hot-toast";
+import Button from "../../../Components/Button";
+
+const AddBlog = () => {
+  const handleAddBlog = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const author = form.author.value;
+    const title = form.title.value;
+    const date = form.date.value;
+    const imageUrl = form.image.value;
+    const details = form.details.value;
+    const blogData = {
+      author,
+      title,
+      date,
+      imageUrl,
+      details,
+    };
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/blogs`,
+        blogData
+      );
+      toast.success("Blog Added successfully!");
+    } catch (err) {
+      toast.error("Error adding blog:", err.response?.data || err.message);
+    }
+    form.reset();
+  };
+  return (
+    <section className="bg-gray-900 transition-colors duration-300 px-4">
+      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
+        <div className="text-center mb-8">
+          <SectionLabel label={"Add Blog"} />
+        </div>
+        <div className="bg-[#1E2939] border border-gray-400 rounded-2xl px-5 py-10 max-w-4xl mx-auto shadow-lg shadow-blue-200">
+          <form
+            onSubmit={handleAddBlog}
+            className="grid grid-cols-2 gap-5 gap-y-10"
+          >
+            <div className="flex flex-col">
+              <label className="text-sm font-medium text-blue-100 mb-2">
+                Author Name
+              </label>
+              <input
+                type="text"
+                name="author"
+                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-sm font-medium text-blue-100 mb-2">
+                Blog Title
+              </label>
+              <input
+                type="text"
+                name="title"
+                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-sm font-medium text-blue-100 mb-2">
+                Post Date
+              </label>
+              <input
+                type="date"
+                name="date"
+                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-sm font-medium text-blue-100 mb-2">
+                Blog Image URL
+              </label>
+              <input
+                type="text"
+                name="image"
+                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
+              />
+            </div>
+
+            <div className="col-span-2">
+              <label className="text-sm font-medium text-blue-100">
+                Blog Details
+              </label>
+              <textarea
+                rows={6}
+                name="details"
+                className="textarea w-full mt-2 bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
+              ></textarea>
+            </div>
+
+            <div className="col-span-2">
+              <button
+              className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 px-8 py-4 font-semibold flex items-center justify-center gap-2 transition duration-300 cursor-pointer text-lg w-1/2 mx-auto"
+              type="submit"
+            >
+              Add Blog
+            </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AddBlog;

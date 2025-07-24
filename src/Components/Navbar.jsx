@@ -24,6 +24,9 @@ const Navbar = () => {
     <li>
       <NavLink to={'/contact'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Contact Us</NavLink>
     </li>
+    <li>
+      <NavLink to={'/add-blog'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Add Blog</NavLink>
+    </li>
   </>
   return (
     <div className="bg-black/30 backdrop-blur-2xl fixed top-0 w-full z-50 py-2">

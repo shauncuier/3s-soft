@@ -31,6 +31,10 @@ const Blogs = () => {
               />
             </div>
             <div className="px-5 py-5">
+              <div className="flex items-center justify-between text-xs mb-3 text-blue-200">
+                <p>Author: Risan</p>
+                <p>Post Data: 24/07/2025</p>
+              </div>
               <Link to={"/blogs/react-js"} className="">
                 <h2 className="text-xl md:text-2xl text-blue-400">
                   Mastering React: A Beginner’s Guide to Building Dynamic Web
@@ -39,7 +43,15 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
@@ -61,7 +73,15 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
@@ -83,7 +103,15 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
@@ -105,7 +133,15 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
@@ -127,7 +163,15 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
@@ -149,7 +193,15 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
@@ -171,7 +223,15 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
@@ -193,11 +253,18 @@ const Blogs = () => {
               </Link>
               <p className="mt-4">
                 Start your journey into the powerful world of React.js with this
-                comprehensive and beginner-friendly guide. Start your journey into the powerful world of React.js with this comprehensive and beginner-friendly guide. <Link to={'/blogs/react-js'} className="text-blue-500 underline">Read More</Link>
+                comprehensive and beginner-friendly guide. Start your journey
+                into the powerful world of React.js with this comprehensive and
+                beginner-friendly guide.{" "}
+                <Link
+                  to={"/blogs/react-js"}
+                  className="text-blue-500 underline"
+                >
+                  Read More
+                </Link>
               </p>
             </div>
           </div>
-          
         </div>
       </div>
     </section>
