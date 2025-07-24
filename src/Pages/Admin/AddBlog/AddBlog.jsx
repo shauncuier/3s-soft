@@ -76,17 +76,9 @@ const AddBlog = () => {
 
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
-      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-34 pb-20">
-        <div className="text-center mb-8">
+      <div className="max-w-[1480px] min-h-screen mx-auto p-10">
+        <div className="text-center">
           <SectionLabel label={"Add Blog"} />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Add New Blog Post
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Create and manage blog content for your website. Use the form below
-            to add a new post, update existing content, and keep your readers
-            engaged with fresh insights.
-          </p>
         </div>
         <div className="bg-[#1E2939] border border-gray-400 rounded-2xl px-5 py-10 max-w-4xl mx-auto shadow-md shadow-blue-300">
           <form
@@ -100,6 +92,7 @@ const AddBlog = () => {
               <input
                 type="text"
                 name="title"
+                placeholder="Blog Title"
                 required
                 className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               />
@@ -107,22 +100,24 @@ const AddBlog = () => {
 
             <div className="flex flex-col">
               <label className="text-sm font-medium italic text-blue-100 mb-2">
-                Blog Image URL
+                Blog Image
               </label>
               <input
                 type="text"
                 name="image"
+                placeholder="Blog Image URL"
                 required
                 className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               />
             </div>
             <div className="flex flex-col">
               <label className="text-sm font-medium italic text-blue-100 mb-2">
-                Author Name
+                Author
               </label>
               <input
                 type="text"
                 name="author"
+                placeholder="Author Name"
                 required
                 className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               />

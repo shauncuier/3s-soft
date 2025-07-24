@@ -12,6 +12,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddBlog from "../Pages/Admin/AddBlog/AddBlog";
 import BlogDetails from "../Pages/Blogs/BlogDetails/BlogDetails";
+import DashboardLayout from "../Layout/DashboardLayout";
 
 let router = createBrowserRouter([
   {
@@ -59,11 +60,18 @@ let router = createBrowserRouter([
         path: "/cookies",
         Component: CookiePolicy,
       },
-      {
-        path: "/add-blog",
-        Component: AddBlog,
-      },
     ],
+  },
+  {
+    path: "/dashboard",
+    Component: DashboardLayout,
+    children: [
+      {
+        path: "add-blog",
+        Component: AddBlog
+      }
+
+    ]
   },
   {
     path: "*",
