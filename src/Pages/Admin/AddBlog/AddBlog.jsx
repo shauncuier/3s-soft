@@ -80,6 +80,17 @@ const AddBlog = () => {
             onSubmit={handleAddBlog}
             className="grid grid-cols-2 gap-5 gap-y-10"
           >
+            <div className="flex flex-col col-span-2">
+              <label className="text-sm font-medium italic text-blue-100 mb-2">
+                Blog Title
+              </label>
+              <input
+                type="text"
+                name="title"
+                required
+                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
+              />
+            </div>
             <div className="flex flex-col">
               <label className="text-sm font-medium italic text-blue-100 mb-2">
                 Author Name
@@ -93,11 +104,11 @@ const AddBlog = () => {
             </div>
             <div className="flex flex-col">
               <label className="text-sm font-medium italic text-blue-100 mb-2">
-                Blog Title
+                Blog Image URL
               </label>
               <input
                 type="text"
-                name="title"
+                name="image"
                 required
                 className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               />
@@ -109,17 +120,6 @@ const AddBlog = () => {
               <input
                 type="date"
                 name="date"
-                className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-sm font-medium italic text-blue-100 mb-2">
-                Blog Image URL
-              </label>
-              <input
-                type="text"
-                name="image"
-                required
                 className="input w-full bg-black/30 outline-none focus:outline-0 focus:border-blue-300"
               />
             </div>
