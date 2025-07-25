@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import SectionLabel from "../../Components/SectionLabel";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { MdOutlineModeEdit, MdOutlineDateRange } from "react-icons/md";
+import { MdOutlineDateRange } from "react-icons/md";
+import { FaUserEdit, FaCalendarAlt } from "react-icons/fa";
 import Loading from "../../Components/Loading";
 
 const Blogs = () => {
@@ -58,10 +59,10 @@ const Blogs = () => {
                   <div className="px-5 py-5">
                     <div className="flex items-center justify-between text-xs mt-3 bg-blue-400/40 p-2 font-semibold rounded mb-3">
                       <p className="flex items-center gap-1">
-                        <MdOutlineModeEdit /> {blog.author}
+                        <FaUserEdit /> {blog.author}
                       </p>
                       <p className="flex items-center gap-1">
-                        <MdOutlineDateRange /> {blog.date}
+                        <FaCalendarAlt  /> {blog.date}
                       </p>
                     </div>
 
