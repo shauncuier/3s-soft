@@ -75,7 +75,7 @@ const AddBlog = () => {
   };
 
   return (
-    <section className="bg-gray-900 transition-colors duration-300 px-4">
+    <section className="bg-[#020817] transition-colors duration-300 px-4">
       <div className="max-w-[1480px] min-h-screen mx-auto p-10">
         <div className="text-center">
           <SectionLabel label={"Add Blog"} />

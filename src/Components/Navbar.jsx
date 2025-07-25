@@ -25,7 +25,7 @@ const Navbar = () => {
       <NavLink to={'/contact'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Contact Us</NavLink>
     </li>
     <li>
-      <NavLink to={'/dashboard'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Dashboard</NavLink>
+      <NavLink to={'/dashboard/profile'} className={({ isActive }) => `font-medium ${isActive && 'text-blue-400'} hover:text-blue-400 transition-all duration-300`}>Dashboard</NavLink>
     </li>
   </>
   return (

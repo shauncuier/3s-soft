@@ -53,15 +53,15 @@ const Blogs = () => {
                     <img
                       src={blog.imageUrl}
                       alt="Blog Image"
-                      className="w-full h-full object-right"
+                      className="w-full h-[250px] object-cover"
                     />
                   </div>
                   <div className="px-5 py-5">
-                    <div className="flex items-center justify-between text-xs mt-3 bg-blue-400/40 p-2 font-semibold rounded mb-3">
-                      <p className="flex items-center gap-1">
+                    <div className="flex items-center justify-between text-xs mt-3 font-semibold mb-3">
+                      <p className="flex items-center gap-1 bg-blue-400/40 p-2 rounded">
                         <FaUserEdit /> {blog.author}
                       </p>
-                      <p className="flex items-center gap-1">
+                      <p className="flex items-center gap-1 bg-blue-400/40 p-2 rounded">
                         <FaCalendarAlt  /> {blog.date}
                       </p>
                     </div>

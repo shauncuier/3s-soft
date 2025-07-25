@@ -78,7 +78,7 @@ let router = createBrowserRouter([
     Component: DashboardLayout,
     children: [
       {
-        index: true,
+        path: "/dashboard/profile",
         Component: DashboardProfile,
       },
       {
