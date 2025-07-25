@@ -43,6 +43,7 @@ const Footer = () => {
                 alt="Footer Logo"
                 className="rounded-full inline-block"
                 width={"60px"}
+                height={"60px"}
               />
             </Link>
 

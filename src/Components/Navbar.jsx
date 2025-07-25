@@ -122,6 +122,7 @@ const Navbar = () => {
               alt="Navbar Logo"
               className="rounded-full"
               width={"48px"}
+              height={"48px"}
             />
           </Link>
         </div>
