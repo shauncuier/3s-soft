@@ -9,7 +9,7 @@ import Lottie from "lottie-react";
 const Login = () => {
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
-      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
+      <div className="max-w-[1480px] mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         <div className="text-center mb-5">
           <SectionLabel label={"Login in 3s-soft"} />
         </div>
