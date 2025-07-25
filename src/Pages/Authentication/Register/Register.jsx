@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SectionLabel from "../../../Components/SectionLabel";
-// import loginLottie from "../../../assets/lottie-files/login-lottie.json";
-// import Lottie from "lottie-react";
+import logo from "../../../assets/logo.jpg";
 import { Link } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import registerImage from "../../../assets/register-image.jpg";
 
 const Register = () => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -20,7 +20,9 @@ const Register = () => {
     setUploading(true);
     try {
       const res = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
+        `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMGBB_API_KEY
+        }`,
         formData
       );
       const url = res.data.data.display_url;
@@ -39,38 +41,70 @@ const Register = () => {
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
       <div className="max-w-[1480px] min-h-screen mx-auto pt-30 pb-20">
-        <div className="text-center mb-8">
+        <div className="text-center mb-5">
           <SectionLabel label={"Create Your Account in 3s-soft"} />
         </div>
-        <div className="max-w-4xl mx-auto bg-blue-900/30 border shadow-sm shadow-blue-200 rounded-2xl p-10">
+        <div className="max-w-4xl mx-auto bg-blue-900/30 border shadow-sm shadow-blue-200 rounded-2xl overflow-hidden">
           <div className="flex">
-            <div className="flex-1 flex items-center justify-center">
-              {/* <Lottie animationData={loginLottie} loop={true} /> */}
+            <div className="flex-1 hidden sm:flex items-center justify-center">
+              <img
+                src={registerImage}
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="divider lg:divider-horizontal"></div>
-            <div className="flex-1">
+            <div className="flex-1 py-10 px-5">
+              <div className="mb-5">
+                <div className="flex gap-2 items-center mb-5">
+                  <img src={logo} alt="" className="w-8 rounded-full" />
+                  <h3 className="text-lg font-medium">3S-SOFT</h3>
+                </div>
+                <h4 className="text-3xl font-bold">Welcome 3S-SOFT</h4>
+                <p className="mt-1 text-sm text-gray-400">
+                  Please enter your details . . .
+                </p>
+              </div>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label className="text-sm font-semibold">Name</label>
-                  <input type="text" className="input mt-1 bg-white/20 w-full" placeholder="Full Name" required />
+                  <input
+                    type="text"
+                    className="input mt-1 bg-white/20 w-full"
+                    placeholder="Full Name"
+                    required
+                  />
                 </div>
                 <div className="mb-3">
                   <label className="text-sm font-semibold">Email</label>
-                  <input type="email" className="input mt-1 bg-white/20 w-full" placeholder="Email" required />
+                  <input
+                    type="email"
+                    className="input mt-1 bg-white/20 w-full"
+                    placeholder="Email"
+                    required
+                  />
                 </div>
                 <div className="mb-3">
                   <label className="text-sm font-semibold">Password</label>
-                  <input type="password" className="input mt-1 bg-white/20 w-full" placeholder="Password" required />
+                  <input
+                    type="password"
+                    className="input mt-1 bg-white/20 w-full"
+                    placeholder="Password"
+                    required
+                  />
                 </div>
                 <div className="mb-8">
-                  <label className="text-sm font-semibold">Profile Picture</label>
+                  <label className="text-sm font-semibold">
+                    Profile Picture
+                  </label>
                   <input
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
                     className="file-input mt-1 bg-white/20 w-full"
                   />
-                  {uploading && <p className="text-sm text-blue-400 mt-2">Uploading...</p>}
+                  {uploading && (
+                    <p className="text-sm text-blue-400 mt-2">Uploading...</p>
+                  )}
                   {imageUrl && (
                     <img
                       src={imageUrl}
@@ -90,15 +124,15 @@ const Register = () => {
               </form>
               <div className="divider mb-0">OR</div>
               <SocialLogin />
+              <div className="flex items-center justify-center mt-5">
+                <p className="text-sm">
+                  Already have an Account?{" "}
+                  <Link to={"/login"} className="font-medium text-blue-400">
+                    Login
+                  </Link>
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center mt-8">
-            <p className="text-sm">
-              Already have an Account?{" "}
-              <Link to={"/login"} className="font-medium text-blue-400">
-                Login
-              </Link>
-            </p>
           </div>
         </div>
       </div>
