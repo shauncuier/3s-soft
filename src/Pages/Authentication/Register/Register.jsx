@@ -44,7 +44,7 @@ const Register = () => {
         <div className="text-center mb-5">
           <SectionLabel label={"Create Your Account in 3s-soft"} />
         </div>
-        <div className="max-w-4xl mx-auto bg-blue-900/30 border shadow-sm shadow-blue-200 rounded-2xl overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-black/20 border shadow-sm shadow-blue-200 rounded-2xl overflow-hidden">
           <div className="flex">
             <div className="flex-1 hidden sm:flex items-center justify-center">
               <img
@@ -56,7 +56,7 @@ const Register = () => {
             <div className="flex-1 py-10 px-5">
               <div className="mb-5">
                 <div className="flex gap-2 items-center mb-5">
-                  <img src={logo} alt="" className="w-8 rounded-full" />
+                  <img src={logo} alt="" className="max-w-8 rounded-full" />
                   <h3 className="text-lg font-medium">3S-SOFT</h3>
                 </div>
                 <h4 className="text-3xl font-bold">Welcome 3S-SOFT</h4>

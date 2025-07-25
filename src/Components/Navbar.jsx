@@ -120,7 +120,8 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Navbar Logo"
-              className="w-10 md:w-12 rounded-full"
+              className="rounded-full"
+              width={"48px"}
             />
           </Link>
         </div>

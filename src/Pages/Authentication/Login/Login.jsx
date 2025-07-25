@@ -3,12 +3,7 @@ import SectionLabel from "../../../Components/SectionLabel";
 import logo from "../../../assets/logo.jpg";
 import { Link } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
-<<<<<<< HEAD
 import loginImage from "../../../assets/login-image.jpg";
-=======
-// import loginImage from "../../../assets/gif/Animation for Login Page.gif";
-// import Lottie from "lottie-react";
->>>>>>> 367ec0189af55bd73436167d97d366f3051cfaab
 
 const Login = () => {
   return (
@@ -20,19 +15,17 @@ const Login = () => {
         <div className="max-w-3xl mx-auto bg-black/20 border shadow-sm shadow-blue-200 rounded-2xl overflow-hidden">
           <div className="flex flex-col sm:flex-row">
             <div className="flex-1 hidden sm:flex items-center justify-center">
-              {/* <Lottie animationData={loginImage} loop={true} className="" /> */}
-              {/* <img
+              <img
                 src={loginImage}
                 alt=""
                 className="w-full h-full object-cover"
-              /> */}
+              />
               
             </div>
-            {/* <div className="divider sm:divider-horizontal m-0"></div> */}
             <div className="flex-1 py-10 px-5">
               <div className="mb-5">
                 <div className="flex gap-2 items-center mb-5">
-                  <img src={logo} alt="" className="w-8 rounded-full" />
+                  <img src={logo} alt="" className="max-w-8 rounded-full" />
                   <h3 className="text-lg font-medium">3S-SOFT</h3>
                 </div>
                 <h4 className="text-3xl font-bold">Welcome Back</h4>
