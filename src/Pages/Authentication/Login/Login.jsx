@@ -3,8 +3,8 @@ import SectionLabel from "../../../Components/SectionLabel";
 import logo from "../../../assets/logo.jpg";
 import { Link } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import loginImage from "../../../assets/lottie-files/Animation-for-Login-Page.json";
-import Lottie from "lottie-react";
+// import loginImage from "../../../assets/lottie-files/Animation-for-Login-Page.json";
+// import Lottie from "lottie-react";
 
 const Login = () => {
   return (
@@ -16,7 +16,7 @@ const Login = () => {
         <div className="max-w-3xl mx-auto bg-black/20 border shadow-sm shadow-blue-200 rounded-2xl overflow-hidden">
           <div className="flex flex-col sm:flex-row">
             <div className="flex-1 hidden sm:flex items-center justify-center py-10 ">
-              <Lottie animationData={loginImage} loop={true} className="" />
+              {/* <Lottie animationData={loginImage} loop={true} className="" /> */}
               {/* <img
                 src={loginImage}
                 alt=""

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SectionLabel from "../../../Components/SectionLabel";
-import loginLottie from "../../../assets/lottie-files/login-lottie.json";
-import Lottie from "lottie-react";
+// import loginLottie from "../../../assets/lottie-files/login-lottie.json";
+// import Lottie from "lottie-react";
 import { Link } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
@@ -45,7 +45,7 @@ const Register = () => {
         <div className="max-w-4xl mx-auto bg-blue-900/30 border shadow-sm shadow-blue-200 rounded-2xl p-10">
           <div className="flex">
             <div className="flex-1 flex items-center justify-center">
-              <Lottie animationData={loginLottie} loop={true} />
+              {/* <Lottie animationData={loginLottie} loop={true} /> */}
             </div>
             <div className="divider lg:divider-horizontal"></div>
             <div className="flex-1">
