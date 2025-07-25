@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { AiOutlineBars } from "react-icons/ai";
+import { MdNoteAdd } from "react-icons/md";
+import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.jpg";
 
@@ -34,9 +36,13 @@ const DashboardSidebar = () => {
       >
         <div>
           {/* Logo - Desktop */}
-          <div className="w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-gray-800 mx-auto">
+          <div className="w-full hidden md:flex justify-center items-center ">
             <Link to="/">
-              <img src={logo} alt="logo" className="w-14 h-14 rounded-full" />
+              <img
+                src={logo}
+                alt="logo"
+                className="w-14 h-14 rounded-full shadow-md shadow-blue-200"
+              />
             </Link>
           </div>
 
@@ -53,38 +59,27 @@ const DashboardSidebar = () => {
 
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
-            <nav className="flex flex-col gap-4 bg-gray-500 px-2 py-5">
+            <nav className="flex flex-col gap-4 px-2 py-5">
+              <NavLink
+                to="/dashboard"
+                className={
+                  "p-2 font-medium rounded-md border border-gray-400 flex items-center gap-2"
+                }
+              >
+                <FaUserCircle />
+                <span>Profile</span>
+              </NavLink>
               <NavLink
                 to="/dashboard/add-blog"
                 className={({ isActive }) =>
-                  `p-2 font-medium text-center rounded-md border border-gray-400 ${isActive && "bg-gradient-to-r from-blue-500 to-blue-700 text-white"}`
+                  `p-2 font-medium rounded-md border border-gray-400 flex items-center gap-2 ${
+                    isActive &&
+                    "bg-gradient-to-r from-blue-500 to-blue-700 text-white"
+                  }`
                 }
               >
-                Add Blog
-              </NavLink>
-              <NavLink
-                to="/dashboard/add-adsfblog"
-                className={({ isActive }) =>
-                  `p-2 font-medium text-center rounded-md border border-gray-400 ${isActive && "bg-blue-500 text-white"}`
-                }
-              >
-                For Test
-              </NavLink>
-              <NavLink
-                to="/dashboard/add-adsfblog"
-                className={({ isActive }) =>
-                  `p-2 font-medium text-center rounded-md border border-gray-400 ${isActive && "bg-blue-500 text-white"}`
-                }
-              >
-                For Test
-              </NavLink>
-              <NavLink
-                to="/dashboard/add-adsfblog"
-                className={({ isActive }) =>
-                  `p-2 font-medium text-center rounded-md border border-gray-400 ${isActive && "bg-blue-500 text-white"}`
-                }
-              >
-                For Test
+                <MdNoteAdd />
+                <span>Add Blog</span>
               </NavLink>
             </nav>
           </div>

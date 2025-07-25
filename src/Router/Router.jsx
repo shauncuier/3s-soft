@@ -13,6 +13,9 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddBlog from "../Pages/Admin/AddBlog/AddBlog";
 import BlogDetails from "../Pages/Blogs/BlogDetails/BlogDetails";
 import DashboardLayout from "../Layout/DashboardLayout";
+import DashboardProfile from "../Pages/Admin/DashboardProfile/DashboardProfile";
+import Login from "../Pages/Authentication/Login/Login";
+import Register from "../Pages/Authentication/Register/Register";
 
 let router = createBrowserRouter([
   {
@@ -60,6 +63,14 @@ let router = createBrowserRouter([
         path: "/cookies",
         Component: CookiePolicy,
       },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
     ],
   },
   {
@@ -67,11 +78,14 @@ let router = createBrowserRouter([
     Component: DashboardLayout,
     children: [
       {
+        index: true,
+        Component: DashboardProfile,
+      },
+      {
         path: "add-blog",
-        Component: AddBlog
-      }
-
-    ]
+        Component: AddBlog,
+      },
+    ],
   },
   {
     path: "*",

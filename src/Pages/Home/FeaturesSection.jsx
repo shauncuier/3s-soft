@@ -20,7 +20,7 @@ const features = [
     title: "Light & Dark Themes",
     description:
       "Beautiful design systems with both light and dark mode support for user preference.",
-    color: "text-purple-500",
+    color: "text-purple-400",
   },
   {
     icon: LuZap,
@@ -48,14 +48,14 @@ const features = [
     title: "Secure & Reliable",
     description:
       "Enterprise-level security measures and robust architecture for peace of mind.",
-    color: "text-rose-500",
+    color: "text-rose-400",
   },
   {
     icon: FaRegClock,
     title: "24/7 Support",
     description:
       "Round-the-clock technical support and maintenance for uninterrupted operations.",
-    color: "text-indigo-500",
+    color: "text-indigo-400",
   },
   {
     icon: FaAward,

@@ -1,0 +1,68 @@
+import React from "react";
+import SectionLabel from "../../../Components/SectionLabel";
+import loginLottie from "../../../assets/lottie-files/login-lottie.json";
+import Lottie from "lottie-react";
+import { Link } from "react-router";
+import SocialLogin from "../SocialLogin/SocialLogin";
+
+const Login = () => {
+  return (
+    <section className="bg-gray-900 transition-colors duration-300 px-4">
+      <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
+        <div className="text-center mb-10">
+          <SectionLabel label={"Login in 3s-soft"} />
+        </div>
+        <div className="max-w-3xl mx-auto bg-blue-900/30 border shadow-sm shadow-blue-200 rounded-2xl px-10 py-10">
+          <div className="flex">
+            <div className="flex-1 flex items-center justify-center">
+              <Lottie animationData={loginLottie} loop={true} />
+            </div>
+            <div className="divider lg:divider-horizontal"></div>
+            <div className="flex-1">
+              <form className="">
+                <div className="mb-3">
+                  <label className="text-sm font-semibold">Email</label>
+                  <input
+                    type="email"
+                    className="input focus:border-none mt-1 bg-white/20"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div className="mb-5">
+                  <label className="text-sm font-semibold">Password</label>
+                  <input
+                    type="password"
+                    className="input focus:border-none mt-1 bg-white/20"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div className="flex items-center justify-center">
+                  <button
+                    type="submit"
+                    className="text-sm font-medium py-4 w-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-sm hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105 cursor-pointer"
+                  >
+                    Login
+                  </button>
+                </div>
+              </form>
+              <div className="divider mb-0">OR</div>
+              <SocialLogin />
+            </div>
+          </div>
+          <div className="flex items-center justify-center mt-8">
+            <p className="text-sm">
+              Don't have an Account?{" "}
+              <Link to={"/register"} className="font-medium text-blue-400">
+                Register
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Login;

@@ -52,9 +52,11 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="navbar-end">
-          {/* <Button label={"Contact Us"} to={'/contact'} /> */}
-          <Link to={'/contact'} className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105 ">Get Started</Link>
+        <div className="navbar-end gap-2">
+          <Link to={'/contact'} className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105">Get Started</Link>
+          <Link to={"/Login"} className="text-sm font-medium px-5 py-2 border rounded-full transition-all duration-300 transform hover:scale-105">
+            Login
+          </Link>
         </div>
       </nav>
       <ProgressBar />

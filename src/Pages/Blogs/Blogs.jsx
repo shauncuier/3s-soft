@@ -3,6 +3,7 @@ import SectionLabel from "../../Components/SectionLabel";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { MdOutlineModeEdit, MdOutlineDateRange } from "react-icons/md";
+import Loading from "../../Components/Loading";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -20,6 +21,8 @@ const Blogs = () => {
     fetchBlogs();
   }, []);
 
+  
+
   return (
     <>
       <section className="bg-gray-900 transition-colors duration-300 px-4">
@@ -36,6 +39,7 @@ const Blogs = () => {
               of your personal and professional growth.
             </p>
           </div>
+          {blogs.length === 0 && <div className="flex items-center justify-center"><Loading /></div>}
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {/* Single Blog */}
             {blogs.map((blog) => (

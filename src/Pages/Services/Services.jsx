@@ -121,7 +121,7 @@ const Services = () => {
   ];
 
   return (
-    <>
+
     <section
       className="bg-gray-900 transition-colors duration-300 px-4"
     >
@@ -196,7 +196,6 @@ const Services = () => {
         </div>
       </div>
     </section>
-    </>
   );
 };
 
