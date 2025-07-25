@@ -29,10 +29,10 @@
   {
     "id": 3,
     "name": "Rakibul Hasan",
-    "position": "Senior Backend Developer",
-    "bio": "Experienced backend developer with a focus on Node.js and express.js, building scalable server-side applications. data management, and API development.",
+    "position": "Senior Front End Developer",
+    "bio": "Experienced Front-End Developer with a thirst for staying updated on the latest trends in web development.",
     "image": "/team-profile/Rakibul_Hasan.png",
-    "skills": ["Node Js", "Express Js", "MongoDB", "API Development"],
+    "skills": ["React", "Node.js", "MongoDB", "Next.js", "Tailwind CSS", "Figma", "Firebase"],
     "social": {
       "linkedin": "https://www.linkedin.com/in/mrakibulhasan/",
       "github": "https://github.com/rhakib",
