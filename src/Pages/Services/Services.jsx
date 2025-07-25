@@ -129,7 +129,7 @@ const Services = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <SectionLabel label={"Our Core Services"} />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             High-Quality Digital Solutions
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
@@ -145,7 +145,7 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden relative"
+                className="group bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-700 overflow-hidden relative"
               >
                 {/* Icon Header */}
                 <div className="p-6 pb-0">
@@ -155,11 +155,11 @@ const Services = () => {
                     <IconComponent className="h-8 w-8 text-white" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  <p className="text-gray-300 leading-relaxed mb-4">
                     {service.description}
                   </p>
                 </div>
@@ -170,7 +170,7 @@ const Services = () => {
                     {service.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
-                        className="flex items-center text-sm text-gray-500 dark:text-gray-400"
+                        className="flex items-center text-sm text-gray-400"
                       >
                         <div
                           className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mr-2`}

@@ -31,10 +31,10 @@ const Blogs = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <SectionLabel label={"Read Our Blogs"} />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Smart Reads for Smarter Growth
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
               Discover insightful articles from our expert team. Learn practical
               tips, explore fresh ideas, and stay inspired through every stage
               of your personal and professional growth.

@@ -15,7 +15,7 @@ import { FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 py-20 px-5">
+    <div className="bg-gradient-to-br from-gray-900 to-gray-800 transition-colors duration-300 py-20 px-5">
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Client Success Stories"} />
@@ -72,7 +72,7 @@ const Testimonials = () => {
               </div>
               {/* Project Tag */}
               <div className="mt-6">
-                <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-400 px-4 py-2 rounded-full text-sm font-medium">
+                <span className="inline-block bg-blue-900/30 text-blue-400 px-4 py-2 rounded-full text-sm font-medium">
                   {testimonial.project}
                 </span>
               </div>

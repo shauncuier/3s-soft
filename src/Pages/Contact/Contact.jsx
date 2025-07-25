@@ -70,7 +70,7 @@ const Contact = () => {
   };
   return (
     <>
-      <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse"></div>
@@ -85,7 +85,7 @@ const Contact = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Start Your Project?
             </h2>
-            <p className="text-lg md:text-xl text-blue-100 dark:text-blue-200 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
               Whether you're looking to build a website, launch a product, grow
               on social media, or scale your operations — 3S-SOFT is the partner
               you can trust.
@@ -99,7 +99,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-bold text-white mb-6">
                   Get in Touch
                 </h3>
-                <p className="text-blue-200 dark:text-blue-300 mb-8">
+                <p className="text-blue-300 mb-8">
                   Ready to transform your digital presence? Let's discuss your
                   project and discover how we can help you achieve your goals.
                 </p>
@@ -169,7 +169,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 dark:border-white/10">
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
               {!isSubmitted ? (
                 <form
                   ref={formRef}
@@ -309,11 +309,11 @@ const Contact = () => {
 
           {/* Bottom CTA */}
           <div className="text-center mt-16">
-            <div className="bg-white/5 dark:bg-white/3 backdrop-blur-sm rounded-3xl p-8 border border-white/10 dark:border-white/5">
+            <div className="bg-white/3 backdrop-blur-sm rounded-3xl p-8 border border-white/5">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Let's Build Your Digital Future — Today
               </h3>
-              <p className="text-blue-200 dark:text-blue-300 mb-6">
+              <p className="text-blue-300 mb-6">
                 Ready to take your business to the next level? We're here to
                 help you succeed.
               </p>

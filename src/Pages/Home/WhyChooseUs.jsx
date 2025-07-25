@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
     },
   ];
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 py-20 px-5">
+    <div className="bg-gradient-to-br from-gray-900 to-gray-800 transition-colors duration-300 py-20 px-5">
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Why Clients Choose 3S-SOFT"} />
@@ -80,7 +80,7 @@ const WhyChooseUs = () => {
                   {reason.title}
                 </h3>
 
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   {reason.description}
                 </p>
 
@@ -95,7 +95,7 @@ const WhyChooseUs = () => {
         </div>
         <div className="bg-gray-800 rounded-3xl p-12 shadow-xl border border-gray-700">
           <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Our Track Record Speaks for Itself
             </h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
@@ -112,7 +112,7 @@ const WhyChooseUs = () => {
               <div className="text-gray-300 font-medium">
                 Projects Completed
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <div className="text-sm text-gray-400 mt-1">
                 Across all industries
               </div>
             </div>

@@ -31,7 +31,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black dark:from-black dark:to-gray-900 text-white transition-colors duration-300">
+    <footer className="bg-gradient-to-br from-black to-gray-900 text-white transition-colors duration-300">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -103,7 +103,7 @@ const Footer = () => {
               <li>
                 <Link
                   to={"/services"}
-                  className="text-blue-300 hover:text-blue-300 dark:hover:text-blue-200 transition-colors duration-300 text-sm font-medium"
+                  className="text-blue-300 hover:text-blue-200 transition-colors duration-300 text-sm font-medium"
                 >
                   View All Services →
                 </Link>
@@ -198,7 +198,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800 dark:border-gray-700">
+      <div className="border-t border-gray-700">
         <div className="container mx-auto px-4 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
