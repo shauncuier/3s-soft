@@ -61,7 +61,7 @@ const DashboardSidebar = () => {
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav className="flex flex-col gap-4 px-2 py-5">
               <NavLink
-                to="/dashboard"
+                to="/dashboard/profile"
                 className={({ isActive }) =>
                   `p-2 font-medium rounded-lg flex items-center gap-2 hover:bg-white/20 ${
                     isActive && "bg-white/20"
