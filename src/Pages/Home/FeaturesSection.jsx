@@ -72,8 +72,8 @@ const FeaturesSection = () => {
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Designed With Users in Mind"} />
-          <h2 className="text-5xl font-bold">Why Our Solutions Stand Out</h2>
-          <p className="text-xl w-1/2 mx-auto mt-5 text-gray-300">
+          <h2 className="text-4xl sm:text-5xl font-bold">Why Our Solutions Stand Out</h2>
+          <p className="text-xl md:w-3/4 lg:w-1/2 mx-auto mt-5 text-gray-300">
             We care about every detail — and it shows in our beautiful UI/UX
             designs. Our websites and apps are built with excellence in mind.
           </p>

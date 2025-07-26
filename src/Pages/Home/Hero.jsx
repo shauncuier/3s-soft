@@ -42,7 +42,7 @@ const Hero = () => {
           integrity, and impact.
         </p>
 
-        <div className="flex gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row gap-4 mb-14">
           <Button label={"Explore Our Services"} to={"/services"} />
 
           <Link

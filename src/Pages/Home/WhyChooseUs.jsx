@@ -54,8 +54,8 @@ const WhyChooseUs = () => {
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Why Clients Choose 3S-SOFT"} />
-          <h2 className="text-5xl font-bold">Your Trusted Digital Partner</h2>
-          <p className="text-xl w-1/2 mx-auto mt-5 text-gray-300">
+          <h2 className="text-4xl sm:text-5xl font-bold">Your Trusted Digital Partner</h2>
+          <p className="text-xl md:w-3/4 lg:w-1/2 mx-auto mt-5 text-gray-300">
             We're more than just a service provider — we're your strategic
             partner in digital success. Here's why businesses choose 3S-SOFT for
             their growth journey.

@@ -5,10 +5,8 @@ import SectionLabel from "../../Components/SectionLabel";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 // import required modules
 import { Navigation, Pagination, Autoplay, Keyboard } from "swiper/modules";
-
 import testimonialsData from "../../data/testimonials.json";
 import { FaQuoteRight } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
@@ -19,8 +17,8 @@ const Testimonials = () => {
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Client Success Stories"} />
-          <h2 className="text-5xl font-bold">What Our Clients Say About Us</h2>
-          <p className="text-xl w-1/2 mx-auto mt-5 text-gray-300">
+          <h2 className="text-4xl sm:text-5xl font-bold">What Our Clients Say About Us</h2>
+          <p className="text-xl md:w-3/4 lg:w-1/2 mx-auto mt-5 text-gray-300">
             Don't just take our word for it. Here's what our satisfied clients
             have to say about their experience working with 3S-SOFT.
           </p>
