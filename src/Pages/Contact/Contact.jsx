@@ -70,7 +70,7 @@ const Contact = () => {
   };
   return (
     <>
-      <section className="bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden px-4">
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse"></div>

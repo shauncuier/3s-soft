@@ -61,7 +61,7 @@ const AboutUs = () => {
   ];
   return (
     <>
-      <section className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-5">
+      <section className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-4">
         <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Header */}
           <div className="text-center">
