@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import SectionLabel from "../../../Components/SectionLabel";
 import logo from "../../../assets/logo.jpg";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import loginImage from "../../../assets/login-image.jpg";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+      .then(async (result) => {
+        const user = result.user;
+        navigate(`${location.state ? location.state : "/"}`);
+        toast.success(
+          `Your Are LoggedIn Successfully | Welcome ${user.displayName}`
+        );
+        // send/save user info in database
+      })
+      .catch((err) => {
+        const msg = err?.message || "Login failed due to unknown error";
+        toast.error(msg);
+      });
+  };
+
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
       <div className="max-w-[1480px] mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
@@ -20,7 +47,6 @@ const Login = () => {
                 alt=""
                 className="w-full h-full object-cover"
               />
-              
             </div>
             <div className="flex-1 py-10 px-5">
               <div className="mb-5">
@@ -29,9 +55,11 @@ const Login = () => {
                   <h3 className="text-lg font-medium">3S-SOFT</h3>
                 </div>
                 <h4 className="text-3xl font-bold">Welcome Back</h4>
-                <p className="mt-1 text-sm text-gray-400">Please enter your details . . .</p>
+                <p className="mt-1 text-sm text-gray-400">
+                  Please enter your details . . .
+                </p>
               </div>
-              <form className="">
+              <form className="" onSubmit={handleLogin}>
                 <div className="mb-3">
                   <label className="text-sm font-semibold">Email</label>
                   <input

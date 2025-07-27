@@ -16,6 +16,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardProfile from "../Pages/Admin/DashboardProfile/DashboardProfile";
 import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 let router = createBrowserRouter([
   {
@@ -83,7 +84,11 @@ let router = createBrowserRouter([
       },
       {
         path: "add-blog",
-        Component: AddBlog,
+        element: (
+          <PrivateRoute>
+            <AddBlog></AddBlog>
+          </PrivateRoute>
+        ),
       },
     ],
   },

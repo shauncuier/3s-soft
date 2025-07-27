@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const SocialLogin = () => {
+  const { googleLogin } = useContext(AuthContext);
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(async (result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
     <div className="flex items-center justify-center">
-      
-      <button className="btn bg-white text-black border-[#e5e5e5] mt-5 w-3/4">
+      <button onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5] mt-5 w-3/4">
         <FcGoogle size={20} />
         Login with Google
       </button>
