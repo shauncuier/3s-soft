@@ -79,18 +79,7 @@ const Navbar = () => {
           Contact Us
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to={"/dashboard/profile"}
-          className={({ isActive }) =>
-            `font-medium ${
-              isActive && "text-blue-400"
-            } hover:text-blue-400 transition-all duration-300`
-          }
-        >
-          Dashboard
-        </NavLink>
-      </li>
+      
     </>
   );
   return (
@@ -106,14 +95,6 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-2 shadow "
             >
               {links}
-              <li className="inline-block sm:hidden">
-                <Link
-                  to={"/Login"}
-                  className="text-sm font-medium px-5 py-2 border rounded-full transition-all duration-300 transform hover:scale-105 mt-3 flex items-center justify-center"
-                >
-                  Login
-                </Link>
-              </li>
             </ul>
           </div>
           <Link to="/" className="text-2xl font-bold flex items-center">
@@ -135,12 +116,6 @@ const Navbar = () => {
             className="text-sm font-medium py-2 px-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transition duration-300 transform hover:scale-105"
           >
             Get Started
-          </Link>
-          <Link
-            to={"/Login"}
-            className="text-sm font-medium px-5 py-2 border rounded-full transition-all duration-300 transform hover:scale-105 hidden sm:inline-block"
-          >
-            Login
           </Link>
         </div>
       </nav>
