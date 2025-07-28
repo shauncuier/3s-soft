@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import logo from "../assets/logo.jpg";
 import ProgressBar from "./ProgressBar";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   const links = (
     <>
       <li>
@@ -79,7 +83,6 @@ const Navbar = () => {
           Contact Us
         </NavLink>
       </li>
-      
     </>
   );
   return (
@@ -117,6 +120,14 @@ const Navbar = () => {
           >
             Get Started
           </Link>
+          {user && (
+            <div className="w-10 h-10 rounded-full overflow-hidden ring ring-blue-400">
+              <img
+                src={user.photoURL}
+                alt="User Profile"
+              />
+            </div>
+          )}
         </div>
       </nav>
       <ProgressBar />

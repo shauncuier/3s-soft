@@ -11,7 +11,9 @@ const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(loginUser);
+
+  console.log(location.state);
+  
 
   const handleLogin = (e) => {
     e.preventDefault();

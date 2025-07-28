@@ -73,7 +73,7 @@ const DashboardSidebar = () => {
               <NavLink
                 to="/dashboard/profile"
                 className={({ isActive }) =>
-                  `p-2 font-medium rounded-lg flex items-center gap-2 hover:bg-white/20 ${
+                  `p-2 font-medium rounded-lg flex items-center gap-2 hover:bg-white/20 border border-gray-800 ${
                     isActive && "bg-white/20"
                   }`
                 }
@@ -84,7 +84,7 @@ const DashboardSidebar = () => {
               <NavLink
                 to="/dashboard/add-blog"
                 className={({ isActive }) =>
-                  `p-2 font-medium rounded-lg flex items-center gap-2 hover:bg-white/20 ${
+                  `p-2 font-medium rounded-lg flex items-center gap-2 hover:bg-white/20 border border-gray-800 ${
                     isActive && "bg-white/20"
                   }`
                 }
