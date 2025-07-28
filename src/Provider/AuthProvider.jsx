@@ -35,8 +35,9 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
-  const logoutUser = () => {
-    return signOut(auth);
+  const logoutUser = async() => {
+    return signOut(auth)
+    .finally(() => setLoading(false));
   };
 
   useEffect(() => {

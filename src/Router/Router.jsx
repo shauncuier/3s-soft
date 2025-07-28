@@ -76,11 +76,19 @@ let router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    Component: DashboardLayout,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
-        path: "/dashboard/profile",
-        Component: DashboardProfile,
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <DashboardProfile></DashboardProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "add-blog",

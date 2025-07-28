@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { AiOutlineBars } from "react-icons/ai";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.jpg";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const DashboardSidebar = () => {
+  const {logoutUser} = useContext(AuthContext);
   const [isActive, setIsActive] = useState(true);
-
   const handleToggle = () => setIsActive(!isActive);
+
+  const handleLogout = () => {
+    logoutUser().then(() => {
+      toast.success("Logout Successfully");
+    }).catch((error) => {
+      toast.error(error.message);
+    })
+  }
 
   return (
     <>
@@ -89,7 +99,7 @@ const DashboardSidebar = () => {
         {/* Logout Button */}
         <div>
           <div className="border-t border-gray-800"></div>
-          <button className="flex w-full items-center px-4 py-2 mt-5 mb-3 cursor-pointer">
+          <button onClick={handleLogout} className="flex w-full items-center px-4 py-2 mt-5 mb-3 cursor-pointer hover:bg-red-500/20 rounded-lg transition-all duration-300">
             <GrLogout className="w-5 h-5" />
             <span className="mx-4 font-medium">Logout</span>
           </button>

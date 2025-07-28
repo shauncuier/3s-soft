@@ -11,6 +11,7 @@ const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+  console.log(loginUser);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,9 +23,7 @@ const Login = () => {
       .then(async (result) => {
         const user = result.user;
         navigate(`${location.state ? location.state : "/"}`);
-        toast.success(
-          `Your Are LoggedIn Successfully | Welcome ${user.displayName}`
-        );
+        toast.success(`Welcome ${user.displayName} | You Login Successfully`);
         // send/save user info in database
       })
       .catch((err) => {
