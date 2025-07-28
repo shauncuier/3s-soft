@@ -27,7 +27,7 @@ const DashboardSidebar = () => {
       <div className="text-gray-100 bg-[#020817] flex justify-between md:hidden">
         <div className="block cursor-pointer p-4 font-bold">
           <Link to="/">
-            <img src={""} alt="logo" className="w-14 h-14" />
+            <img src={logo} alt="logo" className="w-14 h-14" />
           </Link>
         </div>
         <button

@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import SectionLabel from "../../../Components/SectionLabel";
 import logo from "../../../assets/logo.jpg";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import registerImage from "../../../assets/register-image.jpg";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { registerUser, updateUser, setUser, loading, setLoading } =
+    useContext(AuthContext);
   const [imageUrl, setImageUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleImageUpload = async (e) => {
     const imageFile = e.target.files[0];
@@ -33,10 +39,46 @@ const Register = () => {
     setUploading(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("Form submitted with image URL:", imageUrl);
+    setLoading(true);
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const regExLength = /.{6,}/;
+    // Validate password
+    if (!regExLength.test(password)) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+
+    try {
+      const result = await registerUser(email, password);
+      const user = result.user;
+
+      await updateUser({ displayName: name, photoURL: imageUrl });
+      setUser({ ...user, displayName: name, photoURL: imageUrl });
+      toast.success("Account Create Successfully");
+      navigate("/");
+    } catch (error) {
+      console.error("Caught error:", error);
+      const code = error.code;
+      let errMsg = error.message || "Registration failed";
+      if (code === "auth/email-already-in-use") {
+        errMsg = "Email already in use. Please log in.";
+      }
+      setError(errMsg);
+      toast.error(errMsg);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (loading) {
+    return <p>Loading.........</p>;
+  }
 
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
@@ -64,11 +106,12 @@ const Register = () => {
                   Please enter your details . . .
                 </p>
               </div>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleRegister}>
                 <div className="mb-3">
                   <label className="text-sm font-semibold">Name</label>
                   <input
                     type="text"
+                    name="name"
                     className="input mt-1 bg-white/20 w-full"
                     placeholder="Full Name"
                     required
@@ -78,6 +121,7 @@ const Register = () => {
                   <label className="text-sm font-semibold">Email</label>
                   <input
                     type="email"
+                    name="email"
                     className="input mt-1 bg-white/20 w-full"
                     placeholder="Email"
                     required
@@ -87,11 +131,13 @@ const Register = () => {
                   <label className="text-sm font-semibold">Password</label>
                   <input
                     type="password"
+                    name="password"
                     className="input mt-1 bg-white/20 w-full"
                     placeholder="Password"
                     required
                   />
                 </div>
+                {error && <p className="text-red-500 mb-4">{error}</p>}
                 <div className="mb-8">
                   <label className="text-sm font-semibold">
                     Profile Picture
@@ -99,6 +145,7 @@ const Register = () => {
                   <input
                     type="file"
                     accept="image/*"
+                    name="image"
                     onChange={handleImageUpload}
                     className="file-input mt-1 bg-white/20 w-full"
                   />
