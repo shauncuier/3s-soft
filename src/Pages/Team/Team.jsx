@@ -64,7 +64,7 @@ const Team = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Social Links Overlay */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {Object.entries(member.social).map(([platform, url]) => {
                       const IconComponent = getSocialIcon(platform);
                       return (
