@@ -1,22 +1,17 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../Layout/RootLayout";
-import Home from "../Pages/Home/Home";
-import Contact from "../Pages/Contact/Contact";
-import NotFound from "../Pages/Error/NotFound";
-import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
-import TermsOfService from "../Pages/TermsOfService/TermsOfService";
-import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
-import Team from "../Pages/Team/Team";
-import Services from "../Pages/Services/Services";
-import Blogs from "../Pages/Blogs/Blogs";
 import AboutUs from "../Pages/AboutUs/AboutUs";
-import AddBlog from "../Pages/Admin/AddBlog/AddBlog";
-import BlogDetails from "../Pages/Blogs/BlogDetails/BlogDetails";
-import DashboardLayout from "../Layout/DashboardLayout";
-import DashboardProfile from "../Pages/Admin/DashboardProfile/DashboardProfile";
 import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Blogs from "../Pages/Blogs/Blogs";
+import Contact from "../Pages/Contact/Contact";
+import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
+import NotFound from "../Pages/Error/NotFound";
+import Home from "../Pages/Home/Home";
+import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
+import Services from "../Pages/Services/Services";
+import Team from "../Pages/Team/Team";
+import TermsOfService from "../Pages/TermsOfService/TermsOfService";
 
 let router = createBrowserRouter([
   {
@@ -39,10 +34,6 @@ let router = createBrowserRouter([
       {
         path: "/blogs",
         Component: Blogs,
-      },
-      {
-        path: "/blog/:id",
-        Component: BlogDetails,
       },
       {
         path: "/about-us",
@@ -71,32 +62,6 @@ let router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
-      },
-    ],
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <PrivateRoute>
-        <DashboardLayout></DashboardLayout>
-      </PrivateRoute>
-    ),
-    children: [
-      {
-        path: "profile",
-        element: (
-          <PrivateRoute>
-            <DashboardProfile></DashboardProfile>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "add-blog",
-        element: (
-          <PrivateRoute>
-            <AddBlog></AddBlog>
-          </PrivateRoute>
-        ),
       },
     ],
   },

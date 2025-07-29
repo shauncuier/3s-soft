@@ -1,47 +1,15 @@
-import React, { useContext } from "react";
-import SectionLabel from "../../../Components/SectionLabel";
-import logo from "../../../assets/logo.jpg";
-import { Link, useLocation, useNavigate } from "react-router";
-import SocialLogin from "../SocialLogin/SocialLogin";
+import { Link } from "react-router";
 import loginImage from "../../../assets/login-image.jpg";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import toast from "react-hot-toast";
+import logo from "../../../assets/logo.jpg";
+import SectionLabel from "../../../Components/SectionLabel";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
-  const { loginUser, loading, setLoading } = useContext(AuthContext);
-  const location = useLocation();
-  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-
-    try {
-      loginUser(email, password)
-        .then((result) => {
-          const user = result.user;
-          navigate(`${location.state ? location.state : "/"}`);
-          toast.success(`Welcome ${user.displayName} | You Login Successfully`);
-          // send/save user info in database
-        })
-        .catch((err) => {
-          const msg = err?.message || "Login failed due to unknown error";
-          toast.error(msg);
-        });
-    } catch (error) {
-      toast.error(error.message);
-    } finally {
-      setLoading(false);
-    }
+    console.log("form submit");
   };
-
-  if (loading) {
-    return <p>Loading.......</p>
-  }
 
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">

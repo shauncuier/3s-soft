@@ -1,37 +1,9 @@
-import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router";
 
 const SocialLogin = () => {
-  const { googleLogin, loading, setLoading } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const handleGoogleLogin = () => {
-    setLoading(true);
-
-    try {
-      googleLogin()
-        .then(async (result) => {
-          const user = result.user;
-          navigate(`${location.state ? location.state : "/"}`);
-          toast.success(`Welcome ${user.displayName} | You Login Successfully`);
-        })
-        .catch((error) => {
-          toast.error(error.message);
-        });
-    } catch (error) {
-      toast.error(error.message);
-    } finally {
-      setLoading(false);
-    }
+    console.log("handle google login clicked")
   };
-
-  if (loading) {
-    return <p>loading..........</p>
-  }
 
   return (
     <div className="flex items-center justify-center">

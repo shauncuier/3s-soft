@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import logo from "../assets/logo.jpg";
 import ProgressBar from "./ProgressBar";
-import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
 
   const links = (
     <>
@@ -120,29 +117,6 @@ const Navbar = () => {
           >
             Get Started
           </Link>
-          {user && (
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img
-                    alt={user.displayName}
-                    src={user.photoURL}
-                  />
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-center"
-              >
-                <li>{user.displayName}</li>
-                <li>{user.email}</li>
-              </ul>
-            </div>
-          )}
         </div>
       </nav>
       <ProgressBar />
