@@ -89,6 +89,7 @@ const Navbar = () => {
     <div className="bg-black/30 backdrop-blur-2xl fixed top-0 w-full z-50 py-2">
       <nav className="navbar max-w-[1480px] mx-auto px-4">
         <div className="navbar-start gap-4 lg:gap-0">
+          {/* Mobile Menu */}
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden">
               <FiMenu size={25} />
@@ -98,6 +99,9 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-2 shadow "
             >
               {links}
+              <li className="mt-2">
+                <Link to={'/login'} className="py-2 px-5 border border-gray-500 rounded-full text-sm font-medium transition duration-300 transform hover:scale-105 hover:bg-white/10 flex items-center justify-center sm:hidden">Login</Link>
+              </li>
             </ul>
           </div>
           <Link to="/" className="text-2xl font-bold flex items-center">
@@ -120,7 +124,7 @@ const Navbar = () => {
           >
             Get Started
           </Link>
-          {user && (
+          {user ? (
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
@@ -142,7 +146,7 @@ const Navbar = () => {
                 <li>{user.email}</li>
               </ul>
             </div>
-          )}
+          ) : <Link to={'/login'} className="py-2 px-5 border border-gray-500 rounded-full text-sm font-medium transition duration-300 transform hover:scale-105 hover:bg-white/10 hidden sm:inline-block">Login</Link>}
         </div>
       </nav>
       <ProgressBar />
