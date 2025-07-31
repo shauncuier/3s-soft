@@ -29,7 +29,8 @@ const Testimonials = () => {
           pagination={true}
           keyboard={true}
           autoplay={{
-            delay: 10000,
+            delay: 5000,
+            pauseOnMouseEnter: true,
             disableOnInteraction: false,
           }}
           loop={true}
