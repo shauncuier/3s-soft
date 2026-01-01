@@ -61,8 +61,8 @@ const AboutUs = () => {
   ];
   return (
     <>
-      <section className="bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white px-4">
-        <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
+      <section className="bg-linear-to-b from-[#0f172a] to-[#1e293b] text-white px-4">
+        <div className="max-w-370 min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Header */}
           <div className="text-center">
             <SectionLabel label={"About 3s-soft"} />
@@ -105,7 +105,7 @@ const AboutUs = () => {
           {/* Mission & Vision */}
           <div className="grid md:grid-cols-2 gap-12 mb-20">
             <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <HiOutlineLightBulb className="text-4xl text-white" />
               </div>
 
@@ -116,7 +116,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <HiOutlineSparkles className="text-4xl text-white" />
               </div>
 
@@ -141,7 +141,7 @@ const AboutUs = () => {
                       {/* Icon Header */}
                       <div className="p-6 pb-0 flex flex-col items-center">
                         <div
-                          className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                          className={`w-16 h-16 rounded-2xl bg-linear-to-r ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
                         >
                           <IconComponent className="h-8 w-8 text-white" />
                         </div>
@@ -153,7 +153,7 @@ const AboutUs = () => {
 
                       {/* Hover Effect Overlay */}
                       <div
-                        className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                        className={`absolute inset-x-0 bottom-0 h-1 bg-linear-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
                       ></div>
                     </div>
                   </Link>
@@ -164,7 +164,7 @@ const AboutUs = () => {
 
           {/* Why Choose Us */}
           <div className="flex flex-col items-center justify-center rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
               <LuHeartHandshake className="text-4xl text-white" />
             </div>
             <h3 className="text-2xl font-bold mb-4">

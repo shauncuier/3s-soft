@@ -4,7 +4,7 @@ import Button from "../../Components/Button";
 
 const NotFound = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white px-6">
+    <section className="min-h-screen flex flex-col justify-center items-center bg-linear-to-br from-gray-900 via-blue-900 to-purple-900 text-white px-6">
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="z-50 flex flex-col items-center">
         <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-5 shadow-lg shadow-blue-400">

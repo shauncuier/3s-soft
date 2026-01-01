@@ -76,7 +76,7 @@ const AddBlog = () => {
 
   return (
     <section className="bg-[#020817] transition-colors duration-300 px-4">
-      <div className="max-w-[1480px] min-h-screen mx-auto p-10">
+      <div className="max-w-370 min-h-screen mx-auto p-10">
         <div className="text-center">
           <SectionLabel label={"Add Blog"} />
         </div>
@@ -187,7 +187,7 @@ const AddBlog = () => {
                 <button
                   type="button"
                   onClick={handleCustomTagAdd}
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-700 hover:to-blue-700 cursor-pointer transition duration-300 font-medium"
+                  className="bg-linear-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-700 hover:to-blue-700 cursor-pointer transition duration-300 font-medium"
                 >
                   Add
                 </button>
@@ -214,7 +214,7 @@ const AddBlog = () => {
 
             <div className="col-span-2">
               <button
-                className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 px-8 py-4 font-semibold flex items-center justify-center gap-2 transition duration-300 cursor-pointer text-lg w-1/2 mx-auto"
+                className="bg-linear-to-r from-blue-500 to-blue-700 rounded-full hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 px-8 py-4 font-semibold flex items-center justify-center gap-2 transition duration-300 cursor-pointer text-lg w-1/2 mx-auto"
                 type="submit"
               >
                 Add Blog
