@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";
+import PageTitle from "../../Components/PageTitle";
 
 const Services = () => {
   const services = [
@@ -125,13 +126,17 @@ const Services = () => {
     <section
       className="bg-gray-900 transition-colors duration-300 px-4"
     >
+      <PageTitle
+        title="Our Services | MERN Stack, SEO & eCommerce Solutions"
+        content="Expert digital services including MERN stack web development, WordPress customization, Amazon/eBay/Walmart product listing, SEO, and lead generation."
+      />
       <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <SectionLabel label={"Our Core Services"} />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             High-Quality Digital Solutions
-          </h2>
+          </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             We provide scalable digital solutions tailored for startups, small
             businesses, and enterprises across multiple industries.

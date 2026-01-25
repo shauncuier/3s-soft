@@ -5,6 +5,8 @@ import axios from "axios";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaUserEdit, FaCalendarAlt } from "react-icons/fa";
 import Loading from "../../Components/Loading";
+import PageTitle from "../../Components/PageTitle";
+import dummyBlogs from "../../data/blogs.json";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -16,24 +18,29 @@ const Blogs = () => {
         setBlogs(res.data);
       } catch (error) {
         console.error("Error fetching Blogs:", error);
+        setBlogs(dummyBlogs);
       }
     };
 
     fetchBlogs();
   }, []);
 
-  
+
 
   return (
     <>
       <section className="bg-gray-900 transition-colors duration-300 px-4">
+        <PageTitle
+          title="Blogs | Digital Growth Insights & Tips"
+          content="Explore expert articles on web development, SEO, digital marketing, and eCommerce growth strategies from the 3s-Soft team."
+        />
         <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Section Header */}
           <div className="text-center mb-16">
             <SectionLabel label={"Read Our Blogs"} />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Smart Reads for Smarter Growth
-            </h2>
+            </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
               Discover insightful articles from our expert team. Learn practical
               tips, explore fresh ideas, and stay inspired through every stage
@@ -62,7 +69,7 @@ const Blogs = () => {
                         <FaUserEdit /> {blog.author}
                       </p>
                       <p className="flex items-center gap-1 bg-blue-400/40 p-2 rounded">
-                        <FaCalendarAlt  /> {blog.date}
+                        <FaCalendarAlt /> {blog.date}
                       </p>
                     </div>
 

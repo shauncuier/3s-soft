@@ -5,6 +5,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { FiPhone, FiSend } from "react-icons/fi";
 import { LuMapPin, LuGlobe } from "react-icons/lu";
 import SectionLabel from "../../Components/SectionLabel";
+import PageTitle from "../../Components/PageTitle";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -71,6 +72,10 @@ const Contact = () => {
   return (
     <>
       <section className="bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden px-4">
+        <PageTitle
+          title="Contact Us | Start Your Project with 3s-Soft"
+          content="Get a free quote for your next digital project. Reach out to 3s-Soft for web development, SEO, and eCommerce services."
+        />
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-xl animate-pulse"></div>
@@ -82,9 +87,9 @@ const Contact = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <SectionLabel label={"Let's Grow Together"} />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Start Your Project?
-            </h2>
+            </h1>
             <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
               Whether you're looking to build a website, launch a product, grow
               on social media, or scale your operations — 3S-SOFT is the partner

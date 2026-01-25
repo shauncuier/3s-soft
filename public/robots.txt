@@ -1,3 +1,5 @@
-# Block all web crawlers from indexing the site
+# Allow all web crawlers to index the site
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://3s-soft.netlify.app/sitemap.xml

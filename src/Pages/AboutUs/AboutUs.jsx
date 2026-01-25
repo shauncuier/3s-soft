@@ -14,6 +14,7 @@ import {
 import { LuHeartHandshake } from "react-icons/lu";
 import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";
+import PageTitle from "../../Components/PageTitle";
 import aboutImage from "../../assets/about-us.jpg";
 
 const AboutUs = () => {
@@ -62,13 +63,17 @@ const AboutUs = () => {
   return (
     <>
       <section className="bg-linear-to-b from-[#0f172a] to-[#1e293b] text-white px-4">
+        <PageTitle
+          title="About Us | Dedicated Digital Agency in Bangladesh"
+          content="Learn more about 3s-Soft, our mission, vision, and the passionate team of developers and creators building impactful digital solutions."
+        />
         <div className="max-w-370 min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Header */}
           <div className="text-center">
             <SectionLabel label={"About 3s-soft"} />
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
               Who We Are
-            </h2>
+            </h1>
             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
               We're a passionate team of creators and developers dedicated to
               building impactful digital solutions that inspire, solve problems,

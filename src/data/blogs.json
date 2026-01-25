@@ -1,0 +1,61 @@
+[
+    {
+        "_id": "1",
+        "title": "Unlocking the Power of MERN Stack for Modern Web Apps",
+        "author": "Jashedul Islam Shaun",
+        "date": "2026-01-20",
+        "category": "Web Development",
+        "imageUrl": "https://img.freepik.com/free-vector/web-development-programmer-engineering-and-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg",
+        "details": "The MERN stack (MongoDB, Express, React, and Node.js) has become the go-to solution for developers looking to build scalable and high-performance web applications. In this post, we explore why MERN is so popular and how you can leverage its components to build your next big project. We'll cover the benefits of using a single language (JavaScript) across the entire stack, the flexibility of NoSQL databases, and the power of React's component-based architecture.",
+        "tags": [
+            "MERN Stack",
+            "React",
+            "Node.js",
+            "Web Development"
+        ]
+    },
+    {
+        "_id": "2",
+        "title": "Top 10 SEO Strategies to Boost Your Rankings in 2026",
+        "author": "Borhan Siddque",
+        "date": "2026-01-22",
+        "category": "Digital Marketing & SEO",
+        "imageUrl": "https://img.freepik.com/free-photo/marketing-strategy-planning-strategy-concept_53876-120501.jpg",
+        "details": "SEO is an ever-changing field. What worked last year might not work today. In this comprehensive guide, we dive into the top 10 SEO strategies for 2026. From AI-driven search optimizations to the importance of mobile-first indexing and core web vitals. Learn how to optimize your content for semantic search and why local SEO is more important than ever for small businesses.",
+        "tags": [
+            "SEO",
+            "Digital Marketing",
+            "Search Engine Optimization"
+        ]
+    },
+    {
+        "_id": "3",
+        "title": "The Ultimate Guide to eCommerce Product Listing",
+        "author": "Mehedi Hasan Akash",
+        "date": "2026-01-24",
+        "category": "Product Listing",
+        "imageUrl": "https://img.freepik.com/free-vector/shopping-online-concept-flat-design_23-2148270529.jpg",
+        "details": "Selling on Amazon, eBay, or Etsy requires more than just uploading a photo and a title. To truly succeed, you need optimized product listings that convert visitors into buyers. This guide covers keyword research for marketplaces, high-converting product descriptions, and how to manage bulk listings effectively across multiple platforms. We also share tips on image optimization and inventory management.",
+        "tags": [
+            "eCommerce",
+            "Amazon",
+            "eBay",
+            "Product Listing"
+        ]
+    },
+    {
+        "_id": "4",
+        "title": "Why Every Startup Needs a Dedicated Virtual Assistant",
+        "author": "Rakibul Hasan",
+        "date": "2026-01-25",
+        "category": "Virtual Assistant Services",
+        "imageUrl": "https://img.freepik.com/free-photo/working-home-concept-woman-with-laptop-her-living-room_23-2148817756.jpg",
+        "details": "Startups often struggle with administrative tasks that consume valuable time. A virtual assistant can handle everything from email management and scheduling to data entry and market research, allowing founders to focus on growth. Discover the cost-effectiveness of hiring a VA and how to find the right person for your business needs. We discuss the various tasks a VA can automate for you.",
+        "tags": [
+            "Virtual Assistant",
+            "Startups",
+            "Productivity",
+            "Outsourcing"
+        ]
+    }
+]

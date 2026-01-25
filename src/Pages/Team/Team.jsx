@@ -11,6 +11,7 @@ import {
 import teamData from "../../data/team.json";
 import SectionLabel from "../../Components/SectionLabel";
 import { Link } from "react-router";
+import PageTitle from "../../Components/PageTitle";
 
 const Team = () => {
   const getSocialIcon = (platform) => {
@@ -33,13 +34,17 @@ const Team = () => {
   return (
     <>
       <section className="bg-gray-900 transition-colors duration-300 px-4">
+        <PageTitle
+          title="Our Team | Expert Developers & Digital Professionals"
+          content="Meet the expert team behind 3s-Soft. Our skilled professionals bring passion and experience to every web development and digital marketing project."
+        />
         <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Section Header */}
           <div className="text-center mb-16">
             <SectionLabel label={"Meet Our Expert Team"} />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               The Experts Behind Your Success
-            </h2>
+            </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
               Our diverse team of skilled professionals brings years of
               experience and passion to every project, ensuring exceptional
@@ -69,7 +74,7 @@ const Team = () => {
                       const IconComponent = getSocialIcon(platform);
                       return (
                         <a
-                        target="_blank"
+                          target="_blank"
                           key={platform}
                           href={url}
                           className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-300"

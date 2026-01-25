@@ -11,5 +11,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+if (!import.meta.env.VITE_apiKey) {
+  console.warn("Firebase API Key is missing. Check your .env file.");
+}
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
