@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SectionLabel from "../../Components/SectionLabel";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { FaUserEdit, FaCalendarAlt, FaArrowRight } from "react-icons/fa";
-import Loading from "../../Components/Loading";
 import PageTitle from "../../Components/PageTitle";
-import dummyBlogs from "../../data/blogs.json";
+import blogs from "../../data/blogs.json";
 
 const Blogs = () => {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}/blogs`);
-        setBlogs(res.data);
-      } catch (error) {
-        console.error("Error fetching Blogs:", error);
-        setBlogs(dummyBlogs);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
   return (
     <>
       <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 transition-colors duration-300 px-4">
@@ -44,12 +26,6 @@ const Blogs = () => {
             </p>
           </div>
 
-          {blogs.length === 0 && (
-            <div className="flex items-center justify-center">
-              <Loading />
-            </div>
-          )}
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
               <article
@@ -62,6 +38,7 @@ const Blogs = () => {
                     src={blog.imageUrl}
                     alt={blog.title}
                     className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <span className="absolute bottom-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -88,7 +65,7 @@ const Blogs = () => {
 
                   {/* Excerpt */}
                   <p className="text-gray-400 text-sm mb-6 line-clamp-3 flex-grow">
-                    {blog.details}
+                    {blog.details.split("\n")[0]}
                   </p>
 
                   {/* Read More Button */}

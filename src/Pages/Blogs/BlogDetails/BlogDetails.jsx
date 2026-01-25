@@ -1,52 +1,17 @@
-import { React, useEffect, useState } from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 import { FaUserEdit, FaCalendarAlt, FaArrowLeft, FaTag } from "react-icons/fa";
 import PageTitle from "../../../Components/PageTitle";
-import dummyBlogs from "../../../data/blogs.json";
-import Loading from "../../../Components/Loading";
+import blogs from "../../../data/blogs.json";
 
 const BlogDetails = () => {
   const { slug } = useParams();
-  const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const blog = blogs.find((b) => b.slug === slug);
 
-  useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/blogs/slug/${slug}`
-        );
-        setBlog(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("API Error, falling back to dummy data:", err);
-        const dummy = dummyBlogs.find((b) => b.slug === slug);
-        if (dummy) {
-          setBlog(dummy);
-          setLoading(false);
-        } else {
-          setError(err.response?.data?.message || "Blog post not found.");
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchBlog();
-  }, [slug]);
-
-  if (loading)
-    return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <Loading />
-      </div>
-    );
-
-  if (error)
+  if (!blog) {
     return (
       <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center text-center px-4">
-        <p className="text-red-400 text-xl mb-4">{error}</p>
+        <p className="text-red-400 text-xl mb-4">Blog post not found.</p>
         <Link
           to="/blogs"
           className="text-blue-400 hover:underline flex items-center gap-2"
@@ -55,15 +20,25 @@ const BlogDetails = () => {
         </Link>
       </div>
     );
+  }
+
+  // Helper to render formatted text
+  const renderFormattedText = (text) => {
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <strong key={i} className="text-white font-semibold">{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
 
   return (
     <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen">
-      {blog && (
-        <PageTitle
-          title={`${blog.title} | 3s-Soft Blog`}
-          content={blog.details?.substring(0, 150)}
-        />
-      )}
+      <PageTitle
+        title={`${blog.title} | 3s-Soft Blog`}
+        content={blog.details?.substring(0, 150)}
+      />
 
       {/* Hero Section */}
       <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
@@ -112,21 +87,8 @@ const BlogDetails = () => {
         {/* Blog Body */}
         <article className="prose prose-lg prose-invert max-w-none text-gray-300 leading-relaxed">
           {blog.details.split("\n").map((paragraph, index) => {
-            // Skip empty lines
             if (!paragraph.trim()) return null;
 
-            // Handle bold text (**text**)
-            const renderFormattedText = (text) => {
-              const parts = text.split(/(\*\*[^*]+\*\*)/g);
-              return parts.map((part, i) => {
-                if (part.startsWith("**") && part.endsWith("**")) {
-                  return <strong key={i} className="text-white font-semibold">{part.slice(2, -2)}</strong>;
-                }
-                return part;
-              });
-            };
-
-            // Check if it's a numbered list item (e.g., "1. ", "2. ")
             const listMatch = paragraph.match(/^(\d+)\.\s+(.+)/);
             if (listMatch) {
               return (
@@ -139,7 +101,6 @@ const BlogDetails = () => {
               );
             }
 
-            // Check if it starts with "- " (bullet list)
             if (paragraph.trim().startsWith("- ")) {
               return (
                 <div key={index} className="flex gap-3 mb-3 ml-4">
@@ -149,7 +110,6 @@ const BlogDetails = () => {
               );
             }
 
-            // Regular paragraph
             return <p key={index} className="mb-4">{renderFormattedText(paragraph)}</p>;
           })}
         </article>
