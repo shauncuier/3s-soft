@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionLabel from "../../Components/SectionLabel";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { MdOutlineDateRange } from "react-icons/md";
-import { FaUserEdit, FaCalendarAlt } from "react-icons/fa";
+import { FaUserEdit, FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 import Loading from "../../Components/Loading";
 import PageTitle from "../../Components/PageTitle";
 import dummyBlogs from "../../data/blogs.json";
@@ -25,11 +24,9 @@ const Blogs = () => {
     fetchBlogs();
   }, []);
 
-
-
   return (
     <>
-      <section className="bg-gray-900 transition-colors duration-300 px-4">
+      <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 transition-colors duration-300 px-4">
         <PageTitle
           title="Blogs | Digital Growth Insights & Tips"
           content="Explore expert articles on web development, SEO, digital marketing, and eCommerce growth strategies from the 3s-Soft team."
@@ -41,67 +38,84 @@ const Blogs = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Smart Reads for Smarter Growth
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
               Discover insightful articles from our expert team. Learn practical
-              tips, explore fresh ideas, and stay inspired through every stage
-              of your personal and professional growth.
+              tips, explore fresh ideas, and stay inspired.
             </p>
           </div>
-          {blogs.length === 0 && <div className="flex items-center justify-center"><Loading /></div>}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            {/* Single Blog */}
+
+          {blogs.length === 0 && (
+            <div className="flex items-center justify-center">
+              <Loading />
+            </div>
+          )}
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
-              <div
-                className="bg-[#1E2939] border border-gray-700 rounded-3xl flex flex-col justify-between overflow-hidden"
+              <article
+                className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex flex-col overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2"
                 key={blog._id}
               >
-                <div className="">
-                  <div className="">
-                    <img
-                      src={blog.imageUrl}
-                      alt="Blog Image"
-                      className="w-full h-[250px] object-cover"
-                    />
+                {/* Image Container */}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={blog.imageUrl}
+                    alt={blog.title}
+                    className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <span className="absolute bottom-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {blog.category || "General"}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  {/* Meta Info */}
+                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
+                    <span className="flex items-center gap-1.5">
+                      <FaUserEdit className="text-blue-400" /> {blog.author}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <FaCalendarAlt className="text-blue-400" /> {blog.date}
+                    </span>
                   </div>
-                  <div className="px-5 py-5">
-                    <div className="flex items-center justify-between text-xs mt-3 font-semibold mb-3">
-                      <p className="flex items-center gap-1 bg-blue-400/40 p-2 rounded">
-                        <FaUserEdit /> {blog.author}
-                      </p>
-                      <p className="flex items-center gap-1 bg-blue-400/40 p-2 rounded">
-                        <FaCalendarAlt /> {blog.date}
-                      </p>
+
+                  {/* Title */}
+                  <h2 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
+                    {blog.title}
+                  </h2>
+
+                  {/* Excerpt */}
+                  <p className="text-gray-400 text-sm mb-6 line-clamp-3 flex-grow">
+                    {blog.details}
+                  </p>
+
+                  {/* Read More Button */}
+                  <Link
+                    to={`/blog/${blog.slug}`}
+                    className="inline-flex items-center gap-2 text-blue-400 font-semibold text-sm group-hover:gap-3 transition-all duration-300"
+                  >
+                    Read Article <FaArrowRight className="text-xs" />
+                  </Link>
+                </div>
+
+                {/* Tags Footer */}
+                {blog.tags && blog.tags.length > 0 && (
+                  <div className="px-6 pb-5 pt-0">
+                    <div className="flex flex-wrap gap-2">
+                      {blog.tags.slice(0, 3).map((tag, index) => (
+                        <span
+                          key={index}
+                          className="bg-blue-500/10 text-blue-300 px-2.5 py-1 rounded-full text-xs font-medium border border-blue-500/20"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
                     </div>
-
-                    <h2 className="text-xl md:text-2xl text-blue-400">
-                      {blog.title}
-                    </h2>
-                    <p className="mt-1">
-                      {blog.details.split(" ").slice(0, 30).join(" ")}...
-                      <Link
-                        to={`/blog/${blog._id}`}
-                        className="text-blue-500 underline"
-                      >
-                        Read More
-                      </Link>
-                    </p>
                   </div>
-                </div>
-
-                <div className="flex flex-col gap-3 items-start bg-blue-900 rounded px-5 py-2 space-y-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-white font-semibold">Tags:</span>
-                    {blog.tags?.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="bg-white/25 text-blue-100 px-2 py-0.5 rounded text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                )}
+              </article>
             ))}
           </div>
         </div>

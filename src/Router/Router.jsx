@@ -41,7 +41,7 @@ let router = createBrowserRouter([
         Component: Blogs,
       },
       {
-        path: "/blog/:id",
+        path: "/blog/:slug",
         Component: BlogDetails,
       },
       {
