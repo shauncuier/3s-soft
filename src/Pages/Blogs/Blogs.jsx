@@ -10,8 +10,8 @@ const Blogs = () => {
     <>
       <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 transition-colors duration-300 px-4">
         <PageTitle
-          title="Blogs | Digital Growth Insights & Tips"
-          content="Explore expert articles on web development, SEO, digital marketing, and eCommerce growth strategies from the 3s-Soft team."
+          title="Blogs | Digital Growth Insights, Web Dev & eCommerce Tips"
+          content="Explore expert articles on MERN stack development, SEO audits, Amazon selling, and digital marketing strategies from the 3S-SOFT team."
         />
         <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Section Header */}

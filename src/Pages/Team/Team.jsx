@@ -35,8 +35,8 @@ const Team = () => {
     <>
       <section className="bg-gray-900 transition-colors duration-300 px-4">
         <PageTitle
-          title="Our Team | Expert Developers & Digital Professionals"
-          content="Meet the expert team behind 3s-Soft. Our skilled professionals bring passion and experience to every web development and digital marketing project."
+          title="Our Team | Expert Full-Stack Developers & SEO Pros"
+          content="Meet the 3S-SOFT team: a global collective of expert MERN stack developers, eCommerce strategists, and digital marketing professionals committed to your success."
         />
         <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Section Header */}

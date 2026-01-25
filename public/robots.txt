@@ -1,5 +1,19 @@
-# Allow all web crawlers to index the site
+# Optimized robots.txt for 3S-SOFT
 User-agent: *
 Allow: /
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /register
+Disallow: /404
 
+# Sitemaps
 Sitemap: https://3s-soft.com/sitemap.xml
+
+# LLM Crawler instructions
+User-agent: GPTBot
+Allow: /
+Disallow: /dashboard/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /dashboard/

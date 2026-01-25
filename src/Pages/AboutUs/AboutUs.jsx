@@ -64,8 +64,8 @@ const AboutUs = () => {
     <>
       <section className="bg-linear-to-b from-[#0f172a] to-[#1e293b] text-white px-4">
         <PageTitle
-          title="About Us | Dedicated Digital Agency in Bangladesh"
-          content="Learn more about 3s-Soft, our mission, vision, and the passionate team of developers and creators building impactful digital solutions."
+          title="About 3S-SOFT | Your Partner for Digital Growth"
+          content="3S-SOFT is a premium digital agency headquartered in Bangladesh, delivering scalable MERN stack web development and eCommerce managed services to global clients."
         />
         <div className="max-w-370 min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Header */}

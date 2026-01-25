@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { FaUserEdit, FaCalendarAlt, FaArrowLeft, FaTag } from "react-icons/fa";
 import PageTitle from "../../../Components/PageTitle";
@@ -22,6 +23,57 @@ const BlogDetails = () => {
     );
   }
 
+  // Blog Schema for SEO
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "image": `https://3s-soft.com${blog.imageUrl}`,
+    "author": {
+      "@type": "Person",
+      "name": blog.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "3S-SOFT",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://3s-soft.com/favicon/android-chrome-512x512.png"
+      }
+    },
+    "datePublished": blog.date,
+    "description": blog.details?.substring(0, 160),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://3s-soft.com/blog/${blog.slug}`
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://3s-soft.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs",
+        "item": "https://3s-soft.com/blogs"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": blog.title,
+        "item": `https://3s-soft.com/blog/${blog.slug}`
+      }
+    ]
+  };
+
   // Helper to render formatted text
   const renderFormattedText = (text) => {
     const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -36,9 +88,15 @@ const BlogDetails = () => {
   return (
     <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen">
       <PageTitle
-        title={`${blog.title} | 3s-Soft Blog`}
+        title={blog.title}
         content={blog.details?.substring(0, 150)}
+        image={`https://3s-soft.com${blog.imageUrl}`}
+        type="article"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      </Helmet>
 
       {/* Hero Section */}
       <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">

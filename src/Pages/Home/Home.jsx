@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <>
       <PageTitle
-        title="Home | Best Web Development & Digital Services in Bangladesh"
-        content="3s-Soft is a full-service digital agency offering MERN stack development, WordPress customization, eCommerce product listing, SEO, and more."
+        title="Scalable Digital Solutions for Global Success"
+        content="3S-SOFT is a full-service digital agency providing expert MERN stack development, eCommerce managed services, SEO, and professional virtual assistants for US and UK businesses."
       />
       <Hero />
       <ServicesSection />

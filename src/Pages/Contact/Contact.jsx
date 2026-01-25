@@ -73,8 +73,8 @@ const Contact = () => {
     <>
       <section className="bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden px-4">
         <PageTitle
-          title="Contact Us | Start Your Project with 3s-Soft"
-          content="Get a free quote for your next digital project. Reach out to 3s-Soft for web development, SEO, and eCommerce services."
+          title="Contact Us | Hire Expert Developers & Digital Marketers"
+          content="Get a free quote for your next digital project. Contact 3S-SOFT for MERN stack development, Amazon eCommerce management, SEO audits, and custom business solutions."
         />
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
