@@ -54,14 +54,14 @@ const Login = () => {
             <div className="flex-1 hidden sm:flex items-center justify-center">
               <img
                 src={loginImage}
-                alt=""
+                alt="3s-Soft User Login Illustration"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="flex-1 py-10 px-5">
               <div className="mb-5">
                 <div className="flex gap-2 items-center mb-5">
-                  <img src={logo} alt="" className="max-w-8 rounded-full" />
+                  <img src={logo} alt="3s-Soft Official Logo" className="max-w-8 rounded-full" />
                   <h3 className="text-lg font-medium">3S-SOFT</h3>
                 </div>
                 <h4 className="text-3xl font-bold">Welcome Back</h4>

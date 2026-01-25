@@ -26,8 +26,7 @@ const Register = () => {
     setUploading(true);
     try {
       const res = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${
-          import.meta.env.VITE_IMGBB_API_KEY
+        `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY
         }`,
         formData
       );
@@ -91,14 +90,14 @@ const Register = () => {
             <div className="flex-1 hidden sm:flex items-center justify-center">
               <img
                 src={registerImage}
-                alt=""
+                alt="3s-Soft Account Registration Illustration"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="flex-1 py-10 px-5">
               <div className="mb-5">
                 <div className="flex gap-2 items-center mb-5">
-                  <img src={logo} alt="" className="max-w-8 rounded-full" />
+                  <img src={logo} alt="3s-Soft Official Brand Logo" className="max-w-8 rounded-full" />
                   <h3 className="text-lg font-medium">3S-SOFT</h3>
                 </div>
                 <h4 className="text-3xl font-bold">Welcome 3S-SOFT</h4>

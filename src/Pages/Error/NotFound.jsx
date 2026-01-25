@@ -8,7 +8,7 @@ const NotFound = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="z-50 flex flex-col items-center">
         <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-5 shadow-lg shadow-blue-400">
-          <img src={gif} alt="Error Icon" className="w-20" />
+          <img src={gif} alt="Robotic Process Automation 404 Animation" className="w-20" />
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold mb-4 ">
           404 - Page Not Found

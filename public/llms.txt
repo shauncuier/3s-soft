@@ -1,0 +1,24 @@
+# 3S-SOFT
+
+> Full-service digital agency specializing in MERN stack development, eCommerce solutions, and SEO.
+
+## About
+3S-SOFT is a digital partner helping businesses scale from idea to online success. Based in Bangladesh, the team provides high-quality software development and digital marketing services.
+
+## Core Services
+- **Web Development**: Specialized in MERN Stack (MongoDB, Express, React, Node.js).
+- **WordPress**: Custom themes and plugin development.
+- **eCommerce**: Product listing on Amazon, eBay, Walmart, and Etsy.
+- **Marketing & SEO**: Result-driven strategies to boost digital growth and search rankings.
+- **Virtual Assistant**: Administrative and technical support for startups.
+
+## Key Links
+- [Services](https://3s-soft.com/services)
+- [Our Team](https://3s-soft.com/team)
+- [Blogs](https://3s-soft.com/blogs)
+- [Contact Us](https://3s-soft.com/contact)
+
+## Documentation
+- [Full LLM Context](/llms-full.txt)
+- [Privacy Policy](/privacy-policy)
+- [Terms of Service](/terms-of-service)

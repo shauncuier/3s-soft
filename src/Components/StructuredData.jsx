@@ -6,8 +6,8 @@ const StructuredData = () => {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "3S-SOFT",
-        "url": "https://3s-soft.netlify.app/",
-        "logo": "https://3s-soft.netlify.app/favicon/android-chrome-512x512.png",
+        "url": "https://3s-soft.com/",
+        "logo": "https://3s-soft.com/favicon/android-chrome-512x512.png",
         "description": "3s-Soft is a full-service digital agency offering MERN stack web development, WordPress customization, eCommerce product listing, and SEO services.",
         "address": {
             "@type": "PostalAddress",
@@ -31,10 +31,10 @@ const StructuredData = () => {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "3S-SOFT",
-        "url": "https://3s-soft.netlify.app/",
+        "url": "https://3s-soft.com/",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://3s-soft.netlify.app/blogs?q={search_term_string}",
+            "target": "https://3s-soft.com/blogs?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
     };
