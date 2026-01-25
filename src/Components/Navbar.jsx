@@ -4,10 +4,21 @@ import { FiMenu } from "react-icons/fi";
 import logo from "../assets/logo.jpg";
 import ProgressBar from "./ProgressBar";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, logoutUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        toast.success("Logged out successfully");
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Logout failed");
+      });
+  };
 
   const links = (
     <>
@@ -15,8 +26,7 @@ const Navbar = () => {
         <NavLink
           to={"/"}
           className={({ isActive }) =>
-            `font-medium ${
-              isActive && "text-blue-400"
+            `font-medium ${isActive && "text-blue-400"
             } hover:text-blue-400 transition-all duration-300`
           }
         >
@@ -27,8 +37,7 @@ const Navbar = () => {
         <NavLink
           to={"/services"}
           className={({ isActive }) =>
-            `font-medium ${
-              isActive && "text-blue-400"
+            `font-medium ${isActive && "text-blue-400"
             } hover:text-blue-400 transition-all duration-300`
           }
         >
@@ -39,8 +48,7 @@ const Navbar = () => {
         <NavLink
           to={"/team"}
           className={({ isActive }) =>
-            `font-medium ${
-              isActive && "text-blue-400"
+            `font-medium ${isActive && "text-blue-400"
             } hover:text-blue-400 transition-all duration-300`
           }
         >
@@ -51,8 +59,7 @@ const Navbar = () => {
         <NavLink
           to={"/blogs"}
           className={({ isActive }) =>
-            `font-medium ${
-              isActive && "text-blue-400"
+            `font-medium ${isActive && "text-blue-400"
             } hover:text-blue-400 transition-all duration-300`
           }
         >
@@ -63,8 +70,7 @@ const Navbar = () => {
         <NavLink
           to={"/about-us"}
           className={({ isActive }) =>
-            `font-medium ${
-              isActive && "text-blue-400"
+            `font-medium ${isActive && "text-blue-400"
             } hover:text-blue-400 transition-all duration-300`
           }
         >
@@ -75,8 +81,7 @@ const Navbar = () => {
         <NavLink
           to={"/contact"}
           className={({ isActive }) =>
-            `font-medium ${
-              isActive && "text-blue-400"
+            `font-medium ${isActive && "text-blue-400"
             } hover:text-blue-400 transition-all duration-300`
           }
         >
@@ -142,8 +147,17 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-center"
               >
-                <li>{user.displayName}</li>
-                <li>{user.email}</li>
+                <li className="font-semibold text-blue-400">{user.displayName}</li>
+                <li className="text-xs text-gray-400">{user.email}</li>
+                <div className="divider my-1"></div>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-sm bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white border-red-500/20 transition-all duration-300"
+                  >
+                    Logout
+                  </button>
+                </li>
               </ul>
             </div>
           ) : <Link to={'/login'} className="py-2 px-5 border border-gray-500 rounded-full text-sm font-medium transition duration-300 transform hover:scale-105 hover:bg-white/10 hidden sm:inline-block">Login</Link>}
