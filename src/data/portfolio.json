@@ -1,0 +1,382 @@
+{
+  "portfolio": [
+    {
+      "id": 1,
+      "slug": "ecommerce-platform-retailmax",
+      "title": "E-Commerce Platform",
+      "category": "Web Development",
+      "client": "RetailMax UK",
+      "description": "A fully-featured, scalable online store built with React and Node.js. Includes real-time inventory management, secure payment integration, and advanced analytics dashboard.",
+      "longDescription": "RetailMax UK needed a modern, high-performance e-commerce solution to handle their growing inventory and customer base. We developed a custom MERN stack application that prioritizes speed, security, and user experience. The platform features a responsive front-end, a robust API for inventory management, and integration with Stripe for secure payments. Post-launch, the client saw a 150% increase in online sales and significantly improved customer retention rates.",
+      "image": "/assets/portfolio/ecommerce.png",
+      "technologies": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Stripe",
+        "AWS",
+        "Tailwind CSS"
+      ],
+      "link": "#",
+      "featured": true,
+      "results": "150% increase in online sales within 6 months",
+      "scope": [
+        "UI/UX Design",
+        "Frontend Development",
+        "Backend API",
+        "Database Hosting",
+        "Payment Integration"
+      ],
+      "seo": {
+        "title": "E-Commerce Success: Custom React & Node.js Solution for RetailMax UK",
+        "description": "Case study of a high-performance e-commerce platform built for RetailMax UK, achieving 150% sales growth."
+      }
+    },
+    {
+      "id": 2,
+      "slug": "business-analytics-dashboard-datadriven",
+      "title": "Business Analytics Dashboard",
+      "category": "Web Development",
+      "client": "DataDriven Corp",
+      "description": "Interactive real-time dashboard for business analytics and reporting. Features customizable widgets, data visualization, and automated reporting.",
+      "longDescription": "DataDriven Corp needed to consolidate multiple data sources into a single, actionable view. We built a sophisticated dashboard using React and D3.js, providing real-time visualizations of key performance indicators. The system automates historical data reporting, saving the analytics team hours of manual work each week. The solution is highly scalable and integrated directly with their existing PostgreSQL databases.",
+      "image": "/assets/portfolio/analytics.png",
+      "technologies": [
+        "React",
+        "D3.js",
+        "Express",
+        "PostgreSQL",
+        "Chart.js",
+        "Material UI"
+      ],
+      "link": "#",
+      "featured": true,
+      "results": "Reduced reporting time by 80%",
+      "scope": [
+        "Data Visualization",
+        "Full Stack Development",
+        "API Integration",
+        "Dashboard UI/UX"
+      ],
+      "seo": {
+        "title": "Real-Time Business Intelligence: Analytics Dashboard for DataDriven Corp",
+        "description": "How 3S-SOFT reduced reporting time by 80% with a custom React and D3.js analytics dashboard."
+      }
+    },
+    {
+      "id": 3,
+      "slug": "healthcare-portal-medicare",
+      "title": "Healthcare Portal",
+      "category": "Web Development",
+      "client": "MediCare Solutions",
+      "description": "HIPAA-compliant patient management system with appointment scheduling, telehealth integration, and secure messaging.",
+      "longDescription": "We partnered with MediCare Solutions to build a secure, HIPAA-compliant patient portal. The application includes features such as real-time appointment booking, secure file sharing between doctors and patients, and integrated telehealth video conferencing using WebRTC. The portal has revolutionized patient engagement and streamlined administrative tasks for medical staff.",
+      "image": "/assets/portfolio/healthcare.png",
+      "technologies": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "WebRTC",
+        "AWS",
+        "Socket.io"
+      ],
+      "link": "#",
+      "featured": true,
+      "results": "Improved patient engagement by 200%",
+      "scope": [
+        "Compliance Engineering",
+        "Telehealth Integration",
+        "Secure Messaging",
+        "Patient Portal Design"
+      ],
+      "seo": {
+        "title": "Secure Healthcare Portal Case Study | HIPAA-Compliant Web Development",
+        "description": "Discover how our secure patient management system for MediCare Solutions improved patient engagement by 200%."
+      }
+    },
+    {
+      "id": 4,
+      "slug": "real-estate-platform-propertyhub",
+      "title": "Real Estate Listing Platform",
+      "category": "Web Development",
+      "client": "PropertyHub USA",
+      "description": "Modern property listing website with virtual tours, advanced search filters, and mortgage calculator integration.",
+      "longDescription": "PropertyHub USA required a high-performance platform to showcase luxury listings. We built a tailored solution using Next.js for server-side rendering, ensuring excellent SEO performance. The site features an interactive map search using Mapbox, high-quality image processing with Cloudinary, and a custom mortgage calculator for potential buyers.",
+      "image": "/assets/portfolio/realestate.png",
+      "technologies": [
+        "Next.js",
+        "Node.js",
+        "MongoDB",
+        "Mapbox",
+        "Cloudinary",
+        "Framer Motion"
+      ],
+      "link": "#",
+      "featured": false,
+      "results": "30% faster property transactions",
+      "scope": [
+        "SEO Optimization",
+        "Map Integration",
+        "Media Management",
+        "Frontend Engineering"
+      ],
+      "seo": {
+        "title": "Next.js Real Estate Platform for PropertyHub USA | 3S-SOFT Case Study",
+        "description": "A high-performance real estate listing site featuring interactive maps and optimized media management."
+      }
+    },
+    {
+      "id": 5,
+      "slug": "restaurant-chain-website-tastybites",
+      "title": "Restaurant Chain Website",
+      "category": "WordPress",
+      "client": "TastyBites Group",
+      "description": "Multi-location restaurant website with online ordering, table reservations, and loyalty program integration.",
+      "longDescription": "For TastyBites Group, we developed a fast, conversion-focused WordPress site. We integrated a custom WooCommerce-based online ordering system and a reservation platform that syncs directly with their in-restaurant management software. The site is optimized for mobile users, making it easy for customers to order on the go.",
+      "image": "/assets/portfolio/restaurant.png",
+      "technologies": [
+        "WordPress",
+        "WooCommerce",
+        "PHP",
+        "MySQL",
+        "Elementor",
+        "WP Customization"
+      ],
+      "link": "#",
+      "featured": false,
+      "results": "45% increase in online orders",
+      "scope": [
+        "WordPress Customization",
+        "Online Ordering",
+        "Reservation System",
+        "Mobile Optimization"
+      ],
+      "seo": {
+        "title": "WordPress Customization for TastyBites Restaurant Chain | Case Study",
+        "description": "Boosting online orders by 45% through custom WordPress and WooCommerce development."
+      }
+    },
+    {
+      "id": 6,
+      "slug": "fashion-brand-store-stylevogue",
+      "title": "Fashion Brand Store",
+      "category": "eCommerce",
+      "client": "StyleVogue London",
+      "description": "Premium fashion e-commerce store with AR try-on feature, personalized recommendations, and influencer integration.",
+      "longDescription": "StyleVogue London wanted to stand out in the competitive fashion market. We implemented a high-end Shopify store with custom-built features, including an Augmented Reality (AR) try-on tool using TensorFlow.js and a personalized recommendation engine. The project also included building a collaborative dashboard for influencer management.",
+      "image": "/assets/portfolio/fashion.png",
+      "technologies": [
+        "Shopify",
+        "React",
+        "Node.js",
+        "TensorFlow",
+        "Stripe",
+        "AR Integration"
+      ],
+      "link": "#",
+      "featured": true,
+      "results": "Double conversion rate in 3 months",
+      "scope": [
+        "AR Development",
+        "eCommerce Strategy",
+        "UI/UX Design",
+        "Shopify Customization"
+      ],
+      "seo": {
+        "title": "Premium Fashion eCommerce & AR Integration for StyleVogue London",
+        "description": "Implementing AR try-on and personalized recommendations for a high-converting fashion store."
+      }
+    },
+    {
+      "id": 7,
+      "slug": "fitness-tracking-app-fitlife",
+      "title": "Fitness Tracking App",
+      "category": "Mobile App",
+      "client": "FitLife Pro",
+      "description": "Cross-platform fitness app with workout tracking, nutrition planning, and social challenges.",
+      "longDescription": "We developed FitLife Pro using React Native to ensure high performance on both iOS and Android. The app features real-time workout tracking, integration with Apple HealthKit and Google Fit, and a social layer where users can compete in challenges. The backend is powered by Node.js and Firebase for real-time notifications.",
+      "image": "/assets/portfolio/fitness.png",
+      "technologies": [
+        "React Native",
+        "Node.js",
+        "MongoDB",
+        "Firebase",
+        "HealthKit",
+        "Google Fit"
+      ],
+      "link": "#",
+      "featured": false,
+      "results": "500K+ downloads in first year",
+      "scope": [
+        "Mobile Development",
+        "Backend Infrastructure",
+        "API Integration",
+        "Gamification Design"
+      ],
+      "seo": {
+        "title": "React Native Fitness App for FitLife Pro | App Development Case Study",
+        "description": "Scaling a cross-platform fitness app to over 500,000 downloads through expert engineering."
+      }
+    },
+    {
+      "id": 8,
+      "slug": "corporate-branding-suite-techventure",
+      "title": "Corporate Branding Suite",
+      "category": "Graphic Design",
+      "client": "TechVenture Inc",
+      "description": "Complete brand identity including logo design, business cards, letterheads, and social media kit.",
+      "longDescription": "TechVenture Inc needed a brand refresh to better reflect their position as a high-tech venture capital firm. We designed a modern, minimalistic logo and a complete brand style guide that provides consistency across all digital and print mediums. The project also involved designing a unique social media kit for their online presence.",
+      "image": "/assets/portfolio/branding.png",
+      "technologies": [
+        "Figma",
+        "Adobe Illustrator",
+        "Photoshop",
+        "After Effects",
+        "Brand Strategy"
+      ],
+      "link": "#",
+      "featured": false,
+      "results": "Award-winning brand design",
+      "scope": [
+        "Brand Identity Design",
+        "Logo Design",
+        "Graphic Design",
+        "Social Media Kits"
+      ],
+      "seo": {
+        "title": "Award-Winning Brand Identity for TechVenture Inc | 3S-SOFT Design",
+        "description": "Developing a modern, high-tech brand identity for a leading venture capital firm."
+      }
+    },
+    {
+      "id": 9,
+      "slug": "amazon-marketplace-optimization-homegoods",
+      "title": "Amazon Marketplace Optimization",
+      "category": "eCommerce",
+      "client": "HomeGoods Direct",
+      "description": "Complete Amazon storefront optimization including product listings, A+ content, and PPC campaign management.",
+      "image": "/assets/portfolio/amazon.png",
+      "technologies": [
+        "Amazon Seller Central",
+        "Helium 10",
+        "Jungle Scout",
+        "Canva",
+        "PPC Management"
+      ],
+      "link": "#",
+      "featured": true,
+      "results": "300% increase in Amazon sales",
+      "longDescription": "We took over HomeGoods Direct's underperforming Amazon presence and completely transformed it. By optimizing project listings with high-ranking keywords, creating professional A+ content, and managing aggressive PPC campaigns, we were able to triple their monthly revenue on the platform within just 4 months.",
+      "scope": [
+        "Listing Optimization",
+        "A+ Content Creation",
+        "PPC Campaign Management",
+        "Sales Strategy"
+      ],
+      "seo": {
+        "title": "Amazon Sales Growth: 300% Increase for HomeGoods Direct",
+        "description": "How professional Amazon optimization and PPC management drove massive results for a retail brand."
+      }
+    },
+    {
+      "id": 10,
+      "slug": "seo-digital-marketing-greenenergy",
+      "title": "SEO & Digital Marketing Campaign",
+      "category": "Digital Marketing",
+      "client": "GreenEnergy Solutions",
+      "description": "Comprehensive SEO strategy with content marketing, link building, and local SEO optimization for renewable energy company.",
+      "longDescription": "GreenEnergy Solutions needed to compete for competitive green energy keywords. We implemented a long-term SEO strategy focusing on high-quality content that answers user questions about renewable energy. Combined with a white-hat link building campaign and local SEO optimization, the client now dominates search results for their target region.",
+      "image": "/assets/portfolio/seo.png",
+      "technologies": [
+        "SEMrush",
+        "Ahrefs",
+        "Google Analytics",
+        "HubSpot",
+        "Local SEO"
+      ],
+      "link": "#",
+      "featured": false,
+      "results": "First page rankings for 50+ keywords",
+      "scope": [
+        "Technical SEO",
+        "Content Marketing",
+        "Link Building",
+        "Analytics Strategy"
+      ],
+      "seo": {
+        "title": "SEO Case Study: Dominating Renewable Energy Search Results",
+        "description": "A comprehensive digital marketing strategy that achieved first-page rankings for 50+ competitive keywords."
+      }
+    },
+    {
+      "id": 11,
+      "slug": "social-media-campaign-luxe-beauty",
+      "title": "Social Media Campaign",
+      "category": "Digital Marketing",
+      "client": "Luxe Beauty Co",
+      "description": "Multi-platform social media marketing campaign with influencer partnerships, content creation, and paid advertising.",
+      "longDescription": "Luxe Beauty Co wanted to leverage TikTok and Instagram to reach a younger audience. We created a high-energy content strategy that included influencer takeovers and viral video challenges. Combined with highly targeted Meta Ads, the campaign achieved millions of impressions and significant follower growth in a single quarter.",
+      "image": "/assets/portfolio/social.png",
+      "technologies": [
+        "Meta Ads",
+        "TikTok",
+        "Hootsuite",
+        "Canva",
+        "Influencer Strategy"
+      ],
+      "link": "#",
+      "featured": false,
+      "results": "1M+ impressions, 50K new followers",
+      "scope": [
+        "Social Media Strategy",
+        "Content Creation",
+        "Paid Advertising",
+        "Influencer Management"
+      ],
+      "seo": {
+        "title": "Viral Social Media Success for Luxe Beauty Co | 3S-SOFT Marketing",
+        "description": "How we achieved millions of impressions and 50,000 new followers through a strategic social media campaign."
+      }
+    },
+    {
+      "id": 12,
+      "slug": "educational-learning-platform-edutech",
+      "title": "Educational Learning Platform",
+      "category": "Web Development",
+      "client": "EduTech Academy",
+      "description": "Comprehensive LMS with video courses, quizzes, certificates, and student progress tracking.",
+      "longDescription": "EduTech Academy needed a custom Learning Management System (LMS) to host their growing catalog of online courses. We built a robust platform using React and Node.js with secure video hosting on AWS S3. The system includes interactive quizzes, automatic certificate generation, and an instructor dashboard for student performance tracking.",
+      "image": "/assets/portfolio/edtech.png",
+      "technologies": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "AWS S3",
+        "Stripe",
+        "PDF Generation"
+      ],
+      "link": "#",
+      "featured": true,
+      "results": "10,000+ enrolled students",
+      "scope": [
+        "LMS Development",
+        "Video Infrastructure",
+        "Certificate Automation",
+        "Student Dashboard"
+      ],
+      "seo": {
+        "title": "Custom Learning Management System (LMS) for EduTech Academy",
+        "description": "Building a scalable educational platform that supports over 10,000 active students."
+      }
+    }
+  ],
+  "categories": [
+    "All",
+    "Web Development",
+    "eCommerce",
+    "WordPress",
+    "Mobile App",
+    "Digital Marketing",
+    "Graphic Design"
+  ]
+}

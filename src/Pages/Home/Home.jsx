@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import FeaturesSection from "./FeaturesSection";
 import ServicesSection from "./ServicesSection";
+import PortfolioSection from "./PortfolioSection";
 import WhyChooseUs from "./WhyChooseUs";
 import Testimonials from "./Testimonials";
 import PageTitle from "../../Components/PageTitle";
@@ -15,6 +16,7 @@ const Home = () => {
       />
       <Hero />
       <ServicesSection />
+      <PortfolioSection />
       <FeaturesSection />
       <Testimonials />
       <WhyChooseUs />

@@ -11,6 +11,8 @@ import Services from "../Pages/Services/Services";
 import Blogs from "../Pages/Blogs/Blogs";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddBlog from "../Pages/Admin/AddBlog/AddBlog";
+import Portfolio from "../Pages/Portfolio/Portfolio";
+import PortfolioDetails from "../Pages/Portfolio/PortfolioDetails";
 import BlogDetails from "../Pages/Blogs/BlogDetails/BlogDetails";
 import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardProfile from "../Pages/Admin/DashboardProfile/DashboardProfile";
@@ -51,6 +53,14 @@ let router = createBrowserRouter([
       {
         path: "/contact",
         Component: Contact,
+      },
+      {
+        path: "/portfolio",
+        Component: Portfolio,
+      },
+      {
+        path: "/portfolio/:slug",
+        Component: PortfolioDetails,
       },
       {
         path: "/privacy-policy",

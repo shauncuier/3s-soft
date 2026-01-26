@@ -68,6 +68,17 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+          to={"/portfolio"}
+          className={({ isActive }) =>
+            `font-medium ${isActive && "text-blue-400"
+            } hover:text-blue-400 transition-all duration-300`
+          }
+        >
+          Portfolio
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to={"/about-us"}
           className={({ isActive }) =>
             `font-medium ${isActive && "text-blue-400"
