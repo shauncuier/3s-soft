@@ -23,9 +23,9 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-8">
           Welcome to
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 ml-4">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-400 ml-4">
             3S-SOFT
           </span>
         </h1>

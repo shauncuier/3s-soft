@@ -73,7 +73,7 @@ const PortfolioDetails = () => {
                             Back to Portfolio
                         </Link>
                         <SectionLabel label={project.category} />
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6">
+                        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6">
                             {project.title}
                         </h1>
                         <div className="flex flex-wrap gap-4 items-center">
@@ -85,8 +85,8 @@ const PortfolioDetails = () => {
                 </section>
 
                 {/* Project Details Content */}
-                <section className="py-20 px-5">
-                    <div className="max-w-[1480px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
+                <section className="py-12 md:py-20 px-5">
+                    <div className="max-w-[1480px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
                         {/* Left Column: Description */}
                         <div className="lg:col-span-2 space-y-10">
                             <div>

@@ -37,9 +37,9 @@ const PortfolioSection = () => {
                 {/* Section Header */}
                 <div className="flex flex-col items-center justify-center text-center mb-12">
                     <SectionLabel label="Our Portfolio" />
-                    <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white">
+                    <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 dark:text-white">
                         Our Recent{" "}
-                        <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                             Projects
                         </span>
                     </h2>

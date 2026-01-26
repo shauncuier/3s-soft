@@ -38,7 +38,7 @@ const Testimonials = () => {
           className="mySwiper max-w-4xl bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 mt-15"
         >
           {testimonialsData.map((testimonial) => (
-            <SwiperSlide key={testimonial.id} className="px-15 py-16">
+            <SwiperSlide key={testimonial.id} className="px-6 md:px-15 py-12 md:py-16">
               {/* Quote Icon */}
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">

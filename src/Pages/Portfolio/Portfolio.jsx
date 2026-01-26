@@ -57,7 +57,7 @@ const Portfolio = () => {
 
         <div className="max-w-370 mx-auto relative z-10 text-center">
           <SectionLabel label="Our Work" />
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             Projects That{" "}
             <span className="bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Deliver Results
@@ -92,8 +92,8 @@ const Portfolio = () => {
                 key={index}
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 cursor-pointer ${activeCategory === category
-                    ? "bg-linear-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
-                    : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
+                  ? "bg-linear-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
+                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
                   }`}
               >
                 {category}
