@@ -1,3 +1,9 @@
+# Ensure correct Content-Type for sitemap.xml
+<Files "sitemap.xml">
+  ForceType application/xml
+  Header set Content-Type "application/xml"
+</Files>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
