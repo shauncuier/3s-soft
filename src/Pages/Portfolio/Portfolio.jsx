@@ -49,17 +49,17 @@ const Portfolio = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-24 px-5">
+      <section className="relative bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 py-24 px-5">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="max-w-[1480px] mx-auto relative z-10 text-center">
+        <div className="max-w-370 mx-auto relative z-10 text-center">
           <SectionLabel label="Our Work" />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             Projects That{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
               Deliver Results
             </span>
           </h1>
@@ -83,8 +83,8 @@ const Portfolio = () => {
       </section>
 
       {/* Filter & Portfolio Grid */}
-      <section className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20 px-5 transition-colors duration-300">
-        <div className="max-w-[1480px] mx-auto">
+      <section className="bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20 px-5 transition-colors duration-300">
+        <div className="max-w-370 mx-auto">
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((category, index) => (
@@ -92,7 +92,7 @@ const Portfolio = () => {
                 key={index}
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 cursor-pointer ${activeCategory === category
-                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
+                    ? "bg-linear-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
                     : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
                   }`}
               >
@@ -147,7 +147,7 @@ const Portfolio = () => {
 
                     {/* Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
-                      <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      <span className="px-4 py-1.5 bg-linear-to-r from-blue-500 to-purple-600 text-white text-xs font-bold rounded-full shadow-lg">
                         {item.category}
                       </span>
                       {item.featured && (
@@ -187,7 +187,7 @@ const Portfolio = () => {
                   </div>
                 </Link>
                 {/* Bottom Gradient Line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </div>
             ))}
           </div>
@@ -209,7 +209,7 @@ const Portfolio = () => {
                   setActiveCategory("All");
                   setSearchQuery("");
                 }}
-                className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-full hover:shadow-lg transition-all duration-300"
+                className="mt-6 px-6 py-3 bg-linear-to-r from-blue-500 to-purple-600 text-white font-medium rounded-full hover:shadow-lg transition-all duration-300"
               >
                 Clear Filters
               </button>
@@ -219,7 +219,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-700 py-20 px-5">
+      <section className="bg-linear-to-r from-blue-600 to-purple-700 py-20 px-5">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
             Ready to Start Your Project?
