@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
-import emailjs from "emailjs-com";
+import React, { useState } from "react";
+import axios from "axios";
 import { MdOutlineEmail, MdWhatsapp } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { FiPhone, FiSend } from "react-icons/fi";
 import { LuMapPin, LuGlobe } from "react-icons/lu";
 import SectionLabel from "../../Components/SectionLabel";
 import PageTitle from "../../Components/PageTitle";
+import toast from "react-hot-toast";
+import { services as allServices } from "../../Data/servicesData";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,18 +20,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const formRef = useRef();
-
-  const services = [
-    "Web Development (MERN Stack)",
-    "WordPress Customization",
-    "Product Listing for eCommerce",
-    "Lead Generation",
-    "Digital Marketing & SEO",
-    "Social Media Marketing",
-    "Graphic Design",
-    "Virtual Assistant Services",
-  ];
+  const servicesList = allServices.map(s => s.title);
 
   const handleChange = (e) => {
     setFormData({
@@ -41,32 +32,39 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const loadingToast = toast.loading("Sending your message...");
 
     try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      const response = await axios.post(
+        "https://formspree.io/f/mgoyrdky",
+        formData,
+        {
+          headers: {
+            'Accept': 'application/json'
+          }
+        }
       );
 
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+      if (response.status === 200) {
+        toast.success("Message sent successfully!", { id: loadingToast });
+        setIsSubmitting(false);
+        setIsSubmitted(true);
 
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-      }, 3000);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            service: "",
+            message: "",
+          });
+        }, 5000);
+      }
     } catch (error) {
-      console.error("EmailJS Error:", error.text);
+      console.error("Formspree Error:", error);
+      toast.error("Failed to send message. Please try again or email us directly.", { id: loadingToast });
       setIsSubmitting(false);
-      alert("Something went wrong. Please try again later.");
     }
   };
   return (
@@ -177,7 +175,6 @@ const Contact = () => {
             <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
               {!isSubmitted ? (
                 <form
-                  ref={formRef}
                   onSubmit={handleSubmit}
                   className="space-y-6"
                 >
@@ -244,10 +241,10 @@ const Contact = () => {
                       value={formData.service}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white outline-none focus:border-blue-500 transition-colors"
                     >
-                      <option value="">Select a service</option>
-                      {services.map((service, idx) => (
+                      <option value="" className="text-gray-900">Select a service</option>
+                      {servicesList.map((service, idx) => (
                         <option
                           key={idx}
                           value={service}
