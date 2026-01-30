@@ -6,7 +6,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FiFacebook, FiLinkedin, FiInstagram } from "react-icons/fi";
 import { MdWhatsapp } from "react-icons/md";
 import logo from "../assets/logo.jpg";
-import { services } from "../Data/servicesData";
+import { services } from "../data/servicesData";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

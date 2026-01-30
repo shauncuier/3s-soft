@@ -7,7 +7,7 @@ import { LuMapPin, LuGlobe } from "react-icons/lu";
 import SectionLabel from "../../Components/SectionLabel";
 import PageTitle from "../../Components/PageTitle";
 import toast from "react-hot-toast";
-import { services as allServices } from "../../Data/servicesData";
+import { services as allServices } from "../../data/servicesData";
 
 const Contact = () => {
   const [formData, setFormData] = useState({

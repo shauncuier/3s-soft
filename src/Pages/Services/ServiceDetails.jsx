@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router";
-import { services } from "../../Data/servicesData";
+import { services } from "../../data/servicesData";
 import PageTitle from "../../Components/PageTitle";
 import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";

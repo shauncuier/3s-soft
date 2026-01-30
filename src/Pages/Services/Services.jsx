@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { services } from "../../Data/servicesData";
+import { services } from "../../data/servicesData";
 import { Helmet } from "react-helmet-async";
 import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";
