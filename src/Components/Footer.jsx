@@ -6,20 +6,10 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FiFacebook, FiLinkedin, FiInstagram } from "react-icons/fi";
 import { MdWhatsapp } from "react-icons/md";
 import logo from "../assets/logo.jpg";
+import { services } from "../Data/servicesData";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const services = [
-    "Web Development (MERN Stack)",
-    "WordPress Customization",
-    "Product Listing for eCommerce",
-    "Lead Generation",
-    "Digital Marketing & SEO",
-    "Social Media Marketing",
-    "Graphic Design",
-    "Virtual Assistant Services",
-  ];
 
   const quickLinks = [
     { label: "Home", to: "/" },
@@ -38,7 +28,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="">
-            <Link href="/">
+            <Link to="/">
               <img
                 src={logo}
                 alt="3S-SOFT - Expert MERN & SEO Services Logo"
@@ -93,12 +83,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.slice(0, 6).map((service, index) => (
                 <li key={index}>
-                  <a
-                    href="#services"
+                  <Link
+                    to={`/services/${service.slug}`}
                     className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
                   >
-                    {service}
-                  </a>
+                    {service.title}
+                  </Link>
                 </li>
               ))}
               <li>

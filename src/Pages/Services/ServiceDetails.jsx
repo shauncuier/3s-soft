@@ -5,6 +5,7 @@ import PageTitle from "../../Components/PageTitle";
 import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import NotFound from "../Error/NotFound";
 
 const ServiceDetails = () => {
@@ -17,12 +18,42 @@ const ServiceDetails = () => {
 
     const IconComponent = service.icon;
 
+    const dynamicServiceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "provider": {
+            "@type": "Organization",
+            "name": "3S-SOFT",
+            "url": "https://3s-soft.com/"
+        },
+        "serviceType": service.title,
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": service.title,
+            "itemListElement": service.features.map((f, i) => ({
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": f
+                }
+            }))
+        }
+    };
+
     return (
         <section className="bg-gray-900 min-h-screen pt-24 pb-20 px-4">
             <PageTitle
                 title={service.seoTitle}
                 content={service.seoDescription}
             />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(dynamicServiceSchema)}
+                </script>
+            </Helmet>
 
             <div className="max-w-5xl mx-auto">
                 {/* Back Link */}
