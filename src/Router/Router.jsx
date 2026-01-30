@@ -1,86 +1,97 @@
 import { createBrowserRouter } from "react-router";
+import React, { lazy, Suspense } from "react";
 import RootLayout from "../Layout/RootLayout";
-import Home from "../Pages/Home/Home";
-import Contact from "../Pages/Contact/Contact";
-import NotFound from "../Pages/Error/NotFound";
-import PrivacyPolicy from "../Pages/Compliance/Protection";
-import TermsOfService from "../Pages/Compliance/Agreement";
-import CookiePolicy from "../Pages/Compliance/Legal";
-import Team from "../Pages/Team/Team";
-import Services from "../Pages/Services/Services";
-import Blogs from "../Pages/Blogs/Blogs";
-import AboutUs from "../Pages/AboutUs/AboutUs";
-import AddBlog from "../Pages/Admin/AddBlog/AddBlog";
-import Portfolio from "../Pages/Portfolio/Portfolio";
-import PortfolioDetails from "../Pages/Portfolio/PortfolioDetails";
-import BlogDetails from "../Pages/Blogs/BlogDetails/BlogDetails";
-import DashboardLayout from "../Layout/DashboardLayout";
-import DashboardProfile from "../Pages/Admin/DashboardProfile/DashboardProfile";
-import Login from "../Pages/Authentication/Login/Login";
-import Register from "../Pages/Authentication/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Loading from "../Components/Loading";
+
+// Lazy Load Pages for Zero Loading Performance
+const Home = lazy(() => import("../Pages/Home/Home"));
+const Contact = lazy(() => import("../Pages/Contact/Contact"));
+const NotFound = lazy(() => import("../Pages/Error/NotFound"));
+const PrivacyPolicy = lazy(() => import("../Pages/Compliance/Protection"));
+const TermsOfService = lazy(() => import("../Pages/Compliance/Agreement"));
+const CookiePolicy = lazy(() => import("../Pages/Compliance/Legal"));
+const Team = lazy(() => import("../Pages/Team/Team"));
+const Services = lazy(() => import("../Pages/Services/Services"));
+const Blogs = lazy(() => import("../Pages/Blogs/Blogs"));
+const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"));
+const AddBlog = lazy(() => import("../Pages/Admin/AddBlog/AddBlog"));
+const Portfolio = lazy(() => import("../Pages/Portfolio/Portfolio"));
+const PortfolioDetails = lazy(() => import("../Pages/Portfolio/PortfolioDetails"));
+const BlogDetails = lazy(() => import("../Pages/Blogs/BlogDetails/BlogDetails"));
+const DashboardLayout = lazy(() => import("../Layout/DashboardLayout"));
+const DashboardProfile = lazy(() => import("../Pages/Admin/DashboardProfile/DashboardProfile"));
+const Login = lazy(() => import("../Pages/Authentication/Login/Login"));
+const Register = lazy(() => import("../Pages/Authentication/Register/Register"));
+
+// Wrapper for Lazy Components
+const LazyPage = ({ Component }) => (
+  <Suspense fallback={<Loading />}>
+    <Component />
+  </Suspense>
+);
 
 let router = createBrowserRouter([
   {
     path: "/",
-    Component: RootLayout,
-    errorElement: <NotFound />, // Import NotFound component here
+    element: <RootLayout />,
+    errorElement: <LazyPage Component={NotFound} />,
     children: [
       {
         index: true,
-        Component: Home,
+        element: <LazyPage Component={Home} />,
       },
       {
         path: "/services",
-        Component: Services,
+        element: <LazyPage Component={Services} />,
       },
       {
         path: "/team",
-        Component: Team,
+        element: <LazyPage Component={Team} />,
       },
       {
         path: "/blogs",
-        Component: Blogs,
+        element: <LazyPage Component={Blogs} />,
       },
       {
         path: "/blog/:slug",
-        Component: BlogDetails,
+        element: <LazyPage Component={BlogDetails} />,
       },
       {
         path: "/about-us",
-        Component: AboutUs,
+        element: <LazyPage Component={AboutUs} />,
       },
       {
         path: "/contact",
-        Component: Contact,
+        element: <LazyPage Component={Contact} />,
       },
       {
         path: "/portfolio",
-        Component: Portfolio,
+        element: <LazyPage Component={Portfolio} />,
       },
       {
         path: "/portfolio/:slug",
-        Component: PortfolioDetails,
+        element: <LazyPage Component={PortfolioDetails} />,
       },
       {
         path: "/privacy-policy",
-        Component: PrivacyPolicy,
+        element: <LazyPage Component={PrivacyPolicy} />,
       },
       {
         path: "/terms-of-service",
-        Component: TermsOfService,
+        element: <LazyPage Component={TermsOfService} />,
       },
       {
         path: "/cookies",
-        Component: CookiePolicy,
+        element: <LazyPage Component={CookiePolicy} />,
       },
       {
         path: "/login",
-        Component: Login,
+        element: <LazyPage Component={Login} />,
       },
       {
         path: "/register",
-        Component: Register,
+        element: <LazyPage Component={Register} />,
       },
     ],
   },
@@ -88,7 +99,7 @@ let router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <PrivateRoute>
-        <DashboardLayout></DashboardLayout>
+        <LazyPage Component={DashboardLayout} />
       </PrivateRoute>
     ),
     children: [
@@ -96,7 +107,7 @@ let router = createBrowserRouter([
         path: "profile",
         element: (
           <PrivateRoute>
-            <DashboardProfile></DashboardProfile>
+            <LazyPage Component={DashboardProfile} />
           </PrivateRoute>
         ),
       },
@@ -104,7 +115,7 @@ let router = createBrowserRouter([
         path: "add-blog",
         element: (
           <PrivateRoute>
-            <AddBlog></AddBlog>
+            <LazyPage Component={AddBlog} />
           </PrivateRoute>
         ),
       },
@@ -112,7 +123,7 @@ let router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <NotFound />,
+    element: <LazyPage Component={NotFound} />,
   },
 ]);
 
