@@ -13,22 +13,32 @@ import SectionLabel from "../../Components/SectionLabel";
 import { Link } from "react-router";
 import PageTitle from "../../Components/PageTitle";
 
+import { Helmet } from "react-helmet-async";
+
 const Team = () => {
-  const getSocialIcon = (platform) => {
-    switch (platform) {
-      case "linkedin":
-        return FiLinkedin;
-      case "twitter":
-        return FiTwitter;
-      case "github":
-        return FiGithub;
-      case "dribbble":
-        return FiDribbble;
-      case "facebook":
-        return FiFacebook;
-      default:
-        return FiLink;
-    }
+  const socialIcons = {
+    linkedin: FiLinkedin,
+    twitter: FiTwitter,
+    github: FiGithub,
+    dribbble: FiDribbble,
+    facebook: FiFacebook,
+  };
+
+  const getSocialIcon = (platform) => socialIcons[platform] || FiLink;
+
+  const teamSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "3S-SOFT",
+    "url": "https://3s-soft.com",
+    "employee": teamData.map(member => ({
+      "@type": "Person",
+      "name": member.name,
+      "jobTitle": member.position,
+      "description": member.bio,
+      "image": `https://3s-soft.com${member.image.startsWith('http') ? '' : member.image}`,
+      "sameAs": Object.values(member.social).filter(url => url && url !== "#")
+    }))
   };
 
   return (
@@ -38,6 +48,9 @@ const Team = () => {
           title="Our Team | Expert Full-Stack Developers & SEO Pros"
           content="Meet the 3S-SOFT team: a global collective of expert MERN stack developers, eCommerce strategists, and digital marketing professionals committed to your success."
         />
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify(teamSchema)}</script>
+        </Helmet>
         <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -55,15 +68,19 @@ const Team = () => {
           {/* Team Grid */}
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10 sm:px-0">
             {teamData.map((member) => (
-              <div
+              <figure
                 key={member.id}
+                itemScope
+                itemType="https://schema.org/Person"
                 className="group bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-700 overflow-hidden"
               >
                 {/* Profile Image */}
                 <div className="relative overflow-hidden">
                   <img
                     src={member.image}
-                    alt={member.name}
+                    alt={`${member.name} - ${member.position} at 3S-SOFT`}
+                    loading="lazy"
+                    itemProp="image"
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -71,13 +88,17 @@ const Team = () => {
                   {/* Social Links Overlay */}
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {Object.entries(member.social).map(([platform, url]) => {
+                      if (!url || url === "#") return null;
                       const IconComponent = getSocialIcon(platform);
                       return (
                         <a
                           target="_blank"
+                          rel="noopener noreferrer"
                           key={platform}
                           href={url}
+                          itemProp="sameAs"
                           className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-300"
+                          aria-label={`${member.name}'s ${platform}`}
                         >
                           <IconComponent className="h-4 w-4 text-white" />
                         </a>
@@ -87,16 +108,25 @@ const Team = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300">
+                <figcaption className="p-6">
+                  <h3
+                    itemProp="name"
+                    className="text-xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300"
+                  >
                     {member.name}
                   </h3>
 
-                  <p className="text-blue-400 font-medium mb-3">
+                  <p
+                    itemProp="jobTitle"
+                    className="text-blue-400 font-medium mb-3"
+                  >
                     {member.position}
                   </p>
 
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  <p
+                    itemProp="description"
+                    className="text-gray-300 text-sm leading-relaxed mb-4"
+                  >
                     {member.bio}
                   </p>
 
@@ -105,20 +135,20 @@ const Team = () => {
                     {member.skills.map((skill, index) => (
                       <span
                         key={index}
-                        className="px-2 py-1 bg-blue-900/30 text-blue-400 text-xs rounded-full"
+                        className="px-2 py-1 bg-blue-900/30 text-blue-400 text-xs rounded-full border border-blue-500/20"
                       >
                         {skill}
                       </span>
                     ))}
                   </div>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             ))}
           </div>
 
           {/* CTA Section */}
           <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-12 text-white">
+            <div className="bg-gradient-to-r from-blue-700 to-purple-700 rounded-3xl p-10 md:p-12 text-white border border-white/10 shadow-2xl">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Ready to Work with Our Expert Team?
               </h3>
@@ -130,7 +160,7 @@ const Team = () => {
                 to={"/contact"}
                 className="inline-flex items-center bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
-                Start Your Project
+                Start Your Project Today
               </Link>
             </div>
           </div>
