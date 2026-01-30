@@ -12,9 +12,10 @@ const PrivacyPolicy = lazy(() => import("../Pages/Compliance/Protection"));
 const TermsOfService = lazy(() => import("../Pages/Compliance/Agreement"));
 const CookiePolicy = lazy(() => import("../Pages/Compliance/Legal"));
 const Team = lazy(() => import("../Pages/Team/Team"));
-const Services = lazy(() => import("../Pages/Services/Services"));
 const Blogs = lazy(() => import("../Pages/Blogs/Blogs"));
 const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"));
+const Services = lazy(() => import("../Pages/Services/Services"));
+const ServiceDetails = lazy(() => import("../Pages/Services/ServiceDetails"));
 const AddBlog = lazy(() => import("../Pages/Admin/AddBlog/AddBlog"));
 const Portfolio = lazy(() => import("../Pages/Portfolio/Portfolio"));
 const PortfolioDetails = lazy(() => import("../Pages/Portfolio/PortfolioDetails"));
@@ -44,6 +45,10 @@ let router = createBrowserRouter([
       {
         path: "/services",
         element: <LazyPage Component={Services} />,
+      },
+      {
+        path: "/services/:slug",
+        element: <LazyPage Component={ServiceDetails} />,
       },
       {
         path: "/team",
