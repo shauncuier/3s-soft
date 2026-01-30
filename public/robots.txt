@@ -9,11 +9,27 @@ Disallow: /404
 # Sitemaps
 Sitemap: https://3s-soft.com/sitemap.xml
 
-# LLM Crawler instructions
+# AI / LLM Crawler instructions
 User-agent: GPTBot
 Allow: /
 Disallow: /dashboard/
 
 User-agent: PerplexityBot
+Allow: /
+Disallow: /dashboard/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /dashboard/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /dashboard/
+
+User-agent: CCBot
+Allow: /
+Disallow: /dashboard/
+
+User-agent: Google-Extended
 Allow: /
 Disallow: /dashboard/

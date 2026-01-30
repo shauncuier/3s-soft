@@ -6,24 +6,29 @@
 ## Detailed Service Breakdown
 
 ### 1. Web Development (MERN Stack)
+- [Details & Pricing](https://3s-soft.com/services/web-development-mern)
 - End-to-end development of Single Page Applications (SPAs).
 - Responsive UI/UX design using Tailwind CSS.
 - Robust backend systems with Node.js and Express.
 
 ### 2. WordPress Customization
+- [Details & Solutions](https://3s-soft.com/services/wordpress-customization)
 - Tailored WordPress themes and plugin configuration.
 - Performance optimization and security hardening.
 
 ### 3. eCommerce & Product Listing
+- [Marketplace Services](https://3s-soft.com/services/ecommerce-product-listing)
 - Specialized managed services for Amazon Seller Central, eBay, Walmart, and Etsy.
 - SEO-optimized product descriptions and bulk listing management.
 
 ### 4. SEO & Digital Marketing
+- [Growth Strategies](https://3s-soft.com/services/digital-marketing-seo)
 - On-page, off-page, and technical SEO audits.
 - Lead generation through data-driven campaigns.
 - Social Media Marketing (SMM) across Facebook, LinkedIn, Instagram.
 
 ### 5. Virtual Assistant (VA) Services
+- [Outsourcing Details](https://3s-soft.com/services/virtual-assistant)
 - Administrative support, market research, and data entry.
 - Email management and scheduling.
 

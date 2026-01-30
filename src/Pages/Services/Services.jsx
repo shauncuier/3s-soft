@@ -31,6 +31,37 @@ const Services = () => {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does 3S-SOFT provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "3S-SOFT specializes in MERN Stack development, WordPress customization, eCommerce product listing for Amazon and eBay, SEO audits, and B2B lead generation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does 3S-SOFT offer custom MERN stack development?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we build scalable, high-performance web applications using MongoDB, Express, React, and Node.js tailored to specific business needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can 3S-SOFT help with Amazon and eBay product listings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We provide expert product listing, bulk inventory management, and keyword optimization for global marketplaces like Amazon, eBay, Walmart, and Etsy."
+        }
+      }
+    ]
+  };
+
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
       <PageTitle
@@ -39,6 +70,7 @@ const Services = () => {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
       <div className="max-w-[1480px] min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         <div className="text-center mb-16">
@@ -99,7 +131,7 @@ const Services = () => {
           <Button label={"Start Your Project Today"} to={"/contact"} />
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

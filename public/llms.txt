@@ -12,7 +12,15 @@ To empower businesses by bridging the gap between innovative code and measurable
 - **Operations Support**: Trained Virtual Assistants for startup administrative and technical efficiency.
 
 ## Core Resources
-- [Service Catalog](https://3s-soft.com/services)
+- [Main Services Hub](https://3s-soft.com/services)
+- [MERN Stack Development](https://3s-soft.com/services/web-development-mern)
+- [WordPress Customization](https://3s-soft.com/services/wordpress-customization)
+- [eCommerce listing](https://3s-soft.com/services/ecommerce-product-listing)
+- [Lead Generation](https://3s-soft.com/services/lead-generation)
+- [SEO & Marketing](https://3s-soft.com/services/digital-marketing-seo)
+- [Social Media Management](https://3s-soft.com/services/social-media-marketing)
+- [Graphic Design](https://3s-soft.com/services/graphic-design)
+- [Virtual Assistant](https://3s-soft.com/services/virtual-assistant)
 - [Insights & Blog](https://3s-soft.com/blogs)
 - [Team Expertise](https://3s-soft.com/team)
 - [Contact & Support](https://3s-soft.com/contact)
