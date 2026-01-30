@@ -5,11 +5,13 @@ import Navbar from "../Components/Navbar";
 import ScrollToTop from "../Components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
 import StructuredData from "../Components/StructuredData";
+import GoogleAnalytics from "../Components/GoogleAnalytics";
 
 const RootLayout = () => {
   return (
     <>
       <Toaster position="top-right" />
+      <GoogleAnalytics />
       <ScrollToTop />
       <StructuredData />
       <div>
