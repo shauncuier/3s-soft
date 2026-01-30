@@ -120,7 +120,7 @@ const Navbar = () => {
           <Link to="/" className="text-2xl font-bold flex items-center">
             <img
               src={logo}
-              alt="Navbar Logo"
+              alt="3S-SOFT - Digital Agency Logo"
               className="rounded-full"
               width={"48px"}
               height={"48px"}

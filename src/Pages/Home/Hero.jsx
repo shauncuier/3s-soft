@@ -23,10 +23,13 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-8">
-          Welcome to
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-8 transition-all duration-500">
+          3S-SOFT | Professional
           <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-400 ml-4">
-            3S-SOFT
+            MERN Stack Development
+          </span>
+          <span className="block mt-2 text-2xl sm:text-3xl font-medium text-blue-200">
+            & Digital Excellence Partner
           </span>
         </h1>
 

@@ -18,7 +18,7 @@ const Blogs = () => {
           <div className="text-center mb-16">
             <SectionLabel label={"Read Our Blogs"} />
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Smart Reads for Smarter Growth
+              Expert Insights | Web Dev, SEO & Digital Strategy
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
               Discover insightful articles from our expert team. Learn practical

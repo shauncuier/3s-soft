@@ -72,7 +72,7 @@ const AboutUs = () => {
           <div className="text-center">
             <SectionLabel label={"About 3s-soft"} />
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              Who We Are
+              3S-SOFT | Who We Are & Our Digital Legacy
             </h1>
             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
               We're a passionate team of creators and developers dedicated to
@@ -102,7 +102,7 @@ const AboutUs = () => {
             </div>
             <img
               src={aboutImage}
-              alt="About 3s-Soft"
+              alt="3S-SOFT Digital Agency - Expert MERN Stack & eCommerce Team in Bangladesh"
               className="rounded-2xl shadow-lg"
             />
           </div>

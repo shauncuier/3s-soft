@@ -41,7 +41,7 @@ const Footer = () => {
             <Link href="/">
               <img
                 src={logo}
-                alt="Footer Logo"
+                alt="3S-SOFT - Expert MERN & SEO Services Logo"
                 className="rounded-full inline-block"
                 width={"60px"}
                 height={"60px"}

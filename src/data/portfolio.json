@@ -368,6 +368,39 @@
         "title": "Custom Learning Management System (LMS) for EduTech Academy",
         "description": "Building a scalable educational platform that supports over 10,000 active students."
       }
+    },
+    {
+      "id": 111,
+      "slug": "stahl-design-tebart-amazon-listing-optimization",
+      "title": "Stahl-Design-Tebart: Premium Amazon Listing Optimization",
+      "category": "eCommerce",
+      "client": " Stahl-Design-Tebart",
+      "description": "Comprehensive overhaul of the Amazon product presence for industrial door hinges, focusing on technical SEO and high-conversion visual storytelling.",
+      "longDescription": "The Stahl-Design-Tebart project focused on the WSS 2D Aluminium Türband (ASIN: B095VYWS19), a high-quality hardware component that required a balance of technical precision and retail appeal. We transformed the listing by conducting deep keyword research into the German 'Baumarkt' (Home Improvement) niche to improve organic visibility. The core of the project involved designing a bespoke A+ Content experience that simplifies complex technical features like 2D adjustability and material durability. By utilizing 'Before vs After' comparisons, technical infographics, and lifestyle applications, we reduced buyer hesitation and positioned the brand as a leader in professional-grade hardware accessories on the Amazon DE marketplace.",
+      "image": "/assets/portfolio/stahl-design-tebart-amazon-listing-optimization.png",
+      "technologies": [
+        "Helium 10",
+        "Adobe Photoshop",
+        "Canva",
+        "Amazon Seller Central",
+        "SEO Copywriting",
+        "German Language Localization"
+      ],
+      "link": "#",
+      "featured": true,
+      "results": "Enhanced search relevancy for technical door hardware terms and a significant increase in conversion rates through structured technical data visualization and brand-aligned A+ content.",
+      "scope": [
+        "German Keyword Research",
+        "A+ Content Design & Implementation",
+        "Technical Infographic Creation",
+        "Product Description SEO",
+        "Brand Story Development",
+        "Bullet Point Optimization"
+      ],
+      "seo": {
+        "title": "Stahl-Design-Tebart Case Study | Amazon Listing Optimization",
+        "description": "A deep dive into the Amazon listing optimization for Stahl-Design-Tebart, featuring technical SEO copywriting and custom A+ content design."
+      }
     }
   ],
   "categories": [

@@ -58,9 +58,9 @@ const Portfolio = () => {
         <div className="max-w-370 mx-auto relative z-10 text-center">
           <SectionLabel label="Our Work" />
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Projects That{" "}
+            Digital Projects That{" "}
             <span className="bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Deliver Results
+              Drive Success
             </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">

@@ -125,10 +125,11 @@ const ServicesSection = () => {
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Our Core Services"} />
-          <h2 className="text-4xl sm:text-5xl font-bold">High-Quality Digital Solutions</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            Expert Digital Solutions for Global Success
+          </h2>
           <p className="text-xl md:w-3/4 lg:w-1/2 mx-auto mt-5 text-gray-300">
-            We provide scalable digital solutions tailored for startups, small
-            businesses, and enterprises across multiple industries.
+            We deliver result-driven MERN stack development, eCommerce optimization, and strategic SEO services tailored for startups and established brands in the US, UK, and worldwide.
           </p>
         </div>
         {/* Services Grid */}

@@ -39,10 +39,61 @@ const StructuredData = () => {
         }
     };
 
+    const navigationSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Main Navigation",
+        "itemListElement": [
+            {
+                "@type": "SiteNavigationElement",
+                "position": 1,
+                "name": "Home",
+                "url": "https://3s-soft.com/"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 2,
+                "name": "Services",
+                "url": "https://3s-soft.com/services"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 3,
+                "name": "Portfolio",
+                "url": "https://3s-soft.com/portfolio"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 4,
+                "name": "Blogs",
+                "url": "https://3s-soft.com/blogs"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 5,
+                "name": "Team",
+                "url": "https://3s-soft.com/team"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 6,
+                "name": "About Us",
+                "url": "https://3s-soft.com/about-us"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 7,
+                "name": "Contact Us",
+                "url": "https://3s-soft.com/contact"
+            }
+        ]
+    };
+
     return (
         <Helmet>
             <script type="application/ld+json">{JSON.stringify(schema)}</script>
             <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
+            <script type="application/ld+json">{JSON.stringify(navigationSchema)}</script>
         </Helmet>
     );
 };

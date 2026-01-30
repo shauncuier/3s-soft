@@ -158,7 +158,7 @@ const Services = () => {
         <div className="text-center mb-16">
           <SectionLabel label={"Our Core Services"} />
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            High-Quality Digital Solutions
+            Professional Digital Solutions | MERN, SEO & eCommerce
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             We provide scalable digital solutions tailored for startups, small
