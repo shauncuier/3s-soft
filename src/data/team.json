@@ -56,7 +56,7 @@
     }
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "Maptaul Islam Taraq",
     "position": "Full Stack Developer",
     "bio": "Full stack developer with expertise in MERN stack, building dynamic and responsive web applications.",
@@ -78,8 +78,28 @@
       "facebook": "https://www.facebook.com/Maptaul"
     }
   },
+  
   {
-    "id": 6,
+    "id": 9,
+    "name": "Minhajul Abedin",
+    "position": "Senior Marketing Executive",
+    "bio": "Experienced marketing executive with a focus on digital marketing strategies, content creation, and brand promotion to drive business growth.",
+    "image": "/assets/team-profile/Minhajul_Abedin.jpg",
+    "skills": [
+      "Digital Marketing",
+      "Content Creation",
+      "Brand Promotion",
+      "SEO",
+      "Social Media Management"
+    ],
+    "social": {
+      "linkedin": "#",
+      "twitter": "#",
+      "facebook": "#"
+    }
+  },
+  {
+    "id": 5,
     "name": "Borhan Siddque",
     "position": "Frontend Developer",
     "bio": "Frontend developer with mern stack expertise, focusing on responsive and accessible web applications.",
@@ -101,7 +121,7 @@
     }
   },
   {
-    "id": 4,
+    "id": 6,
     "name": "Md. Shahidul Islam",
     "position": "Digital Marketing Specialist",
     "bio": "SEO expert and social media strategist helping businesses grow and online presence effectively.",
@@ -120,7 +140,7 @@
     }
   },
   {
-    "id": 8,
+    "id": 7,
     "name": "Mehedi Hasan Akash",
     "position": "UI/UX & Graphic Designer",
     "bio": "Creative graphic designer with a passion for visual storytelling and brand development. Experienced in creating compelling graphics for digital and print media.",
@@ -140,7 +160,7 @@
     }
   },
   {
-    "id": 7,
+    "id": 8,
     "name": "Fariya Rahman",
     "position": "Data Entry Specialist",
     "bio": "Data entry specialist with expertise in data management, Excel, and Google Sheets, ensuring accurate and efficient data handling.",
