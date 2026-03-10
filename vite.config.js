@@ -1,9 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
-import viteCompression from 'vite-plugin-compression';
-
 import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vite.dev/config/
@@ -11,9 +8,6 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    cssInjectedByJsPlugin(),
-    viteCompression({ algorithm: 'gzip' }),
-    viteCompression({ algorithm: 'brotliCompress' }),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'favicon/*'],
@@ -56,7 +50,7 @@ export default defineConfig({
               cacheName: 'google-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -70,7 +64,7 @@ export default defineConfig({
               cacheName: 'gstatic-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -84,7 +78,7 @@ export default defineConfig({
               cacheName: 'images-cache',
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 Days
+                maxAgeSeconds: 60 * 60 * 24 * 30
               }
             }
           }
@@ -92,4 +86,20 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    outDir: 'dist',
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'router': ['react-router', 'react-router-dom'],
+          'firebase': ['firebase/app', 'firebase/auth', 'firebase/firestore'],
+          'ui-icons': ['react-icons'],
+          'ui-swiper': ['swiper'],
+          'utils': ['axios', 'react-countup', 'react-hot-toast', 'react-helmet-async'],
+        }
+      }
+    }
+  }
 })
