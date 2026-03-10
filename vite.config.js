@@ -86,11 +86,20 @@ export default defineConfig({
       }
     })
   ],
+  css: {
+    // Use LightningCSS which natively supports @property (used by DaisyUI v5)
+    transformer: 'lightningcss',
+    lightningcss: {
+      drafts: {
+        customMedia: true,
+      }
+    }
+  },
   build: {
     outDir: 'dist',
     cssCodeSplit: true,
-    cssTarget: 'esnext',
-    cssTarget: 'esnext',
+    // Use LightningCSS for minification — esbuild warns on @property, LightningCSS does not
+    cssMinify: 'lightningcss',
     rollupOptions: {
       output: {
         manualChunks: {
