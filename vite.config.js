@@ -89,6 +89,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     cssCodeSplit: true,
+    cssTarget: 'esnext',
+    cssTarget: 'esnext',
     rollupOptions: {
       output: {
         manualChunks: {
