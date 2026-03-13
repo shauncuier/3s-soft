@@ -1,10 +1,16 @@
 import React from "react";
 import gif from "../../assets/rpa.gif";
 import Button from "../../Components/Button";
+import PageTitle from "../../Components/PageTitle";
 
 const NotFound = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center bg-linear-to-br from-gray-900 via-blue-900 to-purple-900 text-white px-6">
+      <PageTitle
+        title="404 Page Not Found"
+        content="The page you requested could not be found on 3S-SOFT."
+        robots="noindex, nofollow"
+      />
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="z-50 flex flex-col items-center">
         <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-5 shadow-lg shadow-blue-400">

@@ -40,7 +40,7 @@ const Services = () => {
         "name": "What services does 3S-SOFT provide?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "3S-SOFT specializes in MERN Stack development, WordPress customization, eCommerce product listing for Amazon and eBay, SEO audits, and B2B lead generation."
+          "text": "3S-SOFT provides MERN stack web development, WordPress customization, eCommerce product listing, SEO services, lead generation, social media marketing, graphic design, and virtual assistant support."
         }
       },
       {
@@ -48,7 +48,7 @@ const Services = () => {
         "name": "Does 3S-SOFT offer custom MERN stack development?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we build scalable, high-performance web applications using MongoDB, Express, React, and Node.js tailored to specific business needs."
+          "text": "Yes, we build scalable MERN stack web applications, dashboards, landing pages, and business systems tailored to each client's requirements."
         }
       },
       {
@@ -56,7 +56,7 @@ const Services = () => {
         "name": "Can 3S-SOFT help with Amazon and eBay product listings?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. We provide expert product listing, bulk inventory management, and keyword optimization for global marketplaces like Amazon, eBay, Walmart, and Etsy."
+          "text": "Absolutely. We provide product listing, bulk upload support, keyword optimization, content improvement, and marketplace management for Amazon, eBay, Walmart, and Etsy."
         }
       }
     ]
@@ -65,8 +65,8 @@ const Services = () => {
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
       <PageTitle
-        title="Premium Digital Services | MERN Stack, SEO & eCommerce"
-        content="Boost your business with 3S-SOFT's high-quality services: MERN stack web development, Amazon/eBay/Walmart product listing, SEO audits, and B2B lead generation."
+        title="Web Development, SEO, eCommerce & Virtual Support Services"
+        content="Explore 3S-SOFT services for MERN stack web development, WordPress customization, product listing, SEO, lead generation, social media marketing, graphic design, and virtual assistant support."
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
@@ -76,11 +76,12 @@ const Services = () => {
         <div className="text-center mb-16">
           <SectionLabel label={"Our Core Services"} />
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Professional Digital Solutions | MERN, SEO & eCommerce
+            Digital Services for Web Growth, SEO & eCommerce Success
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            We provide scalable digital solutions tailored for startups, small
-            businesses, and enterprises across multiple industries.
+            3S-SOFT helps startups, service businesses, agencies, and online
+            sellers with website development, WordPress support, marketplace
+            management, lead generation, SEO, design, and virtual assistance.
           </p>
         </div>
 

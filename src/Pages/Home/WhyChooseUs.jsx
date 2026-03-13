@@ -16,37 +16,37 @@ const WhyChooseUs = () => {
       icon: FaAward,
       title: "Proven Expertise",
       description:
-        "Multiple industries experience with cutting-edge technologies and best practices.",
+        "Hands-on experience across MERN stack development, WordPress, SEO, eCommerce operations, and digital support workflows.",
     },
     {
       icon: FaUsers,
       title: "Personalized Service",
       description:
-        "One-on-one attention with dedicated project managers for every client.",
+        "Clear one-to-one collaboration, practical recommendations, and dedicated support tailored to your business goals.",
     },
     {
       icon: FaGlobe,
       title: "Transparent Communication",
       description:
-        "Clear project updates, honest timelines, and open communication channels.",
+        "Clear updates, realistic timelines, and open communication throughout design, development, SEO, and delivery work.",
     },
     {
       icon: FaCheckCircle,
       title: "On-Time Delivery",
       description:
-        "Consistent track record of delivering projects on schedule without compromising quality.",
+        "Reliable execution and milestone-based delivery without sacrificing quality, performance, or SEO readiness.",
     },
     {
       icon: BiTrendingUp,
       title: "Affordable Pricing",
       description:
-        "Competitive rates with guaranteed quality and no hidden costs or surprises.",
+        "Scalable service packages and competitive pricing with transparent scope, deliverables, and no hidden surprises.",
     },
     {
       icon: FaHeart,
       title: "Client Success Focus",
       description:
-        "Your success is our priority - we go above and beyond to ensure your satisfaction.",
+        "We focus on outcomes like better visibility, stronger conversion performance, smoother operations, and long-term growth.",
     },
   ];
   return (
@@ -56,9 +56,9 @@ const WhyChooseUs = () => {
           <SectionLabel label={"Why Clients Choose 3S-SOFT"} />
           <h2 className="text-4xl sm:text-5xl font-bold">Your Trusted Digital Partner</h2>
           <p className="text-xl md:w-3/4 lg:w-1/2 mx-auto mt-5 text-gray-300">
-            We're more than just a service provider — we're your strategic
-            partner in digital success. Here's why businesses choose 3S-SOFT for
-            their growth journey.
+            Businesses choose 3S-SOFT for dependable web development, SEO,
+            eCommerce execution, and hands-on support that turns digital
+            investment into measurable business growth.
           </p>
         </div>
         {/* Reasons Grid */}

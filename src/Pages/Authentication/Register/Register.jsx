@@ -7,6 +7,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import registerImage from "../../../assets/register-image.jpg";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import PageTitle from "../../../Components/PageTitle";
 
 const Register = () => {
   const { registerUser, updateUser, setUser, loading, setLoading } =
@@ -81,6 +82,11 @@ const Register = () => {
 
   return (
     <section className="bg-gray-900 transition-colors duration-300 px-4">
+      <PageTitle
+        title="Register"
+        content="Create a 3S-SOFT account for private access to dashboard features."
+        robots="noindex, nofollow"
+      />
       <div className="max-w-[1480px] min-h-screen mx-auto pt-30 pb-20">
         <div className="text-center mb-5">
           <SectionLabel label={"Create Your Account in 3s-soft"} />

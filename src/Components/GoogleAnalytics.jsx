@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 
-const GoogleAnalytics = ({ measurementId = "Measurement ID" }) => {
+const DEFAULT_MEASUREMENT_ID = "G-JG742N2K6Z";
+
+const GoogleAnalytics = ({ measurementId = DEFAULT_MEASUREMENT_ID }) => {
     const location = useLocation();
 
     useEffect(() => {

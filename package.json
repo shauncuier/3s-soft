@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:prod": "vite build --mode production",
+    "build:client": "vite build",
+    "build": "npm run build:client && node scripts/generate-prerendered-pages.mjs",
+    "build:prod": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

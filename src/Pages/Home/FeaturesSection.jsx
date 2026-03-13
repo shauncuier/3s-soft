@@ -26,7 +26,7 @@ const features = [
     icon: LuZap,
     title: "Fast & Optimized",
     description:
-      "Lightning-fast performance with optimized code and advanced caching strategies.",
+      "Fast-loading pages, optimized assets, and performance-focused builds that improve UX and support SEO.",
     color: "text-yellow-500",
   },
   {
@@ -40,7 +40,7 @@ const features = [
     icon: GoGlobe,
     title: "SEO Optimized",
     description:
-      "Built-in SEO best practices to help your site rank higher in search results.",
+      "Technical SEO foundations, clean metadata, and structured content to help pages rank and convert.",
     color: "text-cyan-500",
   },
   {
@@ -72,10 +72,11 @@ const FeaturesSection = () => {
       <section className="max-w-[1480px] mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Designed With Users in Mind"} />
-          <h2 className="text-4xl sm:text-5xl font-bold">Why Our Solutions Stand Out</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold">Why Businesses Choose Our Digital Solutions</h2>
           <p className="text-xl md:w-3/4 lg:w-1/2 mx-auto mt-5 text-gray-300">
-            We care about every detail — and it shows in our beautiful UI/UX
-            designs. Our websites and apps are built with excellence in mind.
+            Our websites and growth systems are designed for speed, usability,
+            technical SEO, security, and conversion performance so your brand
+            can compete with confidence.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-15">

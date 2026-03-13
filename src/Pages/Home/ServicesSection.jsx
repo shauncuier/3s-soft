@@ -126,10 +126,13 @@ const ServicesSection = () => {
         <div className="flex flex-col items-center justify-center text-center">
           <SectionLabel label={"Our Core Services"} />
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Expert Digital Solutions for Global Success
+            Digital Services Built to Drive Traffic, Leads & Sales
           </h2>
           <p className="text-xl md:w-3/4 lg:w-1/2 mx-auto mt-5 text-gray-300">
-            We deliver result-driven MERN stack development, eCommerce optimization, and strategic SEO services tailored for startups and established brands in the US, UK, and worldwide.
+            We provide custom web development, WordPress customization,
+            marketplace listing optimization, SEO campaigns, lead generation,
+            social media marketing, graphic design, and virtual assistant
+            support for businesses that want measurable digital growth.
           </p>
         </div>
         {/* Services Grid */}

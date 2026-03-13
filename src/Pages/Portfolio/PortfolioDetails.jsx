@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router";
 import { Helmet } from "react-helmet-async";
 import SectionLabel from "../../Components/SectionLabel";
 import { FaExternalLinkAlt, FaArrowLeft, FaCheckCircle, FaTools } from "react-icons/fa";
+import PageTitle from "../../Components/PageTitle";
 
 const PortfolioDetails = () => {
     const { slug } = useParams();
@@ -28,28 +29,84 @@ const PortfolioDetails = () => {
 
     if (!project) {
         return (
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 px-5 text-center">
-                <h2 className="text-3xl font-bold text-white mb-4">Project Not Found</h2>
-                <p className="text-gray-400 mb-8">The project you're looking for doesn't exist or has been moved.</p>
-                <Link
-                    to="/portfolio"
-                    className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all font-semibold"
-                >
-                    Back to Portfolio
-                </Link>
-            </div>
+            <>
+                <PageTitle
+                    title="Portfolio Project Not Found"
+                    content="The portfolio project you requested could not be found."
+                    robots="noindex, nofollow"
+                />
+                <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 px-5 text-center">
+                    <h2 className="text-3xl font-bold text-white mb-4">Project Not Found</h2>
+                    <p className="text-gray-400 mb-8">The project you're looking for doesn't exist or has been moved.</p>
+                    <Link
+                        to="/portfolio"
+                        className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all font-semibold"
+                    >
+                        Back to Portfolio
+                    </Link>
+                </div>
+            </>
         );
     }
 
+    const pageTitle = project.seo?.title || `${project.title} | 3S-SOFT Portfolio`;
+    const pageDescription = project.seo?.description || project.description;
+    const pageImage = project.image?.startsWith("http")
+        ? project.image
+        : `https://3s-soft.com${project.image}`;
+
+    const projectSchema = {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": project.title,
+        "description": project.longDescription || project.description,
+        "url": `https://3s-soft.com/portfolio/${project.slug}`,
+        "creator": {
+            "@type": "Organization",
+            "name": "3S-SOFT",
+            "url": "https://3s-soft.com/"
+        },
+        "image": pageImage,
+        "keywords": [project.category, ...(project.technologies || [])].join(", ")
+    };
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://3s-soft.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Portfolio",
+                "item": "https://3s-soft.com/portfolio"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": project.title,
+                "item": `https://3s-soft.com/portfolio/${project.slug}`
+            }
+        ]
+    };
+
     return (
         <>
+            <PageTitle
+                title={pageTitle}
+                content={pageDescription}
+                image={pageImage}
+                imageAlt={`${project.title} portfolio preview image`}
+                canonical={`/portfolio/${project.slug}`}
+            />
             <Helmet>
-                <title>{project.seo?.title || `${project.title} | 3S-SOFT Portfolio`}</title>
-                <meta name="description" content={project.seo?.description || project.description} />
-                <meta property="og:title" content={project.seo?.title || project.title} />
-                <meta property="og:description" content={project.seo?.description || project.description} />
-                <meta property="og:image" content={project.image} />
-                <meta name="twitter:card" content="summary_large_image" />
+                <script type="application/ld+json">{JSON.stringify(projectSchema)}</script>
+                <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
             </Helmet>
 
             <div className="bg-gray-900 min-h-screen">

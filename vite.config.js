@@ -5,6 +5,11 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vite.dev/config/
 export default defineConfig({
+  preview: {
+    headers: {
+      'Cache-Control': 'no-store'
+    }
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -38,10 +43,11 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,xml}'],
+        globPatterns: ['**/*.{js,css,ico,png,svg,jpg,jpeg,xml,webmanifest}'],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
+        navigateFallback: null,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,

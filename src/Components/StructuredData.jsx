@@ -31,12 +31,7 @@ const StructuredData = () => {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "3S-SOFT",
-        "url": "https://3s-soft.com/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://3s-soft.com/blogs?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+        "url": "https://3s-soft.com/"
     };
 
     const navigationSchema = {

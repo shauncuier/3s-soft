@@ -71,8 +71,8 @@ const Contact = () => {
     <>
       <section className="bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden px-4">
         <PageTitle
-          title="Contact Us | Hire Expert Developers & Digital Marketers"
-          content="Get a free quote for your next digital project. Contact 3S-SOFT for MERN stack development, Amazon eCommerce management, SEO audits, and custom business solutions."
+          title="Contact 3S-SOFT | Web Development, SEO & eCommerce Services"
+          content="Contact 3S-SOFT to discuss MERN stack development, WordPress, SEO, product listing optimization, social media marketing, graphic design, lead generation, and virtual assistant services."
         />
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
@@ -86,12 +86,13 @@ const Contact = () => {
           <div className="text-center mb-16">
             <SectionLabel label={"Let's Grow Together"} />
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to Start Your Project?
+              Talk to Our Web Development, SEO & eCommerce Team
             </h1>
             <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
-              Whether you're looking to build a website, launch a product, grow
-              on social media, or scale your operations — 3S-SOFT is the partner
-              you can trust.
+              Need a new website, SEO support, Amazon or eBay listing
+              optimization, WordPress help, lead generation, design, or virtual
+              assistant support? Tell us what you need and we&apos;ll recommend the
+              right solution.
             </p>
           </div>
 
@@ -103,8 +104,9 @@ const Contact = () => {
                   Get in Touch
                 </h3>
                 <p className="text-blue-300 mb-8">
-                  Ready to transform your digital presence? Let's discuss your
-                  project and discover how we can help you achieve your goals.
+                  Share your goals, timeline, and service needs. We respond to
+                  inquiries for web development, SEO, digital marketing,
+                  eCommerce listing management, and virtual support.
                 </p>
               </div>
 
@@ -182,8 +184,9 @@ const Contact = () => {
                     Send Us a Message
                   </h3>
                   <p className="text-blue-200">
-                    Fill out the form below and we'll get back to you within 24
-                    hours.
+                    Tell us about your business, goals, and required services.
+                    We&apos;ll reply with the next best steps, timeline, and pricing
+                    guidance.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -313,11 +316,11 @@ const Contact = () => {
           <div className="text-center mt-16">
             <div className="bg-white/3 backdrop-blur-sm rounded-3xl p-8 border border-white/5">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Let's Build Your Digital Future — Today
+                Let&apos;s Build a Faster, More Visible, More Profitable Digital Presence
               </h3>
               <p className="text-blue-300 mb-6">
-                Ready to take your business to the next level? We're here to
-                help you succeed.
+                From websites and SEO to marketplace growth and virtual support,
+                3S-SOFT is ready to help you move forward.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <a

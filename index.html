@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3S-SOFT | Web Development, e-Commerce & Digital Services</title>
+  <title>3S-SOFT | Web Development, SEO, eCommerce & Virtual Assistant Services</title>
   <meta name="google" content="notranslate" />
 
   <!-- Favicon -->
@@ -18,9 +18,9 @@
 
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="3S-SOFT | Scalable Digital Solutions for Global Success" />
+  <meta name="title" content="3S-SOFT | Web Development, SEO, eCommerce & Virtual Assistant Services" />
   <meta name="description"
-    content="3S-SOFT is a premium digital agency specializing in MERN stack development, eCommerce managed services for Amazon/eBay, and data-driven SEO strategies." />
+    content="3S-SOFT is a Bangladesh-based digital agency offering MERN stack web development, WordPress solutions, SEO services, eCommerce product listing, lead generation, graphic design, and virtual assistant support for global businesses." />
   <meta name="author" content="3S-SOFT" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://3s-soft.com/" />
@@ -36,28 +36,77 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://3s-soft.com/" />
-  <meta property="og:title" content="3s-Soft | Web Development, eCommerce & Digital Services" />
+  <meta property="og:title" content="3S-SOFT | Web Development, SEO, eCommerce & Virtual Assistant Services" />
   <meta property="og:description"
-    content="MERN Stack development, WordPress, product listing on Amazon/eBay/Etsy, graphics, SEO & more." />
+    content="MERN stack development, WordPress websites, SEO services, eCommerce listing optimization, lead generation, graphic design, and virtual assistant support for global brands." />
   <meta property="og:image" content="https://3s-soft.com/favicon/android-chrome-512x512.png" />
   <!-- Replace with real image -->
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://3s-soft.com/" />
-  <meta name="twitter:title" content="3s-Soft | Web Development, eCommerce & Digital Services" />
+  <meta name="twitter:title" content="3S-SOFT | Web Development, SEO, eCommerce & Virtual Assistant Services" />
   <meta name="twitter:description"
-    content="MERN stack, WordPress, eCommerce product listings, SEO, graphics & virtual assistant help." />
+    content="MERN stack development, WordPress websites, SEO services, eCommerce product listing, lead generation, graphic design, and virtual assistant support." />
   <meta name="twitter:image" content="https://3s-soft.com/favicon/android-chrome-512x512.png" />
   <!-- Replace with real image -->
 
-  <!-- Google Analytics (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PH7L4T9ZX3"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JG742N2K6Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-PH7L4T9ZX3');
+    gtag('config', 'G-JG742N2K6Z');
+  </script>
+
+  <script>
+    (function () {
+      var isLocalhost =
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1';
+
+      if (!isLocalhost || !('serviceWorker' in navigator) || !window.sessionStorage) {
+        return;
+      }
+
+      var resetKey = '3s-soft-local-sw-reset';
+
+      navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        if (!registrations.length) {
+          window.sessionStorage.removeItem(resetKey);
+          return;
+        }
+
+        if (window.sessionStorage.getItem(resetKey) === 'done') {
+          return;
+        }
+
+        window.sessionStorage.setItem(resetKey, 'done');
+
+        Promise.all(
+          registrations.map(function (registration) {
+            return registration.unregister();
+          })
+        )
+          .then(function () {
+            if (!('caches' in window)) {
+              return;
+            }
+
+            return window.caches.keys().then(function (keys) {
+              return Promise.all(
+                keys.map(function (key) {
+                  return window.caches.delete(key);
+                })
+              );
+            });
+          })
+          .finally(function () {
+            window.location.reload();
+          });
+      });
+    })();
   </script>
 </head>
 

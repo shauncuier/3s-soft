@@ -19,30 +19,31 @@ const Hero = () => {
         <div className="mb-10">
           <span className="flex items-center gap-2 bg-white/20 font-medium text-sm px-4 py-2 rounded-full text-white">
             <HiOutlineSparkles size={18} className="text-yellow-400" />
-            Your Complete Digital Solutions Partner
+            Bangladesh-Based Digital Agency Serving Global Clients
           </span>
         </div>
 
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-8 transition-all duration-500">
-          3S-SOFT | Professional
+          Web Development, SEO & eCommerce
           <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-400 ml-4">
-            MERN Stack Development
+            Services
           </span>
           <span className="block mt-2 text-2xl sm:text-3xl font-medium text-blue-200">
-            & Digital Excellence Partner
+            for startups, agencies & growing brands
           </span>
         </h1>
 
         <p className="text-lg md:text-2xl max-w-3xl mb-6  text-blue-100">
-          We help businesses go from idea to online success with innovative
-          digital solutions, expert development, and result-driven marketing
-          strategies.
+          We build high-performance websites, improve search visibility,
+          optimize Amazon, eBay, Etsy, and Walmart listings, and support daily
+          digital operations with dependable execution.
         </p>
 
         <p className="max-w-2xl mb-10 text-blue-200">
-          Whether you're a solo entrepreneur or an established brand, our expert
-          team supports your growth every step of the way — with innovation,
-          integrity, and impact.
+          From MERN stack development and WordPress customization to lead
+          generation, graphic design, and virtual assistant services,
+          3S-SOFT helps businesses in Bangladesh, the USA, the UK, and
+          worldwide grow online with confidence.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-14">

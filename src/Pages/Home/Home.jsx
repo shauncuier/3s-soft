@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <>
       <PageTitle
-        title="Scalable Digital Solutions for Global Success"
-        content="3S-SOFT is a full-service digital agency providing expert MERN stack development, eCommerce managed services, SEO, and professional virtual assistants for US and UK businesses."
+        title="Web Development, SEO, eCommerce & Virtual Assistant Services"
+        content="3S-SOFT is a Bangladesh-based digital agency delivering MERN stack development, WordPress solutions, SEO services, eCommerce product listing, lead generation, graphic design, and virtual assistant support for global businesses."
       />
       <Hero />
       <ServicesSection />

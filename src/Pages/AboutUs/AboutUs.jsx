@@ -64,40 +64,37 @@ const AboutUs = () => {
     <>
       <section className="bg-linear-to-b from-[#0f172a] to-[#1e293b] text-white px-4">
         <PageTitle
-          title="About 3S-SOFT | Your Partner for Digital Growth"
-          content="3S-SOFT is a premium digital agency headquartered in Bangladesh, delivering scalable MERN stack web development and eCommerce managed services to global clients."
+          title="About 3S-SOFT | Web Development, SEO & eCommerce Partner"
+          content="Learn how 3S-SOFT helps startups, eCommerce brands, and service businesses grow with web development, SEO, marketplace support, design, and virtual assistant services."
         />
         <div className="max-w-370 min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Header */}
           <div className="text-center">
-            <SectionLabel label={"About 3s-soft"} />
+            <SectionLabel label={"About 3S-SOFT"} />
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              3S-SOFT | Who We Are & Our Digital Legacy
+              3S-SOFT | Web Development, SEO & eCommerce Growth Partner
             </h1>
             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-              We're a passionate team of creators and developers dedicated to
-              building impactful digital solutions that inspire, solve problems,
-              and make the web a better place.
+              3S-SOFT is a Bangladesh-based digital agency helping startups,
+              online stores, and service businesses build faster websites,
+              improve search visibility, and scale digital operations worldwide.
             </p>
           </div>
 
           {/* Who We Are */}
           <div className="grid md:grid-cols-2 gap-12 my-15">
             <div className="">
-              <h3 className="text-3xl font-semibold mb-4">About 3s-soft</h3>
+              <h3 className="text-3xl font-semibold mb-4">Who We Are</h3>
               <p className="text-gray-300 leading-relaxed">
-                <strong className="text-blue-400">3s-Soft</strong> is a
-                full-service digital agency proudly based in Bangladesh,
-                committed to delivering top-notch web and digital solutions. We
-                specialize in modern MERN stack web development, WordPress
-                customization, and comprehensive eCommerce listing services for
-                platforms like Amazon, eBay, Etsy, and Walmart. With a dedicated
-                team of experienced developers, creative designers, and
-                strategic marketers, we work hand-in-hand with businesses to
-                build engaging websites, streamline operations, and maximize
-                online visibility. Whether you're launching a startup or scaling
-                an existing business, 3s-Soft is here to help you grow and
-                thrive in the digital space.
+                <strong className="text-blue-400">3S-SOFT</strong> is a
+                full-service digital agency based in Bangladesh, focused on
+                helping businesses launch, grow, and optimize their online
+                presence. We work across MERN stack development, WordPress
+                customization, eCommerce product listing, SEO, lead generation,
+                graphic design, social media marketing, and virtual assistant
+                services. Our team combines technical skill, marketing insight,
+                and hands-on execution so clients can move faster and compete
+                more effectively in local and global markets.
               </p>
             </div>
             <img
@@ -116,8 +113,9 @@ const AboutUs = () => {
 
               <h4 className="text-xl font-bold mb-2">Our Mission</h4>
               <p className="text-gray-300">
-                To empower businesses with powerful and user-centric digital
-                solutions that drive measurable results.
+                To help businesses grow through reliable web development, SEO,
+                eCommerce support, and digital execution that delivers
+                measurable results.
               </p>
             </div>
             <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
@@ -127,8 +125,9 @@ const AboutUs = () => {
 
               <h4 className="text-xl font-bold mb-2">Our Vision</h4>
               <p className="text-gray-300">
-                To be a global leader in web development, eCommerce services,
-                and virtual support through constant innovation.
+                To become a trusted long-term digital partner for businesses
+                that need scalable websites, better visibility, and stronger
+                online operations.
               </p>
             </div>
           </div>
@@ -176,9 +175,9 @@ const AboutUs = () => {
               Why Clients Trust 3s-Soft?
             </h3>
             <p className="text-gray-300 max-w-3xl mx-auto text-center">
-              We're committed to delivering quality, speed, and long-term value.
-              Our solutions are not just functional — they're designed to make
-              your business thrive in the digital world.
+              Clients trust us for practical strategy, clear communication,
+              reliable execution, and measurable business value across web
+              development, SEO, eCommerce operations, and virtual support.
             </p>
           </div>
 
