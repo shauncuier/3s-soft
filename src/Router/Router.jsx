@@ -4,26 +4,48 @@ import RootLayout from "../Layout/RootLayout";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Loading from "../Components/Loading";
 
+// Custom lazy function to handle module loading errors (e.g., after a new deployment)
+const lazyRetry = (componentImport) =>
+  lazy(async () => {
+    const pageHasAlreadyBeenForceRefreshed = JSON.parse(
+      window.sessionStorage.getItem("page-has-been-force-refreshed") || "false"
+    );
+
+    try {
+      const component = await componentImport();
+      window.sessionStorage.setItem("page-has-been-force-refreshed", "false");
+      return component;
+    } catch (error) {
+      if (!pageHasAlreadyBeenForceRefreshed) {
+        window.sessionStorage.setItem("page-has-been-force-refreshed", "true");
+        window.location.reload();
+        // Return a promise that never resolves so it doesn't render until reload
+        return new Promise(() => {});
+      }
+      throw error;
+    }
+  });
+
 // Lazy Load Pages for Zero Loading Performance
-const Home = lazy(() => import("../Pages/Home/Home"));
-const Contact = lazy(() => import("../Pages/Contact/Contact"));
-const NotFound = lazy(() => import("../Pages/Error/NotFound"));
-const PrivacyPolicy = lazy(() => import("../Pages/Compliance/Protection"));
-const TermsOfService = lazy(() => import("../Pages/Compliance/Agreement"));
-const CookiePolicy = lazy(() => import("../Pages/Compliance/Legal"));
-const Team = lazy(() => import("../Pages/Team/Team"));
-const Blogs = lazy(() => import("../Pages/Blogs/Blogs"));
-const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"));
-const Services = lazy(() => import("../Pages/Services/Services"));
-const ServiceDetails = lazy(() => import("../Pages/Services/ServiceDetails"));
-const AddBlog = lazy(() => import("../Pages/Admin/AddBlog/AddBlog"));
-const Portfolio = lazy(() => import("../Pages/Portfolio/Portfolio"));
-const PortfolioDetails = lazy(() => import("../Pages/Portfolio/PortfolioDetails"));
-const BlogDetails = lazy(() => import("../Pages/Blogs/BlogDetails/BlogDetails"));
-const DashboardLayout = lazy(() => import("../Layout/DashboardLayout"));
-const DashboardProfile = lazy(() => import("../Pages/Admin/DashboardProfile/DashboardProfile"));
-const Login = lazy(() => import("../Pages/Authentication/Login/Login"));
-const Register = lazy(() => import("../Pages/Authentication/Register/Register"));
+const Home = lazyRetry(() => import("../Pages/Home/Home"));
+const Contact = lazyRetry(() => import("../Pages/Contact/Contact"));
+const NotFound = lazyRetry(() => import("../Pages/Error/NotFound"));
+const PrivacyPolicy = lazyRetry(() => import("../Pages/Compliance/Protection"));
+const TermsOfService = lazyRetry(() => import("../Pages/Compliance/Agreement"));
+const CookiePolicy = lazyRetry(() => import("../Pages/Compliance/Legal"));
+const Team = lazyRetry(() => import("../Pages/Team/Team"));
+const Blogs = lazyRetry(() => import("../Pages/Blogs/Blogs"));
+const AboutUs = lazyRetry(() => import("../Pages/AboutUs/AboutUs"));
+const Services = lazyRetry(() => import("../Pages/Services/Services"));
+const ServiceDetails = lazyRetry(() => import("../Pages/Services/ServiceDetails"));
+const AddBlog = lazyRetry(() => import("../Pages/Admin/AddBlog/AddBlog"));
+const Portfolio = lazyRetry(() => import("../Pages/Portfolio/Portfolio"));
+const PortfolioDetails = lazyRetry(() => import("../Pages/Portfolio/PortfolioDetails"));
+const BlogDetails = lazyRetry(() => import("../Pages/Blogs/BlogDetails/BlogDetails"));
+const DashboardLayout = lazyRetry(() => import("../Layout/DashboardLayout"));
+const DashboardProfile = lazyRetry(() => import("../Pages/Admin/DashboardProfile/DashboardProfile"));
+const Login = lazyRetry(() => import("../Pages/Authentication/Login/Login"));
+const Register = lazyRetry(() => import("../Pages/Authentication/Register/Register"));
 
 // Wrapper for Lazy Components
 const LazyPage = ({ Component }) => (
