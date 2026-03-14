@@ -5,7 +5,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.jpg";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthContext";
 import toast from "react-hot-toast";
 
 const DashboardSidebar = () => {

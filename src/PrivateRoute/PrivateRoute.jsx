@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../Provider/AuthContext";
 import Loading from "../Components/Loading";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { user, authLoading, authInitialized, ensureAuthInitialized } = useContext(AuthContext);
   const location = useLocation();
 
-  if (loading) {
+  React.useEffect(() => {
+    if (!authInitialized) {
+      ensureAuthInitialized().catch(() => { });
+    }
+  }, [authInitialized, ensureAuthInitialized]);
+
+  if (!authInitialized || authLoading) {
     return <Loading></Loading>;
   }
 

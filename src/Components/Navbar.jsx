@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import logo from "../assets/logo.jpg";
 import ProgressBar from "./ProgressBar";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../Provider/AuthContext";
 import toast from "react-hot-toast";
 
 const Navbar = () => {

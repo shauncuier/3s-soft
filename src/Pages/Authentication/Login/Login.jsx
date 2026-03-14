@@ -4,7 +4,7 @@ import logo from "../../../assets/logo.jpg";
 import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import loginImage from "../../../assets/login-image.jpg";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthContext";
 import toast from "react-hot-toast";
 import PageTitle from "../../../Components/PageTitle";
 

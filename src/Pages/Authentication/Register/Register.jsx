@@ -5,7 +5,7 @@ import logo from "../../../assets/logo.jpg";
 import { Link, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import registerImage from "../../../assets/register-image.jpg";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthContext";
 import toast from "react-hot-toast";
 import PageTitle from "../../../Components/PageTitle";
 

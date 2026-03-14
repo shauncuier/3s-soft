@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthContext";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router";
 
