@@ -102,7 +102,6 @@ export default defineConfig({
           'router': ['react-router', 'react-router-dom'],
           'firebase': ['firebase/app', 'firebase/auth', 'firebase/firestore'],
           'ui-icons': ['react-icons'],
-          'ui-swiper': ['swiper'],
           'utils': ['axios', 'react-countup', 'react-hot-toast', 'react-helmet-async'],
         }
       }

@@ -1,17 +1,41 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useEffect, useState } from "react";
 import SectionLabel from "../../Components/SectionLabel";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-// import required modules
-import { Navigation, Pagination, Autoplay, Keyboard } from "swiper/modules";
 import testimonialsData from "../../data/testimonials.json";
 import { FaQuoteRight } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused || testimonialsData.length <= 1) {
+      return undefined;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((currentIndex) =>
+        currentIndex === testimonialsData.length - 1 ? 0 : currentIndex + 1
+      );
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, [isPaused]);
+
+  const goToPrevious = () => {
+    setActiveIndex((currentIndex) =>
+      currentIndex === 0 ? testimonialsData.length - 1 : currentIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setActiveIndex((currentIndex) =>
+      currentIndex === testimonialsData.length - 1 ? 0 : currentIndex + 1
+    );
+  };
+
+  const activeTestimonial = testimonialsData[activeIndex];
+
   return (
     <div className="bg-gradient-to-br from-gray-900 to-gray-800 transition-colors duration-300 py-20 px-5">
       <section className="max-w-[1480px] mx-auto">
@@ -23,63 +47,90 @@ const Testimonials = () => {
             have to say about their experience working with 3S-SOFT.
           </p>
         </div>
-        <Swiper
-          cssMode={true}
-          navigation={true}
-          pagination={true}
-          keyboard={true}
-          autoplay={{
-            delay: 5000,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          modules={[Navigation, Pagination, Autoplay, Keyboard]}
-          className="mySwiper max-w-4xl bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 mt-15"
+        <div
+          className="max-w-4xl bg-gray-800 rounded-3xl shadow-2xl border border-gray-700 mt-15 mx-auto overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          {testimonialsData.map((testimonial) => (
-            <SwiperSlide key={testimonial.id} className="px-6 md:px-15 py-12 md:py-16">
-              {/* Quote Icon */}
-              <div className="flex justify-center mb-4">
+          <div className="px-6 md:px-15 py-12 md:py-16" aria-live="polite">
+            <div className="flex items-center justify-between gap-4 mb-8">
+              <button
+                type="button"
+                onClick={goToPrevious}
+                className="h-11 w-11 rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+                aria-label="Show previous testimonial"
+              >
+                <FaChevronLeft className="mx-auto" />
+              </button>
+
+              <div className="flex justify-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                   <FaQuoteRight className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                {Array.from({ length: testimonial.rating }, (_, i) => (
-                  <FaStar key={i} className="text-yellow-400" />
-                ))}
+
+              <button
+                type="button"
+                onClick={goToNext}
+                className="h-11 w-11 rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+                aria-label="Show next testimonial"
+              >
+                <FaChevronRight className="mx-auto" />
+              </button>
+            </div>
+
+            <div className="flex items-center justify-center">
+              {Array.from({ length: activeTestimonial.rating }, (_, index) => (
+                <FaStar key={index} className="text-yellow-400" />
+              ))}
+            </div>
+
+            <p className="text-xl italic my-6 font-light text-center min-h-36 md:min-h-28">
+              "{activeTestimonial.testimonial}"
+            </p>
+
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-15 h-15 rounded-full ring-3 ring-blue-900 overflow-hidden">
+                <img
+                  src={activeTestimonial.image}
+                  alt={activeTestimonial.name}
+                  className="w-full rounded-full"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <p className="text-xl italic my-6 font-light">
-                "{testimonial.testimonial}"
-              </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-15 h-15 rounded-full ring-3 ring-blue-900">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full rounded-full"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="text-left">
-                  <h3 className="text-lg font-bold">{testimonial.name}</h3>
-                  <h5 className="text-base font-medium text-blue-400">
-                    {testimonial.position}
-                  </h5>
-                  <p className="text-sm text-gray-400">{testimonial.company}</p>
-                </div>
+              <div className="text-left">
+                <h3 className="text-lg font-bold">{activeTestimonial.name}</h3>
+                <h5 className="text-base font-medium text-blue-400">
+                  {activeTestimonial.position}
+                </h5>
+                <p className="text-sm text-gray-400">{activeTestimonial.company}</p>
               </div>
-              {/* Project Tag */}
-              <div className="mt-6">
-                <span className="inline-block bg-blue-900/30 text-blue-400 px-4 py-2 rounded-full text-sm font-medium">
-                  {testimonial.project}
-                </span>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            </div>
+
+            <div className="mt-6 text-center">
+              <span className="inline-block bg-blue-900/30 text-blue-400 px-4 py-2 rounded-full text-sm font-medium">
+                {activeTestimonial.project}
+              </span>
+            </div>
+
+            <div className="mt-8 flex items-center justify-center gap-2">
+              {testimonialsData.map((testimonial, index) => (
+                <button
+                  key={testimonial.id}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === activeIndex
+                      ? "w-8 bg-blue-500"
+                      : "w-2.5 bg-white/30 hover:bg-white/50"
+                  }`}
+                ></button>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
