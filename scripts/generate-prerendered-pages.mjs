@@ -39,8 +39,11 @@ function injectHead(templateHtml, route) {
   let html = templateHtml;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
+  const keywords = escapeHtml(route.keywords || "");
   const canonical = escapeHtml(route.canonical);
   const robots = escapeHtml(route.robots || "index, follow");
+  const googleBot = escapeHtml(route.googleBot || route.robots || "index, follow");
+  const bingBot = escapeHtml(route.bingBot || route.robots || "index, follow");
   const image = escapeHtml(route.image || defaultImage);
   const type = escapeHtml(route.type || "website");
   const structuredData = (route.schema || [])
@@ -51,7 +54,10 @@ function injectHead(templateHtml, route) {
     [/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`],
     [/<meta name="title"[^>]*>/, `<meta name="title" content="${title}" />`],
     [/<meta name="description"[^>]*>/, `<meta name="description" content="${description}" />`],
+    [/<meta name="keywords"[^>]*>/, `<meta name="keywords" content="${keywords}" />`],
     [/<meta name="robots"[^>]*>/, `<meta name="robots" content="${robots}" />`],
+    [/<meta name="googlebot"[^>]*>/, `<meta name="googlebot" content="${googleBot}" />`],
+    [/<meta name="bingbot"[^>]*>/, `<meta name="bingbot" content="${bingBot}" />`],
     [/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonical}" />`],
     [/<meta property="og:type"[^>]*>/, `<meta property="og:type" content="${type}" />`],
     [/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${canonical}" />`],
@@ -145,7 +151,7 @@ for (const route of routes) {
 
   const html = injectHead(template, route).replace(
     /<div id="root"><\/div>/,
-    `<div id="root">${route.bodyHtml}</div>`
+    `<div id="seo-prerender">${route.bodyHtml}</div><div id="root"></div>`
   );
 
   writeFileSync(filePath, html, "utf8");

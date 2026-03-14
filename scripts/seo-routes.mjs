@@ -18,6 +18,21 @@ export const siteUrl = "https://3s-soft.com";
 export const siteName = "3S-SOFT";
 export const defaultImage = `${siteUrl}/favicon/android-chrome-512x512.png`;
 export const buildDate = new Date().toISOString().slice(0, 10);
+const DEFAULT_KEYWORDS = [
+  "web development agency Bangladesh",
+  "MERN stack development",
+  "WordPress development services",
+  "SEO services",
+  "eCommerce product listing",
+  "Amazon listing optimization",
+  "lead generation services",
+  "graphic design services",
+  "virtual assistant services",
+];
+const DEFAULT_PUBLIC_ROBOTS =
+  "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
+const DEFAULT_PRIVATE_ROBOTS =
+  "noindex, nofollow, noarchive, nosnippet, max-image-preview:none, max-video-preview:0";
 
 function absoluteUrl(path = "/") {
   if (!path || path === "/") {
@@ -38,6 +53,33 @@ function escapeHtml(value = "") {
 
 function trimText(value = "") {
   return String(value).replace(/\s+/g, " ").trim();
+}
+
+function normalizeKeywords(values = []) {
+  const entries = Array.isArray(values) ? values : String(values || "").split(",");
+  const unique = [];
+
+  for (const rawEntry of entries) {
+    const entry = trimText(rawEntry);
+
+    if (!entry) {
+      continue;
+    }
+
+    if (!unique.some((value) => value.toLowerCase() === entry.toLowerCase())) {
+      unique.push(entry);
+    }
+  }
+
+  return unique;
+}
+
+function mergeKeywords(...groups) {
+  const flattened = groups.flatMap((group) =>
+    Array.isArray(group) ? group : String(group || "").split(",")
+  );
+
+  return normalizeKeywords(flattened).join(", ");
 }
 
 function stripMarkdown(value = "") {
@@ -215,19 +257,28 @@ function createRoute({
   path,
   title,
   description,
+  keywords = DEFAULT_KEYWORDS,
   image = defaultImage,
   type = "website",
-  robots = "index, follow",
+  robots = DEFAULT_PUBLIC_ROBOTS,
+  googleBot,
+  bingBot,
   schema = [],
   bodyHtml,
 }) {
+  const normalizedKeywords = mergeKeywords(keywords);
+  const normalizedRobots = robots || DEFAULT_PUBLIC_ROBOTS;
+
   return {
     path,
     title,
     description,
+    keywords: normalizedKeywords,
     image: image.startsWith("http") ? image : absoluteUrl(image),
     type,
-    robots,
+    robots: normalizedRobots,
+    googleBot: googleBot || normalizedRobots,
+    bingBot: bingBot || normalizedRobots,
     canonical: absoluteUrl(path),
     lastModified: buildDate,
     schema,
@@ -284,6 +335,14 @@ function renderHomeRoute() {
     title: "3S-SOFT | Web Development, SEO, eCommerce & Virtual Assistant Services",
     description:
       "3S-SOFT is a Bangladesh-based digital agency delivering MERN stack web development, WordPress solutions, SEO services, eCommerce product listing, lead generation, graphic design, and virtual assistant support for global businesses.",
+    keywords: mergeKeywords(DEFAULT_KEYWORDS, [
+      "web development company",
+      "SEO company Bangladesh",
+      "WordPress website development",
+      "digital agency Bangladesh",
+      "eCommerce services",
+      "virtual assistant company",
+    ]),
     schema: [
       {
         "@context": "https://schema.org",
@@ -377,6 +436,13 @@ function renderServicesRoute() {
     title: "3S-SOFT Services | Web Development, SEO, eCommerce, Design & Virtual Support",
     description:
       "Explore 3S-SOFT services across MERN stack development, WordPress customization, product listing, SEO, lead generation, social media marketing, graphic design, and virtual assistant support.",
+    keywords: mergeKeywords(DEFAULT_KEYWORDS, [
+      "web development services",
+      "SEO service company",
+      "Amazon listing service",
+      "social media marketing services",
+      "graphic design company",
+    ]),
     bodyHtml: renderLayout({
       title: "Digital services built to drive traffic, leads, and sales",
       description:
@@ -402,6 +468,7 @@ function renderServiceRoutes() {
       path: `/services/${service.slug}`,
       title: service.seoTitle,
       description: service.seoDescription,
+      keywords: mergeKeywords(DEFAULT_KEYWORDS, [service.title, ...service.features.slice(0, 6)]),
       schema: [
         {
           "@context": "https://schema.org",
@@ -457,6 +524,13 @@ function renderBlogsRoute() {
     title: "3S-SOFT Blog | Digital Growth Insights, Web Dev, SEO, and eCommerce",
     description:
       "Explore expert articles on MERN stack development, SEO audits, Amazon selling, Shopify growth, and digital delivery strategy from the 3S-SOFT team.",
+    keywords: mergeKeywords(DEFAULT_KEYWORDS, [
+      "digital marketing blog",
+      "SEO blog",
+      "web development blog",
+      "eCommerce growth blog",
+      "MERN stack articles",
+    ]),
     bodyHtml: renderLayout({
       title: "Digital strategy, engineering, and growth insights",
       description:
@@ -482,6 +556,7 @@ function renderBlogRoutes() {
       path: `/blog/${blog.slug}`,
       title: `${blog.title} | 3S-SOFT`,
       description: stripMarkdown(blog.details).slice(0, 155),
+      keywords: mergeKeywords(DEFAULT_KEYWORDS, [blog.category, ...blog.tags]),
       image: blog.imageUrl,
       type: "article",
       schema: [
@@ -547,6 +622,12 @@ function renderPortfolioRoute() {
     title: "3S-SOFT Portfolio | Web Development, eCommerce, and Marketing Case Studies",
     description:
       "Review 3S-SOFT portfolio work across web engineering, marketplace optimization, design, and digital marketing campaigns delivered for global clients.",
+    keywords: mergeKeywords(DEFAULT_KEYWORDS, [
+      "web development portfolio",
+      "SEO case studies",
+      "eCommerce case studies",
+      "digital marketing portfolio",
+    ]),
     bodyHtml: renderLayout({
       title: "Case studies across product, growth, and operations",
       description:
@@ -572,6 +653,7 @@ function renderPortfolioRoutes() {
       path: `/portfolio/${project.slug}`,
       title: project.seo?.title || `${project.title} | 3S-SOFT Portfolio`,
       description: project.seo?.description || project.description,
+      keywords: mergeKeywords(DEFAULT_KEYWORDS, [project.category, project.client, ...(project.technologies || [])]),
       image: project.image,
       schema: [
         {
@@ -638,6 +720,12 @@ function renderAboutRoute() {
     title: "About 3S-SOFT | Web Development, SEO & eCommerce Growth Partner",
     description:
       "Learn how 3S-SOFT helps startups, eCommerce brands, and service businesses grow with web development, SEO, marketplace operations, design, and virtual assistant support.",
+    keywords: mergeKeywords(DEFAULT_KEYWORDS, [
+      "about 3S-SOFT",
+      "digital agency Bangladesh",
+      "web development team",
+      "SEO agency Bangladesh",
+    ]),
     bodyHtml: renderLayout({
       title: "A digital growth partner built around execution",
       description:
@@ -674,6 +762,12 @@ function renderTeamRoute() {
     title: "3S-SOFT Team | Full-Stack Developers, Designers, and Marketing Specialists",
     description:
       "Meet the 3S-SOFT team of engineers, designers, and marketing specialists who deliver web platforms, eCommerce execution, and growth programs for clients.",
+    keywords: mergeKeywords(DEFAULT_KEYWORDS, [
+      "full stack developers",
+      "SEO specialists",
+      "digital marketing team",
+      "eCommerce specialists",
+    ]),
     schema: [
       {
         "@context": "https://schema.org",
@@ -720,6 +814,13 @@ function renderContactRoute() {
     title: "Contact 3S-SOFT | Web Development, SEO & eCommerce Team",
     description:
       "Contact 3S-SOFT for websites, SEO services, marketplace product listing, digital marketing, design work, and virtual assistant support. Request a quote or consultation.",
+    keywords: mergeKeywords(DEFAULT_KEYWORDS, [
+      "contact web development company",
+      "SEO consultation",
+      "hire MERN stack developers",
+      "Amazon listing support",
+      "digital agency contact Bangladesh",
+    ]),
     bodyHtml: renderLayout({
       title: "Talk to our web development, SEO, and eCommerce team",
       description:
@@ -752,11 +853,12 @@ function renderContactRoute() {
   });
 }
 
-function renderSimpleRoute({ path, title, description, sections, robots = "index, follow" }) {
+function renderSimpleRoute({ path, title, description, sections, robots = DEFAULT_PUBLIC_ROBOTS, keywords = DEFAULT_KEYWORDS }) {
   return createRoute({
     path,
     title,
     description,
+    keywords,
     robots,
     bodyHtml: renderLayout({
       title: title.replace(" | 3S-SOFT", ""),
@@ -884,7 +986,7 @@ export function getSeoRoutes() {
       path: "/login",
       title: "Login | 3S-SOFT",
       description: "Access your 3S-SOFT account to manage private dashboard features.",
-      robots: "noindex, nofollow",
+      robots: DEFAULT_PRIVATE_ROBOTS,
       sections: [
         {
           heading: "Private access",
@@ -899,7 +1001,7 @@ export function getSeoRoutes() {
       path: "/register",
       title: "Register | 3S-SOFT",
       description: "Create a 3S-SOFT account for private access to dashboard features.",
-      robots: "noindex, nofollow",
+      robots: DEFAULT_PRIVATE_ROBOTS,
       sections: [
         {
           heading: "Private registration",

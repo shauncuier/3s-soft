@@ -85,7 +85,8 @@ const Register = () => {
       <PageTitle
         title="Register"
         content="Create a 3S-SOFT account for private access to dashboard features."
-        robots="noindex, nofollow"
+        noIndex
+        noFollow
       />
       <div className="max-w-[1480px] min-h-screen mx-auto pt-30 pb-20">
         <div className="text-center mb-5">

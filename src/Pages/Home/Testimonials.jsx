@@ -59,6 +59,8 @@ const Testimonials = () => {
                     src={testimonial.image}
                     alt={testimonial.name}
                     className="w-full rounded-full"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="text-left">

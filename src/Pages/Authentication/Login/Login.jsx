@@ -49,7 +49,8 @@ const Login = () => {
       <PageTitle
         title="Login"
         content="Access your 3S-SOFT account to manage private dashboard features."
-        robots="noindex, nofollow"
+        noIndex
+        noFollow
       />
       <div className="max-w-[1480px] mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
         <div className="text-center mb-5">

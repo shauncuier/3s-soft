@@ -9,7 +9,8 @@ const NotFound = () => {
       <PageTitle
         title="404 Page Not Found"
         content="The page you requested could not be found on 3S-SOFT."
-        robots="noindex, nofollow"
+        noIndex
+        noFollow
       />
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="z-50 flex flex-col items-center">

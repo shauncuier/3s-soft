@@ -124,6 +124,9 @@ const Navbar = () => {
               className="rounded-full"
               width={"48px"}
               height={"48px"}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </Link>
         </div>

@@ -73,6 +73,14 @@ const Contact = () => {
         <PageTitle
           title="Contact 3S-SOFT | Web Development, SEO & eCommerce Services"
           content="Contact 3S-SOFT to discuss MERN stack development, WordPress, SEO, product listing optimization, social media marketing, graphic design, lead generation, and virtual assistant services."
+          keywords={[
+            "contact web development company",
+            "SEO consultation",
+            "hire MERN stack developers",
+            "WordPress support",
+            "Amazon listing optimization support",
+            "virtual assistant services contact",
+          ]}
         />
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full">

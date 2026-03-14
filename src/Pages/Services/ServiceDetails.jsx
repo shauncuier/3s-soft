@@ -33,7 +33,7 @@ const ServiceDetails = () => {
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": service.title,
-            "itemListElement": service.features.map((f, i) => ({
+            "itemListElement": service.features.map((f) => ({
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
@@ -48,6 +48,7 @@ const ServiceDetails = () => {
             <PageTitle
                 title={service.seoTitle}
                 content={service.seoDescription}
+                keywords={[service.title, ...service.features.slice(0, 6)]}
             />
             <Helmet>
                 <script type="application/ld+json">

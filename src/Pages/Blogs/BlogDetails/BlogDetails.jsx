@@ -90,6 +90,7 @@ const BlogDetails = () => {
       <PageTitle
         title={blog.title}
         content={blog.details?.substring(0, 150)}
+        keywords={[blog.category, ...(blog.tags || [])]}
         image={`https://3s-soft.com${blog.imageUrl}`}
         type="article"
       />

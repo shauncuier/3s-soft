@@ -67,6 +67,16 @@ const Services = () => {
       <PageTitle
         title="Web Development, SEO, eCommerce & Virtual Support Services"
         content="Explore 3S-SOFT services for MERN stack web development, WordPress customization, product listing, SEO, lead generation, social media marketing, graphic design, and virtual assistant support."
+        keywords={[
+          "web development services",
+          "WordPress customization",
+          "SEO services",
+          "eCommerce product listing",
+          "lead generation services",
+          "social media marketing",
+          "graphic design services",
+          "virtual assistant services",
+        ]}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>

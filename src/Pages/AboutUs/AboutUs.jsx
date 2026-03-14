@@ -66,6 +66,13 @@ const AboutUs = () => {
         <PageTitle
           title="About 3S-SOFT | Web Development, SEO & eCommerce Partner"
           content="Learn how 3S-SOFT helps startups, eCommerce brands, and service businesses grow with web development, SEO, marketplace support, design, and virtual assistant services."
+          keywords={[
+            "about 3S-SOFT",
+            "digital agency Bangladesh",
+            "web development company Bangladesh",
+            "SEO agency Bangladesh",
+            "eCommerce support company",
+          ]}
         />
         <div className="max-w-370 min-h-screen mx-auto pt-24 sm:pt-28 md:pt-38 pb-20">
           {/* Header */}

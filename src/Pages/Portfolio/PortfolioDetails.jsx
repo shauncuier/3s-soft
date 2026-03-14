@@ -33,7 +33,8 @@ const PortfolioDetails = () => {
                 <PageTitle
                     title="Portfolio Project Not Found"
                     content="The portfolio project you requested could not be found."
-                    robots="noindex, nofollow"
+                    noIndex
+                    noFollow
                 />
                 <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 px-5 text-center">
                     <h2 className="text-3xl font-bold text-white mb-4">Project Not Found</h2>
@@ -100,6 +101,7 @@ const PortfolioDetails = () => {
             <PageTitle
                 title={pageTitle}
                 content={pageDescription}
+                keywords={[project.category, project.client, ...(project.technologies || [])]}
                 image={pageImage}
                 imageAlt={`${project.title} portfolio preview image`}
                 canonical={`/portfolio/${project.slug}`}
