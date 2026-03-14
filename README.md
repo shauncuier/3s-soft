@@ -46,6 +46,17 @@ A modern web application built with React and Vite, featuring a modular architec
 npm install
 ```
 
+### Environment Variables
+
+Create a `.env` file in the project root and add your values:
+
+```bash
+VITE_CLARITY_PROJECT_ID=your_clarity_project_id
+```
+
+- `VITE_CLARITY_PROJECT_ID` is used to initialize Microsoft Clarity.
+- You can get the project ID from your Clarity dashboard: **Settings → Overview**.
+
 ### Running Locally
 
 ```bash
