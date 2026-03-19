@@ -346,15 +346,17 @@ function renderHomeRoute() {
     schema: [
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "ProfessionalService",
         name: siteName,
         url: `${siteUrl}/`,
         logo: defaultImage,
+        image: defaultImage,
         description:
           "3S-SOFT provides web engineering, eCommerce services, SEO, and virtual assistant support.",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Chittagong",
+          addressRegion: "Chittagong",
           addressCountry: "BD",
         },
         contactPoint: {
@@ -367,6 +369,15 @@ function renderHomeRoute() {
           "https://www.facebook.com/3s.soft.bd",
           "https://www.linkedin.com/company/3s-soft/",
           "https://www.instagram.com/3ssoft/",
+        ],
+        priceRange: "$$",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
         ],
       },
       {
@@ -481,7 +492,12 @@ function renderServiceRoutes() {
             "@type": "Organization",
             name: siteName,
             url: `${siteUrl}/`,
+            logo: {
+              "@type": "ImageObject",
+              url: defaultImage,
+            },
           },
+          url: absoluteUrl(`/services/${service.slug}`),
         },
         breadcrumbSchema(breadcrumbs),
       ],
@@ -576,10 +592,16 @@ function renderBlogRoutes() {
               url: defaultImage,
             },
           },
-          image: absoluteUrl(blog.imageUrl),
+          image: {
+            "@type": "ImageObject",
+            url: absoluteUrl(blog.imageUrl),
+          },
           datePublished: blog.date,
           dateModified: blog.date,
-          mainEntityOfPage: absoluteUrl(`/blog/${blog.slug}`),
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": absoluteUrl(`/blog/${blog.slug}`),
+          },
           articleSection: blog.category,
           keywords: blog.tags.join(", "),
           description: stripMarkdown(blog.details).slice(0, 155),

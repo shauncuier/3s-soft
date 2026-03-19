@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import SectionLabel from "../../../Components/SectionLabel";
-import logo from "../../../assets/logo.jpg";
+import logo from "../../../assets/logo.webp";
 import { Link, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import registerImage from "../../../assets/register-image.jpg";
+import registerImage from "../../../assets/register-image.webp";
 import { AuthContext } from "../../../Provider/AuthContext";
 import toast from "react-hot-toast";
 import PageTitle from "../../../Components/PageTitle";

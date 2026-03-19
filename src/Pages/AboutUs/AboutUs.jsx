@@ -15,7 +15,7 @@ import { LuHeartHandshake } from "react-icons/lu";
 import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";
 import PageTitle from "../../Components/PageTitle";
-import aboutImage from "../../assets/about-us.jpg";
+import aboutImage from "../../assets/about-us.webp";
 
 const AboutUs = () => {
   const coreServices = [
@@ -106,6 +106,7 @@ const AboutUs = () => {
             </div>
             <img
               src={aboutImage}
+              loading="lazy"
               alt="3S-SOFT Digital Agency - Expert MERN Stack & eCommerce Team in Bangladesh"
               className="rounded-2xl shadow-lg"
             />

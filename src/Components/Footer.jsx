@@ -5,7 +5,7 @@ import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { FiFacebook, FiLinkedin, FiInstagram } from "react-icons/fi";
 import { MdWhatsapp } from "react-icons/md";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.webp";
 import { services } from "../data/servicesData";
 
 const Footer = () => {
@@ -35,6 +35,8 @@ const Footer = () => {
                 className="rounded-full inline-block"
                 width={"60px"}
                 height={"60px"}
+                loading="lazy"
+                decoding="async"
               />
             </Link>
 

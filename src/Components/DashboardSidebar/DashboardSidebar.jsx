@@ -4,7 +4,7 @@ import { AiOutlineBars } from "react-icons/ai";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { Link, NavLink } from "react-router";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.webp";
 import { AuthContext } from "../../Provider/AuthContext";
 import toast from "react-hot-toast";
 

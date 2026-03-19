@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import { FiMenu } from "react-icons/fi";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.webp";
 import ProgressBar from "./ProgressBar";
 import { AuthContext } from "../Provider/AuthContext";
 import toast from "react-hot-toast";
@@ -151,6 +151,7 @@ const Navbar = () => {
                   <img
                     alt={user.displayName}
                     src={user.photoURL}
+                    loading="lazy"
                   />
                 </div>
               </div>

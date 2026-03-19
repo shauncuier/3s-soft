@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import SectionLabel from "../../../Components/SectionLabel";
-import logo from "../../../assets/logo.jpg";
+import logo from "../../../assets/logo.webp";
 import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import loginImage from "../../../assets/login-image.jpg";
+import loginImage from "../../../assets/login-image.webp";
 import { AuthContext } from "../../../Provider/AuthContext";
 import toast from "react-hot-toast";
 import PageTitle from "../../../Components/PageTitle";

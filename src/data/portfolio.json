@@ -8,7 +8,7 @@
       "client": "RetailMax UK",
       "description": "A fully-featured, scalable online store built with React and Node.js. Includes real-time inventory management, secure payment integration, and advanced analytics dashboard.",
       "longDescription": "RetailMax UK needed a modern, high-performance e-commerce solution to handle their growing inventory and customer base. We developed a custom MERN stack application that prioritizes speed, security, and user experience. The platform features a responsive front-end, a robust API for inventory management, and integration with Stripe for secure payments. Post-launch, the client saw a 150% increase in online sales and significantly improved customer retention rates.",
-      "image": "/assets/portfolio/ecommerce.png",
+      "image": "/assets/portfolio/ecommerce.webp",
       "technologies": [
         "React",
         "Node.js",
@@ -40,7 +40,7 @@
       "client": "DataDriven Corp",
       "description": "Interactive real-time dashboard for business analytics and reporting. Features customizable widgets, data visualization, and automated reporting.",
       "longDescription": "DataDriven Corp needed to consolidate multiple data sources into a single, actionable view. We built a sophisticated dashboard using React and D3.js, providing real-time visualizations of key performance indicators. The system automates historical data reporting, saving the analytics team hours of manual work each week. The solution is highly scalable and integrated directly with their existing PostgreSQL databases.",
-      "image": "/assets/portfolio/analytics.png",
+      "image": "/assets/portfolio/analytics.webp",
       "technologies": [
         "React",
         "D3.js",
@@ -71,7 +71,7 @@
       "client": "MediCare Solutions",
       "description": "HIPAA-compliant patient management system with appointment scheduling, telehealth integration, and secure messaging.",
       "longDescription": "We partnered with MediCare Solutions to build a secure, HIPAA-compliant patient portal. The application includes features such as real-time appointment booking, secure file sharing between doctors and patients, and integrated telehealth video conferencing using WebRTC. The portal has revolutionized patient engagement and streamlined administrative tasks for medical staff.",
-      "image": "/assets/portfolio/healthcare.png",
+      "image": "/assets/portfolio/healthcare.webp",
       "technologies": [
         "React",
         "Node.js",
@@ -102,7 +102,7 @@
       "client": "PropertyHub USA",
       "description": "Modern property listing website with virtual tours, advanced search filters, and mortgage calculator integration.",
       "longDescription": "PropertyHub USA required a high-performance platform to showcase luxury listings. We built a tailored solution using Next.js for server-side rendering, ensuring excellent SEO performance. The site features an interactive map search using Mapbox, high-quality image processing with Cloudinary, and a custom mortgage calculator for potential buyers.",
-      "image": "/assets/portfolio/realestate.png",
+      "image": "/assets/portfolio/realestate.webp",
       "technologies": [
         "Next.js",
         "Node.js",
@@ -133,7 +133,7 @@
       "client": "TastyBites Group",
       "description": "Multi-location restaurant website with online ordering, table reservations, and loyalty program integration.",
       "longDescription": "For TastyBites Group, we developed a fast, conversion-focused WordPress site. We integrated a custom WooCommerce-based online ordering system and a reservation platform that syncs directly with their in-restaurant management software. The site is optimized for mobile users, making it easy for customers to order on the go.",
-      "image": "/assets/portfolio/restaurant.png",
+      "image": "/assets/portfolio/restaurant.webp",
       "technologies": [
         "WordPress",
         "WooCommerce",
@@ -164,7 +164,7 @@
       "client": "StyleVogue London",
       "description": "Premium fashion e-commerce store with AR try-on feature, personalized recommendations, and influencer integration.",
       "longDescription": "StyleVogue London wanted to stand out in the competitive fashion market. We implemented a high-end Shopify store with custom-built features, including an Augmented Reality (AR) try-on tool using TensorFlow.js and a personalized recommendation engine. The project also included building a collaborative dashboard for influencer management.",
-      "image": "/assets/portfolio/fashion.png",
+      "image": "/assets/portfolio/fashion.webp",
       "technologies": [
         "Shopify",
         "React",
@@ -195,7 +195,7 @@
       "client": "FitLife Pro",
       "description": "Cross-platform fitness app with workout tracking, nutrition planning, and social challenges.",
       "longDescription": "We developed FitLife Pro using React Native to ensure high performance on both iOS and Android. The app features real-time workout tracking, integration with Apple HealthKit and Google Fit, and a social layer where users can compete in challenges. The backend is powered by Node.js and Firebase for real-time notifications.",
-      "image": "/assets/portfolio/fitness.png",
+      "image": "/assets/portfolio/fitness.webp",
       "technologies": [
         "React Native",
         "Node.js",
@@ -226,7 +226,7 @@
       "client": "TechVenture Inc",
       "description": "Complete brand identity including logo design, business cards, letterheads, and social media kit.",
       "longDescription": "TechVenture Inc needed a brand refresh to better reflect their position as a high-tech venture capital firm. We designed a modern, minimalistic logo and a complete brand style guide that provides consistency across all digital and print mediums. The project also involved designing a unique social media kit for their online presence.",
-      "image": "/assets/portfolio/branding.png",
+      "image": "/assets/portfolio/branding.webp",
       "technologies": [
         "Figma",
         "Adobe Illustrator",
@@ -255,7 +255,7 @@
       "category": "eCommerce",
       "client": "HomeGoods Direct",
       "description": "Complete Amazon storefront optimization including product listings, A+ content, and PPC campaign management.",
-      "image": "/assets/portfolio/amazon.png",
+      "image": "/assets/portfolio/amazon.webp",
       "technologies": [
         "Amazon Seller Central",
         "Helium 10",
@@ -286,7 +286,7 @@
       "client": "GreenEnergy Solutions",
       "description": "Comprehensive SEO strategy with content marketing, link building, and local SEO optimization for renewable energy company.",
       "longDescription": "GreenEnergy Solutions needed to compete for competitive green energy keywords. We implemented a long-term SEO strategy focusing on high-quality content that answers user questions about renewable energy. Combined with a white-hat link building campaign and local SEO optimization, the client now dominates search results for their target region.",
-      "image": "/assets/portfolio/seo.png",
+      "image": "/assets/portfolio/seo.webp",
       "technologies": [
         "SEMrush",
         "Ahrefs",
@@ -316,7 +316,7 @@
       "client": "Luxe Beauty Co",
       "description": "Multi-platform social media marketing campaign with influencer partnerships, content creation, and paid advertising.",
       "longDescription": "Luxe Beauty Co wanted to leverage TikTok and Instagram to reach a younger audience. We created a high-energy content strategy that included influencer takeovers and viral video challenges. Combined with highly targeted Meta Ads, the campaign achieved millions of impressions and significant follower growth in a single quarter.",
-      "image": "/assets/portfolio/social.png",
+      "image": "/assets/portfolio/social.webp",
       "technologies": [
         "Meta Ads",
         "TikTok",
@@ -346,7 +346,7 @@
       "client": "EduTech Academy",
       "description": "Comprehensive LMS with video courses, quizzes, certificates, and student progress tracking.",
       "longDescription": "EduTech Academy needed a custom Learning Management System (LMS) to host their growing catalog of online courses. We built a robust platform using React and Node.js with secure video hosting on AWS S3. The system includes interactive quizzes, automatic certificate generation, and an instructor dashboard for student performance tracking.",
-      "image": "/assets/portfolio/edtech.png",
+      "image": "/assets/portfolio/edtech.webp",
       "technologies": [
         "React",
         "Node.js",
@@ -377,7 +377,7 @@
       "client": " Stahl-Design-Tebart",
       "description": "Comprehensive overhaul of the Amazon product presence for industrial door hinges, focusing on technical SEO and high-conversion visual storytelling.",
       "longDescription": "The Stahl-Design-Tebart project focused on the WSS 2D Aluminium Türband (ASIN: B095VYWS19), a high-quality hardware component that required a balance of technical precision and retail appeal. We transformed the listing by conducting deep keyword research into the German 'Baumarkt' (Home Improvement) niche to improve organic visibility. The core of the project involved designing a bespoke A+ Content experience that simplifies complex technical features like 2D adjustability and material durability. By utilizing 'Before vs After' comparisons, technical infographics, and lifestyle applications, we reduced buyer hesitation and positioned the brand as a leader in professional-grade hardware accessories on the Amazon DE marketplace.",
-      "image": "/assets/portfolio/stahl-design-tebart-amazon-listing-optimization.png",
+      "image": "/assets/portfolio/stahl-design-tebart-amazon-listing-optimization.webp",
       "technologies": [
         "Helium 10",
         "Adobe Photoshop",
