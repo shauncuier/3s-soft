@@ -3,6 +3,7 @@ import PageTitle from "../../Components/PageTitle";
 import SectionLabel from "../../Components/SectionLabel";
 import { FaExternalLinkAlt, FaSearch } from "react-icons/fa";
 import { Link } from "react-router";
+import { withAutoLinks } from "../../utils/autoLinker";
 
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
@@ -172,7 +173,7 @@ const Portfolio = () => {
                     </div>
 
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 line-clamp-3">
-                      {item.description}
+                      {withAutoLinks(item.description)}
                     </p>
 
                     <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-gray-700">

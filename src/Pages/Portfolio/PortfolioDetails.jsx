@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet-async";
 import SectionLabel from "../../Components/SectionLabel";
 import { FaExternalLinkAlt, FaArrowLeft, FaCheckCircle, FaTools } from "react-icons/fa";
 import PageTitle from "../../Components/PageTitle";
+import { withAutoLinks } from "../../utils/autoLinker";
+import RichTextRenderer from "../../Components/RichTextRenderer";
 
 const PortfolioDetails = () => {
     const { slug } = useParams();
@@ -150,9 +152,7 @@ const PortfolioDetails = () => {
                         <div className="lg:col-span-2 space-y-10">
                             <div>
                                 <h2 className="text-3xl font-bold text-white mb-6">Project Overview</h2>
-                                <p className="text-xl text-gray-300 leading-relaxed">
-                                    {project.longDescription || project.description}
-                                </p>
+                                <RichTextRenderer content={project.longDescription || project.description} />
                             </div>
 
                             {project.scope && (
@@ -162,7 +162,7 @@ const PortfolioDetails = () => {
                                         {project.scope.map((item, idx) => (
                                             <div key={idx} className="flex items-center gap-3 text-gray-300">
                                                 <FaCheckCircle className="text-blue-500 flex-shrink-0" />
-                                                <span>{item}</span>
+                                                <span>{withAutoLinks(item)}</span>
                                             </div>
                                         ))}
                                     </div>

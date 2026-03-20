@@ -16,6 +16,7 @@ import SectionLabel from "../../Components/SectionLabel";
 import Button from "../../Components/Button";
 import PageTitle from "../../Components/PageTitle";
 import aboutImage from "../../assets/about-us.webp";
+import { withAutoLinks } from "../../utils/autoLinker";
 
 const AboutUs = () => {
   const coreServices = [
@@ -82,9 +83,11 @@ const AboutUs = () => {
               3S-SOFT | Web Development, SEO & eCommerce Growth Partner
             </h1>
             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-              3S-SOFT is a Bangladesh-based digital agency helping startups,
-              online stores, and service businesses build faster websites,
-              improve search visibility, and scale digital operations worldwide.
+              {withAutoLinks(
+                "3S-SOFT is a Bangladesh-based digital agency helping startups, " +
+                "online stores, and service businesses build faster websites, " +
+                "improve search visibility, and scale digital operations worldwide."
+              )}
             </p>
           </div>
 
@@ -92,16 +95,24 @@ const AboutUs = () => {
           <div className="grid md:grid-cols-2 gap-12 my-15">
             <div className="">
               <h3 className="text-3xl font-semibold mb-4">Who We Are</h3>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                {withAutoLinks(
+                  "3S-SOFT is a full-service digital agency based in Bangladesh, focused on " +
+                  "helping businesses launch, grow, and optimize their online " +
+                  "presence. We work across MERN stack development, WordPress " +
+                  "customization, eCommerce product listing, SEO, lead generation, " +
+                  "graphic design, social media marketing, and virtual assistant " +
+                  "services."
+                )}
+              </p>
               <p className="text-gray-300 leading-relaxed">
-                <strong className="text-blue-400">3S-SOFT</strong> is a
-                full-service digital agency based in Bangladesh, focused on
-                helping businesses launch, grow, and optimize their online
-                presence. We work across MERN stack development, WordPress
-                customization, eCommerce product listing, SEO, lead generation,
-                graphic design, social media marketing, and virtual assistant
-                services. Our team combines technical skill, marketing insight,
-                and hands-on execution so clients can move faster and compete
-                more effectively in local and global markets.
+                {withAutoLinks(
+                  "Our team combines technical skill, marketing insight, " +
+                  "and hands-on execution so clients can move faster and compete " +
+                  "more effectively in local and global markets. Whether you need a robust " +
+                  "web development solution, complete digital marketing overhaul, or a dedicated virtual assistant, " +
+                  "we orchestrate everything you need to scale profitably."
+                )}
               </p>
             </div>
             <img
@@ -110,6 +121,43 @@ const AboutUs = () => {
               alt="3S-SOFT Digital Agency - Expert MERN Stack & eCommerce Team in Bangladesh"
               className="rounded-2xl shadow-lg"
             />
+          </div>
+
+          {/* Our Approach Expansion */}
+          <div className="mb-20">
+            <h3 className="text-3xl font-semibold mb-6 text-center">Our Approach to Digital Excellence</h3>
+            <div className="grid md:grid-cols-3 gap-8 text-gray-300 leading-relaxed">
+              <div className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700">
+                <h4 className="text-xl font-bold text-white mb-3">Modern Engineering</h4>
+                <p>
+                  {withAutoLinks(
+                    "We specialize in high-performance web development utilizing the MERN stack " +
+                    "to build scalable, interactive web applications. For content-focused brands, our " +
+                    "WordPress experts craft custom themes optimized for extreme speed and intuitive user experiences."
+                  )}
+                </p>
+              </div>
+              <div className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700">
+                <h4 className="text-xl font-bold text-white mb-3">Growth & Visibility</h4>
+                <p>
+                  {withAutoLinks(
+                    "Building a site is only half the battle. Through aggressive digital marketing and " +
+                    "data-driven SEO, we push your brand to the top of search results. Our targeted lead generation " +
+                    "and dynamic social media strategies consistently convert targeted audiences into loyal customers."
+                  )}
+                </p>
+              </div>
+              <div className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700">
+                <h4 className="text-xl font-bold text-white mb-3">E-Commerce Ecosystems</h4>
+                <p>
+                  {withAutoLinks(
+                    "We dominate retail optimization. From Amazon storefronts to independent Shopify stores, our " +
+                    "eCommerce experts handle every facet of product listing and conversion rate optimization, supported " +
+                    "by talented graphic design to make your products impossible to ignore."
+                  )}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Mission & Vision */}
@@ -121,9 +169,12 @@ const AboutUs = () => {
 
               <h4 className="text-xl font-bold mb-2">Our Mission</h4>
               <p className="text-gray-300">
-                To help businesses grow through reliable web development, SEO,
-                eCommerce support, and digital execution that delivers
-                measurable results.
+                {withAutoLinks(
+                  "Our mission at 3S-SOFT is to empower brands and businesses to achieve sustainable " +
+                  "growth through reliable, high-performance web development and strategic digital marketing. " +
+                  "From custom MERN stack applications to advanced SEO and Amazon eCommerce integrations, " +
+                  "we deliver end-to-end digital execution that produces measurable, pipeline-driving results."
+                )}
               </p>
             </div>
             <div className="rounded-xl p-8 shadow-md shadow-gray-600 bg-black/30 border border-gray-700">
@@ -133,9 +184,12 @@ const AboutUs = () => {
 
               <h4 className="text-xl font-bold mb-2">Our Vision</h4>
               <p className="text-gray-300">
-                To become a trusted long-term digital partner for businesses
-                that need scalable websites, better visibility, and stronger
-                online operations.
+                {withAutoLinks(
+                  "Our vision is to become the leading long-term digital partner for global organizations " +
+                  "requiring scalable websites, dominant search visibility, and streamlined online operations. " +
+                  "By combining expert WordPress customization, proactive lead generation, striking graphic design, " +
+                  "and dedicated virtual assistant teams, we aim to eliminate the complexities of the digital landscape."
+                )}
               </p>
             </div>
           </div>
@@ -183,9 +237,11 @@ const AboutUs = () => {
               Why Clients Trust 3s-Soft?
             </h3>
             <p className="text-gray-300 max-w-3xl mx-auto text-center">
-              Clients trust us for practical strategy, clear communication,
-              reliable execution, and measurable business value across web
-              development, SEO, eCommerce operations, and virtual support.
+              {withAutoLinks(
+                "Clients trust us for practical strategy, clear communication, " +
+                "reliable execution, and measurable business value across web " +
+                "development, SEO, eCommerce operations, and virtual assistant support."
+              )}
             </p>
           </div>
 
