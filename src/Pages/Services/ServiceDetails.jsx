@@ -89,7 +89,7 @@ const ServiceDetails = () => {
                     <div className="lg:col-span-2">
                         <h2 className="text-2xl font-bold text-white mb-6">Overview</h2>
                         <div className="prose prose-invert prose-lg max-w-none">
-                            <RichTextRenderer content={service.fullContent} />
+                            <RichTextRenderer content={service.fullContent} disableLinks />
                         </div>
 
                         <div className="mt-12">

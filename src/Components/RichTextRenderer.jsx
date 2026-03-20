@@ -4,7 +4,7 @@ import { withAutoLinks } from "../utils/autoLinker";
 /**
  * Parses markdown-style text, replacing **bold**, `code`, and keywords via autoLinker
  */
-const renderFormattedText = (text) => {
+const renderFormattedText = (text, disableLinks) => {
   const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
   return parts.map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
@@ -24,7 +24,7 @@ const renderFormattedText = (text) => {
         </code>
       );
     }
-    return <React.Fragment key={i}>{withAutoLinks(part)}</React.Fragment>;
+    return <React.Fragment key={i}>{disableLinks ? part : withAutoLinks(part)}</React.Fragment>;
   });
 };
 
@@ -40,7 +40,7 @@ const renderFormattedText = (text) => {
  * - unordered lists (- Item or * Item)
  * - inline **bold** and `code`
  */
-const RichTextRenderer = ({ content }) => {
+const RichTextRenderer = ({ content, disableLinks = false }) => {
   if (!content) return null;
 
   return (
@@ -81,7 +81,7 @@ const RichTextRenderer = ({ content }) => {
               key={index}
               className="text-3xl font-bold text-white mt-12 mb-6 tracking-tight"
             >
-              {renderFormattedText(h3Match[1])}
+              {renderFormattedText(h3Match[1], disableLinks)}
             </h3>
           );
         }
@@ -93,7 +93,7 @@ const RichTextRenderer = ({ content }) => {
               key={index}
               className="text-xl font-bold text-blue-400 mt-8 mb-4"
             >
-              {renderFormattedText(h4Match[1])}
+              {renderFormattedText(h4Match[1], disableLinks)}
             </h4>
           );
         }
@@ -107,7 +107,7 @@ const RichTextRenderer = ({ content }) => {
                 {listMatch[1]}
               </span>
               <p className="flex-1 text-gray-300">
-                {renderFormattedText(listMatch[2])}
+                {renderFormattedText(listMatch[2], disableLinks)}
               </p>
             </div>
           );
@@ -119,7 +119,7 @@ const RichTextRenderer = ({ content }) => {
             <div key={index} className="flex gap-4 mb-3 ml-2">
               <span className="text-blue-400 mt-1 text-lg leading-none">•</span>
               <p className="flex-1 text-gray-300">
-                {renderFormattedText(trimmed.slice(2))}
+                {renderFormattedText(trimmed.slice(2), disableLinks)}
               </p>
             </div>
           );
@@ -128,7 +128,7 @@ const RichTextRenderer = ({ content }) => {
         // Default paragraph
         return (
           <p key={index} className="mb-5 text-gray-400 text-lg leading-relaxed">
-            {renderFormattedText(paragraph)}
+            {renderFormattedText(paragraph, disableLinks)}
           </p>
         );
       })}
