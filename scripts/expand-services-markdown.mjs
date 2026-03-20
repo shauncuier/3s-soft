@@ -1,4 +1,12 @@
-import {
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const jsPath = path.resolve(__dirname, '../src/data/servicesData.js');
+
+const servicesData = `import {
     FaCode,
     FaWordpress,
     FaShoppingCart,
@@ -26,7 +34,7 @@ export const services = [
             "Real-time Data Processing",
             "Scalable Infrastructure"
         ],
-        fullContent: `### The Genesis of Custom Digital Solutions
+        fullContent: \`### The Genesis of Custom Digital Solutions
 In today’s hyper-competitive digital landscape, relying on off-the-shelf templates is no longer sufficient for ambitious enterprises. **3S-SOFT** specializes in bespoke **web development** utilizing the elite **MERN stack** (MongoDB, Express.js, React.js, and Node.js). This JavaScript-centric ecosystem allows us to build blistering fast, highly scalable, and incredibly secure applications tailored exactly to your unique business logic.
 
 ---
@@ -47,7 +55,7 @@ We treat every project as a strategic partnership. Our development lifecycle is 
 ### Beyond Basic Development
 We don't just build websites; we engineer revenue-generating ecosystems. Every application we develop comes deeply integrated with technical **SEO** best practices, lightning-fast Core Web Vitals, and military-grade security layers (JWT authentication, role-based access control, data encryption). 
 
-*If your business is being throttled by outdated technology, contact us today to discuss how our custom MERN stack solutions can scale your operations.* `,
+*If your business is being throttled by outdated technology, contact us today to discuss how our custom MERN stack solutions can scale your operations.* \`,
         seoTitle: "Advanced MERN Stack Web Development Services | 3S-SOFT",
         seoDescription: "Expert MERN stack development for startups and enterprises. We build scalable, secure, and high-performance web applications using React, Node.js, and MongoDB."
     },
@@ -67,7 +75,7 @@ We don't just build websites; we engineer revenue-generating ecosystems. Every a
             "Maintenance & Support",
             "Migration Services"
         ],
-        fullContent: `### Empowering the World’s Most Popular CMS
+        fullContent: \`### Empowering the World’s Most Popular CMS
 While WordPress powers over 40% of the internet, the majority of those sites suffer from bloated templates, severe security vulnerabilities, and abysmal load times. Our **WordPress Customization** division exists to extract the maximum potential from this incredible platform. We engineer custom, enterprise-grade WordPress experiences that prioritize performance, security, and elite **SEO**.
 
 ---
@@ -87,7 +95,7 @@ For our retail clients, we transform WordPress into a highly profitable sales en
 ### The Organic Advantage
 Because we control every line of the theme's code, our built-in **digital marketing** schema is flawless. We utilize deep technical SEO techniques—dynamic JSON-LD injection, clean HTML5 semantics, and native image compression formats (WebP)—to ensure Google falls in love with your platform.
 
-*Ready to transform your WordPress site from a slow liability into a powerful asset? Contact our customization team today.* `,
+*Ready to transform your WordPress site from a slow liability into a powerful asset? Contact our customization team today.* \`,
         seoTitle: "Custom WordPress Development & SEO Optimization | 3S-SOFT",
         seoDescription: "Professional WordPress customization services. We create fast, secure, and SEO-optimized sites with custom themes, plugins, and full WooCommerce support."
     },
@@ -107,7 +115,7 @@ Because we control every line of the theme's code, our built-in **digital market
             "Inventory Management",
             "A+ Content Design"
         ],
-        fullContent: `### Total Domination of Global Marketplaces
+        fullContent: \`### Total Domination of Global Marketplaces
 Having an incredible product is only 10% of the e-commerce battle; the remaining 90% is visibility. If you aren't ranking on page one of Amazon, eBay, or Walmart, your products practically do not exist. Our elite **eCommerce product listing** services are designed to violently disrupt search algorithms, placing your catalog directly in front of highly-warmed buyers.
 
 ---
@@ -127,7 +135,7 @@ We engineer growth across all major retail ecosystems:
 ### The Conversion Multiplier
 A perfectly optimized listing does two things simultaneously: it ranks incredibly high natively (organic **SEO**), AND it massively decreases the cost of your Paid Advertising. When your listing converts at 20% instead of 5%, your ad spend drops, and your profit margins explode.
 
-*Stop bleeding money on invisible product listings. Partner with us to architect marketplace domination.* `,
+*Stop bleeding money on invisible product listings. Partner with us to architect marketplace domination.* \`,
         seoTitle: "Professional eCommerce Product Listing & Management | 3S-SOFT",
         seoDescription: "Optimize your online store with expert product listing services for Amazon, eBay, and Etsy. We provide keyword optimization and bulk upload support."
     },
@@ -147,7 +155,7 @@ A perfectly optimized listing does two things simultaneously: it ranks incredibl
             "Market Research",
             "Lead Scoring"
         ],
-        fullContent: `### Fueling the Velocity of Modern Sales
+        fullContent: \`### Fueling the Velocity of Modern Sales
 Scaling a sales team is impossibly expensive if they are spending 80% of their time prospecting instead of closing. We engineer massive, automated **lead generation** funnels that extract highly-qualified, high-intent prospects directly into your CRM. We bridge the gap between abstract marketing metrics and tangible, deposited revenue.
 
 ---
@@ -167,7 +175,7 @@ When attacking consumer markets, volume and algorithmic precision are crucial.
 ### The Ultimate CRM Integration
 A lead is useless if it falls through the cracks. We dynamically route every single generated lead instantly into your CRM (Salesforce, HubSpot, Zapier) utilizing webhooks. Your sales team receives instant notifications the second a high-intent prospect enters the funnel.
 
-*Are you tired of buying dead, recycled lists? Contact us to build a proprietary, highly-profitable lead ecosystem for your brand.* `,
+*Are you tired of buying dead, recycled lists? Contact us to build a proprietary, highly-profitable lead ecosystem for your brand.* \`,
         seoTitle: "Targeted B2B & B2C Lead Generation Services | 3S-SOFT",
         seoDescription: "Fuel your sales with high-quality B2B and B2C leads. Our data-driven strategies help you reach the right audience and increase conversion rates."
     },
@@ -187,7 +195,7 @@ A lead is useless if it falls through the cracks. We dynamically route every sin
             "PPC Management",
             "Keyword Research"
         ],
-        fullContent: `### Mastering the Algorithms of Growth
+        fullContent: \`### Mastering the Algorithms of Growth
 In the digital economy, traffic is oxygen. But relying solely on expensive paid advertising is a race to the bottom of profit margins. **3S-SOFT's** profound expertise in **digital marketing** and technical **SEO** engineers compounding organic assets. We build digital real estate that ranks permanently, driving millions of high-intent visitors absolutely free.
 
 ---
@@ -212,7 +220,7 @@ Domain Authority dictates who wins. Our PR specialists acquire tremendously powe
 ### Comprehensive Digital Marketing Synergies
 While SEO compounds over time, we satisfy immediate revenue needs through hyper-optimized PPC (Pay-Per-Click) campaigns on Google Ads and aggressive Meta **social media marketing**. By controlling the entire funnel—from the first click to the final sale—we guarantee an explosive return on investment.
 
-*Ready to monopolize the first page of Google? Contact us to audit your digital footprint today.* `,
+*Ready to monopolize the first page of Google? Contact us to audit your digital footprint today.* \`,
         seoTitle: "Effective Digital Marketing & Data-Driven SEO | 3S-SOFT",
         seoDescription: "Boost your online presence with expert SEO and digital marketing. We provide technical audits, local SEO, and result-oriented growth strategies."
     },
@@ -232,7 +240,7 @@ While SEO compounds over time, we satisfy immediate revenue needs through hyper-
             "Community Management",
             "Influencer Outreach"
         ],
-        fullContent: `### Engineering Virality and Brand Loyalty
+        fullContent: \`### Engineering Virality and Brand Loyalty
 Modern consumers do not buy from nameless corporations; they buy from brands with personality, momentum, and massive cultural relevance. **3S-SOFT’s** aggressive **social media marketing** division specializes in turning abstract brand identities into high-converting, viral sensations across the entire social ecosystem (TikTok, Instagram, LinkedIn, and X).
 
 ---
@@ -252,7 +260,7 @@ Organic reach is crucial for branding, but paid social is essential for scaling 
 ### Influencer & Partnership Synergies
 We bypass traditional ad blindness by leveraging trusted voices. Our outreach systems identify hyper-niche micro-influencers whose audiences perfectly overlap with your target demographic. We manage the negotiations, briefs, and affiliate tracking to ensure explosive top-of-funnel awareness.
 
-*Stop posting to an empty room. Partner with us to architect a profitable, cultural social media movement.* `,
+*Stop posting to an empty room. Partner with us to architect a profitable, cultural social media movement.* \`,
         seoTitle: "Strategic Social Media Marketing & Brand Growth | 3S-SOFT",
         seoDescription: "Transform your brand with expert social media marketing. We create engaging content and targeted ad campaigns for all major platforms."
     },
@@ -272,7 +280,7 @@ We bypass traditional ad blindness by leveraging trusted voices. Our outreach sy
             "Infographic Design",
             "Vector Illustration"
         ],
-        fullContent: `### The Psychology of Visual Dominance
+        fullContent: \`### The Psychology of Visual Dominance
 Human beings process visual information 60,000 times faster than text. In a digital environment where attention spans are measured in milliseconds, your brand’s aesthetic is your most brutal weapon. At **3S-SOFT**, our elite **graphic design** division doesn't just create "pretty pictures"—we engineer deep psychological trust, institutional authority, and explosive conversion rates through applied design theory.
 
 ---
@@ -292,7 +300,7 @@ A brand must scream its superiority across every digital channel constantly.
 ### The Conversion Metric Follow-Through
 Great design must generate revenue. Every asset we produce is strictly structured to guide the user's eye toward the CTA (Call To Action). We utilize Z-pattern reading logic, complimentary color-contrasts for purchase buttons, and subliminal directional cues to ensure your aesthetic directly increases your bottom line.
 
-*Elevate your brand from forgettable to iconic. Secure our creative design agency today.* `,
+*Elevate your brand from forgettable to iconic. Secure our creative design agency today.* \`,
         seoTitle: "Creative Graphic Design & Brand Identity Services | 3S-SOFT",
         seoDescription: "Elevate your brand with professional graphic design. From logo creation to full brand identity, we deliver stunning visual solutions."
     },
@@ -312,7 +320,7 @@ Great design must generate revenue. Every asset we produce is strictly structure
             "Scheduling",
             "Document Preparation"
         ],
-        fullContent: `### Scaling Operations Without Overhead Limits
+        fullContent: \`### Scaling Operations Without Overhead Limits
 The most aggressive bottleneck scaling companies face is the sheer weight of administrative minutiae. Founders and top-tier executives spend terrifying amounts of their time doing data entry instead of strategizing growth. **3S-SOFT's** elite Virtual Assistant (VA) and Remote Operations division exists to completely amputate that operational drag from your calendar.
 
 ---
@@ -332,8 +340,12 @@ Our remote teams are not standard data-entry clerks; they are trained in cross-f
 ### The Immediate ROI Execution
 By offloading low-leverage tasks to our specialists, your internal hourly ROI skyrockets. You no longer worry about payroll taxes, onboarding logistics, or human resources nightmares—you simply receive flawless operational execution.
 
-*To unlock your company's true growth velocity, you must mercilessly delegate. Contact us to seamlessly integrate remote specialists into your workflow.* `,
+*To unlock your company's true growth velocity, you must mercilessly delegate. Contact us to seamlessly integrate remote specialists into your workflow.* \`,
         seoTitle: "Reliable Virtual Assistant & Administrative Services | 3S-SOFT",
         seoDescription: "Boost productivity with professional virtual assistant services. We handle data entry, email management, and administrative support tasks."
     }
 ];
+`;
+
+fs.writeFileSync(jsPath, servicesData, 'utf8');
+console.log("Services data successfully overwritten with massive Markdown descriptions!");

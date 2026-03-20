@@ -7,7 +7,7 @@ import Button from "../../Components/Button";
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import NotFound from "../Error/NotFound";
-import { withAutoLinks } from "../../utils/autoLinker";
+import RichTextRenderer from "../../Components/RichTextRenderer";
 
 const ServiceDetails = () => {
     const { slug } = useParams();
@@ -89,9 +89,7 @@ const ServiceDetails = () => {
                     <div className="lg:col-span-2">
                         <h2 className="text-2xl font-bold text-white mb-6">Overview</h2>
                         <div className="prose prose-invert prose-lg max-w-none">
-                            <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                                {withAutoLinks(service.fullContent)}
-                            </p>
+                            <RichTextRenderer content={service.fullContent} />
                         </div>
 
                         <div className="mt-12">

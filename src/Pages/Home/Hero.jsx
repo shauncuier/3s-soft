@@ -3,6 +3,7 @@ import { HiOutlineSparkles } from "react-icons/hi2";
 import Button from "../../Components/Button";
 import { Link } from "react-router";
 import CountUp from "react-countup";
+import { withAutoLinks } from "../../utils/autoLinker";
 
 const Hero = () => {
   return (
@@ -33,17 +34,12 @@ const Hero = () => {
           </span>
         </h1>
 
-        <p className="text-lg md:text-2xl max-w-3xl mb-6  text-blue-100">
-          We build high-performance websites, improve search visibility,
-          optimize Amazon, eBay, Etsy, and Walmart listings, and support daily
-          digital operations with dependable execution.
+        <p className="text-lg md:text-2xl max-w-3xl mb-6 text-blue-100">
+          {withAutoLinks("We build high-performance websites, improve search visibility, optimize Amazon, eBay, Etsy, and Walmart listings, and support daily digital operations with dependable execution.")}
         </p>
 
         <p className="max-w-2xl mb-10 text-blue-200">
-          From MERN stack development and WordPress customization to lead
-          generation, graphic design, and virtual assistant services,
-          3S-SOFT helps businesses in Bangladesh, the USA, the UK, and
-          worldwide grow online with confidence.
+          {withAutoLinks("From MERN stack development and WordPress customization to lead generation, graphic design, and virtual assistant services, 3S-SOFT helps businesses globally grow online with confidence.")}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-14">
