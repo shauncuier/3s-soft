@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "tsx scripts/check-proof.ts && next build",
+    "build": "tsx scripts/build-tokens.ts && tsx scripts/check-proof.ts && next build",
     "start": "serve out -l 4321",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "check": "npm run lint && npm run test && npm run build && npm run test:e2e"
+    "check": "npm run lint && npm run test && npm run build && npm run test:e2e",
+    "predev": "tsx scripts/build-tokens.ts",
+    "pretest": "tsx scripts/build-tokens.ts"
   },
   "engines": {
     "node": ">=24"

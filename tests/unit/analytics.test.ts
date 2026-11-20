@@ -1,0 +1,53 @@
+import { getConsent, setConsent, track, readUtm, persistUtm, getStoredUtm } from '@/lib/analytics'
+
+declare global {
+  interface Window { gtag?: (...args: unknown[]) => void }
+}
+
+beforeEach(() => {
+  localStorage.clear()
+  sessionStorage.clear()
+  window.gtag = vi.fn()
+})
+
+test('readUtm keeps only utm_ params', () => {
+  expect(readUtm('?utm_source=linkedin&utm_campaign=nov&x=1')).toEqual({ utm_source: 'linkedin', utm_campaign: 'nov' })
+})
+
+test('readUtm returns empty object without utm params', () => {
+  expect(readUtm('?ref=abc')).toEqual({})
+})
+
+test('track does nothing when consent is unset', () => {
+  track('whatsapp_click')
+  expect(window.gtag).not.toHaveBeenCalled()
+})
+
+test('track does nothing when consent is denied', () => {
+  setConsent('denied')
+  track('whatsapp_click')
+  expect(window.gtag).not.toHaveBeenCalled()
+})
+
+test('track sends the event when consent is granted', () => {
+  setConsent('granted')
+  track('audit_submit', { utm_source: 'linkedin' })
+  expect(window.gtag).toHaveBeenCalledWith('event', 'audit_submit', { utm_source: 'linkedin' })
+})
+
+test('getConsent returns null when storage throws', () => {
+  const spy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('blocked') })
+  expect(getConsent()).toBeNull()
+  spy.mockRestore()
+})
+
+test('UTM values persist for the session', () => {
+  persistUtm({ utm_source: 'email', utm_campaign: 'q4' })
+  expect(getStoredUtm()).toEqual({ utm_source: 'email', utm_campaign: 'q4' })
+})
+
+test('persistUtm does not overwrite stored UTM with an empty set', () => {
+  persistUtm({ utm_source: 'email' })
+  persistUtm({})
+  expect(getStoredUtm()).toEqual({ utm_source: 'email' })
+})

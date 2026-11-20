@@ -1,1 +1,79 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
+@import "../../design-system/project/components/bundle.css";
+
+@theme inline {
+  --color-brand-green: var(--brand-green);
+  --color-brand-charcoal: var(--brand-charcoal);
+  --color-green-700: var(--green-700);
+  --color-green-800: var(--green-800);
+  --color-green-100: var(--green-100);
+  --color-on-green: var(--on-green);
+  --color-surface-0: var(--surface-0);
+  --color-surface-100: var(--surface-100);
+  --color-surface-200: var(--surface-200);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-star: var(--star);
+  --color-danger: var(--danger);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+html {
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 767px) {
+  html.has-cta-bar { scroll-padding-bottom: 88px; }
+}
+
+@media (pointer: fine) {
+  html { overscroll-behavior: none; }
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--surface-100);
+  color: var(--ink);
+}
+
+.container-site {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: max(var(--space-4), env(safe-area-inset-left, 0px)) max(var(--space-4), env(safe-area-inset-right, 0px));
+}
+
+.section {
+  padding-block: var(--space-12);
+}
+@media (min-width: 768px) { .section { padding-block: var(--space-16); } }
+@media (min-width: 1024px) { .section { padding-block: var(--space-24); } }
+
+.prose-measure { max-width: var(--measure); }
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: var(--z-toast);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-0);
+  color: var(--ink);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+.skip-link:focus { top: var(--space-4); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
