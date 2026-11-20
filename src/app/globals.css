@@ -74,6 +74,41 @@ body {
 }
 .skip-link:focus { top: var(--space-4); }
 
+/* ---------- Homepage motion (transform only; paused by MotionToggle, hover, focus, or reduced motion) ---------- */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes float-y { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-12px) rotate(var(--rot, 0deg)); } }
+@keyframes rise { from { opacity: 0.001; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* Loops only run after MotionStarter sets data-anim="on" (post-load, idle) and while their group is on screen. */
+.motion-marquee, .motion-marquee-rev, .motion-float { will-change: transform; }
+html[data-anim="on"] .motion-group[data-inview] .motion-marquee { animation: marquee var(--dur, 40s) linear infinite; }
+html[data-anim="on"] .motion-group[data-inview] .motion-marquee-rev { animation: marquee-rev var(--dur, 48s) linear infinite; }
+html[data-anim="on"] .motion-group[data-inview] .motion-float { animation: float-y 6s ease-in-out infinite; animation-delay: var(--delay, 0s); }
+.motion-rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--delay, 0s); }
+
+.motion-group:hover .motion-marquee, .motion-group:hover .motion-marquee-rev,
+.motion-group:focus-within .motion-marquee, .motion-group:focus-within .motion-marquee-rev,
+html[data-motion="paused"] .motion-marquee, html[data-motion="paused"] .motion-marquee-rev, html[data-motion="paused"] .motion-float {
+  animation-play-state: paused;
+}
+
+.hero-display {
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: clamp(40px, 7.2vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hand { font-family: var(--font-hand), cursive; }
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-marquee, .motion-marquee-rev, .motion-float, .motion-rise { animation: none !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }

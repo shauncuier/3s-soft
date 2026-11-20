@@ -2,15 +2,20 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { CtaGroup } from '@/components/CtaGroup'
-import { ProofBar } from '@/components/ProofBar'
+import { HeroWow } from '@/components/wow/HeroWow'
+import { CompareSection } from '@/components/wow/CompareSection'
+import { Marquee } from '@/components/wow/Marquee'
+import { WorkWall } from '@/components/wow/WorkWall'
+import { MotionStarter } from '@/components/wow/MotionStarter'
 import { ServiceCard } from '@/components/ServiceCard'
 import { WorkCard } from '@/components/WorkCard'
 import { ReviewCard } from '@/components/ReviewCard'
 import { Faq } from '@/components/Faq'
 import { SectionHeading } from '@/components/SectionHeading'
 import { reviews } from '@/content/reviews'
+import { site, whatsappLink } from '@/content/site'
 import {
-  homeMeta, hero, homeProofIds, serviceCards, webTeaser, selectedWork, builtSites, process, homeReviewIds, homeFaq, finalCta,
+  homeMeta, serviceCards, webTeaser, selectedWork, builtSites, process, homeReviewIds, homeFaq, finalCta,
 } from '@/content/home'
 
 export const metadata: Metadata = {
@@ -24,20 +29,10 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section aria-labelledby="hero-title" className="border-b border-line bg-surface-0">
-        <div className="container-site grid gap-10 py-12 md:py-20 lg:grid-cols-[1.15fr_1fr] lg:items-center">
-          <div className="flex flex-col gap-6">
-            <p className="m-0 text-xs font-bold tracking-[0.08em] text-green-700 uppercase">{hero.eyebrow}</p>
-            <h1 id="hero-title" className="ds-display m-0 text-[40px] leading-[44px] font-extrabold tracking-[-0.02em] md:text-[56px] md:leading-[60px]">
-              {hero.title}
-            </h1>
-            <p className="prose-measure m-0 text-lg leading-7 text-ink-muted">{hero.sub}</p>
-            <CtaGroup showMarketplaces />
-          </div>
-          <ProofBar ids={homeProofIds} />
-        </div>
-      </section>
+      <MotionStarter />
+      <HeroWow />
+      <CompareSection />
+      <Marquee />
 
       {/* Services */}
       <section aria-labelledby="services" className="section">
@@ -56,14 +51,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Work */}
+      {/* Work wall + case studies */}
+      <WorkWall />
       <section aria-labelledby="work" className="section border-y border-line bg-surface-0">
         <div className="container-site">
-          <SectionHeading id="work" title="Recent work you can check" intro="Each case study links to the live listing or a public source." />
+          <SectionHeading id="work" title="Case studies you can check" intro="Each case study links to the live listing or a public source." />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {selectedWork.map((w) => <WorkCard key={w.slug} item={w} />)}
           </div>
-          <p className="mt-8"><Link className="ds-btn ds-btn--secondary" href="/portfolio/">See all work</Link></p>
+          <p className="mt-8"><Link className="ds-btn ds-btn--secondary rounded-full" href="/portfolio/">See all work</Link></p>
         </div>
       </section>
 
@@ -121,12 +117,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section aria-labelledby="final-cta" className="section bg-green-100">
-        <div className="container-site flex flex-col gap-6">
-          <h2 id="final-cta" className="ds-display m-0 max-w-[20ch] text-[32px] leading-[38px] font-extrabold md:text-[40px] md:leading-[44px]">{finalCta.title}</h2>
-          <p className="prose-measure m-0 text-lg">{finalCta.text}</p>
-          <CtaGroup showMarketplaces />
+      {/* Final CTA (inverted panel) */}
+      <section aria-labelledby="final-cta" className="section">
+        <div className="container-site">
+          <div className="relative overflow-hidden rounded-[40px] bg-ink px-6 py-14 text-surface-0 md:px-16 md:py-20">
+            <svg aria-hidden="true" viewBox="0 0 600 600" className="pointer-events-none absolute -right-24 -bottom-40 hidden w-[520px] md:block" fill="none">
+              <path d="M40 300 A 260 260 0 0 1 560 300" stroke="var(--brand-green)" strokeWidth="44" strokeLinecap="round" />
+              <path d="M120 420 A 180 180 0 0 1 480 420" stroke="var(--surface-0)" strokeOpacity="0.18" strokeWidth="44" strokeLinecap="round" />
+            </svg>
+            <div className="relative flex max-w-2xl flex-col gap-6">
+              <h2 id="final-cta" className="hero-display m-0 max-w-[18ch] !text-[36px] md:!text-[54px]">{finalCta.title}</h2>
+              <p className="m-0 text-lg opacity-85">{finalCta.text}</p>
+              <div className="flex flex-wrap gap-3">
+                <Link className="ds-btn ds-btn--primary rounded-full" href="/free-listing-audit/">Get a free 5-product audit <ArrowUpRight size={18} aria-hidden="true" /></Link>
+                <a className="ds-btn ds-btn--secondary rounded-full" href={whatsappLink()} target="_blank" rel="noopener">WhatsApp us</a>
+              </div>
+              <p className="m-0 text-sm opacity-85">
+                Also available on{' '}
+                <a className="font-semibold underline underline-offset-2" href={site.fiverrUrl} target="_blank" rel="noopener" translate="no">Fiverr</a> &amp;{' '}
+                <a className="font-semibold underline underline-offset-2" href={site.upworkAgencyUrl} target="_blank" rel="noopener" translate="no">Upwork</a>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -1,4 +1,12 @@
-import { Archivo, Public_Sans, JetBrains_Mono } from 'next/font/google'
+import { Archivo, Public_Sans, JetBrains_Mono, Caveat } from 'next/font/google'
+
+/** Handwritten notes next to CTAs only. */
+export const hand = Caveat({
+  subsets: ['latin'],
+  weight: ['600'],
+  variable: '--font-hand',
+  display: 'swap',
+})
 
 export const display = Archivo({
   subsets: ['latin'],

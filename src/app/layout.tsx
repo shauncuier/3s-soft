@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import { display, body, mono } from './fonts'
+import { display, body, mono, hand } from './fonts'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { MobileCtaBar } from '@/components/MobileCtaBar'
@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} ${hand.variable}`}>
       <body className="ds-root flex min-h-dvh flex-col">
         <a href="#main" className="skip-link">Skip to main content</a>
         <Header />
