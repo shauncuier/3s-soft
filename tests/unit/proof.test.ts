@@ -47,9 +47,25 @@ test('reviewsFor filters by service slug', () => {
   expect(listing.every((r) => r.serviceSlugs.includes('ecommerce-product-listing'))).toBe(true)
 })
 
+test('upwork jobs are real, sourced and top-rated only', async () => {
+  const { upworkJobs } = await import('@/content/reviews')
+  expect(upworkJobs.length).toBeGreaterThanOrEqual(5)
+  for (const j of upworkJobs) {
+    expect(j.rating).toBeGreaterThanOrEqual(4.9)
+    expect(j.sourceUrl).toBe(site.upworkUrl)
+    expect(j.period).toMatch(/\d{4}/)
+  }
+})
+
+test('both platforms have verbatim reviews', () => {
+  expect(reviews.some((r) => r.platform === 'upwork')).toBe(true)
+  expect(reviews.some((r) => r.platform === 'fiverr')).toBe(true)
+})
+
 test('site contacts match spec', () => {
   expect(site.url).toBe('https://3s-soft.com')
   expect(site.whatsapp).toBe('https://wa.me/8801835927634')
   expect(site.email).toBe('info@3s-soft.com')
   expect(site.fiverrUrl).toBe('https://www.fiverr.com/jashedulislam')
+  expect(site.bookingUrl).toBe('https://cal.com/3s-soft/15min')
 })

@@ -104,6 +104,23 @@ export const reviews: Review[] = [
   },
 ]
 
+export type UpworkJob = { title: string; rating: number; period: string; sourceUrl: string; checkedOn: string }
+
+/**
+ * Recent Upwork jobs rated 4.9 or 5.0, with titles exactly as the clients wrote them on the public profile.
+ * Upwork shows full feedback text publicly for only two of them (Fouad L. and Arye G., in `reviews`).
+ */
+export const upworkJobs: UpworkJob[] = [
+  { title: 'Place pictures into mockups', rating: 5.0, period: 'Sep 2025 – Feb 2026' },
+  { title: 'Import Content into Ghost CMS Editor', rating: 5.0, period: 'Jan 2025 – Nov 2025' },
+  { title: 'Help with Ebay listing', rating: 5.0, period: 'Aug 2024 – Mar 2025' },
+  { title: 'Digital Product Preparation for Educational Platforms', rating: 4.9, period: 'Jan 2025 – Mar 2025' },
+  { title: 'Upload Designs to Printful / Set Variants / Import Content', rating: 5.0, period: 'Jun 2023 – Jan 2025' },
+  { title: 'Sync Shopify Products to eBay, Pinterest and Etsy', rating: 5.0, period: 'Jul 2023 – Jan 2025' },
+  { title: 'Copywriting - Shopify Product Uploader Needed', rating: 5.0, period: 'Dec 2024 – Jan 2025' },
+  { title: 'Experienced Shopify VA - Import products to Shopify', rating: 5.0, period: 'Aug 2022' },
+].map((j) => ({ ...j, sourceUrl: site.upworkUrl, checkedOn: CHECKED }))
+
 export function reviewsFor(slug: ServiceSlug): Review[] {
   return reviews.filter((r) => r.serviceSlugs.includes(slug))
 }

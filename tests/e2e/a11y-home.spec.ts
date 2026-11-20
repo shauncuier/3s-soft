@@ -21,6 +21,8 @@ const PAGES = [
   '/blogs/',
   '/blog/ecommerce-product-optimization-conversions/',
   '/blog/amazon-global-selling-strategies-uk-us/',
+  '/contact/',
+  '/free-listing-audit/',
 ]
 
 for (const path of PAGES) {
