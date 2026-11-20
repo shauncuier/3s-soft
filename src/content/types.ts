@@ -57,7 +57,28 @@ export type WorkItem =
   | (WorkFrontmatter & { external?: false })
   | { external: true; slug: string; title: string; clientLabel: string; summary: string; url: string; category: 'web'; image?: ImageRef }
 
-/** Short card data for a service; the full Service type arrives with the service pages. */
+export type Service = {
+  slug: ServiceSlug
+  title: string
+  shortTitle: string
+  primaryKeyword: string
+  /** Full <title>, used as an absolute title (≤ 60 chars). */
+  metaTitle: string
+  /** 120–155 chars. */
+  metaDescription: string
+  h1: string
+  summary: string
+  problems: string[]
+  deliverables: string[]
+  platforms: string[]
+  startingFrom?: string
+  /** Proof ids from proof.ts shown on this page. */
+  proofIds: string[]
+  faq: { q: string; a: string }[]
+  ctaKind: 'audit' | 'call' | 'quote'
+}
+
+/** Short card data for a service. */
 export type ServiceCardData = {
   slug: ServiceSlug
   title: string
