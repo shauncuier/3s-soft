@@ -14,6 +14,7 @@ const ROW_A: Shot[] = [
 const ROW_B: Shot[] = [
   { src: '/assets/work/bhela-houseboat-website.webp', alt: 'Bhela Houseboat booking site', w: 1200, h: 750, label: 'Bhela Houseboat · booking site' },
   { src: '/assets/work/candy-tourism-website.webp', alt: 'Candy Tourism Bangladesh website', w: 1200, h: 750, label: 'Candy Tourism · tour catalogue' },
+  { src: '/assets/work/exsabujian-website.webp', alt: 'Praktan Sabujian Parishad alumni platform', w: 1200, h: 750, label: 'Alumni platform · Next.js' },
   { src: '/assets/work/ivan-troy-a-plus-black.webp', alt: 'Ivan Troy A+ Content page', w: 645, h: 2000, label: 'Ivan Troy · six A+ pages' },
   { src: '/assets/work/price-stock-sync.svg', alt: 'Price & Stock Sync plugin diagram', w: 1440, h: 900, label: 'WooCommerce sync plugin' },
 ]

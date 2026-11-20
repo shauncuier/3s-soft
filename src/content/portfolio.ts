@@ -167,6 +167,14 @@ export const externalWork: WorkItem[] = [
   },
 ]
 
+externalWork.push({
+  external: true, slug: 'exsabujian', title: 'An alumni platform with member sign-in and event registration',
+  clientLabel: 'Praktan Sabujian Parishad · school alumni association',
+  summary: 'A Next.js site for Sabuj Shikshayatan’s former students: a batch-by-batch member directory, verified sign-ups and registration for the school’s Golden Jubilee.',
+  url: 'https://www.exsabujian.org/', category: 'web',
+  image: { src: '/assets/work/exsabujian-website.webp', alt: 'Praktan Sabujian Parishad home page with the headline Connecting Generations of Sabuj Shikshayatan and a Golden Jubilee registration card', width: 1200, height: 750 },
+})
+
 export function getAllWork(): WorkItem[] {
   return [...caseStudies, ...externalWork]
 }

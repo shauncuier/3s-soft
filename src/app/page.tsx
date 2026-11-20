@@ -69,9 +69,9 @@ export default function HomePage() {
           <SectionHeading
             id="websites"
             title="Websites built by our web studio"
-            intro="Store and booking sites are handled by our web development studio, 3s-soft.net. Two recent client sites:"
+            intro="Store, booking and community sites are handled by our web development studio, 3s-soft.net. Three recent client sites:"
           />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {builtSites.map((w) => <WorkCard key={w.slug} item={w} />)}
           </div>
           <p className="mt-8">

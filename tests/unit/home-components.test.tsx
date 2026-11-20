@@ -5,7 +5,7 @@ import { Faq } from '@/components/Faq'
 import { serviceCards, selectedWork, homeFaq, builtSites } from '@/content/home'
 
 test('websites built by the web studio link out to the live sites', () => {
-  expect(builtSites.map((s) => (s.external ? s.url : ''))).toEqual(['https://bhelahouseboat.com/', 'https://candytourismbd.com/'])
+  expect(builtSites.map((s) => (s.external ? s.url : ''))).toEqual(['https://bhelahouseboat.com/', 'https://candytourismbd.com/', 'https://www.exsabujian.org/'])
   for (const site of builtSites) {
     const { unmount } = render(<WorkCard item={site} />)
     const link = screen.getByRole('link')

@@ -65,7 +65,7 @@ export const webTeaser = {
 export const selectedWork: WorkItem[] = [...caseStudies, getExternal('price-stock-sync')]
 
 /** Client websites built by the web studio (3s-soft.net). Shown on .com as outbound proof. */
-export const builtSites: WorkItem[] = [getExternal('bhela-houseboat'), getExternal('candy-tourism')]
+export const builtSites: WorkItem[] = [getExternal('bhela-houseboat'), getExternal('candy-tourism'), getExternal('exsabujian')]
 
 export const process = [
   { title: 'Send your links', text: 'Share your store, ASINs or a spreadsheet. We reply with questions and a fixed quote.' },
