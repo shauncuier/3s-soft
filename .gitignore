@@ -45,3 +45,9 @@ inbox/*
 
 # Deploy zips
 deploy/
+
+# Built client script
+public/assets/site.js
+
+# Generated 640px image variants
+public/assets/**/*-800w.webp

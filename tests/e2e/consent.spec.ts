@@ -12,7 +12,7 @@ test('declining analytics loads no trackers, even after reload', async ({ page }
   await page.waitForLoadState('networkidle')
 
   expect(hits).toEqual([])
-  await expect(page.getByRole('button', { name: 'Decline' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Decline' })).toBeHidden()
 })
 
 test('allowing analytics loads Google Analytics', async ({ page }) => {

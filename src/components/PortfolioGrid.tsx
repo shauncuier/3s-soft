@@ -1,6 +1,4 @@
-'use client'
-
-import { useSyncExternalStore, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { WorkCategory } from '@/content/types'
 
 const FILTERS: { id: 'all' | WorkCategory; label: string }[] = [
@@ -10,43 +8,21 @@ const FILTERS: { id: 'all' | WorkCategory; label: string }[] = [
   { id: 'web', label: 'Web development' },
 ]
 
-function subscribe(cb: () => void) {
-  window.addEventListener('hashchange', cb)
-  return () => window.removeEventListener('hashchange', cb)
-}
-
-function readHash(): string {
-  const h = window.location.hash.replace('#', '')
-  return FILTERS.some((f) => f.id === h) ? h : 'all'
-}
-
-/** Filter buttons over server-rendered cards. Every card stays in the HTML; the filter lives in the URL hash. */
+/** Filter buttons over static cards (wired by src/client/filter.ts). Every card stays in the HTML; the filter lives in the URL hash. */
 export function PortfolioGrid({ items }: { items: { category: WorkCategory; key: string; node: ReactNode }[] }) {
-  const active = useSyncExternalStore(subscribe, readHash, () => 'all')
-  const shown = items.filter((i) => active === 'all' || i.category === active)
-
   return (
     <div className="flex flex-col gap-8">
-      <div role="group" aria-label="Filter work" className="flex flex-wrap gap-2">
+      <div role="group" aria-label="Filter work" className="flex flex-wrap gap-2" data-filter-group>
         {FILTERS.map((f) => (
-          <button
-            key={f.id}
-            type="button"
-            className={`ds-chip ${active === f.id ? 'ds-chip--active' : ''}`}
-            aria-pressed={active === f.id}
-            onClick={() => {
-              history.replaceState(null, '', f.id === 'all' ? window.location.pathname : `#${f.id}`)
-              window.dispatchEvent(new HashChangeEvent('hashchange'))
-            }}
-          >
+          <button key={f.id} type="button" data-filter={f.id} className={`ds-chip ${f.id === 'all' ? 'ds-chip--active' : ''}`} aria-pressed={f.id === 'all'}>
             {f.label}
           </button>
         ))}
       </div>
-      <p className="m-0 text-sm text-ink-muted" aria-live="polite">Showing {shown.length} of {items.length} projects</p>
+      <p className="m-0 text-sm text-ink-muted" aria-live="polite" data-filter-count>Showing {items.length} of {items.length} projects</p>
       <ul className="m-0 grid list-none gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((i) => (
-          <li key={i.key} hidden={!(active === 'all' || i.category === active)} className="flex">
+          <li key={i.key} data-category={i.category} className="flex">
             {i.node}
           </li>
         ))}

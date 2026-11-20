@@ -1,7 +1,5 @@
-'use client'
-
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
-import { track, type TrackEvent } from '@/lib/analytics'
+import type { TrackEvent } from '@/lib/analytics'
 
 type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string
@@ -10,17 +8,10 @@ type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode
 }
 
-/** A plain link that records an analytics event (only when the visitor allowed analytics). */
-export function TrackedLink({ event, external, children, onClick, ...rest }: Props) {
+/** A plain link that records an analytics event via src/client/track.ts (only when the visitor allowed analytics). */
+export function TrackedLink({ event, external, children, ...rest }: Props) {
   return (
-    <a
-      {...rest}
-      {...(external ? { target: '_blank', rel: 'noopener' } : {})}
-      onClick={(e) => {
-        track(event)
-        onClick?.(e)
-      }}
-    >
+    <a {...rest} data-track={event} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
       {children}
     </a>
   )

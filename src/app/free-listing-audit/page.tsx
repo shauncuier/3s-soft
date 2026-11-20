@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { CheckCircle2 } from 'lucide-react'
 import { LeadForm } from '@/components/LeadForm'
+import { NoCtaBar } from '@/components/MobileCtaBar'
 import { ProofBar } from '@/components/ProofBar'
 import { WorkCard } from '@/components/WorkCard'
 import { ReviewCard } from '@/components/ReviewCard'
@@ -35,6 +36,8 @@ export default function FreeAuditPage() {
   const proofReview = reviews.find((r) => r.id === 'cromwelltoby-listings')!
   return (
     <>
+      <NoCtaBar />
+      <span data-landing hidden />
       <section aria-labelledby="audit-title" className="relative overflow-hidden">
         <div className="container-site grid gap-12 py-10 md:py-16 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <div className="flex flex-col gap-6">
@@ -59,7 +62,7 @@ export default function FreeAuditPage() {
         </div>
       </section>
 
-      <section aria-labelledby="audit-proof" className="section border-y border-line bg-surface-0">
+      <section aria-labelledby="audit-proof" className="section defer-render border-y border-line bg-surface-0">
         <div className="container-site flex flex-col gap-8">
           <h2 id="audit-proof" className="ds-display m-0 text-[28px] font-bold">Who will review your listings</h2>
           <ProofBar ids={['fiverr-rating', 'fiverr-reviews', 'gig-listing-rating', 'amazon-spn']} />

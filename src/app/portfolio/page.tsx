@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default function PortfolioPage() {
-  const items = getAllWork().map((w) => ({ key: w.slug, category: w.category, node: <WorkCard item={w} /> }))
+  const items = getAllWork().map((w, i) => ({ key: w.slug, category: w.category, node: <WorkCard item={w} priority={i === 0} headingLevel={2} /> }))
   return (
     <>
       <PageHero

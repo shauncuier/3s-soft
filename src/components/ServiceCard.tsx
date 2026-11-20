@@ -10,12 +10,14 @@ const icons: Record<ServiceSlug, LucideIcon> = {
   'virtual-assistant': ClipboardList,
 }
 
-export function ServiceCard({ service }: { service: ServiceCardData }) {
+/** headingLevel 2 when the cards sit directly under the page h1 (no section heading between). */
+export function ServiceCard({ service, headingLevel = 3 }: { service: ServiceCardData; headingLevel?: 2 | 3 }) {
   const Icon = icons[service.slug]
+  const H = `h${headingLevel}` as const
   return (
     <Link className="ds-service" href={`/services/${service.slug}/`}>
       <span className="ds-service__icon"><Icon size={24} strokeWidth={1.75} aria-hidden="true" /></span>
-      <h3 className="ds-service__title">{service.title}</h3>
+      <H className="ds-service__title">{service.title}</H>
       <p className="ds-service__text">{service.summary}</p>
       <ul className="ds-service__list">
         {service.deliverables.slice(0, 3).map((d) => <li key={d}>{d}</li>)}

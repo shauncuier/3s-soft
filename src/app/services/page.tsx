@@ -32,7 +32,7 @@ export default function ServicesPage() {
 
       <section aria-label="All services" className="section">
         <div className="container-site grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((c) => <ServiceCard key={c.slug} service={c} />)}
+          {cards.map((c) => <ServiceCard key={c.slug} service={c} headingLevel={2} />)}
           <a className="ds-service justify-between border-dashed" href={webTeaser.href}>
             <div className="flex flex-col gap-3">
               <h2 className="ds-service__title">{webTeaser.title}</h2>

@@ -27,7 +27,7 @@ for (const path of ['/', '/services/amazon-a-plus-content/']) {
 test('audit form submit button is not hidden behind anything on a small phone', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('3s-consent', 'denied'))
   await page.goto('/free-listing-audit/')
-  await expect(page.getByTestId('mobile-cta-bar')).toHaveCount(0)
+  await expect(page.getByTestId('mobile-cta-bar')).toBeHidden()
   const submit = page.getByRole('button', { name: /send my audit request/i })
   await submit.scrollIntoViewIfNeeded()
   await expect(submit).toBeInViewport()

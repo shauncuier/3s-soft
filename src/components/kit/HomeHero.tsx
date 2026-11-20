@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { Img } from '@/components/Img'
 import Link from 'next/link'
 import { ArrowRight, BadgeCheck, Star } from 'lucide-react'
 import { CtaGroup } from '@/components/CtaGroup'
@@ -63,7 +63,7 @@ export function HomeHero() {
               <span className="h-2.5 w-2.5 rounded-full bg-[var(--line)]" />
               <span className="ml-3 truncate font-mono text-xs text-ink-muted">amazon.com · Ivan Troy brand store</span>
             </div>
-            <Image
+            <Img
               src="/assets/work/ivan-troy-brand-story-hero.webp"
               alt="Ivan Troy Amazon Brand Story we designed, with the line Designed in LA. Made in Italy. above tiles for belts, men’s shoes and women’s accessories"
               width={1200}

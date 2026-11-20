@@ -1,5 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import { LeadForm, submitLead } from '@/components/LeadForm'
+import { LeadForm } from '@/components/LeadForm'
+import { submitLead } from '@/lib/lead'
+import { initLeadForms } from '@/client/lead-form'
 import { setConsent, persistUtm } from '@/lib/analytics'
 
 declare global { interface Window { gtag?: (...args: unknown[]) => void } }
@@ -8,8 +10,15 @@ const ok = () => Promise.resolve(new Response('{"ok":true}', { status: 200 }))
 
 function fillAudit() {
   fireEvent.change(screen.getByLabelText(/Store or listing URL/), { target: { value: 'https://www.amazon.com/dp/B0TEST' } })
-  fireEvent.change(screen.getByLabelText(/Marketplace/), { target: { value: 'Amazon' } })
+  fireEvent.click(screen.getByRole('radio', { name: 'Amazon' }))
   fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: 'seller@shop.com' } })
+}
+
+type F = (input: string, init?: RequestInit) => Promise<Response>
+function mount(kind: 'audit' | 'contact', fetchImpl: F) {
+  const r = render(<LeadForm kind={kind} />)
+  initLeadForms(document, fetchImpl)
+  return r
 }
 
 beforeEach(() => {
@@ -41,7 +50,7 @@ test('submitLead reports a network failure', async () => {
 
 test('a filled honeypot never reaches the network', async () => {
   const fetchImpl = vi.fn(ok)
-  const { container } = render(<LeadForm kind="audit" fetchImpl={fetchImpl} />)
+  const { container } = mount('audit', fetchImpl)
   fillAudit()
   ;(container.querySelector('input[name="company_website"]') as HTMLInputElement).value = 'spam'
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
@@ -51,7 +60,7 @@ test('a filled honeypot never reaches the network', async () => {
 
 test('invalid email and URL show inline errors and do not submit', async () => {
   const fetchImpl = vi.fn(ok)
-  render(<LeadForm kind="audit" fetchImpl={fetchImpl} />)
+  mount('audit', fetchImpl)
   fireEvent.change(screen.getByLabelText(/Store or listing URL/), { target: { value: 'not a url' } })
   fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: 'seller@shop' } })
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
@@ -65,7 +74,7 @@ test('invalid email and URL show inline errors and do not submit', async () => {
 })
 
 test('a server error keeps the input and re-enables the button', async () => {
-  render(<LeadForm kind="audit" fetchImpl={() => Promise.resolve(new Response('', { status: 500 }))} />)
+  mount('audit', () => Promise.resolve(new Response('', { status: 500 })))
   fillAudit()
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
   expect(await screen.findByText(/couldn’t send/i)).toBeTruthy()
@@ -76,7 +85,7 @@ test('a server error keeps the input and re-enables the button', async () => {
 test('a double click sends one request', async () => {
   let resolve!: (r: Response) => void
   const fetchImpl = vi.fn(() => new Promise<Response>((r) => { resolve = r }))
-  render(<LeadForm kind="audit" fetchImpl={fetchImpl} />)
+  mount('audit', fetchImpl)
   fillAudit()
   const button = screen.getByRole('button', { name: /send/i })
   fireEvent.click(button)
@@ -90,7 +99,7 @@ test('success shows a message, tracks the event and posts UTM fields', async () 
   setConsent('granted')
   persistUtm({ utm_source: 'linkedin', utm_campaign: 'nov' })
   const fetchImpl = vi.fn(ok)
-  render(<LeadForm kind="audit" fetchImpl={fetchImpl} />)
+  mount('audit', fetchImpl)
   fillAudit()
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
   await waitFor(() => expect(screen.getByRole('status').textContent).toMatch(/Thanks/))
@@ -102,10 +111,41 @@ test('success shows a message, tracks the event and posts UTM fields', async () 
 
 test('contact form tracks form_submit', async () => {
   setConsent('granted')
-  render(<LeadForm kind="contact" fetchImpl={vi.fn(ok)} />)
+  mount('contact', vi.fn(ok))
   fireEvent.change(screen.getByLabelText(/^Name/), { target: { value: 'Sam' } })
   fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: 'sam@shop.com' } })
   fireEvent.change(screen.getByLabelText(/What do you need/), { target: { value: 'Help with 40 Amazon listings.' } })
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
   await waitFor(() => expect(window.gtag).toHaveBeenCalledWith('event', 'form_submit', expect.anything()))
+})
+
+test('success moves focus to the confirmation', async () => {
+  mount('audit', vi.fn(ok))
+  fillAudit()
+  fireEvent.click(screen.getByRole('button', { name: /send/i }))
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('status')))
+})
+
+test('the failure message links the email address', async () => {
+  mount('audit', () => Promise.resolve(new Response('', { status: 500 })))
+  fillAudit()
+  fireEvent.click(screen.getByRole('button', { name: /send/i }))
+  await screen.findByText(/couldn’t send/i)
+  expect(screen.getByRole('link', { name: 'info@3s-soft.com' }).getAttribute('href')).toBe('mailto:info@3s-soft.com')
+})
+
+test('marketplace is a group of radio choices, one tap on a phone', () => {
+  mount('audit', vi.fn(ok))
+  const group = screen.getByRole('radiogroup', { name: /Marketplace/ })
+  expect(group.querySelectorAll('input[type="radio"][name="marketplace"]')).toHaveLength(6)
+  expect(document.querySelector('form[aria-label="Free listing audit request"] select')).toBeNull()
+})
+
+test('a missing marketplace marks the group and focuses its first choice', async () => {
+  mount('audit', vi.fn(ok))
+  fireEvent.change(screen.getByLabelText(/Store or listing URL/), { target: { value: 'https://www.amazon.com/dp/B0TEST' } })
+  fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: 'seller@shop.com' } })
+  fireEvent.click(screen.getByRole('button', { name: /send/i }))
+  expect(await screen.findByText(/Choose the marketplace/)).toBeTruthy()
+  expect(document.activeElement).toBe(screen.getByRole('radio', { name: 'Amazon' }))
 })

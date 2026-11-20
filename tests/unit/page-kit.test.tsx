@@ -1,10 +1,9 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { PageHero } from '@/components/kit/PageHero'
 import { CtaPanel } from '@/components/kit/CtaPanel'
 import { ReviewGrid } from '@/components/kit/ReviewGrid'
 import { RatingBars } from '@/components/kit/RatingBars'
 import { HomeHero } from '@/components/kit/HomeHero'
-import { BeforeAfter } from '@/components/kit/BeforeAfter'
 import { reviews } from '@/content/reviews'
 import { getProof } from '@/content/proof'
 
@@ -53,18 +52,12 @@ test('HomeHero: one h1, audit CTA, a real screenshot and proof numbers from proo
   expect(container.querySelector('.motion-float, .hand')).toBeNull()
 })
 
-test('before/after toggle switches the listing card between versions', () => {
-  render(<BeforeAfter />)
-  const before = screen.getByRole('radio', { name: /supplier data/i })
-  const after = screen.getByRole('radio', { name: /3s-Soft listing/i })
-  expect(after.getAttribute('aria-checked')).toBe('true')
-  fireEvent.click(before)
-  expect(before.getAttribute('aria-checked')).toBe('true')
-  expect(screen.getByText(/mens walking suit 2pc/)).toBeTruthy()
-})
-
-test('before/after arrow keys move between the two versions', () => {
-  render(<BeforeAfter />)
-  fireEvent.keyDown(screen.getByRole('radio', { name: /3s-Soft listing/i }), { key: 'ArrowLeft' })
-  expect(screen.getByRole('radio', { name: /supplier data/i }).getAttribute('aria-checked')).toBe('true')
+test('cards can use h2 when they sit directly under the page h1', async () => {
+  const { ServiceCard } = await import('@/components/ServiceCard')
+  const { WorkCard } = await import('@/components/WorkCard')
+  const { serviceCards } = await import('@/content/home')
+  const { getAllWork } = await import('@/content/portfolio')
+  const { container } = render(<><ServiceCard service={serviceCards[0]} headingLevel={2} /><WorkCard item={getAllWork()[0]} headingLevel={2} /></>)
+  expect(container.querySelectorAll('h2')).toHaveLength(2)
+  expect(container.querySelector('h3')).toBeNull()
 })

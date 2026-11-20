@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import { Img } from '@/components/Img'
 import Link from 'next/link'
 import { site } from '@/content/site'
 import { getProof } from '@/content/proof'
@@ -54,7 +54,7 @@ export default function AboutPage() {
             </ul>
           </div>
           <figure className="m-0 overflow-hidden rounded-[var(--radius-lg)] border border-line bg-surface-0">
-            {founder.photo && <Image src={founder.photo.src} alt={founder.photo.alt} width={1094} height={800} className="h-auto w-full" />}
+            {founder.photo && <Img src={founder.photo.src} alt={founder.photo.alt} width={founder.photo.width} height={founder.photo.height} sizes="(min-width: 1024px) 460px, 100vw" className="h-auto w-full" />}
             <figcaption className="flex flex-col gap-1 p-6">
               <span className="text-lg font-bold">{founder.name}</span>
               <span className="text-sm text-ink-muted">Founder, 3s-Soft · {founder.location}</span>

@@ -83,7 +83,7 @@ ${rules.join('\n')}
   <If "%{REQUEST_URI} =~ m#^/_next/static/#">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </If>
-  <FilesMatch "\\.(webp|png|jpe?g|svg|ico|woff2?)$">
+  <FilesMatch "\\.(webp|png|jpe?g|svg|ico|woff2?|js)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 </IfModule>

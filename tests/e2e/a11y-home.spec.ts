@@ -44,3 +44,14 @@ for (const path of PAGES) {
     })
   }
 }
+
+// Phone width, the way Lighthouse checks a page: colour contrast (all impacts) and heading order.
+for (const path of PAGES) {
+  test(`${path} passes contrast and heading order at phone width`, async ({ page }) => {
+    await page.setViewportSize({ width: 412, height: 823 })
+    await page.goto(path)
+    await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== 'running' || a.effect?.getTiming().iterations === Infinity))
+    const results = await new AxeBuilder({ page }).withRules(['color-contrast', 'heading-order']).analyze()
+    expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).slice(0, 3).join(' | ')}`)).toEqual([])
+  })
+}

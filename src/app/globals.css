@@ -31,16 +31,31 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Phone CTA bar: present on every page except the form pages, which render [data-no-cta-bar]. */
 @media (max-width: 767px) {
-  html.has-cta-bar { scroll-padding-bottom: 88px; }
+  html:has([data-cta-bar]):not(:has([data-no-cta-bar])) { scroll-padding-bottom: 88px; }
+  body:has([data-no-cta-bar]) { padding-bottom: env(safe-area-inset-bottom, 0px); }
 }
+body:has([data-no-cta-bar]) [data-cta-bar] { display: none; }
 
-/* Open cookie banner: keep focused elements and the page end clear of it. */
-html.has-consent { scroll-padding-bottom: calc(var(--consent-h, 0px) + 16px); }
-html.has-consent body { padding-bottom: max(var(--consent-h, 0px), 88px); }
-@media (min-width: 768px) {
-  html.has-consent body { padding-bottom: var(--consent-h, 0px); }
-}
+/* Outreach landing page: logo and audit button only. */
+body:has([data-landing]) .site-nav { display: none; }
+
+/* Mobile menu button label follows its state. */
+.menu-button[aria-expanded="true"] .menu-button__open,
+.menu-button:not([aria-expanded="true"]) .menu-button__close { display: none; }
+
+/* Radio chips in forms (marketplace choice). */
+.choice { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: var(--radius-pill); background: var(--surface-0); font-weight: 600; cursor: pointer; }
+.choice:hover { border-color: var(--green-700); }
+.choice:has(input:checked) { background: var(--green-100); border-color: var(--green-700); color: var(--green-800); }
+.choice:has(input:focus-visible) { outline: 3px solid var(--green-700); outline-offset: 2px; }
+.ds-field--error .choice { border-color: var(--danger); }
+
+/* Before/after radio options. */
+.ba-option--after[aria-checked="true"] { background: var(--green-700); color: var(--on-green); }
+.ba-option--before[aria-checked="true"] { background: var(--ink); color: var(--surface-0); }
+
 
 @media (pointer: fine) {
   html { overscroll-behavior: none; }
@@ -84,6 +99,11 @@ body {
 /* ---------- Motion: one short fade-up on hero content, nothing loops ---------- */
 @keyframes rise { from { opacity: 0.001; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .motion-rise { animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--delay, 0s); }
+
+/* Long pages: sections marked defer-render skip layout and paint until they near the viewport.
+   Opt-in and checked with axe per page: inside a skipped section axe can misplace text and report
+   false contrast failures, so it is only used where the checks stay clean (homepage, audit proof). */
+main .defer-render { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 
 /* ---------- Page headings ---------- */
 .page-title {

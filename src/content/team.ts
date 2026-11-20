@@ -5,13 +5,14 @@ export type TeamMember = {
   name: string
   role: string
   bio: string
-  photo?: { src: string; alt: string }
+  photo?: { src: string; alt: string; width: number; height: number }
   links: { label: string; url: string }[]
   location?: string
   isFounder?: boolean
 }
 
-const photo = (file: string, name: string) => ({ src: `/assets/team-profile/${file}`, alt: `Portrait of ${name}` })
+/** Most portraits are 1094×800; pass the real size for any that differ. */
+const photo = (file: string, name: string, width = 1094, height = 800) => ({ src: `/assets/team-profile/${file}`, alt: `Portrait of ${name}`, width, height })
 
 /** Real, current team. Links only where a public profile exists. Owner open item: real photo for Mehedi Hasan Akash. */
 export const team: TeamMember[] = [
@@ -77,6 +78,6 @@ export const team: TeamMember[] = [
   {
     slug: 'fariya-rahman', name: 'Fariya Rahman', role: 'Data entry specialist',
     bio: 'Handles catalogue data, supplier sheets and Google Sheets work for client stores.',
-    photo: photo('fariya.webp', 'Fariya Rahman'), links: [],
+    photo: photo('fariya.webp', 'Fariya Rahman', 736, 884), links: [],
   },
 ]

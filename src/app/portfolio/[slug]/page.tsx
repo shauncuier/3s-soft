@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import { Img } from '@/components/Img'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowUpRight } from 'lucide-react'
@@ -64,7 +64,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {hero && (
         <div className="container-site pt-10">
-          <Image src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchPriority="high" loading="eager" className="h-auto w-full rounded-[var(--radius-lg)] border border-line" sizes="(min-width: 1200px) 1168px, 100vw" />
+          <Img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} priority className="h-auto w-full rounded-[var(--radius-lg)] border border-line" sizes="(min-width: 1200px) 1168px, 100vw" />
         </div>
       )}
 
@@ -92,7 +92,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   <figure key={label} className={`m-0 flex flex-col gap-3 rounded-[var(--radius-lg)] border p-4 ${label === 'After' ? 'border-green-700 bg-surface-0' : 'border-line bg-surface-200'}`}>
                     <figcaption className={`self-start rounded-full px-3 py-1 text-xs font-bold tracking-[0.08em] uppercase ${label === 'After' ? 'bg-green-100 text-green-800' : 'bg-surface-0 text-ink-muted'}`}>{label}</figcaption>
                     <div className="rounded-[var(--radius-md)] bg-white p-4">
-                      <Image src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" className="mx-auto h-auto w-full max-w-[360px]" />
+                      <Img src={img.src} alt={img.alt} width={img.width} height={img.height} sizes="360px" className="mx-auto h-auto w-full max-w-[360px]" />
                     </div>
                   </figure>
                 ))}
@@ -106,7 +106,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <div className="grid gap-6 sm:grid-cols-2">
                 {gallery.map((g) => (
                   <div key={g.src} className="max-h-[720px] overflow-y-auto rounded-[var(--radius-lg)] border border-line bg-surface-0" tabIndex={0} aria-label={g.alt}>
-                    <Image src={g.src} alt={g.alt} width={g.width} height={g.height} loading="lazy" className="h-auto w-full" />
+                    <Img src={g.src} alt={g.alt} width={g.width} height={g.height} sizes="(min-width: 640px) 50vw, 100vw" className="h-auto w-full" />
                   </div>
                 ))}
               </div>
@@ -137,7 +137,7 @@ export default async function CaseStudyPage({ params }: Props) {
       </div>
 
       {related.length > 0 && (
-        <section aria-labelledby="related" className="section border-t border-line">
+        <section aria-labelledby="related" className="section defer-render border-t border-line">
           <div className="container-site">
             <h2 id="related" className="ds-display mb-6 text-[28px] font-bold">Related work</h2>
             <div className="grid gap-6 sm:grid-cols-2">

@@ -36,7 +36,7 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section aria-labelledby="services" className="section">
+      <section aria-labelledby="services" className="section defer-render">
         <div className="container-site">
           <SectionHeading id="services" title="What we handle for sellers" intro="Hand us one job or the whole catalogue." />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -55,7 +55,7 @@ export default function HomePage() {
       <CompareSection />
 
       {/* Case studies */}
-      <section aria-labelledby="work" className="section border-y border-line bg-surface-0">
+      <section aria-labelledby="work" className="section defer-render border-y border-line bg-surface-0">
         <div className="container-site">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading id="work" title="Case studies you can check" intro="Each case study links to the live listing or a public source." />
@@ -70,7 +70,7 @@ export default function HomePage() {
       </section>
 
       {/* Websites from the web studio */}
-      <section aria-labelledby="websites" className="section">
+      <section aria-labelledby="websites" className="section defer-render">
         <div className="container-site">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
@@ -89,7 +89,7 @@ export default function HomePage() {
       </section>
 
       {/* Reviews */}
-      <section aria-labelledby="reviews" className="section border-y border-line bg-surface-0">
+      <section aria-labelledby="reviews" className="section defer-render border-y border-line bg-surface-0">
         <div className="container-site">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading id="reviews" title="What sellers say" intro="Copied word for word from Fiverr and Upwork. Each review links to the original." />
@@ -102,7 +102,7 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section aria-labelledby="process" className="section">
+      <section aria-labelledby="process" className="section defer-render">
         <div className="container-site">
           <SectionHeading id="process" title="How a project runs" />
           <ol className="m-0 grid list-none gap-6 p-0 sm:grid-cols-2 lg:grid-cols-4">
@@ -118,7 +118,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section aria-labelledby="faq" className="section border-t border-line">
+      <section aria-labelledby="faq" className="section defer-render border-t border-line">
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_2fr]">
           <SectionHeading id="faq" title="Questions sellers ask" />
           <Faq items={homeFaq} />

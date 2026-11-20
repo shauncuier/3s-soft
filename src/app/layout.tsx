@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import { display, body, mono } from './fonts'
+import { display, body } from './fonts'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { MobileCtaBar } from '@/components/MobileCtaBar'
@@ -9,6 +9,7 @@ import { ConsentBanner } from '@/components/ConsentBanner'
 import { JsonLd } from '@/components/JsonLd'
 import { orgJsonLd } from '@/lib/seo'
 import { getProof } from '@/content/proof'
+import { SITE_LOADER } from '@/lib/site-loader'
 
 const noindex = process.env.NEXT_PUBLIC_NOINDEX === '1'
 
@@ -42,17 +43,20 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body className="ds-root flex min-h-dvh flex-col pb-[calc(88px+env(safe-area-inset-bottom,0px))] md:pb-0">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <body className="ds-root pb-[calc(88px+env(safe-area-inset-bottom,0px))] md:pb-0">
         <a href="#main" className="skip-link">Skip to main content</a>
         <Header />
-        <main id="main" tabIndex={-1} className="flex-1">
+        {/* Block layout, not flex: a size change near the bottom (cookie banner spacer) must not re-lay out the whole page. */}
+        <main id="main" tabIndex={-1} className="min-h-[60dvh]">
           {children}
         </main>
         <Footer />
         <MobileCtaBar />
         <ConsentBanner />
         <JsonLd data={orgJsonLd()} />
+        {/* The only client script, added after load. Next's own runtime is stripped after export (scripts/strip-runtime.ts). */}
+        <script data-site-loader="" data-src="/assets/site.js" dangerouslySetInnerHTML={{ __html: SITE_LOADER }} />
       </body>
     </html>
   )

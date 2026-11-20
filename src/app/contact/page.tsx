@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { CalendarDays, Mail, MessageCircle, Phone, MapPin } from 'lucide-react'
 import { LeadForm } from '@/components/LeadForm'
+import { NoCtaBar } from '@/components/MobileCtaBar'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { TrackedLink } from '@/components/TrackedLink'
 import { site, whatsappLink } from '@/content/site'
@@ -16,6 +17,7 @@ export default function ContactPage() {
   const response = getProof('fiverr-response').value.replace('~', 'about ')
   return (
     <section aria-labelledby="contact-title">
+      <NoCtaBar />
       <div className="container-site grid gap-12 py-10 md:py-16 lg:grid-cols-[1fr_1.1fr]">
         <div className="flex flex-col gap-6">
           <Breadcrumbs items={[{ name: 'Contact', path: '/contact/' }]} />

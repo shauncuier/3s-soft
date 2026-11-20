@@ -17,9 +17,28 @@ The site exists to turn a seller who is comparing freelancers into a direct conv
 - **Next.js 16** (App Router) with `output: 'export'`, so every route is plain static HTML in `out/`
 - **React 19**, **TypeScript 6**
 - **Tailwind CSS 4**, with tokens taken from the design system
-- **MDX** for case studies and blog posts
+- Case studies and blog posts as typed TypeScript content in `src/content/`
 - **Vitest** + Testing Library (unit tests), **Playwright** + axe (end-to-end and accessibility), linkinator, Lighthouse
 - Hosting: **cPanel** shared hosting (Apache). No Node server runs in production.
+
+### No framework JavaScript in the browser
+
+Next.js is used as a static HTML generator only. After `next build`, `scripts/strip-runtime.ts` removes every React/Next script, preload and RSC payload from `out/`. A page ships one small script, `/assets/site.js` (about 3.5 KB gzipped, built by `scripts/build-client.ts` from `src/client/`). An inline loader adds it after the page has loaded. It wires up:
+
+- the mobile menu and current-section link
+- the cookie banner and consent-gated analytics
+- click tracking (`data-track`)
+- the lead forms (validation, Formspree, success/failure)
+- the portfolio filter
+- the before/after toggle
+
+So components in `src/components/` are server-only markup with `data-*` hooks. Never add `'use client'` or event handlers; put behaviour in `src/client/` with a test in `tests/unit/client.test.tsx`. The build fails if framework JS reaches a page.
+
+Speed rules that keep Lighthouse mobile at 100:
+
+- Images use `<Img>` (`src/components/Img.tsx`), which serves an 800 px copy to phones (`scripts/build-images.ts`). Mark the first on-screen image `priority`.
+- Long pages can mark below-the-fold sections `defer-render` (`content-visibility: auto`). Run the phone-width axe test after adding it: axe can misread text inside a skipped section.
+- No `<select>` on the audit form (radio chips instead), and no flex layout on `<body>`. Both made the first layout much slower.
 
 ## Getting started
 
@@ -58,8 +77,9 @@ GA4 (`G-JG742N2K6Z`) and Clarity load only after a visitor accepts analytics coo
 src/app/          routes (one folder per page)
 src/components/   UI components built from the design system
 src/content/      ALL site facts: proof numbers, reviews, services, team, case studies, blog
-src/lib/          SEO helpers, analytics/consent, content loaders
-scripts/          build-time checks and the .htaccess generator
+src/lib/          SEO helpers, analytics/consent, lead-form logic, site-script loader
+src/client/       the only browser script (bundled to /assets/site.js)
+scripts/          build steps: tokens, proof check, .htaccess, llms.txt, client bundle, image variants, runtime strip, output gate
 tests/            unit/, build/, e2e/
 public/           static assets, .htaccess (generated), llms.txt
 design-system/    source of the 3s-Soft design system (tokens, components, brand book)

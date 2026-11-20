@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import { Img } from '@/components/Img'
 import { team } from '@/content/team'
 import { PageHero } from '@/components/kit/PageHero'
 import { CtaPanel } from '@/components/kit/CtaPanel'
@@ -30,7 +30,7 @@ export default function TeamPage() {
             <li key={m.slug} className="flex flex-col overflow-hidden rounded-[var(--radius-lg)] border border-line bg-surface-0">
               <div className="aspect-[4/3] bg-green-100">
                 {m.photo ? (
-                  <Image src={m.photo.src} alt={m.photo.alt} width={1094} height={800} loading="lazy" className="h-full w-full object-cover object-top" />
+                  <Img src={m.photo.src} alt={m.photo.alt} width={m.photo.width} height={m.photo.height} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="h-full w-full object-cover object-top" />
                 ) : (
                   <div className="flex h-full items-center justify-center" aria-hidden="true">
                     <span className="ds-display text-6xl font-extrabold text-green-700">{initials(m.name)}</span>

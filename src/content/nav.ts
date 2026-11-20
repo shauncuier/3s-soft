@@ -7,6 +7,3 @@ export const mainNav = [
 ] as const
 
 export const AUDIT_HREF = '/free-listing-audit/'
-
-/** Pages where the form is the action, so the mobile CTA bar stays hidden. */
-export const NO_CTA_BAR = ['/contact/', '/free-listing-audit/']

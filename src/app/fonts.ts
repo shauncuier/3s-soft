@@ -1,8 +1,8 @@
-import { Archivo, Public_Sans, JetBrains_Mono } from 'next/font/google'
+import { Archivo, Public_Sans } from 'next/font/google'
 
+// Weight axis only: the width axis nearly tripled the file (90 KB) and delayed first paint on slow phones.
 export const display = Archivo({
   subsets: ['latin'],
-  axes: ['wdth'],
   variable: '--font-display',
   display: 'swap',
 })
@@ -13,10 +13,4 @@ export const body = Public_Sans({
   display: 'swap',
 })
 
-export const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['500'],
-  variable: '--font-mono',
-  display: 'swap',
-  preload: false,
-})
+// Monospace labels use the system monospace font (tokens.css): no extra download on the critical path.

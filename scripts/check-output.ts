@@ -41,6 +41,7 @@ export function checkOutput(dir: string | null, pages?: Page[]): string[] {
     for (const img of html.match(/<img\b[^>]*>/g) ?? []) if (!/\balt=/.test(img)) problems.push(`${path}: <img> without alt`)
     const isNotFound = path === '404.html' || path.startsWith('404/') || path.startsWith('_not-found')
     if (!isNotFound && !/<link rel="canonical"/.test(html)) problems.push(`${path}: no canonical tag`)
+    if (/_next\/static\/[^"]*\.js|__next_f|TURBOPACK/.test(html)) problems.push(`${path}: framework JavaScript left in the page`)
   }
   return problems
 }

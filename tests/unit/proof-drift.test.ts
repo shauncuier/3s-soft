@@ -11,7 +11,7 @@ function files(dir: string): string[] {
 }
 
 /** Numbers that change over time live only in src/content/proof.ts. Anywhere else they would go stale. */
-const DRIFTING = [/\b465\b/, /\b444\b/, /\b55 jobs\b/, /100% Job Success/, /October 2015/, /Level 2/]
+const DRIFTING = [/\b465\b/, /\b444\b/, /\b55 jobs\b/, /100% Job Success/, /October 2015/, /\bLevel 2\b/]
 
 test('no proof number is typed outside proof.ts', () => {
   const offenders: string[] = []
