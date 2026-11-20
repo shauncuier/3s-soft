@@ -67,5 +67,5 @@ test('site contacts match spec', () => {
   expect(site.whatsapp).toBe('https://wa.me/8801835927634')
   expect(site.email).toBe('info@3s-soft.com')
   expect(site.fiverrUrl).toBe('https://www.fiverr.com/jashedulislam')
-  expect(site.bookingUrl).toBe('https://cal.com/3s-soft/15min')
+  expect(site.bookingUrl).toBe('https://cal.com/3s-soft/listing-call')
 })

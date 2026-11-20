@@ -8,7 +8,7 @@ export const site: SiteConfig = {
   phone: '+880 1835 927634',
   phoneHref: 'tel:+8801835927634',
   whatsapp: 'https://wa.me/8801835927634',
-  bookingUrl: 'https://cal.com/3s-soft/15min',
+  bookingUrl: 'https://cal.com/3s-soft/listing-call',
   fiverrUrl: 'https://www.fiverr.com/jashedulislam',
   upworkUrl: 'https://www.upwork.com/freelancers/~01c75e88b6540d813f',
   upworkAgencyUrl: 'https://www.upwork.com/agencies/2093425202844360561/',

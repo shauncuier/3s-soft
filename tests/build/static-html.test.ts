@@ -4,7 +4,7 @@ import { checkOutput, BANNED } from '../../scripts/check-output'
 const home = readFileSync('out/index.html', 'utf8')
 
 test('key facts and CTAs are in the static HTML, not rendered by JS', () => {
-  for (const s of ['465', '5.0', 'marketplace listings', 'wa.me/8801835927634', 'fiverr.com/jashedulislam', 'cal.com/3s-soft/15min']) {
+  for (const s of ['465', '5.0', 'marketplace listings', 'wa.me/8801835927634', 'fiverr.com/jashedulislam', 'cal.com/3s-soft/listing-call']) {
     expect(home).toContain(s)
   }
 })
