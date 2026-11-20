@@ -31,6 +31,41 @@ export type Review = {
   checkedOn: string
 }
 
+export type ImageRef = { src: string; alt: string; width: number; height: number }
+
+export type WorkCategory = 'amazon' | 'shopify' | 'multi-marketplace' | 'lead-gen' | 'web'
+
+export type WorkFrontmatter = {
+  slug: string
+  title: string
+  /** What the page shows: the real name only if publicNameApproved, otherwise a description. */
+  clientLabel: string
+  clientRealName?: string
+  publicNameApproved: boolean
+  category: WorkCategory
+  services: ServiceSlug[]
+  summary: string
+  deliverables: string[]
+  images: ImageRef[]
+  sourceUrl?: string
+  reviewIds?: string[]
+  /** YYYY or YYYY-MM when known from the source; omit when unknown. */
+  date?: string
+}
+
+export type WorkItem =
+  | (WorkFrontmatter & { external?: false })
+  | { external: true; slug: string; title: string; clientLabel: string; summary: string; url: string; category: 'web'; image?: ImageRef }
+
+/** Short card data for a service; the full Service type arrives with the service pages. */
+export type ServiceCardData = {
+  slug: ServiceSlug
+  title: string
+  summary: string
+  deliverables: string[]
+  platforms: string[]
+}
+
 export type SiteConfig = {
   name: '3s-Soft'
   legalName: string

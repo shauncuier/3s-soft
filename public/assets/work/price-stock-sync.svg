@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" role="img" aria-labelledby="t">
+  <title id="t">Supplier catalogue syncing prices and stock into a WooCommerce store</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101521"/>
+      <stop offset="1" stop-color="#080B12"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7C6CFF"/>
+      <stop offset="1" stop-color="#4DD9C7"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.08)"/>
+    </pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect width="1440" height="900" fill="url(#dots)"/>
+  <ellipse cx="720" cy="450" rx="420" ry="220" fill="#7C6CFF" opacity="0.18" filter="url(#glow)"/>
+
+  <!-- Supplier panel -->
+  <g transform="translate(140 220)">
+    <rect width="380" height="460" rx="14" fill="#171E2B" stroke="rgba(255,255,255,0.1)"/>
+    <text x="28" y="44" font-family="Inter, system-ui, sans-serif" font-size="13" letter-spacing="2.5" fill="#A5AFBF">SUPPLIER API</text>
+    <g font-family="Inter, system-ui, sans-serif" font-size="15" fill="#F5F7FA">
+      <g transform="translate(28 84)"><rect width="324" height="56" rx="8" fill="#101521"/><rect x="12" y="12" width="32" height="32" rx="6" fill="#232B3B"/><text x="56" y="25">SKU 10482-BLK</text><text x="56" y="45" font-size="12" fill="#A5AFBF">Stock 142 · £18.40</text></g>
+      <g transform="translate(28 152)"><rect width="324" height="56" rx="8" fill="#101521"/><rect x="12" y="12" width="32" height="32" rx="6" fill="#232B3B"/><text x="56" y="25">SKU 10482-GRY</text><text x="56" y="45" font-size="12" fill="#A5AFBF">Stock 0 · £18.40</text><circle cx="300" cy="28" r="5" fill="#ff7a7a"/></g>
+      <g transform="translate(28 220)"><rect width="324" height="56" rx="8" fill="#101521"/><rect x="12" y="12" width="32" height="32" rx="6" fill="#232B3B"/><text x="56" y="25">SKU 20917</text><text x="56" y="45" font-size="12" fill="#A5AFBF">Stock 37 · £64.00</text></g>
+      <g transform="translate(28 288)"><rect width="324" height="56" rx="8" fill="#101521"/><rect x="12" y="12" width="32" height="32" rx="6" fill="#232B3B"/><text x="56" y="25">SKU 31155-L</text><text x="56" y="45" font-size="12" fill="#A5AFBF">Stock 9 · £22.75</text></g>
+      <g transform="translate(28 356)"><rect width="324" height="56" rx="8" fill="#101521"/><rect x="12" y="12" width="32" height="32" rx="6" fill="#232B3B"/><text x="56" y="25">SKU 31155-XL</text><text x="56" y="45" font-size="12" fill="#A5AFBF">Stock 21 · £22.75</text></g>
+    </g>
+  </g>
+
+  <!-- Sync core -->
+  <g transform="translate(720 450)">
+    <circle r="96" fill="#101521" stroke="url(#line)" stroke-width="2"/>
+    <circle r="64" fill="none" stroke="rgba(255,255,255,0.12)" stroke-dasharray="4 8"/>
+    <path d="M-30 -8 a30 30 0 0 1 52 -14 l8 -10 M30 8 a30 30 0 0 1 -52 14 l-8 10" fill="none" stroke="#4DD9C7" stroke-width="4" stroke-linecap="round"/>
+    <text y="128" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" letter-spacing="2.5" fill="#A5AFBF">PRICE · STOCK · ORDERS</text>
+  </g>
+  <g stroke="url(#line)" stroke-width="2" fill="none" opacity="0.9">
+    <path d="M520 330 C 600 330, 600 420, 624 440"/>
+    <path d="M520 450 L 624 450"/>
+    <path d="M520 570 C 600 570, 600 480, 624 460"/>
+    <path d="M816 440 C 840 420, 840 330, 920 330"/>
+    <path d="M816 450 L 920 450"/>
+    <path d="M816 460 C 840 480, 840 570, 920 570"/>
+  </g>
+  <g fill="#4DD9C7">
+    <circle cx="570" cy="330" r="4"/><circle cx="570" cy="450" r="4"/><circle cx="570" cy="570" r="4"/>
+    <circle cx="870" cy="330" r="4"/><circle cx="870" cy="450" r="4"/><circle cx="870" cy="570" r="4"/>
+  </g>
+
+  <!-- Store panel -->
+  <g transform="translate(920 220)">
+    <rect width="380" height="460" rx="14" fill="#171E2B" stroke="rgba(255,255,255,0.1)"/>
+    <text x="28" y="44" font-family="Inter, system-ui, sans-serif" font-size="13" letter-spacing="2.5" fill="#A5AFBF">WOOCOMMERCE STORE</text>
+    <g font-family="Inter, system-ui, sans-serif" font-size="15" fill="#F5F7FA">
+      <g transform="translate(28 84)"><rect width="324" height="100" rx="8" fill="#101521"/><rect x="12" y="12" width="76" height="76" rx="6" fill="#232B3B"/><text x="104" y="34">Product 10482</text><text x="104" y="56" font-size="12" fill="#A5AFBF">Black · In stock (142)</text><text x="104" y="82" font-size="16" fill="#4DD9C7">£22.99</text></g>
+      <g transform="translate(28 196)"><rect width="324" height="100" rx="8" fill="#101521"/><rect x="12" y="12" width="76" height="76" rx="6" fill="#232B3B"/><text x="104" y="34">Product 20917</text><text x="104" y="56" font-size="12" fill="#A5AFBF">In stock (37)</text><text x="104" y="82" font-size="16" fill="#4DD9C7">£79.99</text></g>
+      <g transform="translate(28 308)"><rect width="324" height="100" rx="8" fill="#101521"/><rect x="12" y="12" width="76" height="76" rx="6" fill="#232B3B"/><text x="104" y="34">Product 31155</text><text x="104" y="56" font-size="12" fill="#A5AFBF">L · XL · In stock</text><text x="104" y="82" font-size="16" fill="#4DD9C7">£27.99</text></g>
+      <text x="28" y="440" font-size="12" fill="#A5AFBF">Markup +25% · rounded to .99 · tracking synced</text>
+    </g>
+  </g>
+</svg>

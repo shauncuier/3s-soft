@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
-@import "../../design-system/project/components/bundle.css";
+@import "../../design-system/project/components/bundle.css" layer(components);
 
 @theme inline {
   --color-brand-green: var(--brand-green);

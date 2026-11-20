@@ -33,11 +33,10 @@ export function Footer() {
           <p className="text-sm text-ink-muted">
             eCommerce operations for Amazon, Shopify, Walmart, Etsy and eBay sellers. Based in {site.address.city}, {site.address.country}, working with sellers worldwide since {site.foundingYear}.
           </p>
-          <p className="text-sm">
-            <a className="font-semibold hover:text-green-700" href={`mailto:${site.email}`}>{site.email}</a>
-            <br />
-            <a className="hover:text-green-700" href={site.phoneHref}>{site.phone}</a>
-          </p>
+          <ul className="flex flex-col text-sm">
+            <li><a className="inline-flex min-h-11 items-center font-semibold hover:text-green-700" href={`mailto:${site.email}`}>{site.email}</a></li>
+            <li><a className="inline-flex min-h-11 items-center hover:text-green-700" href={site.phoneHref}>{site.phone}</a></li>
+          </ul>
           <Link className="ds-btn ds-btn--primary self-start" href={AUDIT_HREF}>Get a free audit</Link>
         </div>
 
