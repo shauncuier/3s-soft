@@ -47,6 +47,27 @@ The logo green `brand-green` on `surface-100` is 3.92:1. It stays limited to mar
 | 9 | `long-token-wrapping` | Long URLs or ASINs could overflow | `overflow-wrap: anywhere` on chips and review quotes |
 | 10 | `duration-timing`, `exit-faster-than-enter` | Only one motion rule | Motion durations and easing rules in README |
 
+## Second pass: Vercel Web Interface Guidelines
+
+Checked with the `web-design-guidelines` skill against the latest rules from vercel-labs/web-interface-guidelines (fetched 2026-11-20).
+
+| File | Finding | Fix |
+|---|---|---|
+| bundle.css | No deliberate tap highlight | `-webkit-tap-highlight-color: transparent` on `.ds-root` (focus ring and press scale give the feedback) |
+| bundle.css | Quiet button, active filter chip and error links had no hover state | Hover states added. They use thickness and inset shadow, so nothing shifts layout. |
+| bundle.css | Headings missing `text-wrap: balance` | Added for h1–h4, service titles and the error summary |
+| bundle.css | No `scroll-margin-top` for heading anchors | 88px on headings with an `id` |
+| bundle.css | CTA bar ignored notch and home-bar insets | `env(safe-area-inset-*)` padding |
+| FormField | Email/URL fields spell-checked | `spellcheck="false"` |
+| Chips, ReviewCard | Identifiers and usernames could be auto-translated | `translate="no"` |
+| Button, ProofStat, ErrorSummary, MobileCtaBar, Cover | — | Pass |
+
+The guidelines that apply to the built site (image dimensions, `color-scheme`, `theme-color`, `Intl` formatting, focus-first-error, menu `overscroll-behavior`) are written into the README under "Build rules".
+
+**Intentional exceptions:**
+- Sentence case instead of Title Case.
+- The agency writes as "we".
+
 ## Notes for the Next.js build
 
 - Load fonts with `next/font/google` (self-hosted, no layout shift), not a `<link>` tag. Archivo needs the `wdth` axis.

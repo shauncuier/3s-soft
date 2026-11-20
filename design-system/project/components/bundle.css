@@ -1,5 +1,7 @@
 /* 3s-Soft component styles. Every value comes from tokens.css (tokens.json). */
-.ds-root { font-family: var(--font-body); color: var(--ink); background: var(--surface-100); -webkit-font-smoothing: antialiased; }
+.ds-root { font-family: var(--font-body); color: var(--ink); background: var(--surface-100); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+.ds-root :is(h1, h2, h3, h4) { text-wrap: balance; }
+.ds-root :is(h1, h2, h3, h4)[id] { scroll-margin-top: 88px; }
 .ds-root *, .ds-root *::before, .ds-root *::after { box-sizing: border-box; }
 .ds-display { font-family: var(--font-display); font-stretch: 112%; }
 .ds-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
@@ -17,6 +19,7 @@
 .ds-btn--secondary { background: var(--surface-0); color: var(--ink); border-color: var(--line-strong); }
 .ds-btn--secondary:hover { border-color: var(--ink); }
 .ds-btn--quiet { background: transparent; color: var(--green-700); padding-inline: var(--space-2); text-decoration: underline; text-underline-offset: 3px; }
+.ds-btn--quiet:hover { color: var(--green-800); text-decoration-thickness: 2px; }
 .ds-btn[disabled], .ds-btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
 
 /* MarketplaceChip */
@@ -24,7 +27,8 @@
 button.ds-chip { min-height: var(--tap-min); padding-inline: var(--space-4); border-color: var(--line-strong); }
 button.ds-chip:hover { border-color: var(--ink); }
 .ds-chip--id { font-family: var(--font-mono); font-weight: 500; color: var(--ink-muted); background: var(--surface-200); border-color: transparent; }
-.ds-chip--active { background: var(--green-100); border-color: var(--green-700); }
+.ds-chip--active, button.ds-chip--active:hover { background: var(--green-100); border-color: var(--green-700); }
+button.ds-chip--active:hover { box-shadow: inset 0 0 0 1px var(--green-700); }
 
 /* ProofStat */
 .ds-proof { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
@@ -48,7 +52,7 @@ button.ds-chip:hover { border-color: var(--ink); }
 .ds-service { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: var(--surface-0); border: 1px solid var(--line); border-radius: var(--radius-lg); text-decoration: none; color: inherit; min-width: 0; transition: border-color .15s ease-out; }
 .ds-service:hover { border-color: var(--green-700); }
 .ds-service__icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--radius-md); background: var(--green-100); color: var(--green-700); }
-.ds-service__title { margin: 0; font: 700 22px/28px var(--font-display); font-stretch: 112%; color: var(--ink); }
+.ds-service__title { margin: 0; font: 700 22px/28px var(--font-display); font-stretch: 112%; color: var(--ink); text-wrap: balance; }
 .ds-service__text { margin: 0; color: var(--ink-muted); font: 400 16px/26px var(--font-body); }
 .ds-service__list { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); font: 400 15px/22px var(--font-body); }
 .ds-service__list li { display: flex; gap: var(--space-2); }
@@ -72,9 +76,10 @@ button.ds-chip:hover { border-color: var(--ink); }
 .ds-errsum__title svg { color: var(--danger); flex: none; }
 .ds-errsum__list { margin: 0; padding-left: var(--space-6); display: grid; gap: var(--space-1); }
 .ds-errsum__list a { color: var(--danger); font: 600 15px/22px var(--font-body); text-underline-offset: 3px; }
+.ds-errsum__list a:hover { text-decoration-thickness: 2px; }
 
 /* MobileCtaBar: fixed bottom. Pages that show it set html { scroll-padding-bottom: 88px } so focus is never hidden behind it. */
-.ds-ctabar { position: relative; z-index: var(--z-cta-bar); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--surface-0); border-top: 1px solid var(--line); box-shadow: var(--shadow-bar); }
+.ds-ctabar { position: relative; z-index: var(--z-cta-bar); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); padding-block: var(--space-3) calc(var(--space-3) + env(safe-area-inset-bottom, 0px)); padding-inline: max(var(--space-4), env(safe-area-inset-left, 0px)) max(var(--space-4), env(safe-area-inset-right, 0px)); background: var(--surface-0); border-top: 1px solid var(--line); box-shadow: var(--shadow-bar); }
 .ds-ctabar .ds-btn { padding-inline: var(--space-3); width: 100%; }
 
 @media (prefers-reduced-motion: reduce) { .ds-root * { transition: none !important; } }

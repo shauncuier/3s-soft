@@ -78,6 +78,16 @@ In Next.js, use `next/font/google` (self-hosted at build, no layout shift) with 
 - Disabled is 50% opacity plus `cursor: not-allowed`, and the reason is shown in text.
 - Loading keeps the button's label and adds "Sending…". The button is disabled while a request is pending.
 
+**Build rules (Vercel Web Interface Guidelines)**
+- Every `<img>` has explicit `width` and `height`. Below-the-fold images use `loading="lazy"`; the hero image uses `fetchpriority="high"`.
+- `<html>` sets `color-scheme` per theme, and `<meta name="theme-color">` matches `surface-100` in each theme.
+- Email, URL and code fields set `spellcheck="false"`. Inputs never block paste.
+- Brand names, usernames, ASINs and SKUs carry `translate="no"`.
+- Dates and numbers are formatted with `Intl.DateTimeFormat` / `Intl.NumberFormat`. The mono `checked 2026-11-20` stamp stays ISO on purpose.
+- The mobile menu sheet uses `overscroll-behavior: contain` and traps focus while open.
+- Headings with an `id` get `scroll-margin-top` so the sticky header never hides them.
+- Intentional exceptions: headings and buttons use sentence case, not Title Case, and the agency speaks as "we".
+
 **Accessibility**
 - Every text pair in the tokens meets 4.5:1 in both themes. Marks and control borders meet 3:1.
 - Tap targets are at least `tap-min`.

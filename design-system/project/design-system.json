@@ -20,5 +20,5 @@
   },
   "blobs": {},
   "docs": { "readme": "project/README.md", "sections": [] },
-  "lastChange": { "by": "Shaun", "at": "2026-11-20T13:10:00Z", "via": "Claude Code", "note": "UI UX Pro Max review fixes: 3px focus, z-index scale, required fields, ErrorSummary, press states, 44px filter chips" }
+  "lastChange": { "by": "Shaun", "at": "2026-11-20T13:30:00Z", "via": "Claude Code", "note": "Vercel Web Interface Guidelines fixes: hover states, safe-area CTA bar, text-wrap balance, spellcheck, translate=no, build rules" }
 }
