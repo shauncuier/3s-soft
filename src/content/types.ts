@@ -78,6 +78,19 @@ export type Service = {
   ctaKind: 'audit' | 'call' | 'quote'
 }
 
+/** A full case study page under /portfolio/[slug]/. */
+export type CaseStudy = WorkFrontmatter & {
+  external?: false
+  metaDescription: string
+  location?: string
+  liveUrl?: string
+  liveLabel?: string
+  brief: string
+  challenge: string
+  approach: string[]
+  takeaways: string[]
+}
+
 /** Short card data for a service. */
 export type ServiceCardData = {
   slug: ServiceSlug

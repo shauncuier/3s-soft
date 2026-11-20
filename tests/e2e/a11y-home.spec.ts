@@ -9,6 +9,12 @@ const PAGES = [
   '/services/shopify-store-management/',
   '/services/lead-generation/',
   '/services/virtual-assistant/',
+  '/portfolio/',
+  '/portfolio/ivan-troy-amazon-a-plus/',
+  '/portfolio/montique-amazon-store/',
+  '/portfolio/stahl-design-tebart-amazon-listing-optimization/',
+  '/portfolio/party-supplies-amazon-catalogue/',
+  '/portfolio/tailwater-supply/',
 ]
 
 for (const path of PAGES) {
