@@ -1,123 +1,123 @@
-# 3s-Soft
+# 3s-soft.com
 
-A modern web application built with React and Vite, featuring a modular architecture, team profiles, and essential business pages.
+The main agency site for **3s-Soft**, an eCommerce operations team in Chittagong, Bangladesh. It serves Amazon, Shopify, Walmart, Etsy and eBay sellers worldwide.
 
-## Table of Contents
+The site exists to turn a seller who is comparing freelancers into a direct conversation. Every claim on it can be checked: **5.0★ from 465 Fiverr reviews since 2015**, Upwork Top Rated with 100% Job Success, listed on Amazon's Service Provider Network, and a published WordPress.org plugin.
 
-- [Overview](#overview)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Available Scripts](#available-scripts)
-- [Contributing](#contributing)
-- [License](#license)
-- [Team](#team)
+| Domain | Role |
+|---|---|
+| **3s-soft.com** (this repo) | Main agency site, global, eCommerce operations first |
+| [3s-soft.co.uk](https://3s-soft.co.uk) | UK market |
+| [3s-soft.net](https://3s-soft.net) | Web development studio |
 
-## Overview
+> **Status:** redesign in progress on branch `redesign-nextjs`. The live site still runs the old React/Vite build from `main`.
 
-3s-Soft is a responsive web app designed to showcase services, team members, testimonials, and company information. Built with React, Vite, and ESLint for fast development and code quality.
+## Stack
 
-## Features
+- **Next.js 16** (App Router) with `output: 'export'`, so every route is plain static HTML in `out/`
+- **React 19**, **TypeScript 6**
+- **Tailwind CSS 4**, with tokens taken from the design system
+- **MDX** for case studies and blog posts
+- **Vitest** + Testing Library (unit tests), **Playwright** + axe (end-to-end and accessibility), linkinator, Lighthouse
+- Hosting: **cPanel** shared hosting (Apache). No Node server runs in production.
 
-- Fast and lightweight React app powered by Vite
-- Modular component structure
-- Team profile section
-- Services and testimonials pages
-- Contact form
-- Cookie Policy, Privacy Policy, Terms of Service
-- Error handling (404 page)
-- Responsive design
+## Getting started
 
-## Screenshots
-
-![Logo](src/assets/logo.jpg)
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- npm
-
-### Installation
+Requires **Node 24+**.
 
 ```bash
 npm install
+npm run dev          # http://localhost:3000
 ```
 
-### Environment Variables
+| Script | What it does |
+|---|---|
+| `npm run dev` | Local dev server |
+| `npm run build` | Static export to `out/` |
+| `npm start` | Serves `out/` at http://localhost:4321 |
+| `npm test` | Unit and build tests (Vitest) |
+| `npm run test:e2e` | Playwright end-to-end and accessibility tests against `out/` |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript check |
+| `npm run check` | Lint, test, build and e2e in one go |
 
-Create a `.env` file in the project root and add your values:
+### Environment
+
+Create `.env.local` (never commit it):
 
 ```bash
-VITE_CLARITY_PROJECT_ID=your_clarity_project_id
+NEXT_PUBLIC_CLARITY_PROJECT_ID=your_clarity_id   # Microsoft Clarity
+NEXT_PUBLIC_NOINDEX=1                           # staging builds only
 ```
 
-- `VITE_CLARITY_PROJECT_ID` is used to initialize Microsoft Clarity.
-- You can get the project ID from your Clarity dashboard: **Settings → Overview**.
+GA4 (`G-JG742N2K6Z`) and Clarity load only after a visitor accepts analytics cookies.
 
-### Running Locally
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Building for Production
-
-```bash
-npm run build
-```
-
-## Project Structure
+## Project layout
 
 ```
-├── public/
-│   ├── favicon/
-│   ├── team-profile/
-├── src/
-│   ├── assets/
-│   ├── Components/
-│   ├── data/
-│   ├── Layout/
-│   ├── Pages/
-│   ├── Router/
-│   ├── index.css
-│   └── main.jsx
-├── package.json
-├── vite.config.js
-├── eslint.config.js
-└── README.md
+src/app/          routes (one folder per page)
+src/components/   UI components built from the design system
+src/content/      ALL site facts: proof numbers, reviews, services, team, case studies, blog
+src/lib/          SEO helpers, analytics/consent, content loaders
+scripts/          build-time checks and the .htaccess generator
+tests/            unit/, build/, e2e/
+public/           static assets, .htaccess (generated), llms.txt
+design-system/    source of the 3s-Soft design system (tokens, components, brand book)
+docs/             specs, plans, research, reviews
 ```
 
-## Available Scripts
+## Content rules (read before editing copy)
 
-- `npm run dev` — Start development server
-- `npm run build` — Build for production
-- `npm run lint` — Run ESLint
+1. **Real proof only.**
+   - Numbers live in `src/content/proof.ts` and reviews in `src/content/reviews.ts`. Every entry needs a `sourceUrl` and a `checkedOn` date.
+   - The build fails if one is missing.
+   - Never publish "500+ projects", "98%", "24/7", "Guaranteed" or "Top Rated Plus". A build check bans these strings.
+2. **Platform-safe wording.**
+   - Present Fiverr and Upwork neutrally ("Also available on Fiverr & Upwork").
+   - Never mention avoiding fees, and never invite marketplace buyers off-platform.
+3. **Client names** appear only after the client agrees (`publicNameApproved` in each case study).
+4. **SEO and tone.**
+   - Each page targets one keyword cluster from `docs/research/keyword-map.md`.
+   - Copy is checked with the humanizer skill before it ships.
+5. **Re-check proof monthly.** Update the numbers and `checkedOn` dates against the live Fiverr and Upwork profiles.
 
-## Contributing
+## Design system
 
-Contributions are welcome! Please fork the repository and submit a pull request.
+The brand's tokens, type, components and usage rules are in [`design-system/project/README.md`](design-system/project/README.md):
+- logo green `#2F8C44` and charcoal `#585557`
+- Archivo, Public Sans and JetBrains Mono
 
-## License
+A browsable version is published as the private "3s-Soft Design System" artifact.
 
-This project is licensed under the MIT License.
+The files under `design-system/project/` are the source for that page. Keep them at their current paths.
 
-## Team
+## Deploying to cPanel
 
-Images and profiles are available in `public/team-profile/`.
+1. `npm ci && npm run build`
+2. Back up the current `public_html` as a zip from cPanel File Manager.
+3. Zip the **contents** of `out/`, including `.htaccess`. Upload and extract it into `public_html`.
+4. Check:
+   - HTTPS redirects
+   - one old URL that should 301
+   - the 404 page
+   - one form submission
 
-- Borhan Siddque
-- Fariya
-- Jashedul Islam Shaun
-- Maptahul Taraq
-- Maptaul Islam Taraq
-- Mehedi Hasan Akash
-- Oahidul Islam Sajib
-- Rakibul Hasan
-- Shamim
+The full runbook, with staging and rollback, is in `docs/deploy.md`. It is written in the final build task.
 
-For inquiries, contact the team via the Contact page.
+## Documentation
+
+| Doc | What it covers |
+|---|---|
+| [docs/superpowers/specs/2026-11-20-3s-soft-redesign-design.md](docs/superpowers/specs/2026-11-20-3s-soft-redesign-design.md) | The approved redesign spec |
+| [docs/superpowers/plans/2026-11-20-3s-soft-redesign-plan.md](docs/superpowers/plans/2026-11-20-3s-soft-redesign-plan.md) | Task-by-task build plan |
+| [docs/research/2026-11-20-3s-soft-a-to-z-analysis.md](docs/research/2026-11-20-3s-soft-a-to-z-analysis.md) | A–Z analysis of 3s-Soft: track record, real work, fake-content inventory |
+| [docs/research/real-proof-sources.md](docs/research/real-proof-sources.md) | Every proof number and review allowed on the site, with sources |
+| [docs/research/redirect-map.md](docs/research/redirect-map.md) | Old URL → new URL 301 map |
+| [docs/research/domain-strategy.md](docs/research/domain-strategy.md) | Roles of .com / .co.uk / .net and cross-linking rules |
+| [docs/research/seo-analysis-old-vite-site.md](docs/research/seo-analysis-old-vite-site.md) | SEO notes on the previous Vite site |
+| [docs/design-system/ui-ux-review.md](docs/design-system/ui-ux-review.md) | UI UX Pro Max and Vercel Web Interface Guidelines reviews of the design system |
+| [docs/archive/old-vite-content/](docs/archive/old-vite-content/) | Data files from the old site, kept for reference |
+
+## Contact
+
+info@3s-soft.com · WhatsApp +880 1835 927634 · Chittagong, Bangladesh
