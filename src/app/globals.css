@@ -38,6 +38,15 @@ html {
 }
 body:has([data-no-cta-bar]) [data-cta-bar] { display: none; }
 
+/* Open cookie banner: reserve its height at the page end and keep focused elements clear of it (WCAG 2.4.11).
+   Sized per breakpoint in CSS (the banner wraps to ~180px at 320px wide, ~100px on desktop), so nothing is measured in JS. */
+html:has([data-consent-banner]:not([hidden])) { scroll-padding-bottom: 200px; }
+body:has([data-consent-banner]:not([hidden])) [data-consent-spacer] { height: 200px; }
+@media (min-width: 768px) {
+  html:has([data-consent-banner]:not([hidden])) { scroll-padding-bottom: 120px; }
+  body:has([data-consent-banner]:not([hidden])) [data-consent-spacer] { height: 120px; }
+}
+
 /* Outreach landing page: logo and audit button only. */
 body:has([data-landing]) .site-nav { display: none; }
 

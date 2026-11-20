@@ -2,7 +2,7 @@ import { BeforeAfter } from './BeforeAfter'
 
 export function CompareSection() {
   return (
-    <section aria-labelledby="compare-title" className="section pt-0 md:pt-0">
+    <section aria-labelledby="compare-title" className="section defer-render pt-0 md:pt-0">
       <div className="container-site">
         <div className="rounded-[var(--radius-lg)] border border-line bg-surface-100 px-4 py-10 md:px-12 md:py-14">
           <div className="mx-auto mb-8 flex max-w-3xl flex-col items-center gap-3 text-center">

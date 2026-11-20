@@ -25,7 +25,7 @@ function loadTrackers(doc: Document, clarityId?: string) {
 
 /**
  * Cookie banner (static, hidden markup) and tracker loading. Trackers load only after "Allow analytics".
- * While the banner is open its height is reserved so it never covers the focused element (WCAG 2.4.11).
+ * While the banner is open, CSS reserves its height so it never covers the focused element (WCAG 2.4.11).
  */
 export function initConsent(doc: Document) {
   const win = doc.defaultView!
@@ -33,28 +33,10 @@ export function initConsent(doc: Document) {
 
   const banner = doc.querySelector<HTMLElement>('[data-consent-banner]')
   const clarityId = banner?.dataset.clarity || undefined
-  const root = doc.documentElement
-  const spacer = doc.querySelector<HTMLElement>('[data-consent-spacer]')
-  let ro: ResizeObserver | null = null
-
-  // Reserve the banner's height without reading layout: ResizeObserver reports it after the browser lays out.
-  const reserve = (h: number) => {
-    if (spacer) spacer.style.height = `${h}px`
-    root.style.scrollPaddingBottom = h ? `${h + 16}px` : ''
-  }
+  // Space under the open banner is reserved in CSS (globals.css, [data-consent-spacer]): nothing is measured here,
+  // so showing the banner never forces a layout of the page.
   const show = (open: boolean) => {
-    if (!banner) return
-    banner.hidden = !open
-    ro?.disconnect()
-    ro = null
-    if (open && typeof ResizeObserver !== 'undefined') {
-      ro = new ResizeObserver((entries) => {
-        const box = entries[0]?.borderBoxSize?.[0]
-        reserve(Math.ceil(box ? box.blockSize : (entries[0]?.target as HTMLElement).offsetHeight))
-      })
-      ro.observe(banner)
-    }
-    if (!open) reserve(0)
+    if (banner) banner.hidden = !open
   }
 
   const apply = () => {

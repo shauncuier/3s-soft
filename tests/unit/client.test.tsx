@@ -59,18 +59,17 @@ test('consent banner is in the HTML but hidden until the script finds no stored 
   expect(screen.getByRole('region', { name: 'Cookie choice' }).hidden).toBe(false)
 })
 
-test('the open banner reserves its height without forcing a layout of the page', () => {
+test('opening the banner reads no layout and sets no inline sizes (CSS reserves the space)', () => {
   const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect')
-  let resize: ResizeObserverCallback = () => {}
-  ;(window as unknown as { ResizeObserver: unknown }).ResizeObserver = class { constructor(cb: ResizeObserverCallback) { resize = cb } observe() {} disconnect() {} }
+  const RO = vi.fn()
+  ;(window as unknown as { ResizeObserver: unknown }).ResizeObserver = class { constructor() { RO() } observe() {} disconnect() {} }
   render(<ConsentBanner />)
   initConsent(document)
+  expect(screen.getByRole('region', { name: 'Cookie choice' }).hidden).toBe(false)
   expect(rect).not.toHaveBeenCalled()
-  resize([{ borderBoxSize: [{ blockSize: 174 }] } as unknown as ResizeObserverEntry], {} as ResizeObserver)
-  expect(document.querySelector<HTMLElement>('[data-consent-spacer]')!.style.height).toBe('174px')
-  expect(document.documentElement.style.scrollPaddingBottom).toBe('190px')
-  fireEvent.click(screen.getByRole('button', { name: 'Decline' }))
-  expect(document.querySelector<HTMLElement>('[data-consent-spacer]')!.style.height).toBe('0px')
+  expect(RO).not.toHaveBeenCalled()
+  expect(document.querySelector<HTMLElement>('[data-consent-spacer]')!.getAttribute('style')).toBeNull()
+  expect(document.documentElement.getAttribute('style')).toBeNull()
   rect.mockRestore()
 })
 
