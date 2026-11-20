@@ -18,6 +18,9 @@ const PAGES = [
   '/reviews/',
   '/about-us/',
   '/team/',
+  '/blogs/',
+  '/blog/ecommerce-product-optimization-conversions/',
+  '/blog/amazon-global-selling-strategies-uk-us/',
 ]
 
 for (const path of PAGES) {
