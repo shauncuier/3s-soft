@@ -89,6 +89,8 @@ export type CaseStudy = WorkFrontmatter & {
   challenge: string
   approach: string[]
   takeaways: string[]
+  /** Optional visual before/after, e.g. a logo redesign. */
+  beforeAfter?: { heading: string; before: ImageRef; after: ImageRef; caption: string }
 }
 
 /** Short card data for a service. */

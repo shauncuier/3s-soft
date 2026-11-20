@@ -141,6 +141,39 @@ export const caseStudies: CaseStudy[] = [
     liveUrl: 'https://tailwatersupply.com/', liveLabel: 'Visit tailwatersupply.com',
     sourceUrl: 'https://3s-soft.co.uk/work/tailwater-supply',
   },
+  {
+    slug: 'praktan-sabujian-parishad',
+    title: 'A new identity and alumni platform for a 50-year-old school',
+    metaDescription: 'Case study: a redesigned logo and a Next.js alumni platform with a member directory and event sign-up for Sabuj Shikshayatan’s former students.',
+    clientLabel: 'Praktan Sabujian Parishad · school alumni association', clientRealName: 'Praktan Sabujian Parishad', publicNameApproved: true,
+    location: 'Sitakunda, Chattogram, Bangladesh',
+    category: 'web', services: [],
+    summary: 'A redesigned logo for the alumni association of Sabuj Shikshayatan Government High School, and a Bangla-first website where former students find their batchmates and sign up for the Golden Jubilee.',
+    brief:
+      'Sabuj Shikshayatan Government High School in Sitakunda has taught students since the 1970s, and its former students formed Praktan Sabujian Parishad in 2015. Ahead of the school’s Golden Jubilee in December 2026, the association needed a logo that could carry the celebration and a website to bring alumni back together.',
+    challenge:
+      'The old logo used a purple ring, a stock landscape photo and a gear, and it did not show the school itself. The association also had no shared place to list members by batch, publish news or take sign-ups for events.',
+    approach: [
+      'Redrew the emblem in the school’s green with gold rings and laurel leaves, kept the flame, book and the motto “জ্ঞানই শক্তি”, and replaced the stock photo with the real school building.',
+      'Moved the school name to the outer ring and the association’s name to a ribbon, so the logo reads clearly at small sizes and on banners.',
+      'Built a Bangla-first Next.js website with sign-in, a batch-by-batch member directory, committee pages, news and an events page with registration for the Golden Jubilee.',
+    ],
+    deliverables: ['Logo redesign in full colour', 'Next.js website, Bangla and English', 'Member directory and sign-up', 'Event registration for the Golden Jubilee'],
+    takeaways: [
+      'Using the real school building instead of a stock photo gives alumni something they recognise at a glance.',
+      'A batch-by-batch directory gives former students a reason to sign up and invite their classmates.',
+    ],
+    images: [
+      { src: '/assets/work/exsabujian-website.webp', alt: 'Praktan Sabujian Parishad home page with the headline Connecting Generations of Sabuj Shikshayatan and a Golden Jubilee registration card', width: 1200, height: 750 },
+    ],
+    beforeAfter: {
+      heading: 'The logo, before and after',
+      before: { src: '/assets/work/exsabujian-logo-old.webp', alt: 'Old logo: a purple ring with a stock hillside photo, a gear, an open book and the letters SSHS', width: 750, height: 741 },
+      after: { src: '/assets/work/exsabujian-logo-new.webp', alt: 'New logo: a green and gold seal with the real school building, a pen-nib flame, an open book, laurel leaves and a green ribbon with the association’s name', width: 800, height: 800 },
+      caption: 'Same symbols, rebuilt around the real school building and the school’s own green.',
+    },
+    liveUrl: 'https://www.exsabujian.org/', liveLabel: 'Visit exsabujian.org',
+  },
 ]
 
 /** Web work shown as outbound cards. Full case studies belong on 3s-soft.net. */
@@ -166,14 +199,6 @@ export const externalWork: WorkItem[] = [
     image: { src: '/assets/work/candy-tourism-website.webp', alt: 'Candy Tourism Bangladesh home page with a fishing boat on the beach and buttons to browse trips or plan a custom trip', width: 1200, height: 750 },
   },
 ]
-
-externalWork.push({
-  external: true, slug: 'exsabujian', title: 'An alumni platform with member sign-in and event registration',
-  clientLabel: 'Praktan Sabujian Parishad · school alumni association',
-  summary: 'A Next.js site for Sabuj Shikshayatan’s former students: a batch-by-batch member directory, verified sign-ups and registration for the school’s Golden Jubilee.',
-  url: 'https://www.exsabujian.org/', category: 'web',
-  image: { src: '/assets/work/exsabujian-website.webp', alt: 'Praktan Sabujian Parishad home page with the headline Connecting Generations of Sabuj Shikshayatan and a Golden Jubilee registration card', width: 1200, height: 750 },
-})
 
 export function getAllWork(): WorkItem[] {
   return [...caseStudies, ...externalWork]

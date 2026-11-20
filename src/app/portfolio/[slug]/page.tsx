@@ -85,6 +85,22 @@ export default async function CaseStudyPage({ params }: Props) {
               {c.approach.map((a) => <li key={a}>{a}</li>)}
             </ul>
           </section>
+          {c.beforeAfter && (
+            <section aria-labelledby="before-after">
+              <h2 id="before-after" className="ds-display mb-4 text-[26px] font-bold">{c.beforeAfter.heading}</h2>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {([['Before', c.beforeAfter.before], ['After', c.beforeAfter.after]] as const).map(([label, img]) => (
+                  <figure key={label} className={`m-0 flex flex-col gap-3 rounded-[var(--radius-lg)] border p-4 ${label === 'After' ? 'border-green-700 bg-surface-0' : 'border-line bg-surface-200'}`}>
+                    <figcaption className={`self-start rounded-full px-3 py-1 text-xs font-bold tracking-[0.08em] uppercase ${label === 'After' ? 'bg-green-100 text-green-800' : 'bg-surface-0 text-ink-muted'}`}>{label}</figcaption>
+                    <div className="rounded-[var(--radius-md)] bg-white p-4">
+                      <Image src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" className="mx-auto h-auto w-full max-w-[360px]" />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+              <p className="mt-3 mb-0 text-ink-muted">{c.beforeAfter.caption}</p>
+            </section>
+          )}
           {gallery.length > 0 && (
             <section aria-labelledby="gallery">
               <h2 id="gallery" className="ds-display mb-4 text-[26px] font-bold">The work</h2>

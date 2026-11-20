@@ -4,12 +4,13 @@ import { WorkCard } from '@/components/WorkCard'
 import { Faq } from '@/components/Faq'
 import { serviceCards, selectedWork, homeFaq, builtSites } from '@/content/home'
 
-test('websites built by the web studio link out to the live sites', () => {
-  expect(builtSites.map((s) => (s.external ? s.url : ''))).toEqual(['https://bhelahouseboat.com/', 'https://candytourismbd.com/', 'https://www.exsabujian.org/'])
+test('web studio work: two live sites link out, the alumni platform opens its case study', () => {
+  expect(builtSites.map((s) => (s.external ? s.url : s.slug))).toEqual(['https://bhelahouseboat.com/', 'https://candytourismbd.com/', 'praktan-sabujian-parishad'])
   for (const site of builtSites) {
     const { unmount } = render(<WorkCard item={site} />)
     const link = screen.getByRole('link')
-    expect(link.getAttribute('target')).toBe('_blank')
+    if (site.external) expect(link.getAttribute('target')).toBe('_blank')
+    else expect(link.getAttribute('href')).toMatch(/^\/portfolio\/praktan-sabujian-parishad\/?$/)
     expect(screen.getByRole('img').getAttribute('alt')!.length).toBeGreaterThan(20)
     unmount()
   }

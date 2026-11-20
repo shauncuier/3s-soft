@@ -1,6 +1,6 @@
 import type { ServiceCardData, WorkItem } from './types'
 import { site } from './site'
-import { caseStudies, getExternal } from './portfolio'
+import { caseStudies, getExternal, getCaseStudy } from './portfolio'
 
 /** Homepage copy. Written from docs/research/keyword-map.md (cluster 1) and checked with the humanizer skill. */
 export const homeMeta = {
@@ -62,10 +62,10 @@ export const webTeaser = {
 }
 
 /** Selected work for the homepage: the eCommerce case studies plus our own WooCommerce plugin. */
-export const selectedWork: WorkItem[] = [...caseStudies, getExternal('price-stock-sync')]
+export const selectedWork: WorkItem[] = [...caseStudies.filter((c) => c.category !== 'web'), getExternal('price-stock-sync')]
 
 /** Client websites built by the web studio (3s-soft.net). Shown on .com as outbound proof. */
-export const builtSites: WorkItem[] = [getExternal('bhela-houseboat'), getExternal('candy-tourism'), getExternal('exsabujian')]
+export const builtSites: WorkItem[] = [getExternal('bhela-houseboat'), getExternal('candy-tourism'), getCaseStudy('praktan-sabujian-parishad')]
 
 export const process = [
   { title: 'Send your links', text: 'Share your store, ASINs or a spreadsheet. We reply with questions and a fixed quote.' },

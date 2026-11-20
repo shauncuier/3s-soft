@@ -13,7 +13,8 @@
     "test:e2e": "playwright test",
     "check": "npm run lint && npm run test && npm run build && npm run test:e2e",
     "predev": "tsx scripts/build-tokens.ts",
-    "pretest": "tsx scripts/build-tokens.ts"
+    "pretest": "tsx scripts/build-tokens.ts",
+    "postbuild": "tsx scripts/check-output.ts"
   },
   "engines": {
     "node": ">=24"

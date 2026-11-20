@@ -42,10 +42,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} ${hand.variable}`}>
-      <body className="ds-root flex min-h-dvh flex-col">
+      <body className="ds-root flex min-h-dvh flex-col pb-[calc(88px+env(safe-area-inset-bottom,0px))] md:pb-0">
         <a href="#main" className="skip-link">Skip to main content</a>
         <Header />
-        <main id="main" tabIndex={-1} className="flex-1 pb-24 md:pb-0">
+        <main id="main" tabIndex={-1} className="flex-1">
           {children}
         </main>
         <Footer />

@@ -44,6 +44,17 @@ test('every case study has a brief, challenge, approach and deliverables', () =>
   }
 })
 
+test('the alumni platform case study shows the logo before and after', () => {
+  const c = getCaseStudy('praktan-sabujian-parishad')
+  expect(c.category).toBe('web')
+  expect(c.beforeAfter).toBeDefined()
+  for (const img of [c.beforeAfter!.before, c.beforeAfter!.after]) {
+    expect(existsSync(`public${img.src}`)).toBe(true)
+    expect(img.alt.length).toBeGreaterThan(20)
+  }
+  expect(c.liveUrl).toBe('https://www.exsabujian.org/')
+})
+
 test('slugs are unique and getCaseStudy finds each one', () => {
   const slugs = getAllWork().map((w) => w.slug)
   expect(new Set(slugs).size).toBe(slugs.length)
