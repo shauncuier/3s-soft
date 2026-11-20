@@ -53,7 +53,11 @@ Copy the text exactly. Show username, country, date (relative to the checked-on 
 
 Skip: martinberry478 (UK). The review text reads as if the seller wrote it ("I understood the brief…"), so it would confuse visitors.
 
-**TODO during content gathering:**
+**Done 2026-11-20:** the site's review list lives in `src/content/reviews.ts`. It holds 13 reviews, copied verbatim from the three Fiverr gig pages and the Upwork profile:
+- **Fiverr:** cromwelltoby ×3, alertme27, sharecave, seo_mayhem, garrymackie, alexwolfee, summerhillhome, alexandre_bdl, cherrylanchor
+- **Upwork:** Fouad L., Arye G.
+
+**Still to do:**
 - Collect 10–15 more strong Fiverr reviews (Fiverr → Reviews → "Most relevant", and also the reviews that include files).
 - Prefer reviews that mention Amazon, A+, Shopify, Walmart, leads or bulk uploads, so each service page has 2–3 matching reviews.
 
