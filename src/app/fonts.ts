@@ -6,6 +6,7 @@ export const hand = Caveat({
   weight: ['600'],
   variable: '--font-hand',
   display: 'swap',
+  preload: false,
 })
 
 export const display = Archivo({
@@ -26,4 +27,5 @@ export const mono = JetBrains_Mono({
   weight: ['500'],
   variable: '--font-mono',
   display: 'swap',
+  preload: false,
 })

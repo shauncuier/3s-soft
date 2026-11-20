@@ -27,7 +27,7 @@ export function Header() {
       <div className="container-site">
       <div className="mx-auto flex h-16 max-w-[1120px] items-center justify-between gap-4 rounded-full border border-line bg-surface-0/90 pr-2 pl-4 shadow-[var(--shadow-card)] backdrop-blur-md">
         <Link href="/" className="flex items-center gap-2 rounded-md" aria-label="3s-Soft home">
-          <Image src="/assets/brand/3s-soft-logo.webp" alt="" width={44} height={44} className="h-11 w-11 rounded-full" priority />
+          <Image src="/assets/brand/3s-soft-logo.webp" alt="" width={44} height={44} className="h-11 w-11 rounded-full" loading="eager" />
           <span className="ds-display text-lg font-extrabold text-ink" translate="no">3s-Soft</span>
         </Link>
 

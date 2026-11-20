@@ -26,7 +26,7 @@ function htmlFiles(dir: string): string[] {
 
 /** Strips scripts and JSON-LD so banned-word checks look at what visitors read and crawlers index as text. */
 function visible(html: string) {
-  return html.replace(/<script[\s\S]*?<\/script>/g, '')
+  return html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '')
 }
 
 export function checkOutput(dir: string | null, pages?: Page[]): string[] {

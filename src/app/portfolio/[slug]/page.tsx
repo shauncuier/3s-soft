@@ -65,7 +65,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {hero && (
         <div className="container-site pt-10">
-          <Image src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} priority className="h-auto w-full rounded-[var(--radius-lg)] border border-line" />
+          <Image src={hero.src} alt={hero.alt} width={hero.width} height={hero.height}fetchPriority="high" loading="eager" className="h-auto w-full rounded-[var(--radius-lg)] border border-line" sizes="(min-width: 1200px) 1168px, 100vw" />
         </div>
       )}
 

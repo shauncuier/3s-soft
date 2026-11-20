@@ -13,6 +13,11 @@ test('the built site passes every output gate', () => {
   expect(checkOutput('out')).toEqual([])
 })
 
+test('the gate ignores CSS and scripts, only visible text counts', () => {
+  const ok = '<html><head><link rel="canonical" href="x"><style>.a{left:98%}</style><script>var a="500+"</script></head><body><h1>Fine</h1></body></html>'
+  expect(checkOutput(null, [{ path: 'ok/index.html', html: ok }])).toEqual([])
+})
+
 test('the gate itself catches banned claims and broken patterns', () => {
   expect(BANNED).toContain('500+')
   const bad = '<html><head></head><body><h1>a</h1><h1>b</h1><a href="#">x</a><img src="a.png">500+ projects</body></html>'

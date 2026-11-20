@@ -31,7 +31,7 @@ export const caseStudies: CaseStudy[] = [
       'Answering sizing and care questions inside the listing deals with the most common reasons buyers hesitate.',
     ],
     images: [
-      { src: '/assets/work/ivan-troy-amazon-brand-story.webp', alt: 'Ivan Troy Amazon Brand Story with the line Designed in LA. Made in Italy. above tiles for belts, men’s shoes and women’s accessories', width: 1200, height: 1095 },
+      { src: '/assets/work/ivan-troy-brand-story-hero.webp', alt: 'Ivan Troy Amazon Brand Story with the line Designed in LA. Made in Italy. above tiles for belts, men’s shoes and women’s accessories', width: 1200, height: 675 },
       { src: '/assets/work/ivan-troy-a-plus-black.webp', alt: 'A+ Content page for the black Ivo belt with annotated buckle, embossing and width callouts, a size chart and a comparison chart', width: 645, height: 2000 },
       { src: '/assets/work/ivan-troy-a-plus-cognac.webp', alt: 'A+ Content page for the cognac Ivo belt using the same module layout with colour-specific photos and copy', width: 645, height: 2000 },
     ],
