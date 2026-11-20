@@ -114,6 +114,24 @@ export const selectedWork: WorkItem[] = [
   },
 ]
 
+/** Client websites built by the web studio (3s-soft.net). Shown on .com as outbound proof, not as .com services. */
+export const builtSites: WorkItem[] = [
+  {
+    external: true, slug: 'bhela-houseboat', title: 'A booking site with an instant price calculator',
+    clientLabel: 'Bhela Houseboat · Tanguar Haor, Bangladesh',
+    summary: 'A Bangla-first WordPress site for a six-cabin family houseboat. Guests pick a date and group size and see an estimated price before they book.',
+    url: 'https://bhelahouseboat.com/', category: 'web',
+    image: { src: '/assets/work/bhela-houseboat-website.webp', alt: 'Bhela Houseboat home page with a houseboat on Tanguar Haor and an instant rate calculator for date and guests', width: 1200, height: 750 },
+  },
+  {
+    external: true, slug: 'candy-tourism', title: 'A tour catalogue with custom trip requests',
+    clientLabel: 'Candy Tourism Bangladesh · travel agency',
+    summary: 'A custom WordPress theme listing group tours to Saint Martin, Sajek and Tanguar Haor, with a form for travellers to request their own trip plan.',
+    url: 'https://candytourismbd.com/', category: 'web',
+    image: { src: '/assets/work/candy-tourism-website.webp', alt: 'Candy Tourism Bangladesh home page with a fishing boat on the beach and buttons to browse trips or plan a custom trip', width: 1200, height: 750 },
+  },
+]
+
 export const process = [
   { title: 'Send your links', text: 'Share your store, ASINs or a spreadsheet. We reply with questions and a fixed quote.' },
   { title: 'Agree the plan', text: 'Scope, deliverables and a delivery date are settled before work starts.' },

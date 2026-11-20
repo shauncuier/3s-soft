@@ -10,7 +10,7 @@ import { Faq } from '@/components/Faq'
 import { SectionHeading } from '@/components/SectionHeading'
 import { reviews } from '@/content/reviews'
 import {
-  homeMeta, hero, homeProofIds, serviceCards, webTeaser, selectedWork, process, homeReviewIds, homeFaq, finalCta,
+  homeMeta, hero, homeProofIds, serviceCards, webTeaser, selectedWork, builtSites, process, homeReviewIds, homeFaq, finalCta,
 } from '@/content/home'
 
 export const metadata: Metadata = {
@@ -67,8 +67,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Websites from the web studio */}
+      <section aria-labelledby="websites" className="section">
+        <div className="container-site">
+          <SectionHeading
+            id="websites"
+            title="Websites built by our web studio"
+            intro="Store and booking sites are handled by our web development studio, 3s-soft.net. Two recent client sites:"
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {builtSites.map((w) => <WorkCard key={w.slug} item={w} />)}
+          </div>
+          <p className="mt-8">
+            <a className="ds-btn ds-btn--secondary" href={webTeaser.href}>
+              More web work on 3s-soft.net <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          </p>
+        </div>
+      </section>
+
       {/* Reviews */}
-      <section aria-labelledby="reviews" className="section">
+      <section aria-labelledby="reviews" className="section border-t border-line">
         <div className="container-site">
           <SectionHeading id="reviews" title="What sellers say" intro="Copied word for word from Fiverr and Upwork. Each review links to the original." />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

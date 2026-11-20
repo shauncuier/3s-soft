@@ -2,7 +2,18 @@ import { render, screen } from '@testing-library/react'
 import { ServiceCard } from '@/components/ServiceCard'
 import { WorkCard } from '@/components/WorkCard'
 import { Faq } from '@/components/Faq'
-import { serviceCards, selectedWork, homeFaq } from '@/content/home'
+import { serviceCards, selectedWork, homeFaq, builtSites } from '@/content/home'
+
+test('websites built by the web studio link out to the live sites', () => {
+  expect(builtSites.map((s) => (s.external ? s.url : ''))).toEqual(['https://bhelahouseboat.com/', 'https://candytourismbd.com/'])
+  for (const site of builtSites) {
+    const { unmount } = render(<WorkCard item={site} />)
+    const link = screen.getByRole('link')
+    expect(link.getAttribute('target')).toBe('_blank')
+    expect(screen.getByRole('img').getAttribute('alt')!.length).toBeGreaterThan(20)
+    unmount()
+  }
+})
 
 test('ServiceCard links to its service page and lists at most three deliverables', () => {
   render(<ServiceCard service={serviceCards[0]} />)
