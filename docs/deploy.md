@@ -33,10 +33,12 @@ On Windows PowerShell: `$env:NEXT_PUBLIC_NOINDEX='1'; npm run build`
 
    ```bash
    cd out && zip -r ../site.zip . && cd ..
+   # Windows: tar -a -c -f deploy/site-staging.zip -C out .
    ```
 
 3. Open **File Manager**, go to the subdomain folder, upload `site.zip` and choose **Extract**. Delete the zip afterwards.
-4. Staging `.htaccess` note: the generated file redirects every host to `https://3s-soft.com`. On staging, comment out the two `RewriteCond … HTTPS/www` lines and the `RewriteRule ^ https://3s-soft.com…` line. Otherwise staging bounces to the live site.
+4. The generated `.htaccess` keeps the requested host (HTTPS and trailing-slash redirects use `%{HTTP_HOST}`), so staging stays on staging. Only `www.3s-soft.com` is sent to the bare live domain. No edits needed.
+5. If the site shows **500 Internal Server Error**, the host does not allow `Options` in `.htaccess`: delete the line `Options -MultiViews -Indexes` and reload.
 
 ### Staging checks
 

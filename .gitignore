@@ -42,3 +42,6 @@ src/styles/tokens.css
 # Owner drop folder
 inbox/*
 !inbox/README.txt
+
+# Deploy zips
+deploy/
