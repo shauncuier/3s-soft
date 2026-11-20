@@ -1,31 +1,28 @@
-# 3S-SOFT (https://3s-soft.com)
+# 3s-Soft
 
-> A premium digital engineering and growth agency. 3S-SOFT specializes in scalable MERN stack development, comprehensive eCommerce managed services (Amazon, eBay, etc.), and advanced SEO strategies for US and UK markets.
+> 3s-Soft is an eCommerce operations team in Chittagong, Bangladesh, founded by Jashedul Islam Shaun. It writes, uploads and maintains product listings for sellers on Amazon, Walmart, Shopify, Etsy and eBay, designs Amazon A+ Content and Brand Story modules, builds B2B lead lists and provides ongoing catalogue support. Selling on Fiverr since October 2015.
 
-## Agency Vision
-To empower businesses by bridging the gap between innovative code and measurable digital growth. We don't just build websites; we engineer business solutions.
+Verifiable facts (checked 2026-11-20):
+- Fiverr: 5.0 rating from 465 reviews (444 five-star), Level 2 seller: https://www.fiverr.com/jashedulislam
+- Upwork: Top Rated, 100% Job Success, 55 jobs completed: https://www.upwork.com/freelancers/~01c75e88b6540d813f
+- Listed on Amazon's Service Provider Network for A+ Content (Enhanced Brand Content) and Cataloguing
+- Published WordPress.org plugin: https://wordpress.org/plugins/3s-soft-price-stock-sync-for-dropshipzone/
+- UK arm: https://3s-soft.co.uk · Web development studio: https://3s-soft.net
 
-## Service Portfolio (TL;DR)
-- **Software Engineering**: Full-stack MERN (MongoDB, Express, React 19, Node.js).
-- **Global eCommerce**: Advanced store management and product optimization for Amazon, eBay, Walmart, and Etsy.
-- **Organic Growth**: Technical SEO, content strategy, and data-driven lead generation.
-- **Operations Support**: Trained Virtual Assistants for startup administrative and technical efficiency.
+## Services
+- [Amazon listing optimization and product upload](https://3s-soft.com/services/ecommerce-product-listing/): keyword research, titles, bullets, backend terms, variations, bulk flat-file uploads for Amazon, Walmart, Etsy, eBay and Shopify
+- [Amazon A+ Content and Brand Story design](https://3s-soft.com/services/amazon-a-plus-content/)
+- [Shopify product upload and store management](https://3s-soft.com/services/shopify-store-management/)
+- [B2B lead generation and prospect lists](https://3s-soft.com/services/lead-generation/)
+- [eCommerce virtual assistant and catalogue management](https://3s-soft.com/services/virtual-assistant/)
+- [Free 5-product listing audit](https://3s-soft.com/free-listing-audit/)
 
-## Core Resources
-- [Main Services Hub](https://3s-soft.com/services)
-- [MERN Stack Development](https://3s-soft.com/services/web-development-mern)
-- [WordPress Customization](https://3s-soft.com/services/wordpress-customization)
-- [eCommerce listing](https://3s-soft.com/services/ecommerce-product-listing)
-- [Lead Generation](https://3s-soft.com/services/lead-generation)
-- [SEO & Marketing](https://3s-soft.com/services/digital-marketing-seo)
-- [Social Media Management](https://3s-soft.com/services/social-media-marketing)
-- [Graphic Design](https://3s-soft.com/services/graphic-design)
-- [Virtual Assistant](https://3s-soft.com/services/virtual-assistant)
-- [Insights & Blog](https://3s-soft.com/blogs)
-- [Team Expertise](https://3s-soft.com/team)
-- [Contact & Support](https://3s-soft.com/contact)
+## Case studies
+- [Ivan Troy: Brand Story and six A+ Content pages for a belt range](https://3s-soft.com/portfolio/ivan-troy-amazon-a-plus/)
+- [MONTIQUE: 895 Amazon listings with variations](https://3s-soft.com/portfolio/montique-amazon-store/)
+- [Stahl-Design-Tebart: hinge listings localised for Amazon.de](https://3s-soft.com/portfolio/stahl-design-tebart-amazon-listing-optimization/)
+- [Tailwater Supply: brand site for an Amazon and Walmart seller](https://3s-soft.com/portfolio/tailwater-supply/)
 
-## Machine Readability
-- [Comprehensive LLM Documentation](/llms-full.txt)
-- [Sitemap](/sitemap.xml)
-- [Privacy Compliance](/privacy-policy)
+## Company
+- [About](https://3s-soft.com/about-us/) · [Team](https://3s-soft.com/team/) · [Reviews](https://3s-soft.com/reviews/) · [Contact](https://3s-soft.com/contact/)
+- Email: info@3s-soft.com · WhatsApp: +880 1835 927634

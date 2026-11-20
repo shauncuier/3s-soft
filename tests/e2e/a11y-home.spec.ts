@@ -23,6 +23,10 @@ const PAGES = [
   '/blog/amazon-global-selling-strategies-uk-us/',
   '/contact/',
   '/free-listing-audit/',
+  '/privacy-policy/',
+  '/terms-of-service/',
+  '/cookies/',
+  '/this-page-does-not-exist/',
 ]
 
 for (const path of PAGES) {

@@ -11,6 +11,8 @@ import { ProofBar } from '@/components/ProofBar'
 import { ReviewCard } from '@/components/ReviewCard'
 import { WorkCard } from '@/components/WorkCard'
 import { Faq } from '@/components/Faq'
+import { JsonLd } from '@/components/JsonLd'
+import { serviceJsonLd } from '@/lib/seo'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 
@@ -112,6 +114,8 @@ export default async function ServicePage({ params }: Props) {
           <Faq items={s.faq} />
         </div>
       </section>
+
+      <JsonLd data={serviceJsonLd(s)} />
 
       <section aria-labelledby="service-cta" className="section bg-green-100">
         <div className="container-site flex flex-col gap-6">
