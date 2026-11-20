@@ -1,0 +1,44 @@
+<!-- @dsCard height=300 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+  .cv { position: relative; width: 960px; height: 300px; overflow: hidden; background: var(--surface-100); }
+  .cv svg { position: absolute; inset: 0; }
+  .g { fill: var(--brand-green); }
+  .c { fill: var(--brand-charcoal); }
+  .d { fill: var(--green-800); }
+  .m { fill: var(--ink-muted); }
+  .cv__text { position: absolute; left: 48px; bottom: 48px; max-width: 440px; }
+  .cv__name { margin: 0; font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 96px; line-height: .92; letter-spacing: -0.02em; color: var(--ink); }
+  .cv__tag { margin: 16px 0 0; font: 400 14px/20px var(--font-body); color: var(--ink-muted); }
+</style>
+<div class="cv">
+  <svg viewBox="0 0 960 300" width="960" height="300" aria-hidden="true">
+    <!--
+      blocks: brand-charcoal 192x204 slab, brand-green 192x108 (bleeds top and right), green-800 192x96, ink-muted 96x96 relief
+      arrangement: one tall charcoal slab with green satellites, flush modular grid on a 96px (space-24) pitch, bleeding off top and right
+      pattern: literal motif row. The logo's S is a green arc stacked on a charcoal arc, so the pattern is 9 S-units of half-discs (radius space-4)
+      steps and radii: pitch space-24 (96) and space-12 (48), half-disc radius space-4 (16), large quarter-round radius space-24 (96)
+    -->
+    <rect class="c" x="576" y="0" width="192" height="204"/>
+    <path class="g" d="M576 204 A96 96 0 0 1 672 108 L672 204 Z"/>
+    <rect class="g" x="768" y="0" width="192" height="108"/>
+    <rect class="d" x="768" y="108" width="192" height="96"/>
+    <rect class="m" x="480" y="108" width="96" height="96"/>
+    <path class="g" d="M768 204 A96 96 0 0 0 864 108 L768 108 Z" opacity="1"/>
+    <g>
+      <path class="g" d="M496 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M508 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M544 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M556 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M592 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M604 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M640 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M652 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M688 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M700 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M736 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M748 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M784 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M796 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M832 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M844 252 a16 16 0 0 0 32 0 Z"/>
+      <path class="g" d="M880 252 a16 16 0 0 1 32 0 Z"/><path class="c" d="M892 252 a16 16 0 0 0 32 0 Z"/>
+    </g>
+  </svg>
+  <div class="cv__text">
+    <p class="cv__name">3s-Soft</p>
+    <p class="cv__tag">Marketplace listings and eCommerce operations, shown with real proof.</p>
+  </div>
+</div>
