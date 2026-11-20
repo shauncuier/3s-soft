@@ -15,6 +15,9 @@ const PAGES = [
   '/portfolio/stahl-design-tebart-amazon-listing-optimization/',
   '/portfolio/party-supplies-amazon-catalogue/',
   '/portfolio/tailwater-supply/',
+  '/reviews/',
+  '/about-us/',
+  '/team/',
 ]
 
 for (const path of PAGES) {
