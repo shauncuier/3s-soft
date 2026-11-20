@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "tsx scripts/build-tokens.ts && tsx scripts/check-proof.ts && next build",
+    "build": "tsx scripts/build-tokens.ts && tsx scripts/check-proof.ts && tsx scripts/build-htaccess.ts && next build",
     "start": "serve out -l 4321",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
