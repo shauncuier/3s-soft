@@ -59,13 +59,22 @@ In Next.js, use `next/font/google` (self-hosted at build, no layout shift) with 
 - No stock people, no 3D illustrations, no AI art.
 
 **Motion**
-- 150–200ms ease-out on hover and focus colour changes only.
+- Durations: 100ms for press feedback (`scale(.98)` on buttons, transform only, so nothing shifts), 150ms for hover and focus colour changes, 200ms for opening a menu or the consent banner. Easing is `ease-out` when something arrives and `ease-in` when it leaves, and exits run faster than entries.
 - No count-up numbers, no scroll-triggered fades that hide content, no parallax.
+- **No auto-rotating carousels.** Reviews and work sit in a static grid. If a slider is ever needed, it gets previous/next/pause buttons and stops on hover, focus and reduced motion.
 - Honour `prefers-reduced-motion`.
+
+**Layering**
+- Use the `zIndex` tokens only: `z-sticky-header` < `z-cta-bar` < `z-consent` < `z-toast`. No other z-index values.
+
+**Page pattern**
+- Every landing page follows the same order: hero (offer and primary CTA) → proof bar → services → selected work → verbatim reviews → process → FAQ → CTA. Proof comes before every ask.
+- One primary CTA per screen. The secondary action is visibly weaker (`secondary` or `quiet` button).
 
 **States**
 - Hover darkens fills (`green-700` → `green-800`).
-- Focus is always a 2px `focus` ring with a 2px offset.
+- Focus is always a 3px `focus` ring with a 2px offset.
+- Press shows `scale(.98)` for 100ms on buttons.
 - Disabled is 50% opacity plus `cursor: not-allowed`, and the reason is shown in text.
 - Loading keeps the button's label and adds "Sending…". The button is disabled while a request is pending.
 
@@ -88,7 +97,8 @@ In Next.js, use `next/font/google` (self-hosted at build, no layout shift) with 
 - **ReviewCard:** a verbatim quote with buyer, country, gig and source.
 - **ServiceCard:** a service with its deliverables and marketplace chips.
 - **MarketplaceChip:** a platform or identifier tag.
-- **FormField:** a labelled input with hint and error.
+- **FormField:** a labelled input with required marker, hint and error.
+- **ErrorSummary:** a focusable list of problems after a failed submit.
 - **MobileCtaBar:** a sticky WhatsApp + audit bar under 768px.
 
 Use them for every page of 3s-soft.com. Build any new pattern from the same tokens.

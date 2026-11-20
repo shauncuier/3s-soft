@@ -1,0 +1,12 @@
+<!-- @dsCard group="Forms" height=200 subtitle="After a failed submit with 2+ errors" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Public+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<div class="ds-root" style="padding:24px;max-width:480px">
+  <div class="ds-errsum" role="alert" tabindex="-1" aria-labelledby="errsum-title">
+    <h2 class="ds-errsum__title" id="errsum-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>Check 2 fields before sending</h2>
+    <ul class="ds-errsum__list">
+      <li><a href="#store">Enter your store or listing URL</a></li>
+      <li><a href="#email">Enter a full email address, like name@shop.com</a></li>
+    </ul>
+  </div>
+</div>
+<script>document.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})})</script>

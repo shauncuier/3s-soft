@@ -14,7 +14,8 @@ Use a button to start an action: open WhatsApp, book a call, or send a form.
 - **Size:** at least `tap-min` (44px) tall. It is full width inside `MobileCtaBar` and on forms narrower than 640px.
 - **States:**
   - hover: `green-800`
-  - focus: a 2px `focus` ring with an offset
+  - focus: a 3px `focus` ring with a 2px offset
+  - press: `scale(.98)` for 100ms (transform only, no layout shift)
   - pending: `disabled`, with the label changed to "Sending…"
 - **Do:** use one primary per view.
 - **Don't:** put two green buttons side by side, or use an icon without words.
