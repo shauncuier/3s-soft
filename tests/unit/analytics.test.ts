@@ -1,4 +1,4 @@
-import { getConsent, setConsent, track, readUtm, persistUtm, getStoredUtm } from '@/lib/analytics'
+import { getConsent, setConsent, track, readUtm, persistUtm, getStoredUtm, revokeTracking } from '@/lib/analytics'
 
 declare global {
   interface Window { gtag?: (...args: unknown[]) => void }
@@ -50,4 +50,19 @@ test('persistUtm does not overwrite stored UTM with an empty set', () => {
   persistUtm({ utm_source: 'email' })
   persistUtm({})
   expect(getStoredUtm()).toEqual({ utm_source: 'email' })
+})
+
+test('revokeTracking turns analytics consent off in loaded trackers and removes their cookies', () => {
+  const gtag = vi.fn()
+  const clarity = vi.fn()
+  window.gtag = gtag
+  ;(window as unknown as { clarity: unknown }).clarity = clarity
+  document.cookie = '_ga=GA1.1.123; path=/'
+  document.cookie = '_clck=abc; path=/'
+  document.cookie = 'keep=yes; path=/'
+  revokeTracking()
+  expect(gtag).toHaveBeenCalledWith('consent', 'update', { analytics_storage: 'denied' })
+  expect(clarity).toHaveBeenCalledWith('consent', false)
+  expect(document.cookie).not.toMatch(/_ga=|_clck=/)
+  expect(document.cookie).toMatch(/keep=yes/)
 })

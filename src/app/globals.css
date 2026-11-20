@@ -35,6 +35,13 @@ html {
   html.has-cta-bar { scroll-padding-bottom: 88px; }
 }
 
+/* Open cookie banner: keep focused elements and the page end clear of it. */
+html.has-consent { scroll-padding-bottom: calc(var(--consent-h, 0px) + 16px); }
+html.has-consent body { padding-bottom: max(var(--consent-h, 0px), 88px); }
+@media (min-width: 768px) {
+  html.has-consent body { padding-bottom: var(--consent-h, 0px); }
+}
+
 @media (pointer: fine) {
   html { overscroll-behavior: none; }
 }
@@ -74,40 +81,20 @@ body {
 }
 .skip-link:focus { top: var(--space-4); }
 
-/* ---------- Homepage motion (transform only; paused by MotionToggle, hover, focus, or reduced motion) ---------- */
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes marquee-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-@keyframes float-y { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-12px) rotate(var(--rot, 0deg)); } }
-@keyframes rise { from { opacity: 0.001; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+/* ---------- Motion: one short fade-up on hero content, nothing loops ---------- */
+@keyframes rise { from { opacity: 0.001; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.motion-rise { animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--delay, 0s); }
 
-/* Loops only run after MotionStarter sets data-anim="on" (post-load, idle) and while their group is on screen. */
-.motion-marquee, .motion-marquee-rev, .motion-float { will-change: transform; }
-html[data-anim="on"] .motion-group[data-inview] .motion-marquee { animation: marquee var(--dur, 40s) linear infinite; }
-html[data-anim="on"] .motion-group[data-inview] .motion-marquee-rev { animation: marquee-rev var(--dur, 48s) linear infinite; }
-html[data-anim="on"] .motion-group[data-inview] .motion-float { animation: float-y 6s ease-in-out infinite; animation-delay: var(--delay, 0s); }
-.motion-rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--delay, 0s); }
-
-.motion-group:hover .motion-marquee, .motion-group:hover .motion-marquee-rev,
-.motion-group:focus-within .motion-marquee, .motion-group:focus-within .motion-marquee-rev,
-html[data-motion="paused"] .motion-marquee, html[data-motion="paused"] .motion-marquee-rev, html[data-motion="paused"] .motion-float {
-  animation-play-state: paused;
-}
-
-.hero-display {
+/* ---------- Page headings ---------- */
+.page-title {
   font-family: var(--font-display);
-  font-stretch: 112%;
-  font-weight: 800;
-  font-size: clamp(40px, 7.2vw, 96px);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  font-weight: 700;
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
-
-.hand { font-family: var(--font-hand), cursive; }
-
-@media (prefers-reduced-motion: reduce) {
-  .motion-marquee, .motion-marquee-rev, .motion-float, .motion-rise { animation: none !important; }
-}
+.home-title { font-size: clamp(40px, 5.2vw, 64px); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }

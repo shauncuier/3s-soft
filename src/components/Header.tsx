@@ -23,9 +23,9 @@ export function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 pt-3" style={{ zIndex: 'var(--z-sticky-header)', top: 'env(safe-area-inset-top, 0px)' }}>
+    <header className="sticky top-0 border-b border-line bg-surface-0/95 backdrop-blur-md" style={{ zIndex: 'var(--z-sticky-header)', top: 'env(safe-area-inset-top, 0px)' }}>
       <div className="container-site">
-      <div className="mx-auto flex h-16 max-w-[1120px] items-center justify-between gap-4 rounded-full border border-line bg-surface-0/90 pr-2 pl-4 shadow-[var(--shadow-card)] backdrop-blur-md">
+      <div className="flex h-[72px] items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 rounded-md" aria-label="3s-Soft home">
           <Image src="/assets/brand/3s-soft-logo.webp" alt="" width={44} height={44} className="h-11 w-11 rounded-full" loading="eager" />
           <span className="ds-display text-lg font-extrabold text-ink" translate="no">3s-Soft</span>
@@ -40,7 +40,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     aria-current={active ? 'page' : undefined}
-                    className={`inline-flex min-h-11 items-center rounded-full px-4 text-[15px] font-semibold transition-colors hover:bg-surface-200 ${active ? 'bg-green-100 text-green-700' : 'text-ink'}`}
+                    className={`inline-flex min-h-11 items-center px-3 text-[15px] font-semibold transition-colors hover:text-green-700 ${active ? 'text-green-700 underline decoration-2 underline-offset-[10px]' : 'text-ink'}`}
                   >
                     {item.label}
                   </Link>
@@ -51,12 +51,12 @@ export function Header() {
         </nav>}
 
         <div className="flex items-center gap-2">
-          <Link href={AUDIT_HREF} className="ds-btn ds-btn--primary hidden rounded-full sm:inline-flex">
+          <Link href={AUDIT_HREF} className="ds-btn ds-btn--primary hidden sm:inline-flex">
             Free audit
           </Link>
           <button
             type="button"
-            className="ds-btn ds-btn--secondary rounded-full px-3 md:hidden"
+            className="ds-btn ds-btn--secondary px-3 md:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}
@@ -71,7 +71,7 @@ export function Header() {
         id={menuId}
         aria-label="Mobile"
         hidden={!open}
-        className="mx-auto mt-2 max-w-[1120px] rounded-[28px] border border-line bg-surface-0 px-5 shadow-[var(--shadow-card)] md:hidden"
+        className="border-t border-line bg-surface-0 px-5 md:hidden"
         style={{ overscrollBehavior: 'contain' }}
       >
         <ul className="m-0 flex list-none flex-col p-0 py-2">

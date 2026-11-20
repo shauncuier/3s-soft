@@ -19,7 +19,7 @@ export default function ContactPage() {
       <div className="container-site grid gap-12 py-10 md:py-16 lg:grid-cols-[1fr_1.1fr]">
         <div className="flex flex-col gap-6">
           <Breadcrumbs items={[{ name: 'Contact', path: '/contact/' }]} />
-          <h1 id="contact-title" className="hero-display m-0 !text-[44px] md:!text-[64px]">Let’s talk about your catalogue</h1>
+          <h1 id="contact-title" className="page-title m-0">Let’s talk about your catalogue</h1>
           <p className="prose-measure m-0 text-lg text-ink-muted">
             Tell us what you sell and where. You get a fixed quote before any work starts. On Fiverr our average reply time is {response}.
           </p>
@@ -53,8 +53,8 @@ export default function ContactPage() {
             <TrackedLink className="font-semibold underline underline-offset-2" href={site.upworkAgencyUrl} event="upwork_click" external translate="no">Upwork</TrackedLink>
           </p>
         </div>
-        <div className="rounded-[32px] border border-line bg-surface-0 p-6 shadow-[var(--shadow-card)] md:p-8">
-          <h2 className="ds-display mt-0 mb-1 text-2xl font-extrabold">Send a project brief</h2>
+        <div className="rounded-[var(--radius-lg)] border border-line bg-surface-0 p-6 shadow-[var(--shadow-card)] md:p-8">
+          <h2 className="ds-display mt-0 mb-1 text-2xl font-bold">Send a project brief</h2>
           <p className="mt-0 mb-6 text-ink-muted">We reply by email.</p>
           <LeadForm kind="contact" />
         </div>

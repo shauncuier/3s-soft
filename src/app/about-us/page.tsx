@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { site } from '@/content/site'
+import { getProof } from '@/content/proof'
 import { team } from '@/content/team'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { CtaGroup } from '@/components/CtaGroup'
+import { PageHero } from '@/components/kit/PageHero'
+import { CtaPanel } from '@/components/kit/CtaPanel'
 import { ProofBar } from '@/components/ProofBar'
 import { JsonLd } from '@/components/JsonLd'
 
@@ -15,8 +16,8 @@ export const metadata: Metadata = {
 }
 
 const record = [
-  { label: '5.0 rating from 465 Fiverr reviews, selling since October 2015', href: site.fiverrUrl },
-  { label: 'Upwork Top Rated, 100% Job Success, 55 jobs completed', href: site.upworkUrl },
+  { label: `${getProof('fiverr-rating').value} rating from ${getProof('fiverr-reviews').value} Fiverr reviews, selling since ${getProof('fiverr-since').value}`, href: site.fiverrUrl },
+  { label: `Upwork ${getProof('upwork-badge').value}, ${getProof('upwork-jss').value} Job Success, ${getProof('upwork-jobs').value} jobs completed`, href: site.upworkUrl },
   { label: 'Listed on Amazon’s Service Provider Network for A+ Content', href: site.amazonSpnAplusUrl },
   { label: 'Listed on Amazon’s Service Provider Network for Cataloguing', href: site.amazonSpnCatalogUrl },
   { label: 'Published WooCommerce plugin on WordPress.org', href: site.wordpressPluginUrl },
@@ -26,24 +27,20 @@ export default function AboutPage() {
   const founder = team.find((t) => t.isFounder)!
   return (
     <>
-      <section aria-labelledby="about-title" className="border-b border-line bg-surface-0">
-        <div className="container-site flex flex-col gap-6 py-10 md:py-16">
-          <Breadcrumbs items={[{ name: 'About', path: '/about-us/' }]} />
-          <h1 id="about-title" className="ds-display m-0 max-w-[22ch] text-[36px] leading-[42px] font-extrabold md:text-[48px] md:leading-[52px]">
-            An eCommerce operations team, since 2015
-          </h1>
-          <p className="prose-measure m-0 text-lg text-ink-muted">
-            3s-Soft writes, uploads and maintains product listings for online sellers on Amazon, Walmart, Shopify, Etsy and eBay. We work from Chittagong, Bangladesh, with clients in the United States, the United Kingdom, Canada and Europe.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        id="about-title"
+        eyebrow="About 3s-Soft"
+        title="An eCommerce operations team, since 2015"
+        intro="3s-Soft writes, uploads and maintains product listings for online sellers on Amazon, Walmart, Shopify, Etsy and eBay. We work from Chittagong, Bangladesh, with clients in the United States, the United Kingdom, Canada and Europe."
+        crumbs={[{ name: 'About', path: '/about-us/' }]}
+      />
 
       <section aria-labelledby="story" className="section">
         <div className="container-site grid gap-12 lg:grid-cols-[3fr_2fr] lg:items-start">
           <div className="flex flex-col gap-5 text-lg">
             <h2 id="story" className="ds-display m-0 text-[28px] font-bold">How it started</h2>
             <p className="prose-measure m-0">
-              Jashedul Islam Shaun started taking product listing and data jobs on Fiverr in October 2015. Since then the account has collected 465 reviews, many from sellers who came back for ongoing work.
+              Jashedul Islam Shaun started taking product listing and data jobs on Fiverr in {getProof('fiverr-since').value}. Since then the account has collected {getProof('fiverr-reviews').value} reviews, all public on the profile.
             </p>
             <p className="prose-measure m-0">
               Repeat clients and larger catalogues turned the work into a team. Today 3s-Soft covers listings, Amazon A+ Content, Shopify catalogue work, B2B lead lists and ongoing catalogue support. Website builds are handled by our web studio at <a className="font-semibold text-green-700 underline underline-offset-2" href={site.netUrl}>3s-soft.net</a>, and UK clients can work with our UK director through <a className="font-semibold text-green-700 underline underline-offset-2" href={site.ukUrl}>3s-soft.co.uk</a>.
@@ -82,12 +79,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="about-cta" className="section bg-green-100">
-        <div className="container-site flex flex-col gap-6">
-          <h2 id="about-cta" className="ds-display m-0 text-[32px] leading-[38px] font-extrabold">Work with us</h2>
-          <CtaGroup showMarketplaces />
-        </div>
-      </section>
+      <CtaPanel id="about-cta" title="Work with us" text="Start with a free 5-product audit, a WhatsApp message or a 15-minute call." />
 
       <JsonLd
         data={{

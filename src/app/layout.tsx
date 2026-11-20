@@ -1,20 +1,21 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import { display, body, mono, hand } from './fonts'
+import { display, body, mono } from './fonts'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { MobileCtaBar } from '@/components/MobileCtaBar'
 import { ConsentBanner } from '@/components/ConsentBanner'
 import { JsonLd } from '@/components/JsonLd'
 import { orgJsonLd } from '@/lib/seo'
+import { getProof } from '@/content/proof'
 
 const noindex = process.env.NEXT_PUBLIC_NOINDEX === '1'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://3s-soft.com'),
   title: { default: '3s-Soft', template: '%s | 3s-Soft' },
-  description: 'Product listings, A+ Content and catalogue work for Amazon, Shopify, Walmart, Etsy and eBay sellers. 5.0 from 465 Fiverr reviews.',
+  description: `Product listings, A+ Content and catalogue work for Amazon, Shopify, Walmart, Etsy and eBay sellers. ${getProof('fiverr-rating').value} from ${getProof('fiverr-reviews').value} Fiverr reviews.`,
   applicationName: '3s-Soft',
   authors: [{ name: '3s-Soft', url: 'https://3s-soft.com' }],
   icons: { icon: '/favicon/favicon.ico', apple: '/favicon/apple-touch-icon.png' },
@@ -41,7 +42,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} ${hand.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="ds-root flex min-h-dvh flex-col pb-[calc(88px+env(safe-area-inset-bottom,0px))] md:pb-0">
         <a href="#main" className="skip-link">Skip to main content</a>
         <Header />

@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useSyncExternalStore } from 'react'
-import { getConsent, setConsent, CONSENT_EVENT, GA_ID, readUtm, persistUtm, type Consent } from '@/lib/analytics'
+import { useEffect, useRef, useSyncExternalStore } from 'react'
+import { getConsent, setConsent, CONSENT_EVENT, GA_ID, readUtm, persistUtm, revokeTracking, type Consent } from '@/lib/analytics'
 
 function subscribe(onChange: () => void) {
   window.addEventListener(CONSENT_EVENT, onChange)
@@ -41,18 +41,43 @@ function loadTrackers() {
 export function ConsentBanner() {
   const consent = useSyncExternalStore<Consent | typeof SERVER_SNAPSHOT>(subscribe, getConsent, () => SERVER_SNAPSHOT)
 
+  const ref = useRef<HTMLElement>(null)
+
   useEffect(() => {
     persistUtm(readUtm(window.location.search))
   }, [])
 
+  // While the banner is open, reserve its height so it never covers the focused element (WCAG 2.4.11).
+  useEffect(() => {
+    const el = ref.current
+    if (consent !== null || !el) return
+    const root = document.documentElement
+    const sync = () => root.style.setProperty('--consent-h', `${Math.ceil(el.getBoundingClientRect().height)}px`)
+    sync()
+    root.classList.add('has-consent')
+    const ro = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(sync)
+    ro?.observe(el)
+    return () => {
+      ro?.disconnect()
+      root.classList.remove('has-consent')
+      root.style.removeProperty('--consent-h')
+    }
+  }, [consent])
+
   useEffect(() => {
     if (consent === 'granted') loadTrackers()
+    // Declined after allowing in this visit: switch trackers off, drop their cookies, reload without them.
+    if (consent === 'denied' && document.getElementById('ga4')) {
+      revokeTracking()
+      window.location.reload()
+    }
   }, [consent])
 
   if (consent !== null) return null
 
   return (
     <section
+      ref={ref}
       aria-label="Cookie choice"
       className="fixed inset-x-0 bottom-0 border-t border-line bg-surface-0 shadow-[var(--shadow-bar)]"
       style={{ zIndex: 'var(--z-consent)', paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}

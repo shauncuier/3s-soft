@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
 import { services, getService } from '@/content/services'
@@ -14,7 +13,8 @@ import { Faq } from '@/components/Faq'
 import { JsonLd } from '@/components/JsonLd'
 import { serviceJsonLd } from '@/lib/seo'
 import { SectionHeading } from '@/components/SectionHeading'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { PageHero } from '@/components/kit/PageHero'
+import { CtaPanel } from '@/components/kit/CtaPanel'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -47,16 +47,15 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
-      <section aria-labelledby="service-title" className="border-b border-line bg-surface-0">
-        <div className="container-site flex flex-col gap-6 py-10 md:py-16">
-          <Breadcrumbs items={[{ name: 'Services', path: '/services/' }, { name: s.title, path: `/services/${s.slug}/` }]} />
-          <h1 id="service-title" className="ds-display m-0 max-w-[22ch] text-[36px] leading-[42px] font-extrabold tracking-[-0.015em] md:text-[48px] md:leading-[52px]">
-            {s.h1}
-          </h1>
-          <p className="prose-measure m-0 text-lg leading-7 text-ink-muted">{s.summary}</p>
-          <CtaGroup showMarketplaces />
-        </div>
-      </section>
+      <PageHero
+        id="service-title"
+        eyebrow={s.shortTitle}
+        title={s.h1}
+        intro={s.summary}
+        crumbs={[{ name: 'Services', path: '/services/' }, { name: s.title, path: `/services/${s.slug}/` }]}
+      >
+        <CtaGroup showMarketplaces />
+      </PageHero>
 
       <section aria-labelledby="problems" className="section">
         <div className="container-site grid gap-10 lg:grid-cols-2">
@@ -117,14 +116,7 @@ export default async function ServicePage({ params }: Props) {
 
       <JsonLd data={serviceJsonLd(s)} />
 
-      <section aria-labelledby="service-cta" className="section bg-green-100">
-        <div className="container-site flex flex-col gap-6">
-          <h2 id="service-cta" className="ds-display m-0 text-[32px] leading-[38px] font-extrabold">Tell us what you sell</h2>
-          <p className="prose-measure m-0 text-lg">Send a few product links or a spreadsheet and get a fixed quote before any work starts.</p>
-          <CtaGroup showMarketplaces />
-          <p className="m-0"><Link className="font-semibold text-green-700 underline underline-offset-2" href="/services/">See all services</Link></p>
-        </div>
-      </section>
+      <CtaPanel id="service-cta" title="Tell us what you sell" text="Send a few product links or a spreadsheet and get a fixed quote before any work starts." />
     </>
   )
 }

@@ -6,8 +6,8 @@ import { ArrowUpRight } from 'lucide-react'
 import { caseStudies } from '@/content/portfolio'
 import { reviews } from '@/content/reviews'
 import { services } from '@/content/services'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { CtaGroup } from '@/components/CtaGroup'
+import { PageHero } from '@/components/kit/PageHero'
+import { CtaPanel } from '@/components/kit/CtaPanel'
 import { ReviewCard } from '@/components/ReviewCard'
 import { WorkCard } from '@/components/WorkCard'
 import { JsonLd } from '@/components/JsonLd'
@@ -44,28 +44,27 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <article>
-      <header className="border-b border-line bg-surface-0">
-        <div className="container-site flex flex-col gap-6 py-10 md:py-16">
-          <Breadcrumbs items={[{ name: 'Work', path: '/portfolio/' }, { name: c.clientLabel.split(' · ')[0], path: `/portfolio/${c.slug}/` }]} />
-          <p className="m-0 text-sm font-semibold text-green-700">{c.clientLabel}{c.location ? ` · ${c.location}` : ''}</p>
-          <h1 className="ds-display m-0 max-w-[24ch] text-[34px] leading-[40px] font-extrabold md:text-[44px] md:leading-[50px]">{c.title}</h1>
-          <p className="prose-measure m-0 text-lg text-ink-muted">{c.summary}</p>
-          <div className="flex flex-wrap gap-3">
-            {c.liveUrl && (
-              <a className="ds-btn ds-btn--secondary" href={c.liveUrl} target="_blank" rel="noopener">
-                {c.liveLabel ?? 'See it live'} <ArrowUpRight size={18} aria-hidden="true" />
-              </a>
-            )}
-            {serviceLinks.map((s) => (
-              <Link key={s.slug} className="ds-chip" href={`/services/${s.slug}/`}>{s.title}</Link>
-            ))}
-          </div>
+      <PageHero
+        eyebrow={`${c.clientLabel}${c.location ? ` · ${c.location}` : ''}`}
+        title={c.title}
+        intro={c.summary}
+        crumbs={[{ name: 'Work', path: '/portfolio/' }, { name: c.clientLabel.split(' · ')[0], path: `/portfolio/${c.slug}/` }]}
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          {c.liveUrl && (
+            <a className="ds-btn ds-btn--secondary" href={c.liveUrl} target="_blank" rel="noopener">
+              {c.liveLabel ?? 'See it live'} <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          )}
+          {serviceLinks.map((s) => (
+            <Link key={s.slug} className="ds-chip" href={`/services/${s.slug}/`}>{s.title}</Link>
+          ))}
         </div>
-      </header>
+      </PageHero>
 
       {hero && (
         <div className="container-site pt-10">
-          <Image src={hero.src} alt={hero.alt} width={hero.width} height={hero.height}fetchPriority="high" loading="eager" className="h-auto w-full rounded-[var(--radius-lg)] border border-line" sizes="(min-width: 1200px) 1168px, 100vw" />
+          <Image src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchPriority="high" loading="eager" className="h-auto w-full rounded-[var(--radius-lg)] border border-line" sizes="(min-width: 1200px) 1168px, 100vw" />
         </div>
       )}
 
@@ -148,12 +147,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
       )}
 
-      <section aria-labelledby="cs-cta" className="section bg-green-100">
-        <div className="container-site flex flex-col gap-6">
-          <h2 id="cs-cta" className="ds-display m-0 text-[32px] leading-[38px] font-extrabold">Need something like this?</h2>
-          <CtaGroup showMarketplaces />
-        </div>
-      </section>
+      <CtaPanel id="cs-cta" title="Need something like this?" text="Tell us what you sell. You get a fixed quote and a delivery date before any work starts." />
 
       <JsonLd
         data={{

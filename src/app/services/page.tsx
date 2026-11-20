@@ -2,9 +2,13 @@ import type { Metadata } from 'next'
 import { ArrowUpRight } from 'lucide-react'
 import { services } from '@/content/services'
 import { serviceCards, webTeaser } from '@/content/home'
+import { reviews } from '@/content/reviews'
 import { ServiceCard } from '@/components/ServiceCard'
 import { CtaGroup } from '@/components/CtaGroup'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { PageHero } from '@/components/kit/PageHero'
+import { ReviewGrid } from '@/components/kit/ReviewGrid'
+import { CtaPanel } from '@/components/kit/CtaPanel'
+import { SectionHeading } from '@/components/SectionHeading'
 
 export const metadata: Metadata = {
   title: { absolute: 'eCommerce Listing & Marketplace Services | 3s-Soft' },
@@ -17,18 +21,15 @@ export default function ServicesPage() {
   const cards = services.map((s) => serviceCards.find((c) => c.slug === s.slug)!).filter(Boolean)
   return (
     <>
-      <section aria-labelledby="services-title" className="border-b border-line bg-surface-0">
-        <div className="container-site flex flex-col gap-6 py-10 md:py-16">
-          <Breadcrumbs items={[{ name: 'Services', path: '/services/' }]} />
-          <h1 id="services-title" className="ds-display m-0 text-[36px] leading-[42px] font-extrabold md:text-[48px] md:leading-[52px]">
-            eCommerce services for marketplace sellers
-          </h1>
-          <p className="prose-measure m-0 text-lg text-ink-muted">
-            Five services for sellers on Amazon, Walmart, Shopify, Etsy and eBay. Pick one job or combine them into a monthly plan.
-          </p>
-          <CtaGroup />
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Five services, one team"
+        title="eCommerce services for marketplace sellers"
+        intro="Pick one job or combine them into a monthly plan. Every service runs on the same promise: a fixed quote and a delivery date before work starts."
+        crumbs={[{ name: 'Services', path: '/services/' }]}
+      >
+        <CtaGroup showMarketplaces />
+      </PageHero>
+
       <section aria-label="All services" className="section">
         <div className="container-site grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((c) => <ServiceCard key={c.slug} service={c} />)}
@@ -41,6 +42,15 @@ export default function ServicesPage() {
           </a>
         </div>
       </section>
+
+      <section aria-labelledby="services-reviews" className="section border-y border-line bg-surface-0">
+        <div className="container-site">
+          <SectionHeading id="services-reviews" title="What sellers say" intro="Copied word for word from Fiverr and Upwork. Each review links to the original." />
+          <ReviewGrid reviews={reviews.slice(0, 6)} />
+        </div>
+      </section>
+
+      <CtaPanel title="Not sure which service you need?" text="Send us five products. The free audit shows what to fix first, and you keep the notes whether or not you hire us." />
     </>
   )
 }

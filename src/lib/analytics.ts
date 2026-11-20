@@ -78,3 +78,24 @@ export function getStoredUtm(): Utm {
     return {}
   }
 }
+
+const TRACKER_COOKIE = /^(_ga|_gid|_gat|_clck|_clsk|CLID|MUID|ANONCHK|SM)(_|$)/
+
+/**
+ * Withdraws consent in trackers that already loaded this visit and deletes their cookies.
+ * The caller reloads the page afterwards so no tracker code keeps running.
+ */
+export function revokeTracking(): void {
+  window.gtag?.('consent', 'update', { analytics_storage: 'denied' })
+  ;(window as Window & { clarity?: (...args: unknown[]) => void }).clarity?.('consent', false)
+  const host = window.location.hostname
+  const parts = host.split('.')
+  const domains = ['', host, ...parts.map((_, i) => '.' + parts.slice(i).join('.')).filter((d) => d.split('.').length > 2)]
+  for (const pair of document.cookie.split(';')) {
+    const name = pair.split('=')[0].trim()
+    if (!TRACKER_COOKIE.test(name)) continue
+    for (const d of domains) {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${d ? `; domain=${d}` : ''}`
+    }
+  }
+}

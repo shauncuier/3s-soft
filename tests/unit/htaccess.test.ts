@@ -12,10 +12,27 @@ function resolve(path: string): string | null {
   return null
 }
 
-test('forces HTTPS and the bare domain', () => {
-  expect(ht).toMatch(/RewriteCond %\{HTTPS\} off \[OR\]/)
-  expect(ht).toMatch(/RewriteCond %\{HTTP_HOST\} \^www\\\. \[NC\]/)
-  expect(ht).toContain('RewriteRule ^ https://3s-soft.com%{REQUEST_URI} [L,R=301]')
+test('forces HTTPS on the same host, so staging stays on staging', () => {
+  expect(ht).toContain('RewriteCond %{HTTPS} off\n  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]')
+})
+
+test('only www goes to the bare production domain', () => {
+  expect(ht).toContain('RewriteCond %{HTTP_HOST} ^www\\.3s-soft\\.com$ [NC]\n  RewriteRule ^ https://3s-soft.com%{REQUEST_URI} [L,R=301]')
+})
+
+test('the trailing-slash redirect keeps the requested host', () => {
+  expect(ht).toContain('RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]')
+  expect(ht).not.toContain('RewriteRule ^(.*)$ https://3s-soft.com')
+})
+
+test('old /blog/ index goes to /blogs/', () => {
+  expect(resolve('/blog')).toBe('/blogs/')
+  expect(resolve('/blog/')).toBe('/blogs/')
+  expect(resolve('/blog/some-live-post/')).toBeNull()
+})
+
+test('JavaScript is compressed under both MIME names', () => {
+  expect(ht).toMatch(/DEFLATE[^\n]*text\/javascript/)
 })
 
 test('serves the static 404 page', () => {

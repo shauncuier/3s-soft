@@ -1,9 +1,9 @@
 # 3s-Soft
 
-> 3s-Soft is an eCommerce operations team in Chittagong, Bangladesh, founded by Jashedul Islam Shaun. It writes, uploads and maintains product listings for sellers on Amazon, Walmart, Shopify, Etsy and eBay, designs Amazon A+ Content and Brand Story modules, builds B2B lead lists and provides ongoing catalogue support. Selling on Fiverr since October 2015.
+> 3s-Soft is an eCommerce operations team in Chittagong, Bangladesh, founded by Jashedul Islam Shaun. It writes, uploads and maintains product listings for sellers on Amazon, Walmart, Shopify, Etsy and eBay, designs Amazon A+ Content and Brand Story modules, builds B2B lead lists and provides ongoing catalogue support. Selling on Fiverr since 2015.
 
 Verifiable facts (checked 2026-11-20):
-- Fiverr: 5.0 rating from 465 reviews (444 five-star), Level 2 seller: https://www.fiverr.com/jashedulislam
+- Fiverr: 5.0 rating from 465 reviews (444 five-star): https://www.fiverr.com/jashedulislam
 - Upwork: Top Rated, 100% Job Success, 55 jobs completed: https://www.upwork.com/freelancers/~01c75e88b6540d813f
 - Listed on Amazon's Service Provider Network for A+ Content (Enhanced Brand Content) and Cataloguing
 - Published WordPress.org plugin: https://wordpress.org/plugins/3s-soft-price-stock-sync-for-dropshipzone/

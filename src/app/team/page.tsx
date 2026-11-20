@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { team } from '@/content/team'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { CtaGroup } from '@/components/CtaGroup'
+import { PageHero } from '@/components/kit/PageHero'
+import { CtaPanel } from '@/components/kit/CtaPanel'
 
 export const metadata: Metadata = {
   title: 'Team',
@@ -17,15 +17,13 @@ function initials(name: string) {
 export default function TeamPage() {
   return (
     <>
-      <section aria-labelledby="team-title" className="border-b border-line bg-surface-0">
-        <div className="container-site flex flex-col gap-6 py-10 md:py-16">
-          <Breadcrumbs items={[{ name: 'Team', path: '/team/' }]} />
-          <h1 id="team-title" className="ds-display m-0 text-[36px] leading-[42px] font-extrabold md:text-[48px] md:leading-[52px]">The people behind 3s-Soft</h1>
-          <p className="prose-measure m-0 text-lg text-ink-muted">
-            A small team in Chittagong, Bangladesh, with a UK director for clients in Britain. The founder leads every project, so you always know who is responsible for your work.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        id="team-title"
+        eyebrow="Team"
+        title="The people behind 3s-Soft"
+        intro="A small team in Chittagong, Bangladesh, with a UK director for clients in Britain. The founder leads every project, so you always know who is responsible for your work."
+        crumbs={[{ name: 'Team', path: '/team/' }]}
+      />
       <section aria-label="Team members" className="section">
         <ul className="container-site m-0 grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m) => (
@@ -55,12 +53,7 @@ export default function TeamPage() {
           ))}
         </ul>
       </section>
-      <section aria-labelledby="team-cta" className="section bg-green-100">
-        <div className="container-site flex flex-col gap-6">
-          <h2 id="team-cta" className="ds-display m-0 text-[32px] leading-[38px] font-extrabold">Talk to the founder</h2>
-          <CtaGroup />
-        </div>
-      </section>
+      <CtaPanel id="team-cta" title="Talk to the founder" text="Message us on WhatsApp, book a 15-minute call, or start with a free 5-product audit." />
     </>
   )
 }

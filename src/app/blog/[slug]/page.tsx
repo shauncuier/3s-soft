@@ -5,9 +5,9 @@ import { posts } from '@/content/posts'
 import { services } from '@/content/services'
 import { team } from '@/content/team'
 import { formatDate } from '@/lib/format'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { PageHero } from '@/components/kit/PageHero'
+import { CtaPanel } from '@/components/kit/CtaPanel'
 import { InlineText } from '@/components/InlineText'
-import { CtaGroup } from '@/components/CtaGroup'
 import { JsonLd } from '@/components/JsonLd'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -39,18 +39,19 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <article>
-      <header className="border-b border-line bg-surface-0">
-        <div className="container-site flex flex-col gap-5 py-10 md:py-16">
-          <Breadcrumbs items={[{ name: 'Guides', path: '/blogs/' }, { name: p.title, path: `/blog/${p.slug}/` }]} />
-          <h1 className="ds-display m-0 max-w-[26ch] text-[34px] leading-[40px] font-extrabold md:text-[44px] md:leading-[50px]">{p.title}</h1>
-          <p className="prose-measure m-0 text-lg text-ink-muted">{p.description}</p>
-          <p className="m-0 text-sm text-ink-muted">
-            By the 3s-Soft team · reviewed by{' '}
-            <Link className="font-semibold text-ink hover:text-green-700" href="/about-us/">{reviewer?.name}</Link>
-            {' '}· updated <time dateTime={p.updated}>{formatDate(p.updated)}</time>
-          </p>
-        </div>
-      </header>
+      <PageHero
+        id="post-title"
+        eyebrow="Guide"
+        title={p.title}
+        intro={p.description}
+        crumbs={[{ name: 'Guides', path: '/blogs/' }, { name: p.title, path: `/blog/${p.slug}/` }]}
+      >
+        <p className="m-0 text-sm text-ink-muted">
+          By the 3s-Soft team · reviewed by{' '}
+          <Link className="font-semibold text-ink hover:text-green-700" href="/about-us/">{reviewer?.name}</Link>
+          {' '}· updated <time dateTime={p.updated}>{formatDate(p.updated)}</time>
+        </p>
+      </PageHero>
 
       <div className="container-site section grid gap-12 lg:grid-cols-[minmax(0,68ch)_1fr]">
         <div className="flex flex-col gap-10 text-lg leading-8">
@@ -80,12 +81,7 @@ export default async function PostPage({ params }: Props) {
         </aside>
       </div>
 
-      <section aria-labelledby="post-cta" className="section bg-green-100">
-        <div className="container-site flex flex-col gap-6">
-          <h2 id="post-cta" className="ds-display m-0 text-[32px] leading-[38px] font-extrabold">Want us to do this for your store?</h2>
-          <CtaGroup />
-        </div>
-      </section>
+      <CtaPanel id="post-cta" title="Want us to do this for your store?" text="Send five product links and get a free audit with the fixes that matter most." />
 
       <JsonLd
         data={{

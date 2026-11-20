@@ -1,18 +1,13 @@
 import type { ServiceCardData, WorkItem } from './types'
 import { site } from './site'
+import { getProof } from './proof'
 import { caseStudies, getExternal, getCaseStudy } from './portfolio'
 
 /** Homepage copy. Written from docs/research/keyword-map.md (cluster 1) and checked with the humanizer skill. */
 export const homeMeta = {
   title: 'Amazon, Shopify & Marketplace Listing Services | 3s-Soft',
   description:
-    'Product listings, A+ Content and catalogue work for Amazon, Shopify, Walmart, Etsy and eBay sellers. 5.0★ from 465 Fiverr reviews. Free 5-product audit.',
-}
-
-export const hero = {
-  eyebrow: 'eCommerce operations team, since 2015',
-  title: 'Amazon, Shopify & marketplace listings done right',
-  sub: 'We create, fix and maintain product listings for Amazon, Walmart, Shopify, Etsy and eBay sellers: keyword-researched titles, A+ Content, bulk uploads and catalogue updates. 465 Fiverr reviews average 5.0.',
+    `Product listings, A+ Content and catalogue work for Amazon, Shopify, Walmart, Etsy and eBay sellers. ${getProof('fiverr-rating').value}★ from ${getProof('fiverr-reviews').value} Fiverr reviews. Free 5-product audit.`,
 }
 
 export const homeProofIds = ['fiverr-rating', 'fiverr-reviews', 'upwork-jss', 'amazon-spn', 'fiverr-since']
@@ -77,7 +72,7 @@ export const process = [
 export const homeReviewIds = ['cromwelltoby-listings', 'sharecave', 'garrymackie', 'alexandre-bdl', 'fouad-l', 'seo-mayhem']
 
 export const homeFaq = [
-  { q: 'Which marketplaces do you work with?', a: 'Amazon, Walmart, Shopify, Etsy, eBay and WooCommerce. Most of our Amazon work is for US and UK sellers.' },
+  { q: 'Which marketplaces do you work with?', a: 'Amazon, Walmart, Shopify, Etsy, eBay and WooCommerce.' },
   { q: 'How much does a listing cost?', a: 'It depends on how many products you have and how much research each one needs. Send your list and you get a fixed quote before any work starts. If you prefer ordering on a marketplace, our Fiverr listing gigs start at $10.' },
   { q: 'Do you need access to my Seller Central or Shopify account?', a: 'For uploads, yes. You add us as a user with only the permissions the job needs and remove access when we finish. For copy-only work we send files you upload yourself.' },
   { q: 'How long does it take?', a: 'Most listing jobs take a few days to a week, depending on volume. Large catalogues go out in batches. You get a delivery date before we start.' },

@@ -19,7 +19,7 @@ export default function CookiesPage() {
         sections={[
           {
             heading: 'Always on (no cookies)',
-            paragraphs: ['We store two small values in your browser so the site remembers your choices. They are not sent to anyone.'],
+            paragraphs: ['We store two small values in your browser so the site remembers your choices. Your analytics choice never leaves your browser. The campaign tags are sent with a contact or audit form only if you submit one, so we know which link brought you.'],
             list: ['3s-consent (local storage): your analytics choice.', '3s-utm (session storage): the campaign tags from the link you used, cleared when you close the tab.'],
           },
           {
