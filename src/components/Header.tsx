@@ -10,6 +10,8 @@ import { mainNav, AUDIT_HREF } from '@/content/nav'
 export function Header() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  // Outreach landing page: logo only, no navigation to leak attention.
+  const landing = pathname === AUDIT_HREF
   const menuId = useId()
 
   const close = () => setOpen(false)
@@ -28,7 +30,7 @@ export function Header() {
           <span className="ds-display text-lg font-extrabold text-ink" translate="no">3s-Soft</span>
         </Link>
 
-        <nav aria-label="Main" className="hidden md:block">
+        {!landing && <nav aria-label="Main" className="hidden md:block">
           <ul className="flex items-center gap-1">
             {mainNav.map((item) => {
               const active = pathname?.startsWith(item.href)
@@ -45,7 +47,7 @@ export function Header() {
               )
             })}
           </ul>
-        </nav>
+        </nav>}
 
         <div className="flex items-center gap-2">
           <Link href={AUDIT_HREF} className="ds-btn ds-btn--primary hidden sm:inline-flex">
