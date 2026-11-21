@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 const urls = [...readFileSync('out/sitemap.xml', 'utf8').matchAll(/<loc>https:\/\/3s-soft\.com(\/[^<]*)<\/loc>/g)].map((m) => m[1])
 
 test('sitemap has every page', () => {
-  expect(urls.length).toBe(29) // 12 static + 5 services + 6 case studies + 6 guides
+  expect(urls.length).toBe(30) // 12 static + 5 services + 7 case studies + 6 guides
 })
 
 for (const path of urls) {

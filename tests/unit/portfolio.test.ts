@@ -75,3 +75,15 @@ test('Stahl-Design-Tebart case study describes the WSS locks and 2D hinges shown
   expect(c.images.length).toBeGreaterThanOrEqual(4)
   expect(c.images.every((i) => i.alt.length > 40)).toBe(true)
 })
+
+test('M & A Global toner case study: company named, no personal name, real images, results, video with transcript', () => {
+  const c = getCaseStudy('m-and-a-global-amazon-toner-catalogue')
+  expect(c.clientRealName).toBe('M & A Global')
+  expect(c.publicNameApproved).toBe(true)
+  expect(JSON.stringify(c)).not.toMatch(/Karim|Mikahail/i)
+  expect(c.images.length).toBeGreaterThanOrEqual(8)
+  for (const img of c.images) expect(existsSync(`public${img.src}`), img.src).toBe(true)
+  expect(c.results?.find((r) => r.value === '2,451')).toBeTruthy()
+  expect(c.video && existsSync(`public${c.video.src}`)).toBe(true)
+  expect(c.video!.transcript.length).toBeGreaterThan(5)
+})

@@ -68,6 +68,20 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       )}
 
+      {c.results && c.results.length > 0 && (
+        <section aria-labelledby="results" className="container-site pt-10">
+          <h2 id="results" className="sr-only">Results</h2>
+          <dl className="m-0 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-lg)] border border-line bg-[var(--line)] md:grid-cols-4">
+            {c.results.map((r) => (
+              <div key={r.label} className="flex flex-col gap-1 bg-surface-0 p-5">
+                <dt className="order-2 m-0 text-sm text-ink-muted">{r.label}</dt>
+                <dd className="ds-display order-1 m-0 text-[28px] leading-8 font-bold text-ink tabular-nums">{r.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
       <div className="container-site section grid gap-12 lg:grid-cols-[2fr_1fr]">
         <div className="flex flex-col gap-10">
           <section aria-labelledby="brief">
@@ -100,14 +114,39 @@ export default async function CaseStudyPage({ params }: Props) {
               <p className="mt-3 mb-0 text-ink-muted">{c.beforeAfter.caption}</p>
             </section>
           )}
+          {c.video && (
+            <section aria-labelledby="video">
+              <h2 id="video" className="ds-display mb-4 text-[26px] font-bold">{c.video.title}</h2>
+              <video
+                controls
+                preload="none"
+                poster={c.video.poster}
+                width={1280}
+                height={720}
+                className="h-auto w-full rounded-[var(--radius-lg)] border border-line bg-ink"
+              >
+                <source src={c.video.src} type="video/mp4" />
+              </video>
+              <p className="mt-2 mb-0 text-sm text-ink-muted">Narrated walkthrough, {c.video.duration}. Nothing downloads until you press play.</p>
+              <details className="mt-3 rounded-[var(--radius-lg)] border border-line bg-surface-0 px-5 py-1">
+                <summary className="flex min-h-11 cursor-pointer items-center font-semibold">Read the video transcript</summary>
+                <div className="prose-measure flex flex-col gap-3 pb-4 text-ink-muted">
+                  {c.video.transcript.map((t) => <p key={t} className="m-0">{t}</p>)}
+                </div>
+              </details>
+            </section>
+          )}
           {gallery.length > 0 && (
             <section aria-labelledby="gallery">
               <h2 id="gallery" className="ds-display mb-4 text-[26px] font-bold">The work</h2>
               <div className="grid gap-6 sm:grid-cols-2">
                 {gallery.map((g) => (
-                  <div key={g.src} className="max-h-[720px] overflow-y-auto rounded-[var(--radius-lg)] border border-line bg-surface-0" tabIndex={0} aria-label={g.alt}>
-                    <Img src={g.src} alt={g.alt} width={g.width} height={g.height} sizes="(min-width: 640px) 50vw, 100vw" className="h-auto w-full" />
-                  </div>
+                  <figure key={g.src} className={`m-0 flex flex-col gap-2 ${g.width / g.height > 1.8 ? 'sm:col-span-2' : ''}`}>
+                    <div className="max-h-[720px] overflow-y-auto rounded-[var(--radius-lg)] border border-line bg-surface-0" tabIndex={0} aria-label={g.alt}>
+                      <Img src={g.src} alt={g.alt} width={g.width} height={g.height} sizes="(min-width: 640px) 50vw, 100vw" className="h-auto w-full" />
+                    </div>
+                    {g.caption && <figcaption className="text-sm text-ink-muted">{g.caption}</figcaption>}
+                  </figure>
                 ))}
               </div>
             </section>

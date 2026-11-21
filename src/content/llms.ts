@@ -25,6 +25,7 @@ Verifiable facts (checked ${checked}):
 - [Free 5-product listing audit](https://3s-soft.com/free-listing-audit/)
 
 ## Case studies
+- [M & A Global: from an at-risk account to 2,451 live Amazon toner listings](https://3s-soft.com/portfolio/m-and-a-global-amazon-toner-catalogue/)
 - [Ivan Troy: Brand Story and six A+ Content pages for a belt range](https://3s-soft.com/portfolio/ivan-troy-amazon-a-plus/)
 - [MONTIQUE: 895 Amazon listings with variations](https://3s-soft.com/portfolio/montique-amazon-store/)
 - [Stahl-Design-Tebart: German A+ Content for WSS door locks and hinges on Amazon.de](https://3s-soft.com/portfolio/stahl-design-tebart-amazon-listing-optimization/)

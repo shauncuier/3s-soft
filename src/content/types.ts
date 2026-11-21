@@ -31,7 +31,7 @@ export type Review = {
   checkedOn: string
 }
 
-export type ImageRef = { src: string; alt: string; width: number; height: number }
+export type ImageRef = { src: string; alt: string; width: number; height: number; caption?: string }
 
 export type WorkCategory = 'amazon' | 'shopify' | 'multi-marketplace' | 'lead-gen' | 'web'
 
@@ -91,6 +91,10 @@ export type CaseStudy = WorkFrontmatter & {
   takeaways: string[]
   /** Optional visual before/after, e.g. a logo redesign. */
   beforeAfter?: { heading: string; before: ImageRef; after: ImageRef; caption: string }
+  /** Headline numbers, each backed by the work or a screenshot on the page. */
+  results?: { value: string; label: string }[]
+  /** Narrated walkthrough. Loads only on play; the transcript is the text alternative. */
+  video?: { src: string; poster: string; title: string; duration: string; transcript: string[] }
 }
 
 /** Short card data for a service. */

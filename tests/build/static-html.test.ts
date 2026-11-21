@@ -63,3 +63,11 @@ test('the export ships the mail handler and keeps its helper private', () => {
   expect(readFileSync('out/api/lead-lib.php', 'utf8')).toMatch(/if \(!defined\('LEAD_MAILER'\)\)/)
   for (const f of ['out/contact/index.html', 'out/free-listing-audit/index.html']) expect(readFileSync(f, 'utf8')).toContain('action="/api/lead.php"')
 })
+
+test('a case study with a video loads nothing until play, and offers a transcript and a results grid', () => {
+  const html = readFileSync('out/portfolio/m-and-a-global-amazon-toner-catalogue/index.html', 'utf8')
+  expect(html).toMatch(/<video[^>]*preload="none"/)
+  expect(html).toMatch(/<summary[^>]*>[^<]*transcript/i)
+  expect(html).toContain('2,451')
+  expect(html).not.toMatch(/Karim|Mikahail/i)
+})

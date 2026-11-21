@@ -10,6 +10,7 @@ const PAGES = [
   '/services/lead-generation/',
   '/services/virtual-assistant/',
   '/portfolio/',
+  '/portfolio/m-and-a-global-amazon-toner-catalogue/',
   '/portfolio/ivan-troy-amazon-a-plus/',
   '/portfolio/montique-amazon-store/',
   '/portfolio/stahl-design-tebart-amazon-listing-optimization/',
