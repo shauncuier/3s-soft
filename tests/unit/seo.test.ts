@@ -40,3 +40,7 @@ test('robots allows everything and points to the sitemap', () => {
 test('404 page is noindex', () => {
   expect((notFoundMeta.robots as { index: boolean }).index).toBe(false)
 })
+
+test('the YouTube channel is listed as an official profile', () => {
+  expect(orgJsonLd().sameAs).toContain('https://www.youtube.com/@3s-soft')
+})

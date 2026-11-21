@@ -29,6 +29,7 @@ export const site: SiteConfig = {
     { label: 'LinkedIn', url: 'https://www.linkedin.com/company/3s-soft' },
     { label: 'Facebook', url: 'https://www.facebook.com/3s.soft.bd' },
     { label: 'Instagram', url: 'https://www.instagram.com/3ssoft' },
+    { label: 'YouTube', url: 'https://www.youtube.com/@3s-soft' },
   ],
   address: { city: 'Chittagong', country: 'Bangladesh' },
   foundingYear: 2015,
