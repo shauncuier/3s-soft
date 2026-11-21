@@ -39,7 +39,13 @@ function startSmtp(): Promise<void> {
           else mail.data += (line.startsWith('..') ? line.slice(1) : line) + '\n'
           continue
         }
-        if (authStep > 0) { mail.auth.push(Buffer.from(line, 'base64').toString()); sock.write(authStep === 1 ? '334 UGFzc3dvcmQ6\r\n' : '235 ok\r\n'); authStep = authStep === 1 ? 2 : 0; continue }
+        if (authStep > 0) {
+          const v = Buffer.from(line, 'base64').toString()
+          mail.auth.push(v)
+          sock.write(authStep === 1 ? '334 UGFzc3dvcmQ6\r\n' : v === 'wrong-pass' ? '535 Incorrect authentication data\r\n' : '235 ok\r\n')
+          authStep = authStep === 1 ? 2 : 0
+          continue
+        }
         const cmd = line.toUpperCase()
         if (cmd.startsWith('EHLO')) sock.write('250-fake.smtp\r\n250 AUTH LOGIN\r\n')
         else if (cmd === 'AUTH LOGIN') { authStep = 1; sock.write('334 VXNlcm5hbWU6\r\n') }
@@ -169,4 +175,24 @@ test.skipIf(!PHP)('a config that still has the placeholder password refuses to s
   rmSync(d, { recursive: true, force: true })
   expect(res!.status).toBe(500)
   expect(mails).toHaveLength(0)
+})
+
+test.skipIf(!PHP)('a rejected SMTP login never writes the password, plain or encoded, to the log', async () => {
+  const d = mkdtempSync(join(tmpdir(), 'lead-auth-'))
+  writeFileSync(join(d, 'config.php'), `<?php return ['host' => '127.0.0.1', 'port' => ${SMTP_PORT}, 'secure' => 'none', 'username' => 'info@3s-soft.com', 'password' => 'wrong-pass', 'from_email' => 'info@3s-soft.com', 'to' => ['info@3s-soft.com'], 'allowed_origins' => [], 'rate_dir' => ${JSON.stringify(join(d, 'rate'))}];`)
+  const p = spawn(PHP, ['-S', '127.0.0.1:4474', '-t', 'public'], { env: { ...process.env, LEAD_MAILER_CONFIG: join(d, 'config.php') }, stdio: ['ignore', 'pipe', 'pipe'] })
+  let log = ''
+  p.stdout!.on('data', (c) => { log += c })
+  p.stderr!.on('data', (c) => { log += c })
+  let res: Response | undefined
+  for (let i = 0; i < 50 && !res; i++) {
+    try { res = await fetch('http://127.0.0.1:4474/api/lead.php', { method: 'POST', body: audit(), headers: { Accept: 'application/json' } }) } catch { await new Promise((r) => setTimeout(r, 100)) }
+  }
+  await new Promise((r) => setTimeout(r, 300))
+  p.kill()
+  rmSync(d, { recursive: true, force: true })
+  expect(res!.status).toBe(502)
+  expect(log).toMatch(/535/)
+  expect(log).not.toContain('wrong-pass')
+  expect(log).not.toContain(Buffer.from('wrong-pass').toString('base64'))
 })

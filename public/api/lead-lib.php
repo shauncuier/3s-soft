@@ -110,28 +110,30 @@ function smtp_send(array $cfg, string $replyTo, string $subject, string $body): 
         }
         return $data;
     };
-    $cmd = function (string $line, array $ok) use ($sock, $read): string {
+    // $step names the step for error messages. The line sent is never logged: during AUTH it holds
+    // the encoded username and password.
+    $cmd = function (string $line, array $ok, string $step) use ($sock, $read): string {
         if ($line !== '') fwrite($sock, $line . "\r\n");
         $reply = $read();
-        if (!in_array((int) substr($reply, 0, 3), $ok, true)) throw new RuntimeException('SMTP error after "' . explode(' ', $line)[0] . '": ' . trim($reply));
+        if (!in_array((int) substr($reply, 0, 3), $ok, true)) throw new RuntimeException("SMTP error at $step: " . trim($reply));
         return $reply;
     };
 
     $self = $_SERVER['SERVER_NAME'] ?? 'localhost';
-    $cmd('', [220]);
-    $cmd("EHLO $self", [250]);
+    $cmd('', [220], 'greeting');
+    $cmd("EHLO $self", [250], 'EHLO');
     if ($secure === 'starttls') {
-        $cmd('STARTTLS', [220]);
+        $cmd('STARTTLS', [220], 'STARTTLS');
         if (!stream_socket_enable_crypto($sock, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) throw new RuntimeException('STARTTLS failed');
-        $cmd("EHLO $self", [250]);
+        $cmd("EHLO $self", [250], 'EHLO after STARTTLS');
     }
-    $cmd('AUTH LOGIN', [334]);
-    $cmd(base64_encode($cfg['username']), [334]);
-    $cmd(base64_encode($cfg['password']), [235]);
+    $cmd('AUTH LOGIN', [334], 'AUTH LOGIN');
+    $cmd(base64_encode($cfg['username']), [334], 'AUTH username');
+    $cmd(base64_encode($cfg['password']), [235], 'AUTH password');
     $from = $cfg['from_email'];
-    $cmd("MAIL FROM:<$from>", [250]);
-    foreach ((array) $cfg['to'] as $to) $cmd('RCPT TO:<' . lead_header_value($to) . '>', [250, 251]);
-    $cmd('DATA', [354]);
+    $cmd("MAIL FROM:<$from>", [250], 'MAIL FROM');
+    foreach ((array) $cfg['to'] as $to) $cmd('RCPT TO:<' . lead_header_value($to) . '>', [250, 251], 'RCPT TO');
+    $cmd('DATA', [354], 'DATA');
 
     $domain = substr(strrchr($from, '@'), 1);
     $headers = [
@@ -149,7 +151,7 @@ function smtp_send(array $cfg, string $replyTo, string $subject, string $body): 
     // A line that is only "." would end DATA early: dot-stuff it (base64 never produces one, but stay safe).
     $message = preg_replace('/^\./m', '..', $message);
     fwrite($sock, $message . "\r\n");
-    $cmd('.', [250]);
+    $cmd('.', [250], 'end of message');
     @fwrite($sock, "QUIT\r\n");
     fclose($sock);
 }
