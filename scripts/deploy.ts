@@ -1,16 +1,23 @@
 /**
- * Deploys deploy/site-staging.zip to the staging subdomain (new.3s-soft.com) through the cPanel API.
+ * Deploys a built zip to staging (new.3s-soft.com) or live (3s-soft.com) through the cPanel API.
  * Reads CPANEL_HOST, CPANEL_USER and CPANEL_TOKEN from .env (never printed).
- * Only ever touches the staging folder. Going live is a separate, manual step (docs/deploy.md).
+ * Live refuses to run unless ~/site-backups/ holds a backup of public_html made today.
  *
- *   npx tsx scripts/deploy-staging.ts           # show what would change
- *   npx tsx scripts/deploy-staging.ts --apply   # upload, replace the old build, extract
+ *   npx tsx scripts/deploy.ts staging            # dry run: show what would change
+ *   npx tsx scripts/deploy.ts staging --apply    # upload deploy/site-staging.zip, replace the old build, extract
+ *   npx tsx scripts/deploy.ts live --apply       # same with deploy/site-live.zip into public_html
  */
 import { readFileSync } from 'node:fs'
 
-const STAGING_DIR = 'new.3s-soft.com'
-const KEEP = new Set(['.well-known', 'cgi-bin', '.user.ini', 'php.ini', 'site-staging.zip'])
-const ZIP = 'deploy/site-staging.zip'
+const TARGETS = {
+  staging: { dir: 'new.3s-soft.com', zip: 'deploy/site-staging.zip', url: 'https://new.3s-soft.com/' },
+  live: { dir: 'public_html', zip: 'deploy/site-live.zip', url: 'https://3s-soft.com/' },
+} as const
+const target = process.argv[2] as keyof typeof TARGETS
+if (!(target in TARGETS)) throw new Error('Usage: deploy.ts staging|live [--apply]')
+const { dir: STAGING_DIR, zip: ZIP, url: URL_ } = TARGETS[target]
+const UPLOAD_NAME = ZIP.split('/').pop()!
+const KEEP = new Set(['.well-known', 'cgi-bin', '.user.ini', 'php.ini', UPLOAD_NAME])
 
 function env(name: string): string {
   const line = readFileSync('.env', 'utf8').split(/\r?\n/).find((l) => l.startsWith(`${name}=`))
@@ -39,9 +46,15 @@ async function fileop(op: 'unlink' | 'extract', sourcefiles: string[], destfiles
 }
 
 const apply = process.argv.includes('--apply')
+if (target === 'live') {
+  const today = new Date().toLocaleDateString('sv-SE') // local YYYY-MM-DD, matching the backup name
+  const backups = (await uapi('Fileman/list_files?dir=site-backups&include_mime=0')) as { file: string }[]
+  if (!backups.some((b) => b.file === `public_html-${today}.zip`)) throw new Error(`No backup ~/site-backups/public_html-${today}.zip. Back up public_html first.`)
+  console.log(`Backup found: ~/site-backups/public_html-${today}.zip`)
+}
 const listing = (await uapi(`Fileman/list_files?dir=${STAGING_DIR}&show_hidden=1&include_mime=0`)) as { file: string }[]
 const remove = listing.map((f) => f.file).filter((f) => !KEEP.has(f))
-console.log(`Staging folder ~/${STAGING_DIR}: ${listing.length} items; ${remove.length} old build items to replace.`)
+console.log(`${target} folder ~/${STAGING_DIR}: ${listing.length} items; ${remove.length} old build items to replace.`)
 if (!apply) {
   console.log('Dry run. Re-run with --apply to deploy.')
   process.exit(0)
@@ -50,15 +63,15 @@ if (!apply) {
 const form = new FormData()
 form.set('dir', STAGING_DIR)
 form.set('overwrite', '1')
-form.set('file-1', new Blob([readFileSync(ZIP)]), 'site-staging.zip')
+form.set('file-1', new Blob([readFileSync(ZIP)]), UPLOAD_NAME)
 await uapi('Fileman/upload_files', { method: 'POST', body: form })
-console.log('Uploaded site-staging.zip')
+console.log(`Uploaded ${UPLOAD_NAME}`)
 
 const home = `/home/${env('CPANEL_USER')}/${STAGING_DIR}`
 if (remove.length) await fileop('unlink', remove.map((f) => `${home}/${f}`))
 console.log(`Removed ${remove.length} old items`)
 
-await fileop('extract', [`${home}/site-staging.zip`], home)
+await fileop('extract', [`${home}/${UPLOAD_NAME}`], home)
 console.log('Extracted')
-await fileop('unlink', [`${home}/site-staging.zip`])
-console.log('Removed the zip. Done: https://new.3s-soft.com/')
+await fileop('unlink', [`${home}/${UPLOAD_NAME}`])
+console.log(`Removed the zip. Done: ${URL_}`)

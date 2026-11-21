@@ -50,3 +50,10 @@ test('every srcset file referenced by any page exists', () => {
   }
   expect(missing).toEqual([])
 })
+
+test('a kill-switch sw.js replaces the old site service worker', () => {
+  const sw = readFileSync('out/sw.js', 'utf8')
+  expect(sw).toContain('caches.delete')
+  expect(sw).toContain('registration.unregister')
+  expect(sw).not.toMatch(/importScripts|workbox/i)
+})
