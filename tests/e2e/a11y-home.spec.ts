@@ -28,6 +28,7 @@ const PAGES = [
   '/privacy-policy/',
   '/terms-of-service/',
   '/cookies/',
+  '/thank-you/',
   '/this-page-does-not-exist/',
 ]
 

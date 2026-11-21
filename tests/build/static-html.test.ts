@@ -71,3 +71,10 @@ test('a case study with a video loads nothing until play, and offers a transcrip
   expect(html).toContain('2,451')
   expect(html).not.toMatch(/Karim|Mikahail/i)
 })
+
+test('the thank-you page exists, is hidden from search engines and left out of the sitemap', () => {
+  const html = readFileSync('out/thank-you/index.html', 'utf8')
+  expect(html).toMatch(/<meta name="robots" content="noindex/)
+  expect(html).toMatch(/<h1[^>]*>[^<]*Thanks/)
+  expect(readFileSync('out/sitemap.xml', 'utf8')).not.toContain('/thank-you/')
+})

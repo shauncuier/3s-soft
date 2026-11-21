@@ -151,10 +151,10 @@ test.skipIf(!PHP)('one address can send only a few requests in a short time', as
   expect(mails).toHaveLength(3)
 })
 
-test.skipIf(!PHP)('without JavaScript the visitor gets a plain thank-you page', async () => {
-  const res = await post(audit(), { Accept: 'text/html', Origin: `http://localhost:${PHP_PORT}` }, '10.0.0.7')
-  expect(res.status).toBe(200)
-  expect(await res.text()).toMatch(/Thanks, we have your request/)
+test.skipIf(!PHP)('without JavaScript a sent form redirects to the thank-you page for that form', async () => {
+  const res = await fetch(`http://127.0.0.1:${PHP_PORT}/api/lead.php`, { method: 'POST', body: audit(), redirect: 'manual', headers: { Accept: 'text/html', Origin: `http://localhost:${PHP_PORT}`, 'X-Test-Ip': '10.0.0.7' } })
+  expect(res.status).toBe(303)
+  expect(res.headers.get('location')).toBe('/thank-you/?form=audit')
   expect(mails).toHaveLength(1)
 })
 

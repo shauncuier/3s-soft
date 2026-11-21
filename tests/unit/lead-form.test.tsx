@@ -15,9 +15,11 @@ function fillAudit() {
 }
 
 type F = (input: string, init?: RequestInit) => Promise<Response>
+let navigate = vi.fn()
 function mount(kind: 'audit' | 'contact', fetchImpl: F) {
+  navigate = vi.fn()
   const r = render(<LeadForm kind={kind} />)
-  initLeadForms(document, fetchImpl)
+  initLeadForms(document, fetchImpl, navigate)
   return r
 }
 
@@ -163,4 +165,19 @@ test('a refused request (rate limit or server error) shows the failure message',
   fillAudit()
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
   expect(await screen.findByText(/couldn’t send/i)).toBeTruthy()
+})
+
+test('after a successful send the visitor goes to the thank-you page for that form', async () => {
+  mount('audit', vi.fn(ok))
+  fillAudit()
+  fireEvent.click(screen.getByRole('button', { name: /send/i }))
+  await waitFor(() => expect(navigate).toHaveBeenCalledWith('/thank-you/?form=audit'))
+})
+
+test('a failed send stays on the page and does not go to the thank-you page', async () => {
+  mount('audit', () => Promise.resolve(new Response('', { status: 500 })))
+  fillAudit()
+  fireEvent.click(screen.getByRole('button', { name: /send/i }))
+  await screen.findByText(/couldn’t send/i)
+  expect(navigate).not.toHaveBeenCalled()
 })

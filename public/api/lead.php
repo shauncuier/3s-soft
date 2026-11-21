@@ -58,8 +58,16 @@ if ($origin !== '' && !in_array($origin, (array) ($cfg['allowed_origins'] ?? [])
 $ip = (!empty($cfg['trust_test_ip_header']) && !empty($_SERVER['HTTP_X_TEST_IP'])) ? (string) $_SERVER['HTTP_X_TEST_IP'] : (string) ($_SERVER['REMOTE_ADDR'] ?? '');
 $kind = ($_POST['form_type'] ?? '') === 'contact' ? 'contact' : 'audit';
 
+/** Success: JSON for the site script, or (no JavaScript) a 303 redirect to the thank-you page for this form. */
+function lead_done(bool $json, string $kind): void
+{
+    if ($json) lead_reply(true, 200, ['ok' => true]);
+    header('Location: /thank-you/?form=' . $kind, true, 303);
+    exit;
+}
+
 // Bots fill the hidden field: answer as if it worked, send nothing.
-if (trim((string) ($_POST['company_website'] ?? '')) !== '') lead_reply($wantsJson, 200, ['ok' => true]);
+if (trim((string) ($_POST['company_website'] ?? '')) !== '') lead_done($wantsJson, $kind);
 
 $errors = lead_validate($kind, $_POST);
 if ($errors) lead_reply($wantsJson, 422, ['ok' => false, 'errors' => $errors]);
@@ -73,4 +81,4 @@ try {
     error_log('lead.php: ' . $e->getMessage());
     lead_reply($wantsJson, 502, ['ok' => false, 'error' => 'Could not send']);
 }
-lead_reply($wantsJson, 200, ['ok' => true]);
+lead_done($wantsJson, $kind);

@@ -10,7 +10,8 @@ function iconFrom(root: Element): Element | null {
 }
 
 /** Wires every [data-lead-form] block: validation, error summary, honeypot, one request at a time, success and failure states. */
-export function initLeadForms(doc: Document, fetchImpl?: Fetch) {
+/** After a successful send the visitor goes to /thank-you/?form=… (a URL analytics and ad tools can count as a conversion). */
+export function initLeadForms(doc: Document, fetchImpl?: Fetch, navigate: (url: string) => void = (url) => doc.defaultView!.location.assign(url)) {
   doc.querySelectorAll<HTMLElement>('[data-lead-form]').forEach((root) => {
     const kind = root.dataset.leadForm as LeadKind
     const form = root.querySelector('form')!
@@ -65,6 +66,7 @@ export function initLeadForms(doc: Document, fetchImpl?: Fetch) {
       form.hidden = true
       sent.hidden = false
       sent.focus()
+      navigate(`/thank-you/?form=${kind}`)
     }
 
     form.addEventListener('submit', async (e) => {
