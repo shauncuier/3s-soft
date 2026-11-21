@@ -60,3 +60,18 @@ test('slugs are unique and getCaseStudy finds each one', () => {
   expect(new Set(slugs).size).toBe(slugs.length)
   for (const c of caseStudies) expect(getCaseStudy(c.slug).slug).toBe(c.slug)
 })
+
+test('every case study shows at least one real image that exists', () => {
+  for (const c of caseStudies) {
+    expect(c.images.length, c.slug).toBeGreaterThan(0)
+    for (const img of c.images) expect(existsSync(`public${img.src}`), img.src).toBe(true)
+  }
+})
+
+test('Stahl-Design-Tebart case study describes the WSS locks and 2D hinges shown in its images', () => {
+  const c = getCaseStudy('stahl-design-tebart-amazon-listing-optimization')
+  expect(c.title).toMatch(/lock/i)
+  expect(c.title).toMatch(/hinge/i)
+  expect(c.images.length).toBeGreaterThanOrEqual(4)
+  expect(c.images.every((i) => i.alt.length > 40)).toBe(true)
+})

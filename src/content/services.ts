@@ -34,7 +34,7 @@ export const services: Service[] = [
     faq: [
       { q: 'Can you fix listings that are already live?', a: 'Yes. Send the ASINs or item links. We rewrite the copy and backend terms, fix broken variations and resubmit them. You see every change in a before-and-after sheet.' },
       { q: 'How many products can you upload?', a: 'Anything from one product to a full catalogue. MONTIQUE’s store, for example, has 895 listings, each with 20 to 42 size and colour variations.' },
-      { q: 'Can you write listings in other languages?', a: 'We write in US or UK English, and we have localised listings into German for Stahl-Design-Tebart on Amazon.de. Other languages are quoted per project.' },
+      { q: 'Can you write listings in other languages?', a: 'We write in US or UK English, and we have designed German A+ Content for Stahl-Design-Tebart on Amazon.de. Other languages are quoted per project.' },
       { q: 'What do you need from me to start?', a: 'Product data in any form you have it: a spreadsheet, supplier sheet, website links or photos. We turn it into marketplace-ready listings.' },
     ],
     ctaKind: 'audit',
