@@ -7,7 +7,8 @@
  *   npx tsx scripts/deploy.ts staging --apply    # upload deploy/site-staging.zip, replace the old build, extract
  *   npx tsx scripts/deploy.ts live --apply       # same with deploy/site-live.zip into public_html
  */
-import { readFileSync } from 'node:fs'
+import { readFileSync, statSync } from 'node:fs'
+import { buildMatchesTarget } from './deploy-guard'
 
 const TARGETS = {
   staging: { dir: 'new.3s-soft.com', zip: 'deploy/site-staging.zip', url: 'https://new.3s-soft.com/' },
@@ -46,6 +47,13 @@ async function fileop(op: 'unlink' | 'extract', sourcefiles: string[], destfiles
 }
 
 const apply = process.argv.includes('--apply')
+// Refuse the wrong build: staging must be noindex, live indexable, and the zip must be made from the current out/.
+if (!buildMatchesTarget(readFileSync('out/index.html', 'utf8'), target)) {
+  throw new Error(`out/ is not a ${target} build (check NEXT_PUBLIC_NOINDEX and that the last build succeeded). Nothing deployed.`)
+}
+if (statSync(ZIP).mtimeMs < statSync('out/index.html').mtimeMs) {
+  throw new Error(`${ZIP} is older than out/. Re-create the zip from the current build. Nothing deployed.`)
+}
 if (target === 'live') {
   const today = new Date().toLocaleDateString('sv-SE') // local YYYY-MM-DD, matching the backup name
   const backups = (await uapi('Fileman/list_files?dir=site-backups&include_mime=0')) as { file: string }[]

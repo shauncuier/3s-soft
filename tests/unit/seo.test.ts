@@ -42,5 +42,5 @@ test('404 page is noindex', () => {
 })
 
 test('the YouTube channel is listed as an official profile', () => {
-  expect(orgJsonLd().sameAs).toContain('https://www.youtube.com/@3s-soft')
+  expect((orgJsonLd() as { sameAs: string[] }).sameAs).toContain('https://www.youtube.com/@3s-soft')
 })
