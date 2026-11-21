@@ -28,7 +28,7 @@ Next.js is used as a static HTML generator only. After `next build`, `scripts/st
 - the mobile menu and current-section link
 - the cookie banner and consent-gated analytics
 - click tracking (`data-track`)
-- the lead forms (validation, Formspree, success/failure)
+- the lead forms (validation, sending to `/api/lead.php`, success/failure)
 - the portfolio filter
 - the before/after toggle
 

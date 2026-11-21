@@ -1,7 +1,7 @@
 /**
  * Inline loader for /assets/site.js. It adds the script only after the page has loaded, so the
  * script never shares a task with the first layout and never delays first paint. Until then the
- * page is fully readable and its forms still post straight to Formspree.
+ * page is fully readable and its forms still post straight to our mail handler.
  * The script path comes from the tag's data-src (the build appends a ?v= version to it).
  */
 export const SITE_LOADER =

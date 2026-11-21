@@ -4,7 +4,7 @@ import { site, whatsappLink } from '@/content/site'
 import type { LeadKind } from '@/lib/lead'
 
 /**
- * Static form markup. src/client/lead-form.ts validates and sends it to Formspree.
+ * Static form markup. src/client/lead-form.ts validates it and sends it to our mail handler (public/api/lead.php).
  * The <template>s hold the success panel, the failure alert and the error icon the script clones.
  */
 export function LeadForm({ kind }: { kind: LeadKind }) {
@@ -17,7 +17,8 @@ export function LeadForm({ kind }: { kind: LeadKind }) {
 
   return (
     <div data-lead-form={kind}>
-      <form noValidate className="flex flex-col gap-5" aria-label={kind === 'audit' ? 'Free listing audit request' : 'Contact form'} action="https://formspree.io/f/mgoyrdky" method="POST">
+      <form noValidate className="flex flex-col gap-5" aria-label={kind === 'audit' ? 'Free listing audit request' : 'Contact form'} action="/api/lead.php" method="POST">
+        <input type="hidden" name="form_type" value={kind} />
         <div data-errsum hidden tabIndex={-1} role="alert" aria-labelledby={id('errsum')} className="ds-errsum">
           <h2 id={id('errsum')} className="ds-errsum__title"><AlertCircle size={20} aria-hidden="true" /> <span data-errsum-title /></h2>
           <ul className="ds-errsum__list" data-errsum-list />

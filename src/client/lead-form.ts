@@ -87,7 +87,6 @@ export function initLeadForms(doc: Document, fetchImpl?: Fetch) {
       button.textContent = 'Sending…'
       data.set('form_type', kind)
       for (const [k, v] of Object.entries(getStoredUtm())) if (v) data.set(k, v)
-      data.set('_subject', kind === 'audit' ? 'Free listing audit request (3s-soft.com)' : 'New enquiry (3s-soft.com)')
 
       const result = await submitLead(data, fetchImpl)
       pending = false

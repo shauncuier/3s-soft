@@ -12,7 +12,7 @@ export default function PrivacyPage() {
     <LegalPage
       title="Privacy policy"
       path="/privacy-policy/"
-      updated="2026-11-20"
+      updated="2026-11-21"
       intro="This policy explains what personal data 3s-Soft collects through 3s-soft.com, why, and what you can do about it. 3s-Soft is based in Chittagong, Bangladesh. Contact us at info@3s-soft.com with any privacy question."
       sections={[
         {
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         {
           heading: 'Who processes it',
           list: [
-            'Formspree receives form submissions and forwards them to our inbox.',
+            'Form submissions go to our own web server at 3s-soft.com and are emailed to our 3s-Soft mailbox. Both run on our hosting provider; no outside form service is involved.',
             'Google Analytics and Microsoft Clarity process analytics data, only after you consent.',
             'Cal.com handles call bookings if you book a call.',
           ],

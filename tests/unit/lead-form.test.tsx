@@ -27,14 +27,14 @@ beforeEach(() => {
   window.gtag = vi.fn()
 })
 
-test('submitLead posts JSON-accepting request to Formspree', async () => {
+test('submitLead posts a JSON-accepting request to our own mail handler', async () => {
   const fetchImpl = vi.fn(ok)
   const fd = new FormData()
   fd.set('email', 'a@b.co')
   const res = await submitLead(fd, fetchImpl)
   expect(res).toEqual({ ok: true })
   const [url, init] = fetchImpl.mock.calls[0] as unknown as [string, RequestInit]
-  expect(url).toBe('https://formspree.io/f/mgoyrdky')
+  expect(url).toBe('/api/lead.php')
   expect((init.headers as Record<string, string>).Accept).toBe('application/json')
 })
 
@@ -148,4 +148,19 @@ test('a missing marketplace marks the group and focuses its first choice', async
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
   expect(await screen.findByText(/Choose the marketplace/)).toBeTruthy()
   expect(document.activeElement).toBe(screen.getByRole('radio', { name: 'Amazon' }))
+})
+
+test('the form posts to our own handler even without JavaScript, with its type', () => {
+  mount('contact', vi.fn(ok))
+  const form = document.querySelector('form[aria-label="Contact form"]')!
+  expect(form.getAttribute('action')).toBe('/api/lead.php')
+  expect(form.querySelector<HTMLInputElement>('input[type="hidden"][name="form_type"]')!.value).toBe('contact')
+  expect(document.body.innerHTML).not.toMatch(/formspree/i)
+})
+
+test('a refused request (rate limit or server error) shows the failure message', async () => {
+  mount('audit', () => Promise.resolve(new Response('{"ok":false}', { status: 429 })))
+  fillAudit()
+  fireEvent.click(screen.getByRole('button', { name: /send/i }))
+  expect(await screen.findByText(/couldn’t send/i)).toBeTruthy()
 })

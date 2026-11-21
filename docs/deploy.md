@@ -48,7 +48,7 @@ On Windows PowerShell: `$env:NEXT_PUBLIC_NOINDEX='1'; npm run build`
 | 301s | `curl -sI https://new.3s-soft.com/services/graphic-design` | `301` → `/services/amazon-a-plus-content/` |
 | Trailing slash | `curl -sI https://new.3s-soft.com/reviews` | `301` → `/reviews/` |
 | 404 | open `/no-such-page/` | branded 404 page |
-| Forms | send one audit request | arrives in the Formspree inbox |
+| Forms | send one audit request | arrives in the inbox set in `~/config/lead-mailer.php` |
 | Analytics | allow analytics, click WhatsApp, use GA4 DebugView | `whatsapp_click` event with `utm_source` when opened from a `?utm_source=test` link |
 | Speed | [PageSpeed Insights](https://pagespeed.web.dev/) on `/`, one service page, one case study, `/free-listing-audit/` (mobile) | target: Performance ≥ 95, Accessibility 100, Best Practices 100, SEO 100 |
 | Noindex | view source on staging | `<meta name="robots" content="noindex, nofollow">` |

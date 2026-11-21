@@ -9,7 +9,7 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
-    include: ['tests/unit/**/*.test.{ts,tsx}', 'tests/build/**/*.test.ts'],
+    include: ['tests/unit/**/*.test.{ts,tsx}', 'tests/build/**/*.test.ts', 'tests/php/**/*.test.ts'],
     globals: true,
   },
 })

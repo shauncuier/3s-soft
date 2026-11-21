@@ -57,3 +57,9 @@ test('a kill-switch sw.js replaces the old site service worker', () => {
   expect(sw).toContain('registration.unregister')
   expect(sw).not.toMatch(/importScripts|workbox/i)
 })
+
+test('the export ships the mail handler and keeps its helper private', () => {
+  expect(existsSync('out/api/lead.php')).toBe(true)
+  expect(readFileSync('out/api/lead-lib.php', 'utf8')).toMatch(/if \(!defined\('LEAD_MAILER'\)\)/)
+  for (const f of ['out/contact/index.html', 'out/free-listing-audit/index.html']) expect(readFileSync(f, 'utf8')).toContain('action="/api/lead.php"')
+})

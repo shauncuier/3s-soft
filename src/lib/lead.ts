@@ -1,14 +1,15 @@
-export const FORMSPREE_URL = 'https://formspree.io/f/mgoyrdky'
+/** Our own PHP handler (public/api/lead.php): validates and emails the lead through the site's SMTP mailbox. */
+export const LEAD_ENDPOINT = '/api/lead.php'
 
 export type Fetch = (input: string, init?: RequestInit) => Promise<Response>
 export type SubmitResult = { ok: true } | { ok: false; error: string }
 export type LeadKind = 'audit' | 'contact'
 export type FieldErrors = Record<string, string>
 
-/** Posts a lead to Formspree. Never throws. */
+/** Posts a lead to our mail handler. Never throws. */
 export async function submitLead(data: FormData, fetchImpl: Fetch = fetch): Promise<SubmitResult> {
   try {
-    const res = await fetchImpl(FORMSPREE_URL, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+    const res = await fetchImpl(LEAD_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
     return res.ok ? { ok: true } : { ok: false, error: `Server responded ${res.status}` }
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : 'Network error' }
