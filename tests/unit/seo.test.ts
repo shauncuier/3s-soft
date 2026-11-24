@@ -37,6 +37,10 @@ test('robots allows everything and points to the sitemap', () => {
   expect(JSON.stringify(r.rules)).not.toContain('"disallow":"/"')
 })
 
+test('robots has no Host line (Googlebot ignores it and Search Console warns)', () => {
+  expect(robots().host).toBeUndefined()
+})
+
 test('404 page is noindex', () => {
   expect((notFoundMeta.robots as { index: boolean }).index).toBe(false)
 })

@@ -9,6 +9,5 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: '*', allow: '/' }],
     sitemap: 'https://3s-soft.com/sitemap.xml',
-    host: 'https://3s-soft.com',
   }
 }
