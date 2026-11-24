@@ -98,4 +98,4 @@ Rhythm: 1 guide a week. Each one is linked from its service page and shared on L
 | 1.4 | Prices | Waiting on your price OK |
 | 1.5 | Homepage speed | Done: already on target (TBT 30–170 ms in 3 mobile runs on 2026-11-24, Performance 98–100); no change needed |
 | 1.6 | old-urls.xml | Done: built to `/old-urls.xml` (29 URLs). After it is live, submit it in Search Console; delete it after 2026-12-24 |
-| 1.7 | Sitemap lastmod | Pending |
+| 1.7 | Sitemap lastmod | Done: each page uses the last git commit of its own sources; guides use their printed "updated" date |
