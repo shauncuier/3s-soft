@@ -38,6 +38,20 @@ export const redirects: Redirect[] = [
   { from: '/register', to: '/contact/' },
 ]
 
+/** Old routes redirected by a fixed rule in renderHtaccess rather than by the list above. */
+const FIXED_OLD_URLS = ['/blog']
+
+/**
+ * A temporary sitemap of old URLs, so Google recrawls them sooner and sees each 301.
+ * Written to public/old-urls.xml; submit it once in Search Console, then delete it about 4 weeks later.
+ */
+export function renderOldUrlsSitemap(list: Redirect[]): string {
+  const xmlEscape = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  const paths = [...new Set([...list.map((r) => r.from), ...FIXED_OLD_URLS])]
+  const urls = paths.map((p) => `  <url><loc>https://3s-soft.com${xmlEscape(p)}</loc></url>`).join('\n')
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+}
+
 function escape(path: string): string {
   return path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }

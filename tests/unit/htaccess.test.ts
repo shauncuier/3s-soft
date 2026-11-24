@@ -1,4 +1,4 @@
-import { redirects, renderHtaccess } from '@/content/redirects'
+import { redirects, renderHtaccess, renderOldUrlsSitemap } from '@/content/redirects'
 import { siteRoutes } from '@/lib/seo'
 
 const ht = renderHtaccess(redirects)
@@ -68,4 +68,30 @@ test('hashed assets cache for a year, HTML never caches', () => {
 
 test('every redirect target is absolute https or a trailing-slash path', () => {
   for (const r of redirects) expect(r.to).toMatch(/^(https:\/\/.+|\/.*\/)$|^\/$/)
+})
+
+describe('old-urls.xml (temporary sitemap so Google recrawls the 301s)', () => {
+  const xml = renderOldUrlsSitemap(redirects)
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+
+  test('is a valid urlset listing every old URL on the live domain', () => {
+    expect(xml.startsWith('<?xml version="1.0" encoding="UTF-8"?>')).toBe(true)
+    expect(xml).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    for (const r of redirects) expect(locs).toContain(`https://3s-soft.com${r.from}`)
+    expect(locs).toContain('https://3s-soft.com/blog')
+  })
+
+  test('every listed URL really redirects, and none is a live page', () => {
+    const live = new Set(siteRoutes())
+    for (const loc of locs) {
+      const path = loc.replace('https://3s-soft.com', '')
+      expect(resolve(path), path).not.toBeNull()
+      expect(live.has(path) || live.has(`${path}/`), path).toBe(false)
+    }
+  })
+
+  test('lists each URL once and escapes XML', () => {
+    expect(new Set(locs).size).toBe(locs.length)
+    expect(renderOldUrlsSitemap([{ from: '/a&b', to: '/' }])).toContain('<loc>https://3s-soft.com/a&amp;b</loc>')
+  })
 })
