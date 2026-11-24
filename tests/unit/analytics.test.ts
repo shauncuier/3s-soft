@@ -66,3 +66,29 @@ test('revokeTracking turns analytics consent off in loaded trackers and removes 
   expect(document.cookie).not.toMatch(/_ga=|_clck=/)
   expect(document.cookie).toMatch(/keep=yes/)
 })
+
+test('allowing analytics is remembered for good: it survives a new visit', () => {
+  setConsent('granted')
+  sessionStorage.clear() // a new visit starts with empty session storage
+  expect(getConsent()).toBe('granted')
+})
+
+test('declining lasts for this visit only, so the banner asks again next visit', () => {
+  setConsent('denied')
+  expect(getConsent()).toBe('denied')
+  expect(localStorage.getItem('3s-consent')).toBeNull()
+  sessionStorage.clear()
+  expect(getConsent()).toBeNull()
+})
+
+test('declining after allowing removes the stored permission', () => {
+  setConsent('granted')
+  setConsent('denied')
+  expect(localStorage.getItem('3s-consent')).toBeNull()
+  expect(getConsent()).toBe('denied')
+})
+
+test('an old "declined" saved forever by the previous banner is ignored, so the banner shows again', () => {
+  localStorage.setItem('3s-consent', 'denied')
+  expect(getConsent()).toBeNull()
+})

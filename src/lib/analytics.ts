@@ -28,10 +28,15 @@ declare global {
   }
 }
 
+/**
+ * "Allow" is kept in localStorage, so the banner never asks again.
+ * "Decline" is kept in sessionStorage only: it holds for this visit, and the banner asks again next visit.
+ * A "denied" left in localStorage by the earlier banner is ignored.
+ */
 export function getConsent(): Consent {
   try {
-    const value = localStorage.getItem(CONSENT_KEY)
-    return value === 'granted' || value === 'denied' ? value : null
+    if (localStorage.getItem(CONSENT_KEY) === 'granted') return 'granted'
+    return sessionStorage.getItem(CONSENT_KEY) === 'denied' ? 'denied' : null
   } catch {
     return null
   }
@@ -39,7 +44,13 @@ export function getConsent(): Consent {
 
 export function setConsent(consent: 'granted' | 'denied'): void {
   try {
-    localStorage.setItem(CONSENT_KEY, consent)
+    if (consent === 'granted') {
+      localStorage.setItem(CONSENT_KEY, 'granted')
+      sessionStorage.removeItem(CONSENT_KEY)
+    } else {
+      localStorage.removeItem(CONSENT_KEY)
+      sessionStorage.setItem(CONSENT_KEY, 'denied')
+    }
   } catch {
     // Storage blocked: the choice lasts for this page view only.
   }

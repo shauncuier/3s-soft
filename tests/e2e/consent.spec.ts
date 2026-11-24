@@ -60,3 +60,23 @@ test('withdrawing consent stops trackers and removes their cookies', async ({ pa
   expect(hits).toEqual([])
   expect((await context.cookies()).map((c) => c.name)).not.toContain('_ga')
 })
+
+test('after "Decline" the banner stays away for this visit but asks again on the next visit', async ({ context }) => {
+  const page = await context.newPage()
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Decline' }).click()
+  await page.goto('/services/')
+  await expect(page.getByRole('region', { name: 'Cookie choice' })).toBeHidden()
+  const nextVisit = await context.newPage() // new tab: same site storage, fresh session
+  await nextVisit.goto('/')
+  await expect(nextVisit.getByRole('region', { name: 'Cookie choice' })).toBeVisible()
+})
+
+test('after "Allow analytics" the banner never shows again, even on a new visit', async ({ context }) => {
+  const page = await context.newPage()
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  const nextVisit = await context.newPage()
+  await nextVisit.goto('/')
+  await expect(nextVisit.getByRole('button', { name: 'Allow analytics' })).toBeHidden()
+})

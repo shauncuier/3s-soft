@@ -55,7 +55,7 @@ export function initConsent(doc: Document) {
   })
   doc.querySelectorAll<HTMLButtonElement>('[data-consent-reset]').forEach((b) => {
     b.addEventListener('click', () => {
-      try { win.localStorage.removeItem('3s-consent') } catch { /* storage blocked */ }
+      try { win.localStorage.removeItem('3s-consent'); win.sessionStorage.removeItem('3s-consent') } catch { /* storage blocked */ }
       win.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: null }))
     })
   })

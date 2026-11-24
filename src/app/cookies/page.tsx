@@ -20,7 +20,7 @@ export default function CookiesPage() {
           {
             heading: 'Always on (no cookies)',
             paragraphs: ['We store two small values in your browser so the site remembers your choices. Your analytics choice never leaves your browser. The campaign tags are sent with a contact or audit form only if you submit one, so we know which link brought you.'],
-            list: ['3s-consent (local storage): your analytics choice.', '3s-utm (session storage): the campaign tags from the link you used, cleared when you close the tab.'],
+            list: ['3s-consent: your analytics choice. If you allow analytics, it is kept in local storage and the banner does not ask again. If you decline, it is kept in session storage for this visit only, and the banner asks again on your next visit.', '3s-utm (session storage): the campaign tags from the link you used, cleared when you close the tab.'],
           },
           {
             heading: 'Only with your consent',
