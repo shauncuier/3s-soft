@@ -24,9 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const c = caseStudies.find((x) => x.slug === slug)
   if (!c) return {}
-  const name = c.publicNameApproved ? c.clientLabel.split(' · ')[0] : 'Case study'
   return {
-    title: `${name}: ${c.title}`,
+    title: c.metaTitle,
     description: c.metaDescription,
     alternates: { canonical: `/portfolio/${c.slug}/` },
     openGraph: { type: 'article', images: c.images[0] ? [{ url: c.images[0].src, width: c.images[0].width, height: c.images[0].height, alt: c.images[0].alt }] : undefined },

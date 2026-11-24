@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ogImage } from '@/lib/og'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { posts } from '@/content/posts'
@@ -23,10 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = posts.find((x) => x.slug === slug)
   if (!p) return {}
   return {
-    title: p.title,
+    title: p.metaTitle,
     description: p.description,
     alternates: { canonical: `/blog/${p.slug}/` },
-    openGraph: { type: 'article', publishedTime: p.published, modifiedTime: p.updated },
+    openGraph: { type: 'article', publishedTime: p.published, modifiedTime: p.updated, images: [ogImage('post', p.slug, p.title)] },
+    twitter: { card: 'summary_large_image', images: [ogImage('post', p.slug, p.title).url] },
   }
 }
 
@@ -36,6 +38,11 @@ export default async function PostPage({ params }: Props) {
   if (!p) notFound()
   const reviewer = team.find((t) => t.name === p.reviewedBy)
   const related = services.filter((s) => p.services.includes(s.slug))
+  // Up to 2 guides on the same service, then the next guides in list order, so every guide gets a link from another guide.
+  const i = posts.indexOf(p)
+  const ring = [...posts.slice(i + 1), ...posts.slice(0, i)]
+  const sameService = ring.filter((x) => x.services.some((sv) => p.services.includes(sv))).slice(0, 2)
+  const moreGuides = [ring[0], ...sameService, ...ring].filter((x, n, a) => a.indexOf(x) === n).slice(0, 3)
 
   return (
     <article>
@@ -70,7 +77,7 @@ export default async function PostPage({ params }: Props) {
             )
           })}
         </div>
-        <aside aria-label="Related services" className="flex flex-col gap-4 self-start rounded-[var(--radius-lg)] border border-line bg-surface-0 p-6 lg:sticky lg:top-24">
+        <aside aria-label="Related services and guides" className="flex flex-col gap-4 self-start rounded-[var(--radius-lg)] border border-line bg-surface-0 p-6 lg:sticky lg:top-24">
           <h2 className="m-0 text-lg font-bold">Related services</h2>
           <ul className="m-0 flex list-none flex-col gap-2 p-0">
             {related.map((s) => (
@@ -78,6 +85,12 @@ export default async function PostPage({ params }: Props) {
             ))}
           </ul>
           <Link className="ds-btn ds-btn--primary" href="/free-listing-audit/">Get a free audit</Link>
+          <h2 className="mt-4 mb-0 text-lg font-bold">More guides</h2>
+          <ul className="m-0 flex list-none flex-col gap-3 p-0">
+            {moreGuides.map((g) => (
+              <li key={g.slug}><Link className="font-semibold text-ink hover:text-green-700" href={`/blog/${g.slug}/`}>{g.title}</Link></li>
+            ))}
+          </ul>
         </aside>
       </div>
 

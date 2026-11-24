@@ -10,7 +10,7 @@ import { ProofBar } from '@/components/ProofBar'
 import { JsonLd } from '@/components/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'About 3s-Soft',
+  title: 'About Us: eCommerce Operations Team Since 2015',
   description: '3s-Soft is an eCommerce operations team in Chittagong, Bangladesh, led by Jashedul Islam Shaun. Listings, A+ Content and catalogue work since 2015.',
   alternates: { canonical: '/about-us/' },
 }

@@ -9,6 +9,7 @@ import { site } from './site'
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'm-and-a-global-amazon-toner-catalogue',
+    metaTitle: 'M & A Global: 2,451 Amazon Toner Listings Live',
     title: 'From an at-risk Amazon account to 2,451 live toner listings',
     metaDescription: 'Case study: account recovery, a 2,460-listing Amazon toner catalogue built from one cost sheet with 0 upload errors, clean main photos, verified compatibility images and a PPC plan for M & A Global.',
     clientLabel: 'M & A Global · US toner cartridge seller', clientRealName: 'M & A Global', publicNameApproved: true,
@@ -90,6 +91,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'ivan-troy-amazon-a-plus',
+    metaTitle: 'Ivan Troy: Amazon A+ Content & Brand Story',
     title: 'Brand Story and A+ Content for a six-colour belt range',
     metaDescription: 'Case study: an Amazon Brand Story and six A+ Content pages for Ivan Troy’s Italian leather belt range, with a size guide and comparison chart.',
     clientLabel: 'Ivan Troy · Amazon fashion brand', clientRealName: 'Ivan Troy', publicNameApproved: true,
@@ -121,6 +123,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'montique-amazon-store',
+    metaTitle: 'MONTIQUE: 895 Amazon Listings with Variations',
     title: '895 products and their variations added to an Amazon store',
     metaDescription: 'Case study: 895 MONTIQUE menswear listings created on Amazon, each a parent product with 20 to 42 size and colour variations.',
     clientLabel: 'MONTIQUE · Amazon menswear brand', clientRealName: 'MONTIQUE', publicNameApproved: true,
@@ -147,6 +150,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'stahl-design-tebart-amazon-listing-optimization',
+    metaTitle: 'Stahl-Design-Tebart: Amazon.de A+ Content',
     title: 'A+ Content for WSS door locks and 2D hinges on Amazon.de',
     metaDescription: 'Case study: German A+ Content for Stahl-Design-Tebart’s WSS tubular-frame mortise locks and 2D aluminium door hinges on Amazon.de, in desktop and mobile versions.',
     clientLabel: 'Stahl-Design-Tebart · German door hardware seller', clientRealName: 'Stahl-Design-Tebart', publicNameApproved: true,
@@ -178,6 +182,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'party-supplies-amazon-catalogue',
+    metaTitle: '145-Product Amazon Party Supplies Catalogue',
     title: 'A 145-product party supplies catalogue with variations',
     metaDescription: 'Case study: 145 themed party supply products listed on Amazon US with variation families, UPCs and long-tail titles for party searches.',
     clientLabel: 'US party supplies seller on Amazon', publicNameApproved: false,
@@ -203,6 +208,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'tailwater-supply',
+    metaTitle: 'Tailwater Supply: Brand Site for an Amazon Seller',
     title: 'A catalogue-first brand site for an Amazon and Walmart seller',
     metaDescription: 'Case study: a WordPress brand site for Tailwater Supply that organises a fly-fishing range and sends buyers to its Amazon and Walmart listings.',
     clientLabel: 'Tailwater Supply Co. · fly-fishing brand', clientRealName: 'Tailwater Supply Company', publicNameApproved: true,
@@ -232,6 +238,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'praktan-sabujian-parishad',
+    metaTitle: 'Praktan Sabujian Parishad: Alumni Website & Logo',
     title: 'A new identity and alumni platform for a 50-year-old school',
     metaDescription: 'Case study: a redesigned logo and a Next.js alumni platform with a member directory and event sign-up for Sabuj Shikshayatan’s former students.',
     clientLabel: 'Praktan Sabujian Parishad · school alumni association', clientRealName: 'Praktan Sabujian Parishad', publicNameApproved: true,

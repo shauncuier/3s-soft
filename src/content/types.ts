@@ -81,6 +81,8 @@ export type Service = {
 /** A full case study page under /portfolio/[slug]/. */
 export type CaseStudy = WorkFrontmatter & {
   external?: false
+  /** Search title without the " | 3s-Soft" suffix: 50 characters or fewer. */
+  metaTitle: string
   metaDescription: string
   location?: string
   liveUrl?: string

@@ -8,7 +8,7 @@ import { site, whatsappLink } from '@/content/site'
 import { getProof } from '@/content/proof'
 
 export const metadata: Metadata = {
-  title: 'Contact 3s-Soft',
+  title: 'Contact Us: Free Quote for Listing Work',
   description: 'Message 3s-Soft on WhatsApp, book a 15-minute call or send a project brief. eCommerce listing and catalogue work for Amazon, Shopify and Walmart sellers.',
   alternates: { canonical: '/contact/' },
 }

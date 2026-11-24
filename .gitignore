@@ -51,3 +51,7 @@ public/assets/site.js
 
 # Generated 640px image variants
 public/assets/**/*-800w.webp
+
+# Share cards drawn by scripts/build-og.ts
+public/og/service-*.png
+public/og/post-*.png

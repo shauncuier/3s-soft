@@ -2,6 +2,8 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { checkOutput, BANNED } from '../../scripts/check-output'
 
+const subdirs = (dir: string) => readdirSync(dir).filter((n) => statSync(join(dir, n)).isDirectory())
+
 const home = readFileSync('out/index.html', 'utf8')
 
 test('key facts and CTAs are in the static HTML, not rendered by JS', () => {
@@ -22,7 +24,7 @@ test('the built site passes every output gate', () => {
 })
 
 test('the gate ignores CSS and scripts, only visible text counts', () => {
-  const ok = '<html><head><link rel="canonical" href="x"><style>.a{left:98%}</style><script>var a="500+"</script></head><body><h1>Fine</h1></body></html>'
+  const ok = '<html><head><link rel="canonical" href="x"><meta property="og:image" content="/og/default.png"><style>.a{left:98%}</style><script>var a="500+"</script></head><body><h1>Fine</h1></body></html>'
   expect(checkOutput(null, [{ path: 'ok/index.html', html: ok }])).toEqual([])
 })
 
@@ -35,6 +37,40 @@ test('the gate itself catches banned claims and broken patterns', () => {
   expect(problems.join('\n')).toMatch(/href="#"/)
   expect(problems.join('\n')).toMatch(/<img> without alt/)
   expect(problems.join('\n')).toMatch(/no canonical/)
+})
+
+test('the gate fails a search title over 60 characters, counting entities as one character', () => {
+  const head = (title: string) => `<html><head><title>${title}</title><link rel="canonical" href="x"><meta property="og:image" content="/og/a.png"></head><body><h1>a</h1></body></html>`
+  const long = 'A'.repeat(51) + ' | 3s-Soft'
+  expect(checkOutput(null, [{ path: 'long/index.html', html: head(long) }]).join('\n')).toMatch(/title is 61 characters/)
+  const fits = 'M &amp; A Global: 2,451 Amazon toner listings | 3s-Soft'
+  expect(checkOutput(null, [{ path: 'fits/index.html', html: head(fits) }])).toEqual([])
+})
+
+test('the gate fails an indexable page with no share image, but not a noindex page', () => {
+  const page = (robots: string) => `<html><head><title>T</title>${robots}<link rel="canonical" href="x"></head><body><h1>a</h1></body></html>`
+  expect(checkOutput(null, [{ path: 'p/index.html', html: page('') }]).join('\n')).toMatch(/no og:image/)
+  expect(checkOutput(null, [{ path: 'thank-you/index.html', html: page('<meta name="robots" content="noindex, follow">') }])).toEqual([])
+})
+
+test('every guide is linked from its service pages and from other guides, not only from /blogs/', () => {
+  const pages = readdirSync('out/blog').map((slug) => slug)
+  const all = ['services', 'blog'].flatMap((d) => subdirs(join('out', d)).map((s) => ({ path: `${d}/${s}`, html: readFileSync(join('out', d, s, 'index.html'), 'utf8') })))
+  for (const slug of pages) {
+    const linkers = all.filter((p) => p.path !== `blog/${slug}` && p.html.includes(`href="/blog/${slug}/"`))
+    expect(linkers.map((p) => p.path), slug).toEqual(expect.arrayContaining([expect.stringMatching(/^services\//), expect.stringMatching(/^blog\//)]))
+  }
+})
+
+test('every service page and guide has its own share card on disk', () => {
+  for (const d of ['services', 'blog']) {
+    for (const slug of subdirs(join('out', d))) {
+      const html = readFileSync(join('out', d, slug, 'index.html'), 'utf8')
+      const url = html.match(/<meta property="og:image" content="https:\/\/3s-soft\.com(\/og\/[^"]+)"/)?.[1]
+      expect(url, `${d}/${slug}`).toMatch(new RegExp(`/og/(service|post)-${slug}\\.png$`))
+      expect(existsSync(join('out', url!))).toBe(true)
+    }
+  }
 })
 
 test('every srcset file referenced by any page exists', () => {

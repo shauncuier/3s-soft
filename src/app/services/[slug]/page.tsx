@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
+import { ogImage } from '@/lib/og'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
+import { posts } from '@/content/posts'
 import { services, getService } from '@/content/services'
 import { reviewsFor } from '@/content/reviews'
 import type { ServiceSlug } from '@/content/types'
@@ -35,7 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: s.metaTitle },
     description: s.metaDescription,
     alternates: { canonical: `/services/${s.slug}/` },
-    openGraph: { title: s.metaTitle, description: s.metaDescription, url: `/services/${s.slug}/` },
+    openGraph: { title: s.metaTitle, description: s.metaDescription, url: `/services/${s.slug}/`, images: [ogImage('service', s.slug, s.h1)] },
+    twitter: { card: 'summary_large_image', images: [ogImage('service', s.slug, s.h1).url] },
   }
 }
 
@@ -44,6 +48,7 @@ export default async function ServicePage({ params }: Props) {
   if (!s) notFound()
   const reviews = reviewsFor(s.slug).slice(0, 3)
   const work = workFor(s.slug)
+  const guides = posts.filter((p) => p.services.includes(s.slug))
 
   return (
     <>
@@ -103,6 +108,22 @@ export default async function ServicePage({ params }: Props) {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {work.map((w) => <WorkCard key={w.slug} item={w} />)}
             </div>
+          </div>
+        </section>
+      )}
+
+      {guides.length > 0 && (
+        <section aria-labelledby="service-guides" className="section border-t border-line">
+          <div className="container-site">
+            <SectionHeading id="service-guides" title="Guides for this service" intro="Free how-tos written from our own client work." />
+            <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-2 lg:grid-cols-3">
+              {guides.map((g) => (
+                <li key={g.slug} className="rounded-[var(--radius-lg)] border border-line bg-surface-0 p-5">
+                  <Link className="text-lg font-bold text-ink hover:text-green-700" href={`/blog/${g.slug}/`}>{g.title}</Link>
+                  <p className="mt-2 mb-0 text-ink-muted">{g.description}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       )}

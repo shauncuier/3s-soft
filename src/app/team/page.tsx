@@ -5,7 +5,7 @@ import { PageHero } from '@/components/kit/PageHero'
 import { CtaPanel } from '@/components/kit/CtaPanel'
 
 export const metadata: Metadata = {
-  title: 'Team',
+  title: 'Our Team in Chittagong and the UK',
   description: 'Meet the 3s-Soft team in Chittagong, Bangladesh and our UK director: the people who write, upload and maintain your listings and store data.',
   alternates: { canonical: '/team/' },
 }

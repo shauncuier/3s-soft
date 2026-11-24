@@ -14,6 +14,9 @@ export const BANNED = [
   'sj_marketing', 'mchen_eco', 'avoid fees', 'platform fees', 'cal.com/3s-soft-uk',
 ]
 
+/** Google shows about 60 characters of a title before cutting it off. */
+export const MAX_TITLE = 60
+
 type Page = { path: string; html: string }
 
 function htmlFiles(dir: string): string[] {
@@ -42,6 +45,13 @@ export function checkOutput(dir: string | null, pages?: Page[]): string[] {
     const isNotFound = path === '404.html' || path.startsWith('404/') || path.startsWith('_not-found')
     if (!isNotFound && !/<link rel="canonical"/.test(html)) problems.push(`${path}: no canonical tag`)
     if (/_next\/static\/[^"]*\.js|__next_f|TURBOPACK/.test(html)) problems.push(`${path}: framework JavaScript left in the page`)
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1]
+    if (title) {
+      const len = [...title.replace(/&(?:#\d+|#x[0-9a-f]+|[a-z]+);/gi, '_')].length
+      if (len > MAX_TITLE) problems.push(`${path}: title is ${len} characters (max ${MAX_TITLE})`)
+    }
+    const indexable = !isNotFound && !/<meta name="robots" content="[^"]*noindex/.test(html)
+    if (indexable && !/<meta property="og:image"/.test(html)) problems.push(`${path}: no og:image (share preview)`)
   }
   return problems
 }

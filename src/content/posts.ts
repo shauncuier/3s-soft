@@ -5,6 +5,8 @@ export type PostSection = { heading: string; paragraphs: string[]; list?: string
 export type Post = {
   slug: string
   title: string
+  /** Search title without the " | 3s-Soft" suffix: 50 characters or fewer. */
+  metaTitle: string
   description: string
   reviewedBy: string
   published: string
@@ -23,6 +25,7 @@ const UPDATED = '2026-11-20'
 export const posts: Post[] = [
   {
     slug: 'ecommerce-product-optimization-conversions',
+    metaTitle: 'Product Listing Optimization Checklist for Sellers',
     title: 'Product listing optimisation: a checklist for Amazon, Walmart and Shopify',
     description: 'A practical checklist for product titles, bullets, backend search terms, images and variations on Amazon, Walmart and Shopify, from a listing team.',
     reviewedBy: REVIEWER, published: '2026-01-26', updated: UPDATED,
@@ -73,6 +76,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'amazon-global-selling-strategies-uk-us',
+    metaTitle: 'Selling on Amazon US vs UK: What to Change',
     title: 'Selling on Amazon US and UK: what changes between the two marketplaces',
     description: 'Spelling, sizes, units, pricing and A+ Content all change between Amazon.com and Amazon.co.uk. What to adapt before copying a US listing to the UK.',
     reviewedBy: REVIEWER, published: '2026-03-05', updated: UPDATED,
@@ -111,6 +115,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'shopify-scaling-strategies-2026',
+    metaTitle: 'Shopify Catalog Management: A Practical Guide',
     title: 'Shopify catalogue management: keeping products, variants and collections tidy',
     description: 'How to structure Shopify products, options, tags and collections so a growing catalogue stays easy to filter, search and update. Practical steps.',
     reviewedBy: REVIEWER, published: '2025-10-11', updated: UPDATED,
@@ -145,6 +150,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'maximizing-ecommerce-revenue-amazon-shopify-2026',
+    metaTitle: 'Sell on Amazon and Shopify from One Catalogue',
     title: 'Selling the same products on Amazon and Shopify: one catalogue, two channels',
     description: 'Keep products, prices and stock in step between Amazon and Shopify with one master sheet, matching SKUs and a clear routine for updates.',
     reviewedBy: REVIEWER, published: '2025-09-07', updated: UPDATED,
@@ -178,6 +184,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'linkedin-lead-generation-b2b-usa',
+    metaTitle: 'How to Build B2B Lead Lists from LinkedIn',
     title: 'How we build B2B lead lists from LinkedIn and company websites',
     description: 'The steps we use to build researched B2B prospect lists: defining the target, finding companies, finding decision makers and verifying emails.',
     reviewedBy: REVIEWER, published: '2025-12-27', updated: UPDATED,
@@ -212,6 +219,7 @@ export const posts: Post[] = [
   },
   {
     slug: 'roi-of-virtual-assistants-small-business',
+    metaTitle: 'What an eCommerce Virtual Assistant Does',
     title: 'What an eCommerce virtual assistant can take off a seller’s plate',
     description: 'The routine catalogue, pricing and data tasks an eCommerce virtual assistant can handle for Amazon and Shopify sellers, and how to hand over access safely.',
     reviewedBy: REVIEWER, published: '2026-02-15', updated: UPDATED,
