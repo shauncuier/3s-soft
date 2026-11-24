@@ -71,12 +71,14 @@ With `CPANEL_HOST`, `CPANEL_USER` and `CPANEL_TOKEN` in `.env`:
 
 ```bash
 # staging (search engines blocked)
-NEXT_PUBLIC_NOINDEX=1 npm run build && tar -a -c -f deploy/site-staging.zip -C out . && npx tsx scripts/deploy.ts staging --apply
+NEXT_PUBLIC_NOINDEX=1 npm run build && /c/Windows/System32/tar.exe -a -c -f deploy/site-staging.zip -C out . && npx tsx scripts/deploy.ts staging --apply
 # live (needs a same-day backup in ~/site-backups/)
-npm run build && tar -a -c -f deploy/site-live.zip -C out . && npx tsx scripts/deploy.ts live --apply
+npm run build && /c/Windows/System32/tar.exe -a -c -f deploy/site-live.zip -C out . && npx tsx scripts/deploy.ts live --apply
 ```
 
-`scripts/deploy.ts` refuses to upload when `out/` is the wrong kind of build (staging must be noindex, live indexable) or when the zip is older than the build. Without `--apply` it only shows what would change.
+Use Windows' own `tar.exe`: in Git Bash, `tar` is GNU tar and writes a tar archive even when the name ends in `.zip`.
+
+`scripts/deploy.ts` refuses to upload when the zip is not a real zip, when `out/` is the wrong kind of build (staging must be noindex, live indexable) or when the zip is older than the build. Without `--apply` it only shows what would change.
 
 ## 4. Roll back
 

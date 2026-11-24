@@ -8,7 +8,7 @@
  *   npx tsx scripts/deploy.ts live --apply       # same with deploy/site-live.zip into public_html
  */
 import { readFileSync, statSync } from 'node:fs'
-import { buildMatchesTarget } from './deploy-guard'
+import { buildMatchesTarget, isZipArchive } from './deploy-guard'
 
 const TARGETS = {
   staging: { dir: 'new.3s-soft.com', zip: 'deploy/site-staging.zip', url: 'https://new.3s-soft.com/' },
@@ -53,6 +53,9 @@ if (!buildMatchesTarget(readFileSync('out/index.html', 'utf8'), target)) {
 }
 if (statSync(ZIP).mtimeMs < statSync('out/index.html').mtimeMs) {
   throw new Error(`${ZIP} is older than out/. Re-create the zip from the current build. Nothing deployed.`)
+}
+if (!isZipArchive(readFileSync(ZIP))) {
+  throw new Error(`${ZIP} is not a zip file (Git Bash's tar makes a tar archive). Use C:\Windows\System32\tar.exe -a -c -f ${ZIP} -C out . Nothing deployed.`)
 }
 if (target === 'live') {
   const today = new Date().toLocaleDateString('sv-SE') // local YYYY-MM-DD, matching the backup name
